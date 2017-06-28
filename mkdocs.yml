@@ -1,0 +1,56 @@
+# Project information
+site_name: 'SiLago Documentation'
+site_description: 'Documentation of SiLago project'
+site_author: 'SiLago Team'
+site_url: 'https://herenvarno.github.io/SiLagoDoc'
+
+# Repository
+repo_name: 'SiLagoGit/SiLago'
+repo_url : 'https://gitr.sys.kth.se/SiLagoGit/SiLago'
+
+pages:
+  - Home: index.md
+  - Fabric: Fabric.md
+  - Compiler:
+    - Compiler/Overview.md
+    - Compiler/Instruction-Set.md
+    - Compiler/Vesyla-Tutorial.md
+    - Compiler/Sylva.md
+  - Library: Library.md
+  - Appliction:
+    - Application/Overview.md
+    - SiLagoDSP:
+      - Application/SiLagoDSP/Fast-Fourier-Projection.md
+  - About: About.md
+
+theme: material
+
+# Options
+extra:
+  palette:
+    primary: 'lime'
+    accent: 'teal'
+
+# Extensions
+markdown_extensions:
+  - footnotes
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
+  - pymdownx.arithmatex
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
