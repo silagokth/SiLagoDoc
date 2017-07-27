@@ -6,4 +6,5 @@
 ## Available docs
 
 - [Fabric](Fabric)
+- [Manus code tutorial](Compiler/Manus)
 - [Vesyla tutorial](Compiler/Vesyla-Tutorial)
