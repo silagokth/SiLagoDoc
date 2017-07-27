@@ -5,11 +5,12 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Documentation of SiLago project">
       
       
-        <link rel="canonical" href="https://herenvarno.github.io/SiLagoDoc/Compiler/Instruction-Set/">
+        <link rel="canonical" href="https://herenvarno.github.io/SiLagoDoc/Compiler/Manus/">
       
       
         <meta name="author" content="SiLago Team">
@@ -17,20 +18,20 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.7.3">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.5">
     
     
       
-        <title>Instruction Set - SiLago Documentation</title>
+        <title>Manus - SiLago Documentation</title>
       
     
     
       <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-acc56dad49.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-8817cfa535.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
       
     
     
@@ -84,7 +85,7 @@
                 </span>
               
             
-            Instruction Set
+            Manus
           
         </span>
       </div>
@@ -92,11 +93,11 @@
         
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
@@ -245,11 +246,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Instruction Set
+        Manus
       </label>
     
-    <a href="./" title="Instruction Set" class="md-nav__link md-nav__link--active">
-      Instruction Set
+    <a href="./" title="Manus" class="md-nav__link md-nav__link--active">
+      Manus
     </a>
     
       
@@ -263,8 +264,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#structure" title="Structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segment" title="Segment" class="md-nav__link">
+    Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable" title="Variable" class="md-nav__link">
+    Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drra-cell" title="DRRA cell" class="md-nav__link">
+    DRRA cell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#instructions" title="Instructions" class="md-nav__link">
     Instructions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-set" title="Instructions set" class="md-nav__link">
+    Instructions set
   </a>
   
     <nav class="md-nav">
@@ -299,78 +341,78 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#0101-swb" title="0101 SWB" class="md-nav__link">
-    0101 SWB
+  <a href="#0101-swb" title="0101 - SWB" class="md-nav__link">
+    0101 - SWB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0110-jump" title="0110 JUMP" class="md-nav__link">
-    0110 JUMP
+  <a href="#0110-jump" title="0110 - JUMP" class="md-nav__link">
+    0110 - JUMP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0111-delay" title="0111 DELAY" class="md-nav__link">
-    0111 DELAY
+  <a href="#0111-delay" title="0111 - DELAY" class="md-nav__link">
+    0111 - DELAY
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1000-for_header" title="1000 FOR_HEADER" class="md-nav__link">
-    1000 FOR_HEADER
+  <a href="#1000-for_header" title="1000 - FOR_HEADER" class="md-nav__link">
+    1000 - FOR_HEADER
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-for_tail" title="1001 FOR_TAIL" class="md-nav__link">
-    1001 FOR_TAIL
+  <a href="#1001-for_tail" title="1001 - FOR_TAIL" class="md-nav__link">
+    1001 - FOR_TAIL
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1010-raccu" title="1010 RACCU" class="md-nav__link">
-    1010 RACCU
+  <a href="#1010-raccu" title="1010 - RACCU" class="md-nav__link">
+    1010 - RACCU
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1011-branch" title="1011 BRANCH" class="md-nav__link">
-    1011 BRANCH
+  <a href="#1011-branch" title="1011 - BRANCH" class="md-nav__link">
+    1011 - BRANCH
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1100-route" title="1100 ROUTE" class="md-nav__link">
-    1100 ROUTE
+  <a href="#1100-route" title="1100 - ROUTE" class="md-nav__link">
+    1100 - ROUTE
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1101-sram_read" title="1101 SRAM_READ" class="md-nav__link">
-    1101 SRAM_READ
+  <a href="#1101-sram_read" title="1101 - SRAM_READ" class="md-nav__link">
+    1101 - SRAM_READ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1110-sram_write" title="1110 SRAM_WRITE" class="md-nav__link">
-    1110 SRAM_WRITE
+  <a href="#1110-sram_write" title="1110 - SRAM_WRITE" class="md-nav__link">
+    1110 - SRAM_WRITE
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1111-halt5" title="1111 HALT5" class="md-nav__link">
-    1111 HALT5
+  <a href="#1111-halt7" title="1111 - HALT7" class="md-nav__link">
+    1111 - HALT7
   </a>
   
 </li>
@@ -396,28 +438,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#psudo-assembly-code-from-vesyla" title="Psudo assembly code (from Vesyla)" class="md-nav__link">
-    Psudo assembly code (from Vesyla)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assembly-code-translated" title="Assembly code (translated)" class="md-nav__link">
-    Assembly code (translated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machine-code" title="Machine code" class="md-nav__link">
-    Machine code
+  <a href="#manus-assembly-code" title="Manus assembly code" class="md-nav__link">
+    Manus assembly code
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" title="Limitations" class="md-nav__link">
+    Limitations
+  </a>
   
 </li>
       
@@ -514,7 +549,7 @@
     <label class="md-nav__link" for="nav-5-2">
       SiLagoDSP
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-5-2">
         SiLagoDSP
       </label>
@@ -576,8 +611,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#structure" title="Structure" class="md-nav__link">
+    Structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segment" title="Segment" class="md-nav__link">
+    Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable" title="Variable" class="md-nav__link">
+    Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drra-cell" title="DRRA cell" class="md-nav__link">
+    DRRA cell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#instructions" title="Instructions" class="md-nav__link">
     Instructions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-set" title="Instructions set" class="md-nav__link">
+    Instructions set
   </a>
   
     <nav class="md-nav">
@@ -612,78 +688,78 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#0101-swb" title="0101 SWB" class="md-nav__link">
-    0101 SWB
+  <a href="#0101-swb" title="0101 - SWB" class="md-nav__link">
+    0101 - SWB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0110-jump" title="0110 JUMP" class="md-nav__link">
-    0110 JUMP
+  <a href="#0110-jump" title="0110 - JUMP" class="md-nav__link">
+    0110 - JUMP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0111-delay" title="0111 DELAY" class="md-nav__link">
-    0111 DELAY
+  <a href="#0111-delay" title="0111 - DELAY" class="md-nav__link">
+    0111 - DELAY
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1000-for_header" title="1000 FOR_HEADER" class="md-nav__link">
-    1000 FOR_HEADER
+  <a href="#1000-for_header" title="1000 - FOR_HEADER" class="md-nav__link">
+    1000 - FOR_HEADER
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-for_tail" title="1001 FOR_TAIL" class="md-nav__link">
-    1001 FOR_TAIL
+  <a href="#1001-for_tail" title="1001 - FOR_TAIL" class="md-nav__link">
+    1001 - FOR_TAIL
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1010-raccu" title="1010 RACCU" class="md-nav__link">
-    1010 RACCU
+  <a href="#1010-raccu" title="1010 - RACCU" class="md-nav__link">
+    1010 - RACCU
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1011-branch" title="1011 BRANCH" class="md-nav__link">
-    1011 BRANCH
+  <a href="#1011-branch" title="1011 - BRANCH" class="md-nav__link">
+    1011 - BRANCH
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1100-route" title="1100 ROUTE" class="md-nav__link">
-    1100 ROUTE
+  <a href="#1100-route" title="1100 - ROUTE" class="md-nav__link">
+    1100 - ROUTE
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1101-sram_read" title="1101 SRAM_READ" class="md-nav__link">
-    1101 SRAM_READ
+  <a href="#1101-sram_read" title="1101 - SRAM_READ" class="md-nav__link">
+    1101 - SRAM_READ
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1110-sram_write" title="1110 SRAM_WRITE" class="md-nav__link">
-    1110 SRAM_WRITE
+  <a href="#1110-sram_write" title="1110 - SRAM_WRITE" class="md-nav__link">
+    1110 - SRAM_WRITE
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1111-halt5" title="1111 HALT5" class="md-nav__link">
-    1111 HALT5
+  <a href="#1111-halt7" title="1111 - HALT7" class="md-nav__link">
+    1111 - HALT7
   </a>
   
 </li>
@@ -709,28 +785,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#psudo-assembly-code-from-vesyla" title="Psudo assembly code (from Vesyla)" class="md-nav__link">
-    Psudo assembly code (from Vesyla)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assembly-code-translated" title="Assembly code (translated)" class="md-nav__link">
-    Assembly code (translated)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machine-code" title="Machine code" class="md-nav__link">
-    Machine code
+  <a href="#manus-assembly-code" title="Manus assembly code" class="md-nav__link">
+    Manus assembly code
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" title="Limitations" class="md-nav__link">
+    Limitations
+  </a>
   
 </li>
       
@@ -749,12 +818,34 @@
               
                 
                 
-                <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Documentation is not complete!</p>
-</div>
-<h1 id="instruction-set">Instruction Set<a class="headerlink" href="#instruction-set" title="Permanent link">&para;</a></h1>
-<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+                <h1 id="manus-code">Manus code<a class="headerlink" href="#manus-code" title="Permanent link">&para;</a></h1>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
+<p>Manus code is a kind of text-based assembly language for SiLago platform. Manus code is caseless.</p>
+<h3 id="segment">Segment<a class="headerlink" href="#segment" title="Permanent link">&para;</a></h3>
+<p>Manus code consists of segments. Two type of segments are valid in Manus code. They are <strong>DATA SEGMENT</strong> and <strong>CODE SEGMENT</strong> which are marked by <code>.DATA</code> and <code>.CODE</code> respectively. All the contents following a segment mark belong to that specific segment.</p>
+<p><strong>DATA SEGMENT</strong> is used for declare and initialize variables in register file, while <strong>CODE SEGMENT</strong> is used for assign instructions to <em>sequencer</em> of each DRRA cell.</p>
+<h3 id="variable">Variable<a class="headerlink" href="#variable" title="Permanent link">&para;</a></h3>
+<p>Variables should be defined in <strong>DATA SEGMENT</strong>. The defination format is:</p>
+<p><code>$variable_name distribution_type [&lt;row0, col0&gt;, &lt;row1, col1&gt;, ...] [element0, element1, ...]</code></p>
+<p>or</p>
+<p><code>$variable_name distribution_type [&lt;row0, col0&gt;, &lt;row1, col1&gt;, ...] ZEROS(number_of_element)</code></p>
+<p>or</p>
+<p><code>$variable_name distribution_type [&lt;row0, col0&gt;, &lt;row1, col1&gt;, ...] ONES(number_of_element)</code></p>
+<p>Variable name should always be led by a dollar (<code>$</code>) symbol. The first symbol after dollar (<code>$</code>) should only be underscore ( <code>_</code> ) or regular latin letter (a-z, A-Z). The following symbol can be underscore ( <code>_</code> ), regular latin letter (a-z, A-Z) as well as number (0-9).</p>
+<p>Distribution type can be either <strong>FULL_DISTR</strong> or <strong>EVEN_DIRSR</strong>.</p>
+<p>The third argument is a list of DRRA cells.</p>
+<p>The last argument is the list of initial value of each element inside the variable.</p>
+<p>All variable are considered as a 1-D array in register file.</p>
+<h3 id="drra-cell">DRRA cell<a class="headerlink" href="#drra-cell" title="Permanent link">&para;</a></h3>
+<p>To specify a DRRA cell for following instructions, use:</p>
+<p><code>CELL &lt;row, col&gt;</code></p>
+<h3 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h3>
+<p>Instructions should be defined in <strong>CODE SEGMENT</strong>. The defination format is:</p>
+<p><code>instruction_name arg0 arg1 ...</code></p>
+<p>or</p>
+<p><code>instruction_name arg0, arg1, ...</code></p>
+<p>See next section for various instruction defination detail.</p>
+<h2 id="instructions-set">Instructions set<a class="headerlink" href="#instructions-set" title="Permanent link">&para;</a></h2>
 <h3 id="0001-refi1">0001 - REFI1<a class="headerlink" href="#0001-refi1" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -1002,8 +1093,74 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0101-swb">0101 SWB<a class="headerlink" href="#0101-swb" title="Permanent link">&para;</a></h3>
-<h3 id="0110-jump">0110 JUMP<a class="headerlink" href="#0110-jump" title="Permanent link">&para;</a></h3>
+<h3 id="0101-swb">0101 - SWB<a class="headerlink" href="#0101-swb" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The actual 27-bit machine code is automatically calculated by the fabric while doing simulation or by the compiler.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Range/Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>b'0101</td>
+<td>SWB instruction code</td>
+</tr>
+<tr>
+<td>from_block</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The source block<sup id="fnref2:block"><a class="footnote-ref" href="#fn:block" rel="footnote">4</a></sup></td>
+</tr>
+<tr>
+<td>from_address</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The source unit address<sup id="fnref2:addr"><a class="footnote-ref" href="#fn:addr" rel="footnote">5</a></sup></td>
+</tr>
+<tr>
+<td>from_port</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The source port</td>
+</tr>
+<tr>
+<td>to_block</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The destination block<sup id="fnref:block"><a class="footnote-ref" href="#fn:block" rel="footnote">4</a></sup></td>
+</tr>
+<tr>
+<td>to_address</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The destination unit address<sup id="fnref:addr"><a class="footnote-ref" href="#fn:addr" rel="footnote">5</a></sup></td>
+</tr>
+<tr>
+<td>to_port</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>The destination port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="0110-jump">0110 - JUMP<a class="headerlink" href="#0110-jump" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 0  1  1  0  A  A  A  A  A  A  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
@@ -1030,7 +1187,7 @@
 <tr>
 <td>true_addrs</td>
 <td>[22, 17]</td>
-<td>6<sup id="fnref2:pc_size"><a class="footnote-ref" href="#fn:pc_size" rel="footnote">4</a></sup></td>
+<td>6<sup id="fnref2:pc_size"><a class="footnote-ref" href="#fn:pc_size" rel="footnote">6</a></sup></td>
 <td>[0, 63]</td>
 <td>The target address</td>
 </tr>
@@ -1043,7 +1200,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0111-delay">0111 DELAY<a class="headerlink" href="#0111-delay" title="Permanent link">&para;</a></h3>
+<h3 id="0111-delay">0111 - DELAY<a class="headerlink" href="#0111-delay" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 0  1  1  1  A  B  B  B  B  B  B  B  B  B  B  B  B  B  B  B  -  -  -  -  -  -  -
@@ -1090,10 +1247,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1000-for_header">1000 FOR_HEADER<a class="headerlink" href="#1000-for_header" title="Permanent link">&para;</a></h3>
-<h3 id="1001-for_tail">1001 FOR_TAIL<a class="headerlink" href="#1001-for_tail" title="Permanent link">&para;</a></h3>
-<h3 id="1010-raccu">1010 RACCU<a class="headerlink" href="#1010-raccu" title="Permanent link">&para;</a></h3>
-<h3 id="1011-branch">1011 BRANCH<a class="headerlink" href="#1011-branch" title="Permanent link">&para;</a></h3>
+<h3 id="1000-for_header">1000 - FOR_HEADER<a class="headerlink" href="#1000-for_header" title="Permanent link">&para;</a></h3>
+<h3 id="1001-for_tail">1001 - FOR_TAIL<a class="headerlink" href="#1001-for_tail" title="Permanent link">&para;</a></h3>
+<h3 id="1010-raccu">1010 - RACCU<a class="headerlink" href="#1010-raccu" title="Permanent link">&para;</a></h3>
+<h3 id="1011-branch">1011 - BRANCH<a class="headerlink" href="#1011-branch" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 0  1  1  1  A  A  B  B  B  B  B  B  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
@@ -1127,7 +1284,7 @@
 <tr>
 <td>brnch_false_addr</td>
 <td>[20, 15]</td>
-<td>6<sup id="fnref:pc_size"><a class="footnote-ref" href="#fn:pc_size" rel="footnote">4</a></sup></td>
+<td>6<sup id="fnref:pc_size"><a class="footnote-ref" href="#fn:pc_size" rel="footnote">6</a></sup></td>
 <td>[0, 63]</td>
 <td>Configures the false address</td>
 </tr>
@@ -1140,10 +1297,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1100-route">1100 ROUTE<a class="headerlink" href="#1100-route" title="Permanent link">&para;</a></h3>
-<h3 id="1101-sram_read">1101 SRAM_READ<a class="headerlink" href="#1101-sram_read" title="Permanent link">&para;</a></h3>
-<h3 id="1110-sram_write">1110 SRAM_WRITE<a class="headerlink" href="#1110-sram_write" title="Permanent link">&para;</a></h3>
-<h3 id="1111-halt5">1111 HALT<sup id="fnref:halt"><a class="footnote-ref" href="#fn:halt" rel="footnote">5</a></sup><a class="headerlink" href="#1111-halt5" title="Permanent link">&para;</a></h3>
+<h3 id="1100-route">1100 - ROUTE<a class="headerlink" href="#1100-route" title="Permanent link">&para;</a></h3>
+<h3 id="1101-sram_read">1101 - SRAM_READ<a class="headerlink" href="#1101-sram_read" title="Permanent link">&para;</a></h3>
+<h3 id="1110-sram_write">1110 - SRAM_WRITE<a class="headerlink" href="#1110-sram_write" title="Permanent link">&para;</a></h3>
+<h3 id="1111-halt7">1111 - HALT<sup id="fnref:halt"><a class="footnote-ref" href="#fn:halt" rel="footnote">7</a></sup><a class="headerlink" href="#1111-halt7" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 1  1  1  1  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
@@ -1185,38 +1342,30 @@
 <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c">%! DPU [0,0]</span>
 </pre></div>
 
-<h3 id="psudo-assembly-code-from-vesyla">Psudo assembly code (from Vesyla)<a class="headerlink" href="#psudo-assembly-code-from-vesyla" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>0  (1  ):  SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), &#39;A_in1_3_00&#39;            ,   S:(REFI&lt;0,0&gt;, PtNo: 3), D:(DPU &lt;0,0&gt;, PtNo: 2)
-1  (2  ):  SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), &#39;B_in2_3_00&#39;            ,   S:(REFI&lt;0,0&gt;, PtNo: 2), D:(DPU &lt;0,0&gt;, PtNo: 3)
-2  (3  ):  SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), &#39;C_out_3_00&#39;            ,   S:(DPU &lt;0,0&gt;, PtNo: 0), D:(REFI&lt;0,0&gt;, PtNo: 1)
-3  (4  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), &#39;A_in1_3_00&#39;            ,   PortMode:  &#39;in&#39;, AddressMode: &#39;Linear&#39;, PortNo: 3, IDelay: 2(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 0(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
-4  (5  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), &#39;B_in2_3_00&#39;            ,   PortMode:  &#39;in&#39;, AddressMode: &#39;Linear&#39;, PortNo: 2, IDelay: 1(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 10(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
-5  (6  ):  DPU    , StNo: 3 , Sch:(min: 6  , max: 6  ), Mode: &#39;ADD&#39;, ModeValue: 10, ExecutionCycle: 0, Repetition: 0
-6  (7  ):  REFI   , StNo: 3 , Sch:(min: 7  , max: 7  ), &#39;C_out_3_00&#39;            ,   PortMode: &#39;out&#39;, AddressMode: &#39;Linear&#39;, PortNo: 1, IDelay: 0(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 20(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
+<h3 id="manus-assembly-code">Manus assembly code<a class="headerlink" href="#manus-assembly-code" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>.DATA
+$A FULL_DISTR [&lt;0,0&gt;] [3,4,5,6,7,8,9,10,11,12]
+$B FULL_DISTR [&lt;0,0&gt;] [5,6,7,8,9,10,11,12,13,14]
+$C FULL_DISTR [&lt;0,0&gt;] [0]
+
+.CODE
+CELL    &lt;0,0&gt;
+SWB     0  0  3  1  0  2
+SWB     0  0  2  1  0  3
+SWB     1  0  0  0  0  1
+REFI1   3  0  0  0  0  0  0  2
+REFI1   2  0  0  10 0  0  0  1
+DPU     10 0  3  3  1  0  0  0
+REFI1   1  0  0  20 0  0  0  0
 </pre></div>
 
-<h3 id="assembly-code-translated">Assembly code (translated)<a class="headerlink" href="#assembly-code-translated" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), &#39;A_in1_3_00&#39;            ,  S:(REFI&lt;0,0&gt;, PtNo: 3), D:(DPU &lt;0,0&gt;, PtNo: 2)
-SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), &#39;B_in2_3_00&#39;            ,  S:(REFI&lt;0,0&gt;, PtNo: 2), D:(DPU &lt;0,0&gt;, PtNo: 3)
-SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), &#39;C_out_3_00&#39;            ,  S:(DPU &lt;0,0&gt;, PtNo: 0), D:(REFI&lt;0,0&gt;, PtNo: 1)
-REFI1  3, 0, 0, 0, 0, 0, 0, 2
-REFI1  2, 0, 0, 10, 0, 0, 0, 1
-DPU    10, 0, 0, 0, 0, 0, 0, 0, 0
-REFI1  1, 0, 0, 20, 0, 0, 0, 0
-</pre></div>
-
-<h3 id="machine-code">Machine code<a class="headerlink" href="#machine-code" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>        26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-        |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-SWB     0  1  0  1
-SWB     0  1  0  1
-SWB     0  1  0  1
-REFI1   0  0  0  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0
-REFI1   0  0  0  1  1  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  1
-DPU     0  1  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-REFI1   0  0  0  1  0  1  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-</pre></div>
-
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Doesn't support fixed-point representation, you need to convert fixed-point to integer format manually.</li>
+<li>Doesn't support DiMarch variable declaration.</li>
+<li>Doesn't support Input and Output variable type, only Temporary variable type is valid.</li>
+<li>No static time model analysis. The execution cycle is by default set to 1000.</li>
+</ul>
 <div class="footnote">
 <hr />
 <ol>
@@ -1241,11 +1390,20 @@ REFI1   0  0  0  1  0  1  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  
 [2]: Negates input 1;
 [3]: Absolute of (in0-in1);&#160;<a class="footnote-backref" href="#fnref:dpu-process-ports" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
+<li id="fn:block">
+<p>This block refers to the alias of register file or datapath unit.
+[0] Register file
+[1] Datapath unit&#160;<a class="footnote-backref" href="#fnref:block" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:block" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:addr">
+<p>This address is calculated according to <span>\(addr=row+col*2\)</span>. Since in standard fabric,
+maxtimum continued row is 2.&#160;<a class="footnote-backref" href="#fnref:addr" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:addr" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
 <li id="fn:pc_size">
-<p>This number equals to PC size, which is <span>\(log_2(DEPTH_{instr})\)</span>. By default, <span>\(DEPTH_{instr} = 64\)</span>.&#160;<a class="footnote-backref" href="#fnref:pc_size" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:pc_size" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>This number equals to PC size, which is <span>\(log_2(DEPTH_{instr})\)</span>. By default, <span>\(DEPTH_{instr} = 64\)</span>.&#160;<a class="footnote-backref" href="#fnref:pc_size" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:pc_size" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:halt">
-<p>This instruction is not used.&#160;<a class="footnote-backref" href="#fnref:halt" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>This instruction is not used.&#160;<a class="footnote-backref" href="#fnref:halt" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1318,7 +1476,7 @@ REFI1   0  0  0  1  0  1  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  
       
     </div>
     
-      <script src="../../assets/javascripts/application-b30566c560.js"></script>
+      <script src="../../assets/javascripts/application-07b0fbb49b.js"></script>
       
       
       <script>app.initialize({url:{base:"../.."}})</script>
