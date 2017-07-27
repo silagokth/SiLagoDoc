@@ -5,4 +5,5 @@
 
 ## Available docs
 
+- [Fabric](Fabric)
 - [Vesyla tutorial](Compiler/Vesyla-Tutorial)

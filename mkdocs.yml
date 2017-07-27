@@ -13,7 +13,7 @@ pages:
   - Fabric: Fabric.md
   - Compiler:
     - Compiler/Overview.md
-    - Compiler/Instruction-Set.md
+    - Compiler/Manus.md
     - Compiler/Vesyla-Tutorial.md
     - Compiler/Sylva.md
   - Library: Library.md
