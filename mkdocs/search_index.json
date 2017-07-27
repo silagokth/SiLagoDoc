@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Warning\n\n\nDocumentation is not complete!\n\n\n\n\nWelcome to SiLago Documentation\n\u00b6\n\n\nAvailable docs\n\u00b6\n\n\n\n\nFabric\n\n\nVesyla tutorial",
+            "text": "Warning\n\n\nDocumentation is not complete!\n\n\n\n\nWelcome to SiLago Documentation\n\u00b6\n\n\nAvailable docs\n\u00b6\n\n\n\n\nFabric\n\n\nManus code tutorial\n\n\nVesyla tutorial",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#available-docs",
-            "text": "Fabric  Vesyla tutorial",
+            "text": "Fabric  Manus code tutorial  Vesyla tutorial",
             "title": "Available docs"
         },
         {
