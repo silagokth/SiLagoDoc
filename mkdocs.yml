@@ -2,7 +2,7 @@
 site_name: 'SiLago Documentation'
 site_description: 'Documentation of SiLago project'
 site_author: 'SiLago Team'
-site_url: 'https://herenvarno.github.io/SiLagoDoc'
+site_url: 'https://gits-15.sys.kth.se/pages/yuyang2/SiLagoDoc/'
 
 # Repository
 repo_name: 'SiLagoGit/SiLago'
@@ -10,46 +10,78 @@ repo_url : 'https://gitr.sys.kth.se/SiLagoGit/SiLago'
 
 pages:
   - Home: index.md
-  - Fabric: Fabric.md
-  - Compiler:
-    - Compiler/Overview.md
-    - Compiler/Manus.md
-    - Compiler/Vesyla-Tutorial.md
-    - Compiler/Sylva.md
-  - Library: Library.md
-  - Appliction:
-    - Application/Overview.md
-    - SiLagoDSP:
-      - Application/SiLagoDSP/Fast-Fourier-Projection.md
-  - About: About.md
+  - Docs:
+    - Getstart:
+      - Docs/Start/Overview.md
+      - Docs/Start/Source-code-organization.md
+      - Docs/Start/Quick-guide-for-code-documentation.md
+      - Docs/Start/Quick-guide-for-naming-system.md
+    - Fabric:
+      - Docs/Fabric/Overview.md
+      - DRRA:
+        - Docs/Fabric/DRRA/RACCU.md
+      - RISC V:
+        - Docs/Fabric/RISCV/Overview.md
+    - Tool Chain:
+      - Docs/ToolChain/Overview.md
+      - Vesyla:
+        - Docs/ToolChain/Vesyla/Overview.md
+        - Docs/ToolChain/Vesyla/Tutorial.md
+        - Docs/ToolChain/Vesyla/ProgrammingGuide.md
+        - Docs/ToolChain/Vesyla/Instruction-Set.md
+        - Docs/ToolChain/Vesyla/Cidfg.md
+        - Docs/ToolChain/Vesyla/Scheduling.md
+        - Docs/ToolChain/Vesyla/DiMArch.md
+      - Sylva:
+        - Docs/ToolChain/Sylva/Overview.md
+    - Library:
+      - Docs/Library/Overview.md
+      - BLAS:
+        - Docs/Library/BLAS/Overview.md
+      - NN:
+        - Docs/Library/NN/Overview.md
+      - Interleaver:
+        - Docs/Library/Interleaver/Overview.md
+      - FFT:
+        - Docs/Library/FFT/Overview.md
+    - Appliction:
+      - Docs/Application/Overview.md
+      - SiLagoDSP:
+        - Docs/Application/SiLagoDSP/Fast-Fourier-Projection.md
+  - About:
+      - About/About.md
+      - About/License.md
 
-theme: material
-
-# Options
-extra:
+theme:
+  name: 'material'
+  font:
+    text: 'Lato'
+    code: 'Roboto Mono'
+  feature:
+    tabs: true
   palette:
-    primary: 'lime'
-    accent: 'teal'
+    primary: 'light green'
+    accent: 'orange'
 
 # Extensions
 markdown_extensions:
   - footnotes
   - admonition
-  - codehilite(guess_lang=false)
-  - toc(permalink=true)
+  - codehilite:
+      linenums: true
+  - toc
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.critic
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist
   - pymdownx.tilde
+  - mdx_inline_graphviz
 
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'

@@ -1,59 +1,9 @@
-# Manus code
+!!! warning
+    Documentation is not complete!
 
-## Structure
+# Instruction Set
 
-Manus code is a kind of text-based assembly language for SiLago platform. Manus code is caseless.
-
-### Segment
-
-Manus code consists of segments. Two type of segments are valid in Manus code. They are **DATA SEGMENT** and **CODE SEGMENT** which are marked by ````.DATA```` and ````.CODE```` respectively. All the contents following a segment mark belong to that specific segment.
-
-**DATA SEGMENT** is used for declare and initialize variables in register file, while **CODE SEGMENT** is used for assign instructions to *sequencer* of each DRRA cell.
-
-### Variable
-
-Variables should be defined in **DATA SEGMENT**. The defination format is:
-
-
-````$variable_name distribution_type [<row0, col0>, <row1, col1>, ...] [element0, element1, ...]````
-
-or
-
-````$variable_name distribution_type [<row0, col0>, <row1, col1>, ...] ZEROS(number_of_element)````
-
-or
-
-````$variable_name distribution_type [<row0, col0>, <row1, col1>, ...] ONES(number_of_element)````
-
-Variable name should always be led by a dollar (````$````) symbol. The first symbol after dollar (````$````) should only be underscore ( ````_```` ) or regular latin letter (a-z, A-Z). The following symbol can be underscore ( ````_```` ), regular latin letter (a-z, A-Z) as well as number (0-9).
-
-Distribution type can be either __FULL\_DISTR__ or __EVEN\_DIRSR__.
-
-The third argument is a list of DRRA cells.
-
-The last argument is the list of initial value of each element inside the variable.
-
-All variable are considered as a 1-D array in register file.
-
-### DRRA cell
-
-To specify a DRRA cell for following instructions, use:
-
-````CELL <row, col>````
-
-### Instructions
-
-Instructions should be defined in **CODE SEGMENT**. The defination format is:
-
-````instruction_name arg0 arg1 ...````
-
-or
-
-````instruction_name arg0, arg1, ...````
-
-See next section for various instruction defination detail.
-
-## Instructions set
+## Instructions
 
 ### 0001 - REFI1
 
@@ -138,31 +88,18 @@ dpu_process_inout    | [1, 0]   | 2     | [0, 3]      | Processes the input or o
 [2]: Negates input 1;
 [3]: Absolute of (in0-in1);
 
-### 0101 - SWB
+### 0101 SWB
 
-!!! info
-	The actual 27-bit machine code is automatically calculated by the fabric while doing simulation or by the compiler.
+!!! Warning
+    SWB is not a direct mapping instruction. It need to be re-interpret by RTL fabric.
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
-instr_code           | N/A      | N/A   | b'0101      | SWB instruction code
-from_block           | N/A      | N/A   | N/A         | The source block[^block]
-from_address         | N/A      | N/A   | N/A         | The source unit address[^addr]
-from_port            | N/A      | N/A   | N/A         | The source port
-to_block             | N/A      | N/A   | N/A         | The destination block[^block]
-to_address           | N/A      | N/A   | N/A         | The destination unit address[^addr]
-to_port              | N/A      | N/A   | N/A         | The destination port
+instr_code           | [26, 23] | 4     | b'0110      | SWB instruction code
+source_row           | N/A      | N/A   | N/A         | The source DRRA row
+source_col           | [16, 0]  | 17    | N/A         | The source DRRA column
 
-[^block]:
-This block refers to the alias of register file or datapath unit.
-[0] Register file
-[1] Datapath unit
-
-[^addr]:
-This address is calculated according to $addr=row+col*2$. Since in standard fabric,
-maxtimum continued row is 2.
-
-### 0110 - JUMP
+### 0110 JUMP
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -179,7 +116,7 @@ N/A                  | [16, 0]  | 17    | N/A         | N/A
 [^pc_size]:
 This number equals to PC size, which is $log_2(DEPTH_{instr})$. By default, $DEPTH_{instr} = 64$.
 
-### 0111 - DELAY
+### 0111 DELAY
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -194,13 +131,13 @@ del_cycles_sd        | 22       | 1     | [0, 1]      | The del_cycles is valid 
 del_cycles           | [21, 7]  | 15    | [0, 32767]  | Number of clock cycles to wait before decoding the next instruction
 N/A                  | [6, 0]   | 7     | N/A         | N/A
 
-### 1000 - FOR_HEADER
+### 1000 FOR_HEADER
 
-### 1001 - FOR_TAIL
+### 1001 FOR_TAIL
 
-### 1010 - RACCU
+### 1010 RACCU
 
-### 1011 - BRANCH
+### 1011 BRANCH
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -215,13 +152,13 @@ brnch_mode           | [22, 21] | 2     | [0, 4]      | The conditional branch j
 brnch_false_addr     | [20, 15] | 6[^pc_size]     | [0, 63]     | Configures the false address
 N/A                  | [14, 0]  | 15    | N/A         | N/A
 
-### 1100 - ROUTE
+### 1100 ROUTE
 
-### 1101 - SRAM_READ
+### 1101 SRAM_READ
 
-### 1110 - SRAM_WRITE
+### 1110 SRAM_WRITE
 
-### 1111 - HALT[^halt]
+### 1111 HALT[^halt]
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -248,29 +185,41 @@ C = [0];      %! RFILE<> [0,0]
 C(1) = A(1) + B(1); %! DPU [0,0]
 ```
 
-### Manus assembly code
+### Psudo assembly code (from Vesyla)
 
 ````
-.DATA
-$A FULL_DISTR [<0,0>] [3,4,5,6,7,8,9,10,11,12]
-$B FULL_DISTR [<0,0>] [5,6,7,8,9,10,11,12,13,14]
-$C FULL_DISTR [<0,0>] [0]
-
-.CODE
-CELL    <0,0>
-SWB     0  0  3  1  0  2
-SWB     0  0  2  1  0  3
-SWB     1  0  0  0  0  1
-REFI1   3  0  0  0  0  0  0  2
-REFI1   2  0  0  10 0  0  0  1
-DPU     10 0  3  3  1  0  0  0
-REFI1   1  0  0  20 0  0  0  0
+0  (1  ):  SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), 'A_in1_3_00'            ,	S:(REFI<0,0>, PtNo: 3), D:(DPU <0,0>, PtNo: 2)
+1  (2  ):  SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), 'B_in2_3_00'            ,	S:(REFI<0,0>, PtNo: 2), D:(DPU <0,0>, PtNo: 3)
+2  (3  ):  SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), 'C_out_3_00'            ,	S:(DPU <0,0>, PtNo: 0), D:(REFI<0,0>, PtNo: 1)
+3  (4  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), 'A_in1_3_00'            ,	PortMode:  'in', AddressMode: 'Linear', PortNo: 3, IDelay: 2(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 0(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
+4  (5  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), 'B_in2_3_00'            ,	PortMode:  'in', AddressMode: 'Linear', PortNo: 2, IDelay: 1(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 10(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
+5  (6  ):  DPU    , StNo: 3 , Sch:(min: 6  , max: 6  ), Mode: 'ADD', ModeValue: 10, ExecutionCycle: 0, Repetition: 0
+6  (7  ):  REFI   , StNo: 3 , Sch:(min: 7  , max: 7  ), 'C_out_3_00'            ,	PortMode: 'out', AddressMode: 'Linear', PortNo: 1, IDelay: 0(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 20(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
 ````
 
-## Limitations
+### Assembly code (translated)
 
-- Doesn't support fixed-point representation, you need to convert fixed-point to integer format manually.
-- Doesn't support DiMarch variable declaration.
-- Doesn't support Input and Output variable type, only Temporary variable type is valid.
-- No static time model analysis. The execution cycle is by default set to 1000.
+````
+SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), 'A_in1_3_00'            ,	S:(REFI<0,0>, PtNo: 3), D:(DPU <0,0>, PtNo: 2)
+SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), 'B_in2_3_00'            ,	S:(REFI<0,0>, PtNo: 2), D:(DPU <0,0>, PtNo: 3)
+SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), 'C_out_3_00'            ,	S:(DPU <0,0>, PtNo: 0), D:(REFI<0,0>, PtNo: 1)
+REFI1  3, 0, 0, 0, 0, 0, 0, 2
+REFI1  2, 0, 0, 10, 0, 0, 0, 1
+DPU    10, 0, 0, 0, 0, 0, 0, 0, 0
+REFI1  1, 0, 0, 20, 0, 0, 0, 0
+````
+
+### Machine code
+````
+        26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+        |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+SWB     0  1  0  1
+SWB     0  1  0  1
+SWB     0  1  0  1
+REFI1   0  0  0  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0
+REFI1   0  0  0  1  1  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  1
+DPU     0  1  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+REFI1   0  0  0  1  0  1  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+````
+
 
