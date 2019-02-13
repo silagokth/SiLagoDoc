@@ -2,7 +2,7 @@
 site_name: 'SiLago Documentation'
 site_description: 'Documentation of SiLago project'
 site_author: 'SiLago Team'
-site_url: 'https://gits-15.sys.kth.se/pages/yuyang2/SiLagoDoc/'
+site_url: 'https://herenvarno.github.io/SiLagoDoc/'
 
 # Repository
 repo_name: 'SiLagoGit/SiLago'
