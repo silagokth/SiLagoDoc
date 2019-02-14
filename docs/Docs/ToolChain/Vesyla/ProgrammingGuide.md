@@ -83,7 +83,7 @@ Vesyla accept all static loops. A static loop should have constant start point, 
 
 ### Dynamic Loop
 
-!!!Warning
+!!!Bug
 	Vesyla has bug when dealing with dynamic loops.
 
 Vesyla support limited dynamic loops. Dynamic loop can have dynamic start point, and dynamic iteration. However, those number should be in address domain, a.k.a computed by RACCU and is fully determinastic after unrolling all the loops.
@@ -239,24 +239,35 @@ Datapath can be configured as a chain of DPU operation. The output of the previo
 
 ### DPU Internal Scalar Register
 
-!!! Bug
-    Currently this feature is not completely supported. Symbol "~" will lead to error. The pragma is not added yet, but using ```%! CDPU[row, col]``` can active this feature.
+Inside each DPU, there are **two** internal scalar registers which can be explicitly used via high-level matlab program. One can use them by declearing them with the pragma ```%! CDPU[row, col]```.
 
-Inside each DPU, there are **two** internal scalar registers which can be explicitly used via high-level matlab program. One can use them by declearing them with the pragma ```%! RDPU[row, col]```. Programmer should keep in mind that lifetime and physical location of those variable. Vesyla has very weak semantic checking on those internal scalar register variables.
+The available functions to load and store values to/from internal scalar registers are:
 
-For example, if one want to calculate a function: $y = ax.y$. Instead of put the coefficient $a$ inside a normal register and waste other register entries of the same register block, you can put the coefficient to the internal register, and configure DPU to a scaled multiplication mode to get the correct result.
+```matlab
+r0 = silago_dpu_load_reg_0(x(1));
+r1 = silago_dpu_load_reg_1(x(1));
+[r0, r1] = silago_dpu_load_reg_both(x(1), x(2));
+x(1) = silago_dpu_load_store_0(r0);
+x(1) = silago_dpu_load_store_1(r1);
+[x(1), y(1)] = silago_dpu_load_store_both(r0, r1);
+```
+
+!!! Warning
+	Programmer should keep in mind that lifetime and physical location of those variable. Vesyla has very weak semantic checking on those internal scalar register variables.
 
 !!! Example
+	For example, if one want to calculate a function: $y = ax.y$. Instead of put the coefficient $a$ inside a normal register and waste other register entries of the same register block, you can put the coefficient to the internal register, and configure DPU to a scaled multiplication mode to get the correct result.
+
 	```matlab
 	a_mem = [1:16]; %! SRAM[0,0]
 	x_mem = [1:16]; %! SRAM[0,0]
 	y_mem = [1:16]; %! SRAM[0,0]
 	x = [1:16]; %! REFI[0,0]
 	y = [1:16]; %! REFI[0,0]
-	r = zeros(1, 1); %! RDPU[0,0]
+	r = zeros(1, 1); %! CDPU[0,0]
 
 	x = a_mem;
-	(r, ~) = silago_dpu_load(x(1), ~);
+	r = silago_dpu_load_reg_1(x(1));
 	x = x_mem;
 	y = y_mem;
 	y = silago_dpu_scaled_mul(x, y, r); %! DPU[0,0]
