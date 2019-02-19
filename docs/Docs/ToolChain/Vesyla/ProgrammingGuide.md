@@ -2,6 +2,14 @@
 
 ## Basics
 
+### General Guide
+
+Vesyla accept modified matlab code as input language. You shouldn't write the matlab code like a programming language. You should instead use it as a tool to model the behaviour of the hardware. Vesyla supports small portion of matlab grammar. There are some generic rules expressing the programming style vesyla accepts.
+
+* General function call is not allowed unless the function is predefined as primitive function.
+* Variable except for constant variable and loop iterator should always be decleared via pragma.
+* Statement should always ends with semicolon (```;```) to avoid unexpected outputs while simulating in matlab.
+
 ### Pragma
 
 Pragma is the notation that guides Vesyla during synthesis process. Vesyla recongnize pragma starting with symbols ```%!```. The main function of pragmas is specify allocation and binding information since Vesyla can't perform automatic allocation and binding. Section [Variable Declaration](#variable-declaration), [Arithmetic Operation](#arithmetic-operation), [Address Constraint](#address-constraint) [DPU Chain](#dpu_chain) and [DPU Internal Scalar Register](#dpu-internal-scalar-register) describe how to use pragmas to allocate and bind resources. Some other usage of pragma also exist, check section [Resource Sharing Region](#resource-sharing-region) for more detail.
@@ -29,7 +37,7 @@ Each DPU can only process one scalar data each time, so the vectored register va
 Here is an example of slicing a vector:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="3"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:5]; %! REFI[0,0]
 	y(1:5) = x(1:5) + y(1:5); %! DPU[0,0]
@@ -42,7 +50,7 @@ When slicing a SRAM varialbe, the minimal slice should always be multiple of 16.
 Except for the matlab default slicing method, you can also use two primitive AGU function to linear slice a vectored varialbe both in 1-D or 2-D. Example is given below. All address sequence in the following example are "1,2,3,4,5".
 
 !!! Example
-	```matlab
+	```matlab hl_lines="3"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:5]; %! REFI[0,0]
 	y(1:5) = x(silago_agu_linear_1d(1,1,5)) + y(silago_agu_linear_2d(1,0,1,1,5)); %! DPU[0,0]
@@ -63,7 +71,7 @@ Arithmetic operation need a computation resource to perform required operation, 
 Example of an arithmetic assignment is demonstrated as following:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="3"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:5]; %! REFI[0,0]
 	y(1:5) = x(1:5) + y(1:5); %! DPU[0,0]
@@ -74,7 +82,7 @@ Example of an arithmetic assignment is demonstrated as following:
 Vesyla accept all static loops. A static loop should have constant start point, static increment as well as static iteration. If an expression that can be simplified to a constant number, it also considered as constant, hence can be used in static loop. Example below shows how to use a static loop.
 
 !!! Example
-	```matlab
+	```matlab hl_lines="2 4"
 	n = 3;
 	for i = 1:1:n+1
 		...
@@ -91,7 +99,7 @@ Vesyla support limited dynamic loops. Dynamic loop can have dynamic start point,
 Example of such dynamic loop is shown below:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="2"
 	for i = 1:1:4
 		for j = i:1:i+3
 			...
@@ -107,7 +115,7 @@ Example of such dynamic loop is shown below:
 Vesyla support normal matlab branch except for both operands of condition are constants. The usage of branch is the same as the original matlab code. For example:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="4 6 8"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:5]; %! REFI[0,0]
 	w = [3, 5]; %! REFI[0,0]
@@ -123,7 +131,7 @@ Vesyla support normal matlab branch except for both operands of condition are co
 Address constraints are parameters used by address generation in AGU. Address constraints can be constant or RACCU variable calculated at run-time in RACCU. Dynamic address constraint variables are usually used in loops. Example below shows how to use a RACCU variable to serve as address constraint.
 
 !!! Example
-	```matlab
+	```matlab hl_lines="3 5"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:16]; %! REFI[0,0]
 	a = 1; %! RACCU_VAR
@@ -182,7 +190,7 @@ All primitive DPU functions have name should start with *silago_dpu_* to be acce
 Example of using primitive DPU function:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="2"
 	x = [1:5]; %! REFI[0,0]
 	x = silago_dpu_sigmoid(x); %! DPU[0,0]
 	```
@@ -192,7 +200,7 @@ AUGs also have special primitive functions to express the complex addressing mod
 Example of using primitive DPU function:
 
 !!! Example
-	```matlab
+	```matlab hl_lines="3"
 	x = [1:5]; %! REFI[0,0]
 	a = [1]; %! REFI[0,0]
 	x = x + a(silago_agu_linear_1d(1, 0, 5)); %! DPU[0,0]
@@ -207,7 +215,7 @@ Resource sharing region requires a fixed datapath layout. Dynamic change of data
 Following example shows how to active resource sharing region.
 
 !!! Example
-	```matlab
+	```matlab hl_lines="7 12"
 	x0 = [1:5]; %! REFI[0,0]
 	x1 = [1:5]; %! REFI[1,0]
 	a2 = [1:5]; %! REFI[2,0]
@@ -227,7 +235,7 @@ Following example shows how to active resource sharing region.
 Datapath can be configured as a chain of DPU operation. The output of the previous DPU will immediately enter the next DPU without any register file involved in between. Consider we want to compute a vector addition and a sigmoid function: $z = \sigma (x+y)$. We can employ two DPUs to perform the complete operation in pipelined fashion. By writing the matlab like the following, you can enable the feature.
 
 !!! Example
-	```matlab
+	```matlab hl_lines="4 6 7"
 	x = [1:5]; %! REFI[0,0]
 	y = [1:5]; %! REFI[0,0]
 	z = [1:5]; %! REFI[0,0]
@@ -258,7 +266,7 @@ x(1) = silago_dpu_load_store_1(r1);
 !!! Example
 	For example, if one want to calculate a function: $y = ax.y$. Instead of put the coefficient $a$ inside a normal register and waste other register entries of the same register block, you can put the coefficient to the internal register, and configure DPU to a scaled multiplication mode to get the correct result.
 
-	```matlab
+	```matlab hl_lines="6 9 12"
 	a_mem = [1:16]; %! SRAM[0,0]
 	x_mem = [1:16]; %! SRAM[0,0]
 	y_mem = [1:16]; %! SRAM[0,0]
