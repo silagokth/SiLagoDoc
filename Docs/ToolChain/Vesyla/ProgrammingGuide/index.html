@@ -597,6 +597,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#general-guide" title="General Guide" class="md-nav__link">
+    General Guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pragma" title="Pragma" class="md-nav__link">
     Pragma
   </a>
@@ -1151,6 +1158,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#general-guide" title="General Guide" class="md-nav__link">
+    General Guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pragma" title="Pragma" class="md-nav__link">
     Pragma
   </a>
@@ -1285,6 +1299,13 @@
                 
                 <h1 id="programming-guide">Programming Guide</h1>
 <h2 id="basics">Basics</h2>
+<h3 id="general-guide">General Guide</h3>
+<p>Vesyla accept modified matlab code as input language. You shouldn't write the matlab code like a programming language. You should instead use it as a tool to model the behaviour of the hardware. Vesyla supports small portion of matlab grammar. There are some generic rules expressing the programming style vesyla accepts.</p>
+<ul>
+<li>General function call is not allowed unless the function is predefined as primitive function.</li>
+<li>Variable except for constant variable and loop iterator should always be decleared via pragma.</li>
+<li>Statement should always ends with semicolon (<code class="codehilite">;</code>) to avoid unexpected outputs while simulating in matlab.</li>
+</ul>
 <h3 id="pragma">Pragma</h3>
 <p>Pragma is the notation that guides Vesyla during synthesis process. Vesyla recongnize pragma starting with symbols <code class="codehilite"><span class="c">%!</span></code>. The main function of pragmas is specify allocation and binding information since Vesyla can't perform automatic allocation and binding. Section <a href="#variable-declaration">Variable Declaration</a>, <a href="#arithmetic-operation">Arithmetic Operation</a>, <a href="#address-constraint">Address Constraint</a> <a href="#dpu_chain">DPU Chain</a> and <a href="#dpu-internal-scalar-register">DPU Internal Scalar Register</a> describe how to use pragmas to allocate and bind resources. Some other usage of pragma also exist, check section <a href="#resource-sharing-region">Resource Sharing Region</a> for more detail.</p>
 <h3 id="variable-declaration">Variable Declaration</h3>
@@ -1310,8 +1331,8 @@
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
-</pre></div>
+<span class="hll"><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1324,8 +1345,8 @@
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="n">silago_agu_linear_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">silago_agu_linear_2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span> <span class="c">%! DPU[0,0]</span>
-</pre></div>
+<span class="hll"><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="n">silago_agu_linear_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">silago_agu_linear_2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span> <span class="c">%! DPU[0,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1344,8 +1365,8 @@
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
-</pre></div>
+<span class="hll"><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1357,10 +1378,10 @@
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">n</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
-    <span class="c">...</span>
-<span class="k">end</span>
-</pre></div>
+<span class="hll"><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+</span>    <span class="c">...</span>
+<span class="hll"><span class="k">end</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1378,8 +1399,8 @@
 3
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
-    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="nb">i</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="o">+</span><span class="mi">3</span>
-        <span class="c">...</span>
+<span class="hll">    <span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="nb">i</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">i</span><span class="o">+</span><span class="mi">3</span>
+</span>        <span class="c">...</span>
     <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
@@ -1404,12 +1425,12 @@
 8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">w</span> <span class="p">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="k">if</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
-<span class="k">else</span>
-    <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="c">%! DPU[0,0]</span>
-<span class="k">end</span>
-</pre></div>
+<span class="hll"><span class="k">if</span> <span class="n">w</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span>    <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="hll"><span class="k">else</span>
+</span>    <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="c">%! DPU[0,0]</span>
+<span class="hll"><span class="k">end</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1425,10 +1446,10 @@
 6
 7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">%! RACCU_VAR</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
-    <span class="n">y</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
-    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="hll"><span class="n">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">%! RACCU_VAR</span>
+</span><span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span>
+<span class="hll">    <span class="n">y</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="mi">5</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
+</span>    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
 <span class="k">end</span>
 </pre></div>
 </td></tr></table>
@@ -1482,8 +1503,8 @@
 <p class="admonition-title">Example</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">x</span> <span class="p">=</span> <span class="n">silago_dpu_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
-</pre></div>
+<span class="hll"><span class="n">x</span> <span class="p">=</span> <span class="n">silago_dpu_sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1495,8 +1516,8 @@
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">silago_agu_linear_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="c">%! DPU[0,0]</span>
-</pre></div>
+<span class="hll"><span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">silago_agu_linear_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="c">%! DPU[0,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1523,13 +1544,13 @@
 <span class="n">x3</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[3,0]</span>
 <span class="n">x4</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[4,0]</span>
 
-<span class="c">%! RESOURCE_SHARING_BEGIN</span>
-<span class="n">x0</span> <span class="p">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">a2</span><span class="p">;</span> <span class="c">%! DPU[0,0]</span>
+<span class="hll"><span class="c">%! RESOURCE_SHARING_BEGIN</span>
+</span><span class="n">x0</span> <span class="p">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">a2</span><span class="p">;</span> <span class="c">%! DPU[0,0]</span>
 <span class="n">x1</span> <span class="p">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">a2</span><span class="p">;</span> <span class="c">%! DPU[1,0]</span>
 <span class="n">x3</span> <span class="p">=</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">a2</span><span class="p">;</span> <span class="c">%! DPU[3,0]</span>
 <span class="n">x4</span> <span class="p">=</span> <span class="n">x4</span> <span class="o">+</span> <span class="n">a2</span><span class="p">;</span> <span class="c">%! DPU[4,0]</span>
-<span class="c">%! RESOURCE_SHARING_END</span>
-</pre></div>
+<span class="hll"><span class="c">%! RESOURCE_SHARING_END</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1546,11 +1567,11 @@
 7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">t</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c">%! CDPU[0,0]</span>
-
-<span class="n">t</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-<span class="n">z</span> <span class="p">=</span> <span class="n">silago_dpu_sigmoid</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="c">%! DPU[1,0]</span>
-</pre></div>
+<span class="hll"><span class="n">t</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c">%! CDPU[0,0]</span>
+</span>
+<span class="hll"><span class="n">t</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+</span><span class="hll"><span class="n">z</span> <span class="p">=</span> <span class="n">silago_dpu_sigmoid</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="c">%! DPU[1,0]</span>
+</span></pre></div>
 </td></tr></table>
 
 </div>
@@ -1595,14 +1616,14 @@
 <span class="n">y_mem</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">];</span> <span class="c">%! SRAM[0,0]</span>
 <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
 <span class="n">y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">16</span><span class="p">];</span> <span class="c">%! REFI[0,0]</span>
-<span class="n">r</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c">%! CDPU[0,0]</span>
-
+<span class="hll"><span class="n">r</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c">%! CDPU[0,0]</span>
+</span>
 <span class="n">x</span> <span class="p">=</span> <span class="n">a_mem</span><span class="p">;</span>
-<span class="n">r</span> <span class="p">=</span> <span class="n">silago_dpu_load_reg_1</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-<span class="n">x</span> <span class="p">=</span> <span class="n">x_mem</span><span class="p">;</span>
+<span class="hll"><span class="n">r</span> <span class="p">=</span> <span class="n">silago_dpu_load_reg_1</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</span><span class="n">x</span> <span class="p">=</span> <span class="n">x_mem</span><span class="p">;</span>
 <span class="n">y</span> <span class="p">=</span> <span class="n">y_mem</span><span class="p">;</span>
-<span class="n">y</span> <span class="p">=</span> <span class="n">silago_dpu_scaled_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
-<span class="n">y_mem</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
+<span class="hll"><span class="n">y</span> <span class="p">=</span> <span class="n">silago_dpu_scaled_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span> <span class="c">%! DPU[0,0]</span>
+</span><span class="n">y_mem</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
 
