@@ -9,3 +9,6 @@ SiLagoDoc uses [mkdocs](https://www.mkdocs.org/) with [Material theme](https://s
 
 # CGRA source code
 [https://github.com/silagokth/fabric](https://github.com/silagokth/fabric)
+
+# Vesyla HLS tool
+[https://github.com/silagokth/vesyla](https://github.com/silagokth/vesyla)
