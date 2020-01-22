@@ -11,7 +11,7 @@ jobs:
       - image: circleci/python:3.6-jessie-browsers
     steps:
       - add_ssh_keys:
-        fingureprints:
+        fingerprints:
           - "4d:6b:08:ae:dc:74:97:f1:7c:3e:12:70:08:3d:4e:56"
       - checkout
       - run: sudo pip install -q mkdocs mkdocs-material pygments
