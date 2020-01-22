@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Build Docs Site
           command: mkdocs build --clean
+      - run:
+          name: Copy config file to gh-pages branch
+          command: cp -r .circleci site/
       - add_ssh_keys:
           fingerprints:
             - "7b:4c:eb:72:48:4d:3f:cd:05:cc:16:46:33:f9:fb:8a"
