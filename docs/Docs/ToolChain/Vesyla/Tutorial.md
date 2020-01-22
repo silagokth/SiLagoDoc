@@ -2,8 +2,9 @@
 
 ## Working environment
 
-- **OS**: Linux
-- **Software**:
+- **Operating System**:
+    - Any modern Linux distribution
+- **Commercial Software**:
     - Matlab
     - QuestaSim
 
