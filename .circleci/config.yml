@@ -17,8 +17,8 @@ jobs:
       - checkout
       - run: sudo pip install -q mkdocs mkdocs-material pygments
       - run:
-          name: Build Docs Site
-          command: mkdocs build --clean
+        name: Build Docs Site
+        command: mkdocs build --clean
       - run:
-          name: Upload
-          command: mkdocs gh-deploy
+        name: Upload
+        command: mkdocs gh-deploy
