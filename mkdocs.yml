@@ -2,26 +2,26 @@
 site_name: 'SiLago Documentation'
 site_description: 'Documentation of SiLago project'
 site_author: 'SiLago Team'
-site_url: 'https://herenvarno.github.io/SiLagoDoc/'
+site_url: 'https://silagokth.github.io/SiLagoDoc/'
 
 # Repository
-repo_name: 'SiLagoGit/SiLago'
-repo_url : 'https://gitr.sys.kth.se/SiLagoGit/SiLago'
+repo_name: 'silagokth/SiLagoDoc'
+repo_url : 'https://github.com/silagokth/SiLagoDoc'
 
 pages:
   - Home: index.md
   - Docs:
-    - Getstart:
-      - Docs/Start/Overview.md
-      - Docs/Start/Source-code-organization.md
-      - Docs/Start/Quick-guide-for-code-documentation.md
-      - Docs/Start/Quick-guide-for-naming-system.md
+#     - Getstart:
+#       - Docs/Start/Overview.md
+#       - Docs/Start/Source-code-organization.md
+#       - Docs/Start/Quick-guide-for-code-documentation.md
+#       - Docs/Start/Quick-guide-for-naming-system.md
     - Fabric:
       - Docs/Fabric/Overview.md
-      - DRRA:
-        - Docs/Fabric/DRRA/RACCU.md
-      - RISC V:
-        - Docs/Fabric/RISCV/Overview.md
+#       - DRRA:
+#         - Docs/Fabric/DRRA/RACCU.md
+#       - RISC V:
+#         - Docs/Fabric/RISCV/Overview.md
     - Tool Chain:
       - Docs/ToolChain/Overview.md
       - Vesyla:
@@ -29,25 +29,32 @@ pages:
         - Docs/ToolChain/Vesyla/Tutorial.md
         - Docs/ToolChain/Vesyla/ProgrammingGuide.md
         - Docs/ToolChain/Vesyla/Instruction-Set.md
-        - Docs/ToolChain/Vesyla/Cidfg.md
+        - Docs/ToolChain/Vesyla/Cadfg.md
+        - Docs/ToolChain/Vesyla/Hazzard.md
+        - Docs/ToolChain/Vesyla/ExpressionSimplification.md
+        - Docs/ToolChain/Vesyla/DependencyAnalysis.md
+        - Docs/ToolChain/Vesyla/DeadCodeElimination.md
+        - Docs/ToolChain/Vesyla/Idg.md
         - Docs/ToolChain/Vesyla/Scheduling.md
         - Docs/ToolChain/Vesyla/DiMArch.md
-      - Sylva:
-        - Docs/ToolChain/Sylva/Overview.md
-    - Library:
-      - Docs/Library/Overview.md
-      - BLAS:
-        - Docs/Library/BLAS/Overview.md
-      - NN:
-        - Docs/Library/NN/Overview.md
-      - Interleaver:
-        - Docs/Library/Interleaver/Overview.md
-      - FFT:
-        - Docs/Library/FFT/Overview.md
-    - Appliction:
-      - Docs/Application/Overview.md
-      - SiLagoDSP:
-        - Docs/Application/SiLagoDSP/Fast-Fourier-Projection.md
+#       - Sylva:
+#         - Docs/ToolChain/Sylva/Overview.md
+#     - Library:
+#       - Docs/Library/Overview.md
+#       - BLAS:
+#         - Docs/Library/BLAS/Overview.md
+#         - L3:
+#           - Docs/Library/BLAS/L3/gemm.md
+#       - NN:
+#         - Docs/Library/NN/Overview.md
+#       - Interleaver:
+#         - Docs/Library/Interleaver/Overview.md
+#       - FFT:
+#         - Docs/Library/FFT/Overview.md
+#     - Appliction:
+#       - Docs/Application/Overview.md
+#       - SiLagoDSP:
+#         - Docs/Application/SiLagoDSP/Fast-Fourier-Projection.md
   - About:
       - About/About.md
       - About/License.md

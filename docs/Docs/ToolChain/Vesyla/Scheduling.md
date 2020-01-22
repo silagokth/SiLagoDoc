@@ -58,12 +58,124 @@ Graph packing_hard_links(Graph g){
 }
 ````
 
-### Remove Redundant Links
+### Remove Redundant Edges
+
+When analyzing the weighted edges in dependency graph (DG), it's easy to discover that there are some edges that have very relatexed constraints which can be removed completely without loosing any synchronization constraint information of the original DG. Example below illustrate such scenario.
+
+{% dot schedule_remove_redundant_edges.png
+    digraph G {
+          rankdir="LR";
+          u -> v [label="[1, 5]"];
+          u -> w [label="[1, 2]"];
+          w -> v [label="[0, 1]"];
+    }
+%}
+
+From the path $u \rightarrow v$, assuming $u$ starts at $t_0$, $v$ should start at the time period $[t_0+1,t_0+5]$. While from the path $u \rightarrow w \rightarrow v$, $v$ should start at the time period $[t_0+1,t_0+3]$. It's obvious that period $[t_0+1,t_0+5]$ is more relaxed thatn period $[t_0+1,t_0+3]$. The path $u \rightarrow v$ doesn't add any addtition information, hence, can be removed.
 
 
-Pseudo Algorithm is shown below:
+### Negative Edge Weight Adjustment
+
+In DG, weight can be period with negative integers. Therefore, if there is an edge $u \xrightarrow[]{\text[-2,2]} v$, though graphically the edge point from $u$ to $v$, it doesn't necessarily mean that after scheduling, $v$ is scheduled after $u$. The inconsistancy between graph representation and the actual meaning of the weighted edge cause some troubles during later process. It would be much better if we can find a way to make them consistant.To adjust the weight of edges, the goal is to guarantee the weight period are strictly positive numbers.
+
+Reader should keep in mind  what are the vertices in DG. They are just timestamp marking the critical time of each operation. There may be resource occupation table (ROT) attach to them. Suppose we have an edge like as following:
+
+{% dot schedule_edge_weight_adjustment_0.png
+    digraph G {
+          rankdir="LR";
+          u [label="u"];
+          v [label="v"];
+          u -> v [label="[-2, 2]"];
+    }
+%}
+
+We can insert a dummy vertex $d$ with no ROT attach to it before $u$ with exactly 3 cycles ahead.
+
+{% dot schedule_remove_edge_weight_adjustment_1.png
+    digraph G {
+          rankdir="LR";
+          d [label="d"];
+          u [label="u"];
+          v [label="v"];
+          d -> u [label="[3,3]"];
+          u -> v [label="[-2, 2]"];
+    }
+%}
+
+The edge $u \rightarrow v$ can be replaced by a new edge $d \rightarrow v$.
+
+{% dot schedule_remove_edge_weight_adjustment_2.png
+    digraph G {
+          rankdir="LR";
+          d [label="d"];
+          u [label="u"];
+          v [label="v"];
+          d -> u [label="[3,3]"];
+          d -> v [label="[1, 5]"];
+    }
+%}
+
+Edge $d \rightarrow u$ is always a hard edge, we can merge vertex $d$ and $u$ to a new vertex $u'$ with shifted ROT_u as its attached ROT.
+
+{% dot schedule_edge_weight_adjustment_3.png
+    digraph G {
+          rankdir="LR";
+          u [label="u'"];
+          v [label="v"];
+          u -> v [label="[1, 5]"];
+    }
+%}
+
+In this way, every negative numbered weight can be converted to positive weight in DG.
+
+### Resource Hazard Prediction
+
+A well defined program will always have LOCK/KEY frame pair for any resource. A resource should never been locked and there is no KEY frame to unlock it, or vice versa. Different LOCK/KEY pair targeting the same resource will conflict with each other due to the resource occupation. The resource harzard should be resolved by scheduling via time multiplexing. However, in some scenario, if the scheduler don't schedule the vertices in a specific order, the scheduling might lead to unschduable situation due to resource occupation deadlock. Some exploration algorithms such as LIST scheduling engine might fail. While other scheduling engine such as Branch-and-Bound might stack to some corner space exploring for a very long time in order to find a valid suliton. The following example clearly shows such scenario.
+
+{% dot schedule_resource_hazard_0.png
+    digraph G {
+          rankdir="LR";
+          a [label="a / LOCK(r)"];
+          b [label="b / KEY(r)"];
+          c [label="c / LOCK(r)"];
+          d [label="d / KEY(r)"];
+          e [label="e"];
+          f [label="f"];
+          g [label="g"];
+          h [label="h"];
+          a -> b;
+          c -> f -> g -> h -> d;
+          b -> e -> d;
+    }
+%}
+
+Vertex $c$ can be chosen by the scheduler to schedule first because it don't have any dependency from other vertices. The naturally, $f, g, h$ can be scheduled. But $d$ can not be scheduled because $e$ is not scheduled. $e$ can not be scheduled because $a$ can't be scheduled due to resource $r$ is locked by $c$. And $r$ is not can't be freed because $d$ can't be scheduled. This is a deadlock and will make this scheduling unfeasible. In order to correct the mistake, the scheduler (for example Branch-and-Bound) will try to trace back and to the step of scheduling $h$, then trace back again to $g$. Until it back-tracks to $c$, the very first scheduling step, the scheduler can't correct the mistake.
+
+To solve such problem, we need to predict the scheduling order. By analyzing the graph structure, we should be able to conclude that $c$ should be scheduled after than $b$. We then force a constraint edge to explictly represent such scheduling order in order to help the later exploring phase. The dependency graph after hazard prediction will be look like this:
+
+{% dot schedule_resource_hazard_0.png
+    digraph G {
+          rankdir="LR";
+          a [label="a / LOCK(r)"];
+          b [label="b / KEY(r)"];
+          c [label="c / LOCK(r)"];
+          d [label="d / KEY(r)"];
+          e [label="e"];
+          f [label="f"];
+          g [label="g"];
+          h [label="h"];
+          a -> b;
+          c -> f -> g -> h -> d;
+          b -> e -> d;
+          b -> c;
+    }
+%}
 
 ## Solution Space Exploration
+
+Scheduling is an NP-Complete problem. To find a valid solution for dependency graph, we need some solution searching engine or hierustic scheduling algorithm. Branch-and-Bound, Constriant Programming, LIST algorithm, Simulated Annening, etc are such searching engines. In this section, we introduce two searching engine as an example to demonstrate how does the solution space exploration works.
+
+### LIST Scheduling Algorithm
 
 
 

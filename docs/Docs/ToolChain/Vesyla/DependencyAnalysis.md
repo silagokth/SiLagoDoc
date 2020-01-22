@@ -1,0 +1,9 @@
+# Dependency Analysis
+
+Dependencies created in [CADFG](../Cadfg) don't take the address range of vector variable read/write operations into account. To add such information and fine tune the dependencies, we need to have this dependency analysis process. Here, dependency analysis only refers to the dependency checking for vector operations.
+
+Data dependencies between vector variables are more complex than scalar variables because it not only involves the variables but also their read and write access patterns. There are many sophisticated techniques to analyse dependencies among vector operations. Many great works have been done in this research field. However, Vesyla, as a proof-of-concept tool, doesn’t explore all those advanced methods for optimization purpose. It broadly categorizes data dependency among vector variables as **strong dependency**, **weak dependency** and **fake dependency**. Strong dependency requires the successor starts no earlier than the end of its predecessor. Weak dependency only requires the successor starts no earlier than the start of its predecessor. Fake dependency indicates there is no actual data hazard between predecessor and successor, the dependency edge can be removed.
+
+As shown in the following figure, If the predecessor and successor of a dependency edge has non-overlapping access patterns the dependency edge is fake because the two nodes will never access the same location. If the predecessor and successor have the same pattern or the successor has a pattern that is a simple shift of the predecessor pattern, the dependency is weak because the predecessor will always access the location before the successor, thus the successor can start one cycle later than the starting of predecessor. For all other cases, Vesyla-II considers the dependency edge strong since this is the most conservative assumption.
+
+![Dependency Types](dependency_type.png)
