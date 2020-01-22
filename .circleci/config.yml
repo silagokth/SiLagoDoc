@@ -17,7 +17,7 @@ jobs:
           command: mkdocs build --clean
       - add_ssh_keys:
           fingerprints:
-            - "4d:6b:08:ae:dc:74:97:f1:7c:3e:12:70:08:3d:4e:56"
+            - "7b:4c:eb:72:48:4d:3f:cd:05:cc:16:46:33:f9:fb:8a"
       - run:
           name: Upload
           command: mkdocs gh-deploy
