@@ -2,8 +2,7 @@ version: 2
 jobs:
   build:
     branches:
-      only:
-        - master
+      only: master
     environment:
       CIRCLE_BRANCH: master
       TZ: '/usr/share/zoneinfo/Etc/UTC'
