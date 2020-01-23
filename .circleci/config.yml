@@ -11,6 +11,7 @@ jobs:
       - image: circleci/python:3.6-jessie-browsers
     steps:
       - checkout
+      - run: sudo apt-get install graphviz
       - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown-inline-graphviz
       - run:
           name: Build Docs Site
