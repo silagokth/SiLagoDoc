@@ -91,7 +91,7 @@ io_change            | [1, 0]   | 2     | [0, 3]      | [00] no change; [01]nega
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0110      | SWB instruction code
-unused               | [22]     | 1     | 1           | Deprecated
+active               | [22]     | 1     | 1           | Deprecated, always 1
 src_row              | [21]     | 1     | [0, 1]      | The source DRRA row
 src_block            | [20]     | 1     | [0, 1]      | [0] RF; [1] DPU
 src_port             | [19]     | 1     | [0, 1]      | Source port number
