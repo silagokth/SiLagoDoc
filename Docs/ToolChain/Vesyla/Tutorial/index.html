@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -57,7 +57,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#vesyla-tutorial" tabindex="1" class="md-skip">
+      <a href="#vesyla-tutorial" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://silagokth.github.io/SiLagoDoc/" title="SiLago Documentation" class="md-header-nav__button md-logo">
+        <a href="https://silagokth.github.io/SiLagoDoc/" title="SiLago Documentation" aria-label="SiLago Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -131,7 +131,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -911,7 +911,7 @@
 13
 14
 15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">$VesylaRoot/</span>
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">$VesylaRoot/</span>
 <span class="err">  |- src/</span>
 <span class="err">  |    |- all source files.</span>
 <span class="err">  |</span>
@@ -927,33 +927,33 @@
 <span class="err">  |</span>
 <span class="err">  |- build/</span>
 <span class="err">       |- compilation working directory</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="compile-vesyla">Compile Vesyla</h2>
 <p>First, install compilation tool chain. You need to use the correct package manager of your Linux distribution. The needed packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">sudo</span> yum install g<span class="o">++</span> make cmake boost-devel
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">sudo</span> yum install g<span class="o">++</span> make cmake boost-devel
+</code></pre></div>
 </td></tr></table>
 
 <p>Gecode is not really necessary, Vesyla only use it for CP scheduling engine. However, you still need to install it. You can install it according to the installation instruction on the official website: <a href="https://www.gecode.org/">https://www.gecode.org/</a></p>
 <p>Then, you create working directory <em>build</em>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">cd</span> <span class="nv">$VesylaRoot</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$VesylaRoot</span>
 <span class="nv">mkdir</span> build
 <span class="nb">cd</span> build
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <p>Next step is to generate makefile according to the CMake configuration file CMakeLists.txt.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">cmake</span> ..
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">cmake</span> ..
+</code></pre></div>
 </td></tr></table>
 
 <p>Now, it's time to compile vesyla.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">make</span>
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">make</span>
+</code></pre></div>
 </td></tr></table>
 
 <p>After a while, the executable file named as "vesyla" should appear in the <em>build</em> directory.</p>
@@ -966,14 +966,14 @@
 <p>Not available in public github repo</p>
 </div>
 <p>A bash script called <em>$VesylaRoot/autotest/testall.sh</em> is provided to automatically test many testcases. Put all your testcases (matlab file) in <em>$VesylaRoot/autotest/testcases/</em> directory, the script will test all of them and generate a report in the same directory. The script uses <strong>Robot Framework</strong> to manage the test process and to generate result. To run the test script, use command:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">.</span><span class="o">/</span>testall
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>testall
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="use-automatic-test-script-to-test-single-testcase">Use automatic test script to test single testcase</h3>
 <p>Script using test framework can test many testcases, but it will not print out detailed information. If you want to test single testcases, there is a provided bash script. It automatically compile your matlab file, prepare simulation environment and perform the matlab and RTL simulation, and finally compare the result. The script is called <em>$VesylaRoot/autotest/run.sh</em>. To use it, use the command below:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">.</span><span class="o">/</span>run <span class="o">-</span>c <span class="o">-</span>f <span class="nv">$PathToSiLagoFabric</span> <span class="nv">$PathToYourMatlabFile</span>
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>run <span class="o">-</span>c <span class="o">-</span>f <span class="nv">$PathToSiLagoFabric</span> <span class="nv">$PathToYourMatlabFile</span>
+</code></pre></div>
 </td></tr></table>
 
 <p><code class="codehilite"><span class="err">-c</span></code> parameter try to compile Vesyla everytime in case Vesyla is modified, <code class="codehilite"><span class="err">-f $PathToSiLagoFabric</span></code> parameter indicates the RTL description of the SiLago fabric used for RTL simulation.</p>
@@ -981,13 +981,13 @@
 <h3 id="manually-testing">Manually testing</h3>
 <h4 id="compile-testcase">Compile testcase</h4>
 <p>To compile a testcase that is purely matlab script by using Vesyla, go to the <em>build</em> directory and run:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">.</span><span class="o">/</span>vesyla <span class="o">-</span>o <span class="nv">$PathToOutputDirectory</span> <span class="nv">$PathToMatlabFile</span>
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>vesyla <span class="o">-</span>o <span class="nv">$PathToOutputDirectory</span> <span class="nv">$PathToMatlabFile</span>
+</code></pre></div>
 </td></tr></table>
 
 <p>If instead, you want to compile a testcase that consists a template file and a data file, go to the <em>build</em> directory and run:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">.</span><span class="o">/</span>vesyla <span class="o">-</span>o <span class="nv">$PathToOutputDirectory</span> <span class="nv">$PathToTemplate</span> <span class="nv">$PathToData</span>
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>vesyla <span class="o">-</span>o <span class="nv">$PathToOutputDirectory</span> <span class="nv">$PathToTemplate</span> <span class="nv">$PathToData</span>
+</code></pre></div>
 </td></tr></table>
 
 <h4 id="matlab-simulation">Matlab simulation</h4>
@@ -996,8 +996,8 @@
 <p>Vesyla also generates environment for RTL simulation. It's in <em>$OUTPUT/filegen/sim_vsim</em>. However, you can't directly simulate it under QuestaSim because you need to specify the path to the DRRA+DiMArch fabric. You need to change the automatic script according to the actual fabric RTL location in order to make the simulation work. Please check the provided automatic test script <em>$ROOT/autotest/run.sh</em> to know more about how to add the fabric information. After QuestaSim simulation, a register file data change event recording will also be generated.</p>
 <h4 id="compare-the-register-file-data-change">Compare the register file data change</h4>
 <p>A way to verify the correct behaviour of vesyla is to compare the register file data change event recording generated from both matlab and RTL simulation. A program for the exact purpose is created while vesyla is compiled. To run the program, go to <em>build</em> directory and use command:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">.</span><span class="o">/</span>vesyla_verify <span class="nv">$PathToMatlabRecording</span> <span class="nv">$PathToVsimRecording</span>
-</pre></div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>vesyla_verify <span class="nv">$PathToMatlabRecording</span> <span class="nv">$PathToVsimRecording</span>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="important-output-files">Important output files</h2>
@@ -1063,9 +1063,9 @@
       <div class="md-footer-copyright">
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1075,7 +1075,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
