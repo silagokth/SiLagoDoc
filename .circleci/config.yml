@@ -14,9 +14,6 @@ jobs:
       - run: sudo apt-get install graphviz
       - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown_inline_graphviz_extension
       - run:
-          name: Special version of inline_graphviz
-          command: sudo pip install git+https://github.com/sprin/markdown-inline-graphviz.git@9664863b3002d88243c9ee5e14c195e037e54618#egg=markdown-inline-graphviz
-      - run:
           name: Build Docs Site
           command: mkdocs build --clean
       - run:
