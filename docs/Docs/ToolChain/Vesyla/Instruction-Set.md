@@ -1,6 +1,3 @@
-!!! warning
-    Documentation is not complete!
-
 # Instruction Set
 
 ## Instructions
@@ -16,14 +13,14 @@
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0001      | REFI1 instruction code
-reg_file_port        | [22, 21] | 2     | [0, 3]      | Selects one of the RFile ports
-subseq_instrs        | [20, 19] | 2     | [0, 3]      | The instruction decoder fetches the consequent (REFI1) or (REFI1 and REFI2) instructions.
-start_addrs_sd       | 18       | 1     | [0, 1]      | The start_addrs is valid only if the start_addrs_sd is 0. Otherwise the start_address would be taken from the RACCU register
-start_addrs          | [17, 12] | 6     | [0, 63]     | Configures the starting address for the AGU
-no_of_addrs_sd       | 11       | 1     | [0, 1]      | The no_of_addrs is valid only when no_of_addrs_sd is 0, otherwise the no_of_addrs would be taken from the RACCU register.
-no_of_addrs          | [10, 5]  | 6     | [0, 63]     | Configures the number of address for the AGU
-initial_delay_sd:    | 4        | 1     | [0, 1]      | The init_delay is valid only when init_delay_sd is set.
-initial_delay        | [3, 0]   | 4     | [0, 15]     | Configures the initial delay
+port_no              | [22, 21] | 2     | [0, 3]      | Selects one of the RFile ports
+extra                | [20, 19] | 2     | [0, 3]      | How many following instructions.
+init_addr_sd         | 18       | 1     | [0, 1]      | [0] init_addr is static; [1] init_addr is from RACCU.
+init_addr            | [17, 12] | 6     | [0, 63]     | Static init address or RACCU register.
+l1_iter_sd           | 11       | 1     | [0, 1]      | [0] Level 1 iteration is static; [1] L1 iteration is from RACCU.
+l1_iter              | [10, 5]  | 6     | [0, 63]     | Static L1 iteration or RACCU register.
+init_delay_sd        | 4        | 1     | [0, 1]      | [0] init_delay is static; [1] init_delay is from RACCU.
+init_delay           | [3, 0]   | 4     | [0, 15]     | Static init delay or RACCU register.
 
 ### 0010 - REFI2
 
@@ -36,16 +33,35 @@ initial_delay        | [3, 0]   | 4     | [0, 15]     | Configures the initial d
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0010      | REFI2 instruction code
-step_val_sd          | 22       | 1     | [0, 1]      | The step_val is valid only if step_val_sd is set.
-step_val             | [21, 16] | 6     | [0, 63]     | Step incremental/decremental value of the address
-step_val_sign        | 15       | 1     | [0, 1]      | If it's 0, address will be incremented by the step_val else decremented by the step_val
-refi_middle_delay_sd | 14       | 1     | [0, 63]     | The refi_middle_delay is valid only if refi_middle_delay_sd is 0
-refi_middle_delay    | [13, 10] | 4     | [0, 15]     | Configures the middle dealy
-no_of_reps_sd        | 9        | 1     | [0, 1]      | The no_of_reps is valid only when the no_of_reps_sd is 0, otherwise the no_of_reps value would be taken from the RACCU register
-no_of_reps           | [8, 4]   | 5     | [0, 31]     | Configures the number of times the address pattern to repeat
-rpt_step_value       | [3, 0]   | 4     | [0, 15]     | The step increment/decrement value
+l1_step_sd           | [22]     | 1     | [0, 1]      | [0] l1_step is static; [1] l1_step is from RACCU
+l1_step              | [21, 16] | 6     | [0, 63]     | Static level 1 step value or RACCU register
+l1_step_sign         | [15]     | 1     | [0, 1]      | Sign bit of l1_step
+l1_delay_sd          | [14]     | 1     | [0, 1]      | [0] l1_delay is static; [1] l1_delay is from RACCU
+l1_delay             | [13, 10] | 4     | [0, 15]     | Static level 1 delay or RACCU register
+l2_iter_sd           | [9]      | 1     | [0, 1]      | [0] l2_iter is static; [1] l2_iter is from RACCU
+l2_iter              | [8, 4]   | 5     | [0, 31]     | Static level 2 iteration or RACCU register
+l2_step              | [3, 0]   | 4     | [0, 15]     | Level 2 step value
 
 ### 0011 - REFI3
+
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+0  0  1  1  A  B  B  B  B  B  B  0  0  0  0  0  0  C  C  D  E  E  0  0  0  F  G
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [26, 23] | 4     | b'0011      | REFI3 instruction code
+l2_delay_sd          | [22]     | 1     | [0, 1]      | [0] l2_delay is static; [1] l2_delay is from RACCU.
+l2_delay             | [21, 16] | 6     | [0, 63]     | Static level 2 delay or RACCU register.
+unused               | [15, 10] | 6     | 0           | Deprecated
+l1_delay_ext         | [9, 8]   | 2     | [0, 3]      | Extended bits for l1_delay
+l2_iter_ext          | [7]      | 1     | [0, 1]      | Extended bits for l2_iter
+l2_step_ext          | [6, 5]   | 2     | [0, 3]      | Extended bits for l2_step
+unused               | [4, 2]   | 3     | 0           | Deprecated
+dimarch              | [1]      | 1     | [0, 1]      | [0] Not DiMArch; [1] DiMArch mode
+compress             | [0]      | 1     | [0, 1]      | [0] Not compressed; [1] Compressed
 
 ### 0100 - DPU
 
@@ -58,168 +74,234 @@ rpt_step_value       | [3, 0]   | 4     | [0, 15]     | The step increment/decre
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0100      | DPU instruction code
-dpu_mode             | [22, 18] | 5     | [0, 12]     | Configures the valid dpu mode
-dpu_saturation       | [17, 16] | 2     | [0, 3]      | Selects the integer or fixed point operation with or without saturation [^dpu-saturation]
-dpu_output_a         | [15, 14] | 2     | [0, 3]      | Selects one or both the outports [^dpu-output-ports]
-dpu_output_b         | [13, 12] | 2     | [0, 3]      | Selects one or both the outports [^dpu-output-ports]
-dpu_acc_clear_rst    | 11       | 1     | [0, 1]      | Asynchronous reset, when set, clears the DPU accumulator register.
-dpu_acc_clear_sd     | 10       | 1     | [0, 1]      | The dpu_acc_clear is valid only when dpu acc_clear_sd is set.
-dpu_acc_clear        | [9, 2]   | 8     | [0, 255]    | The DPU accumulator register is cleared when the accumulator counter reaches the value configured in the dpu_acc_clear
-dpu_process_inout    | [1, 0]   | 2     | [0, 3]      | Processes the input or output [^dpu-process-ports]
-
-[^dpu-saturation]:
-**Saturation**:
-[0]: Integer operation without saturation;
-[1]: Fixed point without saturation;
-[2]: Integer operation with saturation;
-[3]: Fixed point with saturation;
-
-[^dpu-output-ports]:
-**Output ports**:
-[0]: Disables both out ports;
-[1]: Out port 0 will be enabled;
-[2]: Out port 1 will be enabled;
-[3]: Both Out port 0 and 1 will be enabled;
-
-[^dpu-process-ports]:
-**Process ports**:
-[0]: No preprocessing;
-[1]: Negates input 0;
-[2]: Negates input 1;
-[3]: Absolute of (in0-in1);
+mode                 | [22, 18] | 5     | [0, 12]     | Configures the valid dpu mode
+control              | [17, 16] | 2     | [0, 3]      | [00] no saturation, integer; [01] no saturation, fixed-point; [10] saturation, integer; [11] saturation, fixed-point.
+not_used             | [15, 10] | 6     | b'000010    | Deprecated
+acc_clear            | [9, 2]   | 8     | [0, 255]    | The DPU accumulator register clear threshold.
+io_change            | [1, 0]   | 2     | [0, 3]      | [00] no change; [01]negate in1; [10] negate in2; [11] return abosolute value of output.
 
 ### 0101 SWB
 
-!!! Warning
-    SWB is not a direct mapping instruction. It need to be re-interpret by RTL fabric.
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+0  1  0  1  1  A  B  C  D  D  D  E  F  F  F  0  0  0  0  0  0  0  0  0  0  0  0
+```
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0110      | SWB instruction code
-source_row           | N/A      | N/A   | N/A         | The source DRRA row
-source_col           | [16, 0]  | 17    | N/A         | The source DRRA column
+unused               | [22]     | 1     | 1           | Deprecated
+src_row              | [21]     | 1     | [0, 1]      | The source DRRA row
+src_block            | [20]     | 1     | [0, 1]      | [0] RF; [1] DPU
+src_port             | [19]     | 1     | [0, 1]      | Source port number
+hb_index             | [18, 16] | 3     | [0, 6]      | Index of horizontal bus
+send_to_other_row    | [15]     | 1     | [0, 1]      | Flag of whether src and dest row are equal
+v_index              | [14, 12] | 3     | [0, 5]      | Index of vertical bus
+unused               | [11, 0]  | 12    | 0           | Deprecated
 
 ### 0110 JUMP
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-0  1  1  0  A  A  A  A  A  A  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+0  1  1  0  A  A  A  A  A  A  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0110      | JUMP instruction code
-true_addrs           | [22, 17] | 6[^pc_size]     | [0, 63]     | The target address
-N/A                  | [16, 0]  | 17    | N/A         | N/A
+pc                   | [22, 17] | 6     | [0, 63]     | The target address
+unused               | [16, 0]  | 17    | 0           | Deprecated
 
-[^pc_size]:
-This number equals to PC size, which is $log_2(DEPTH_{instr})$. By default, $DEPTH_{instr} = 64$.
-
-### 0111 DELAY
+### 0111 WAIT
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-0  1  1  1  A  B  B  B  B  B  B  B  B  B  B  B  B  B  B  B  -  -  -  -  -  -  -
+0  1  1  1  A  B  B  B  B  B  B  B  B  B  B  B  B  B  B  B  0  0  0  0  0  0  0
 ```
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0111      | DELAY instruction code
-del_cycles_sd        | 22       | 1     | [0, 1]      | The del_cycles is valid only if del_cycles_sd is set
-del_cycles           | [21, 7]  | 15    | [0, 32767]  | Number of clock cycles to wait before decoding the next instruction
-N/A                  | [6, 0]   | 7     | N/A         | N/A
+cycle_sd             | [22]     | 1     | [0, 1]      | [0] cycle is static; [1] cycle is from RACCU
+cycle                | [21, 7]  | 15    | [0, 32767]  | Static cycle or RACCU register
+unused               | [6, 0]   | 7     | 0           | 0
 
-### 1000 FOR_HEADER
+### 1000 LOOPH
 
-### 1001 FOR_TAIL
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  0  0  0  A  A  A  A  B  B  B  B  B  B  C  D  D  D  D  0  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [26, 23] | 4     | b'1000      | LOOPH instruction code
+loopid               | [22, 19] | 4     | [0, 15]     | Loop id
+start                | [18, 13] | 6     | [0, 63]     | The start number
+static               | [12]     | 1     | [0, 1]      | [0] iter is static; [1] iter is from RACCU
+iter                 | [11, 8]  | 4     | [0, 15]     | Static iteration or RACCU register
+unused               | [7, 0]   | 8     | 0           | Deprecated
+
+
+### 1001 LOOPT (Deprecated)
+
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  0  0  1  A  A  A  A  A  A  B  B  B  B  B  B  C  C  C  C  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [26, 23] | 4     | b'1001      | LOOPT instruction code
+step                 | [22, 17] | 6     | [0, 63]     | The step
+pc                   | [16, 11] | 6     | [0, 63]     | Location to jump back
+loopid               | [10, 7]  | 4     | [0, 15]     | Loop id
+unused               | [6, 0]   | 6     | 0           | Deprecated
 
 ### 1010 RACCU
+
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+0  1  1  1  A  A  A  B  C  C  C  C  C  C  C  D  E  E  E  E  E  E  E  F  F  F  F
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [26, 23] | 4     | b'1010      | RACCU instruction code
+mode                 | [22, 20] | 3     | [0, 7]      | Operation mode
+operand1_sd          | [19, 19] | 1     | [0, 1]      | [0] operand1 is static; [1] operand1 is from RACCU register
+operand1             | [18, 12] | 7     | [-64, 63]   | Operand 1
+operand2_sd          | [11, 11] | 1     | [0, 1]      | [0] operand2 is static; [1] operand2 is from RACCU register
+operand2             | [10, 4]  | 7     | [-64, 63]   | Operand 2
+result               | [4, 0]   | 4     | [0, 15]     | Result register address
 
 ### 1011 BRANCH
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-0  1  1  1  A  A  B  B  B  B  B  B  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+0  1  1  1  A  A  B  B  B  B  B  B  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'1011      | BRANCH instruction code
-brnch_mode           | [22, 21] | 2     | [0, 4]      | The conditional branch jumps to the false address when the (brnch_mode && seq_cond_status) == "00"
-brnch_false_addr     | [20, 15] | 6[^pc_size]     | [0, 63]     | Configures the false address
-N/A                  | [14, 0]  | 15    | N/A         | N/A
+mode                 | [22, 21] | 2     | [0, 4]      | The conditional branch mode
+false_pc             | [20, 15] | 6     | [0, 63]     | Configures the false address
+unused               | [14, 0]  | 15    | 0           | Deprecated
 
 ### 1100 ROUTE
-
-### 1101 SRAM_READ
-
-### 1110 SRAM_WRITE
-
-### 1111 HALT[^halt]
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-1  1  1  1  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+0  1  1  1  A  B  B  B  C  D  D  D  0  0  0  0  0  0  E  0  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [26, 23] | 4     | b'1100      | ROUTE instruction code
+src_row              | [22]     | 1     | [0, 1]      | Source DiMArch row
+src_col              | [21, 19] | 3     | [0, 7]      | Source DiMArch column
+dest_row             | [18]     | 1     | [0, 1]      | Destination DiMArch row
+dest_col             | [17, 15] | 3     | [0, 7]      | Destination DiMArch column
+unused               | [14, 9]  | 6     | 0           | Deprecated
+select_drra_row      | [8]      | 1     | [0, 1]      | [0] source is origin; [1] destination is origin
+unused               | [7, 0]   | 8     | 0           | Deprecated
+
+### 1101 SRAMR
+
+```
+80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  1  0  1  A  B  B  B  B  B  B  B  C  C  C  C  D  D  D  D  D  D  D  E  E  E  E
+
+53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+E  E  E  E  F  F  F  F  F  F  G  G  G  G  G  G  G  H  H  H  H  H  H  H  H  I  I
+
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+I  I  I  I  J  K  L  M  N  O  P  Q  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [80, 77] | 4     | b'1101      | SRAMR instruction code
+unused               | [76]     | 1     | 0           | Deprecated
+init_addr            | [75, 69] | 7     | [0, 127]    | Initial address
+init_delay           | [68, 65] | 4     | [0, 15]     | Initial delay
+l1_iter              | [64, 58] | 7     | [0, 127]    | Level 1 iteration
+l1_step              | [57, 50] | 8     | [-128, 127] | Level 1 step
+l1_delay             | [49, 44] | 6     | [0, 63]     | Level 1 delay
+l2_iter              | [43, 37] | 7     | [0, 127]    | Level 2 iteration
+l2_step              | [36, 29] | 8     | [-128, 127] | Level 2 step
+l2_delay             | [28, 23] | 6     | [0, 63]     | Level 2 delay
+init_addr_sd         | [22]     | 1     | [0, 1]      | Static or from RACCU
+l1_iter_sd           | [21]     | 1     | [0, 1]      | Static or from RACCU
+l2_iter_sd           | [20]     | 1     | [0, 1]      | Static or from RACCU
+init_delay_sd        | [19]     | 1     | [0, 1]      | Static or from RACCU
+l1_delay_sd          | [18]     | 1     | [0, 1]      | Static or from RACCU
+l2_delay_sd          | [17]     | 1     | [0, 1]      | Static or from RACCU
+l1_step_sd           | [16]     | 1     | [0, 1]      | Static or from RACCU
+l2_step_sd           | [15]     | 1     | [0, 1]      | Static or from RACCU
+unused               | [14, 0]  | 15    | 0           | Unused
+
+### 1110 SRAMW
+
+```
+80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  1  1  0  A  B  B  B  B  B  B  B  C  C  C  C  D  D  D  D  D  D  D  E  E  E  E
+
+53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+E  E  E  E  F  F  F  F  F  F  G  G  G  G  G  G  G  H  H  H  H  H  H  H  H  I  I
+
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+I  I  I  I  J  K  L  M  N  O  P  Q  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [80, 77] | 4     | b'1110      | SRAMW instruction code
+unused               | [76]     | 1     | 0           | Deprecated
+init_addr            | [75, 69] | 7     | [0, 127]    | Initial address
+init_delay           | [68, 65] | 4     | [0, 15]     | Initial delay
+l1_iter              | [64, 58] | 7     | [0, 127]    | Level 1 iteration
+l1_step              | [57, 50] | 8     | [-128, 127] | Level 1 step
+l1_delay             | [49, 44] | 6     | [0, 63]     | Level 1 delay
+l2_iter              | [43, 37] | 7     | [0, 127]    | Level 2 iteration
+l2_step              | [36, 29] | 8     | [-128, 127] | Level 2 step
+l2_delay             | [28, 23] | 6     | [0, 63]     | Level 2 delay
+init_addr_sd         | [22]     | 1     | [0, 1]      | Static or from RACCU
+l1_iter_sd           | [21]     | 1     | [0, 1]      | Static or from RACCU
+l2_iter_sd           | [20]     | 1     | [0, 1]      | Static or from RACCU
+init_delay_sd        | [19]     | 1     | [0, 1]      | Static or from RACCU
+l1_delay_sd          | [18]     | 1     | [0, 1]      | Static or from RACCU
+l2_delay_sd          | [17]     | 1     | [0, 1]      | Static or from RACCU
+l1_step_sd           | [16]     | 1     | [0, 1]      | Static or from RACCU
+l2_step_sd           | [15]     | 1     | [0, 1]      | Static or from RACCU
+unused               | [14, 0]  | 15    | 0           | Unused
+
+### 1111 HALT
+
+```
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'1111      | HALT instruction code
-N/A                  | [22, 0]  | 23    | N/A         | N/A
-
-[^halt]: This instruction is not used.
-
-## Example
-
-### Matlab code
-
-```matlab
-A = [3 : 12]; %! RFILE<> [0,0]
-B = [5 : 14]; %! RFILE<> [0,0]
-C = [0];      %! RFILE<> [0,0]
-
-C(1) = A(1) + B(1); %! DPU [0,0]
-```
-
-### Psudo assembly code (from Vesyla)
-
-````
-0  (1  ):  SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), 'A_in1_3_00'            ,	S:(REFI<0,0>, PtNo: 3), D:(DPU <0,0>, PtNo: 2)
-1  (2  ):  SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), 'B_in2_3_00'            ,	S:(REFI<0,0>, PtNo: 2), D:(DPU <0,0>, PtNo: 3)
-2  (3  ):  SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), 'C_out_3_00'            ,	S:(DPU <0,0>, PtNo: 0), D:(REFI<0,0>, PtNo: 1)
-3  (4  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), 'A_in1_3_00'            ,	PortMode:  'in', AddressMode: 'Linear', PortNo: 3, IDelay: 2(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 0(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
-4  (5  ):  REFI   , StNo: 3 , Sch:(min: 6  , max: 6  ), 'B_in2_3_00'            ,	PortMode:  'in', AddressMode: 'Linear', PortNo: 2, IDelay: 1(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 10(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
-5  (6  ):  DPU    , StNo: 3 , Sch:(min: 6  , max: 6  ), Mode: 'ADD', ModeValue: 10, ExecutionCycle: 0, Repetition: 0
-6  (7  ):  REFI   , StNo: 3 , Sch:(min: 7  , max: 7  ), 'C_out_3_00'            ,	PortMode: 'out', AddressMode: 'Linear', PortNo: 1, IDelay: 0(S), MDelay: 0(S), RDelay: 0(S), StartAddress: 20(S), StepValue: 0(S), NoOfAddress: 0(S), NoOfRepetition: 0(S), RepOffset: 0
-````
-
-### Assembly code (translated)
-
-````
-SWB    , StNo: 3 , Sch:(min: 0  , max: 6  ), 'A_in1_3_00'            ,	S:(REFI<0,0>, PtNo: 3), D:(DPU <0,0>, PtNo: 2)
-SWB    , StNo: 3 , Sch:(min: 1  , max: 6  ), 'B_in2_3_00'            ,	S:(REFI<0,0>, PtNo: 2), D:(DPU <0,0>, PtNo: 3)
-SWB    , StNo: 3 , Sch:(min: 2  , max: 7  ), 'C_out_3_00'            ,	S:(DPU <0,0>, PtNo: 0), D:(REFI<0,0>, PtNo: 1)
-REFI1  3, 0, 0, 0, 0, 0, 0, 2
-REFI1  2, 0, 0, 10, 0, 0, 0, 1
-DPU    10, 0, 0, 0, 0, 0, 0, 0, 0
-REFI1  1, 0, 0, 20, 0, 0, 0, 0
-````
-
-### Machine code
-````
-        26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-        |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-SWB     0  1  0  1
-SWB     0  1  0  1
-SWB     0  1  0  1
-REFI1   0  0  0  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0
-REFI1   0  0  0  1  1  0  0  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  1
-DPU     0  1  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-REFI1   0  0  0  1  0  1  0  0  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-````
+unused               | [22, 0]  | 23    | 0           | Unused
 
 
