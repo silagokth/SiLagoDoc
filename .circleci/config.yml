@@ -8,14 +8,14 @@ jobs:
       TZ: '/usr/share/zoneinfo/Etc/UTC'
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     docker:
-      - image: circleci/python:3.6-jessie-browsers
+      - image: circleci/python:latest
     steps:
       - checkout
       - run: sudo apt-get install graphviz
       - run:
           name: update pip
           command: sudo pip install --upgrade pip
-      - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown_inline_graphviz_extension
+      - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown_inline_graphviz
       - run:
           name: Build Docs Site
           command: mkdocs build --clean
