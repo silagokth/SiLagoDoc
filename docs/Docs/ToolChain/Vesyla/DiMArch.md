@@ -12,7 +12,7 @@ At the same time, a ````REFI```` instruction should be activated in order to sto
 
 The timing relationship of those 3 instructions are shown in figure below:
 
-{% dot sram_read_dep.png
+{% dot sram_read_dep.svg
     digraph G {
         subgraph cluster_route{
           label="ROUTE"
@@ -53,7 +53,7 @@ Writing data from Register file to DiMArch share the same set of instruction wit
 
 The timing relationship of those 3 instructions are shown in figure below:
 
-{% dot sram_write_dep.png
+{% dot sram_write_dep.svg
     digraph G {
         subgraph cluster_route{
           label="ROUTE"

@@ -15,7 +15,7 @@ jobs:
       - run:
           name: update pip
           command: sudo pip install --upgrade pip
-      - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown_inline_graphviz
+      - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown-inline-graphviz-extension
       - run:
           name: Build Docs Site
           command: mkdocs build --clean

@@ -62,7 +62,7 @@ Graph packing_hard_links(Graph g){
 
 When analyzing the weighted edges in dependency graph (DG), it's easy to discover that there are some edges that have very relatexed constraints which can be removed completely without loosing any synchronization constraint information of the original DG. Example below illustrate such scenario.
 
-{% dot schedule_remove_redundant_edges.png
+{% dot schedule_remove_redundant_edges.svg
     digraph G {
           rankdir="LR";
           u -> v [label="[1, 5]"];
@@ -80,7 +80,7 @@ In DG, weight can be period with negative integers. Therefore, if there is an ed
 
 Reader should keep in mind  what are the vertices in DG. They are just timestamp marking the critical time of each operation. There may be resource occupation table (ROT) attach to them. Suppose we have an edge like as following:
 
-{% dot schedule_edge_weight_adjustment_0.png
+{% dot schedule_edge_weight_adjustment_0.svg
     digraph G {
           rankdir="LR";
           u [label="u"];
@@ -91,7 +91,7 @@ Reader should keep in mind  what are the vertices in DG. They are just timestamp
 
 We can insert a dummy vertex $d$ with no ROT attach to it before $u$ with exactly 3 cycles ahead.
 
-{% dot schedule_remove_edge_weight_adjustment_1.png
+{% dot schedule_remove_edge_weight_adjustment_1.svg
     digraph G {
           rankdir="LR";
           d [label="d"];
@@ -104,7 +104,7 @@ We can insert a dummy vertex $d$ with no ROT attach to it before $u$ with exactl
 
 The edge $u \rightarrow v$ can be replaced by a new edge $d \rightarrow v$.
 
-{% dot schedule_remove_edge_weight_adjustment_2.png
+{% dot schedule_remove_edge_weight_adjustment_2.svg
     digraph G {
           rankdir="LR";
           d [label="d"];
@@ -117,7 +117,7 @@ The edge $u \rightarrow v$ can be replaced by a new edge $d \rightarrow v$.
 
 Edge $d \rightarrow u$ is always a hard edge, we can merge vertex $d$ and $u$ to a new vertex $u'$ with shifted ROT_u as its attached ROT.
 
-{% dot schedule_edge_weight_adjustment_3.png
+{% dot schedule_edge_weight_adjustment_3.svg
     digraph G {
           rankdir="LR";
           u [label="u'"];
@@ -132,7 +132,7 @@ In this way, every negative numbered weight can be converted to positive weight 
 
 A well defined program will always have LOCK/KEY frame pair for any resource. A resource should never been locked and there is no KEY frame to unlock it, or vice versa. Different LOCK/KEY pair targeting the same resource will conflict with each other due to the resource occupation. The resource harzard should be resolved by scheduling via time multiplexing. However, in some scenario, if the scheduler don't schedule the vertices in a specific order, the scheduling might lead to unschduable situation due to resource occupation deadlock. Some exploration algorithms such as LIST scheduling engine might fail. While other scheduling engine such as Branch-and-Bound might stack to some corner space exploring for a very long time in order to find a valid suliton. The following example clearly shows such scenario.
 
-{% dot schedule_resource_hazard_0.png
+{% dot schedule_resource_hazard_0.svg
     digraph G {
           rankdir="LR";
           a [label="a / LOCK(r)"];
@@ -153,7 +153,7 @@ Vertex $c$ can be chosen by the scheduler to schedule first because it don't hav
 
 To solve such problem, we need to predict the scheduling order. By analyzing the graph structure, we should be able to conclude that $c$ should be scheduled after than $b$. We then force a constraint edge to explictly represent such scheduling order in order to help the later exploring phase. The dependency graph after hazard prediction will be look like this:
 
-{% dot schedule_resource_hazard_0.png
+{% dot schedule_resource_hazard_0.svg
     digraph G {
           rankdir="LR";
           a [label="a / LOCK(r)"];
