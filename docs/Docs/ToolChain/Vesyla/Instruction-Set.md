@@ -129,7 +129,32 @@ cycle_sd             | [22]     | 1     | [0, 1]      | [0] cycle is static; [1]
 cycle                | [21, 7]  | 15    | [0, 32767]  | Static cycle or RACCU register
 unused               | [6, 0]   | 7     | 0           | 0
 
-### 1000 LOOPH
+### 1000 LOOP
+
+```
+53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+1  0  0  0  A  B  B  C  C  C  C  C  C  D  E  E  E  E  E  E  F  G  G  G  G  G  G
+26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+H  I  I  I  I  I  I  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+```
+
+Field                | Position | Width | Range/Value | Description
+---------------------|----------|-------|-------------|-------------------------
+instr_code           | [53, 50] | 4     | b'1000      | LOOPH instruction code
+extend               | [49]     | 1     | [0, 15]     | 0:No extension; 1:Extended
+loopid               | [48, 47] | 2     | [0, 3]      | The id of nested loops
+endpc                | [46, 41] | 6     | [0, 63]     | The PC where loop ends
+start_sd             | [40]     | 1     | [0, 1]      | 0:start is static; 1: start is from RACCU
+start                | [39, 34] | 6     | [-32, 31]   | Start address, either static or from RACCU
+iter_sd              | [33]     | 1     | [0, 1]      | 0:iter is static; 1: iter is from RACCU
+iter                 | [32, 27] | 6     | [0, 63]     | Iteration, either static or from RACCU
+step_sd              | [26]     | 1     | [0, 1] / 0  | 0:step is static; 1: step is from RACCU
+step                 | [25, 20] | 6     | [0, 63] / 1 | Step, either static or from RACCU
+unused               | [19, 0]  | 20    | 0           | Unused
+
+### 1000 LOOPH (Deprecated)
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -146,7 +171,6 @@ static               | [12]     | 1     | [0, 1]      | [0] iter is static; [1] 
 iter                 | [11, 8]  | 4     | [0, 15]     | Static iteration or RACCU register
 unused               | [7, 0]   | 8     | 0           | Deprecated
 
-
 ### 1001 LOOPT (Deprecated)
 
 ```
@@ -161,7 +185,7 @@ instr_code           | [26, 23] | 4     | b'1001      | LOOPT instruction code
 step                 | [22, 17] | 6     | [0, 63]     | The step
 pc                   | [16, 11] | 6     | [0, 63]     | Location to jump back
 loopid               | [10, 7]  | 4     | [0, 15]     | Loop id
-unused               | [6, 0]   | 6     | 0           | Deprecated
+unused               | [6, 0]   | 6     | 0           | Unused
 
 ### 1010 RACCU
 
