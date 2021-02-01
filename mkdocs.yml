@@ -18,6 +18,7 @@ pages:
 #       - Docs/Start/Quick-guide-for-naming-system.md
     - Fabric:
       - Docs/Fabric/Overview.md
+      - Docs/Fabric/Style-guide.md
 #       - DRRA:
 #         - Docs/Fabric/DRRA/RACCU.md
 #       - RISC V:
