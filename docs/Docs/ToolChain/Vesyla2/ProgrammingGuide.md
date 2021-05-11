@@ -55,6 +55,11 @@ void write_sram_from_vwr(SramVector& sram_name, int sram_addr, VwrVector vwr_nam
 void read_vwr(VwrVector vwr_name, RegVector& r0, RegVector& r1, ...);
 // Write VWR content in parellel
 void write_vwr(VwrVector& vwr_name, RegVector r0, RegVector r1, ...);
+```
+
+### Computation
+
+``` c++
 // DPU operation r0+r1->r2
 void dpu_add(RegVector r0, RegVector r1, RegVector& r2);
 // DPU operation r0*r1->r2
