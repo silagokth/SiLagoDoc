@@ -596,6 +596,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#computation" class="md-nav__link">
+    Computation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -781,6 +788,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#computation" class="md-nav__link">
+    Computation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -882,7 +896,9 @@ REGISTERS inside DPU:
 <span class="kt">void</span> <span class="nf">read_vwr</span><span class="p">(</span><span class="n">VwrVector</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="p">...);</span>
 <span class="c1">// Write VWR content in parellel</span>
 <span class="kt">void</span> <span class="nf">write_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="o">&amp;</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="p">...);</span>
-<span class="c1">// DPU operation r0+r1-&gt;r2</span>
+</code></pre></div>
+<h3 id="computation">Computation</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// DPU operation r0+r1-&gt;r2</span>
 <span class="kt">void</span> <span class="nf">dpu_add</span><span class="p">(</span><span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">);</span>
 <span class="c1">// DPU operation r0*r1-&gt;r2</span>
 <span class="kt">void</span> <span class="nf">dpu_mul</span><span class="p">(</span><span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">);</span>
