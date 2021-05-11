@@ -38,6 +38,10 @@ pages:
         - Docs/ToolChain/Vesyla/Idg.md
         - Docs/ToolChain/Vesyla/Scheduling.md
         - Docs/ToolChain/Vesyla/DiMArch.md
+      - Vesyla2:
+        - Docs/ToolChain/Vesyla2/Tutorial.md
+        - Docs/ToolChain/Vesyla2/ProgrammingGuide.md
+        - Docs/ToolChain/Vesyla2/InstructionSet.md
 #       - Sylva:
 #         - Docs/ToolChain/Sylva/Overview.md
 #     - Library:
@@ -89,7 +93,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist
   - pymdownx.tilde
-  - markdown_inline_graphviz
 
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
