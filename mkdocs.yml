@@ -43,6 +43,10 @@ pages:
               - Docs/ToolChain/Vesyla2/ProgrammingGuide.md
               - Docs/ToolChain/Vesyla2/Macro.md
               - Docs/ToolChain/Vesyla2/InstructionSet.md
+          - Manas:
+              - Docs/ToolChain/Manas/Tutorial.md
+              - Docs/ToolChain/Manas/ProgrammingGuide.md
+              - Docs/ToolChain/Manas/InstructionSet.md
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md
   #     - Library:
