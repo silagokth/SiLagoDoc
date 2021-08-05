@@ -25,6 +25,7 @@ pages:
       #         - Docs/Fabric/RISCV/Overview.md
       - Tool Chain:
           - Docs/ToolChain/Overview.md
+          - Docs/ToolChain/Style-guide.md
           - Vesyla:
               - Docs/ToolChain/Vesyla/Overview.md
               - Docs/ToolChain/Vesyla/Tutorial.md
