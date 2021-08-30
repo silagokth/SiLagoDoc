@@ -207,28 +207,27 @@ E  E  E  E  F  F  F  F  F  F  G  G  G  G  G  G  G  H  H  H  H  H  H  H  H  I  I
 I  I  I  I  J  K  L  M  N  O  P  Q  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
-Field                | Position | Width | Range/Value | Description
----------------------|----------|-------|-------------|-------------------------
-instr_code           | [80, 77] | 4     | b'1101      | SRAMR instruction code
-rw                   | [76]     | 1     | [0, 1]      | Read or Write
-init_addr            | [75, 69] | 7*    | [0, 127]    | Initial address
-init_delay           | [68, 65] | 4     | [0, 15]     | Initial delay
-l1_iter              | [64, 58] | 7*    | [0, 127]    | Level 1 iteration
-l1_step              | [57, 50] | 8*    | [-128, 127] | Level 1 step
-l1_delay             | [49, 44] | 6     | [0, 63]     | Level 1 delay
-l2_iter              | [43, 37] | 7*    | [0, 127]    | Level 2 iteration
-l2_step              | [36, 29] | 8*    | [-128, 127] | Level 2 step
-l2_delay             | [28, 23] | 6     | [0, 63]     | Level 2 delay
-init_addr_sd         | [22]     | 1     | [0, 1]      | Static or from RACCU
-l1_iter_sd           | [21]     | 1     | [0, 1]      | Static or from RACCU
-l2_iter_sd           | [20]     | 1     | [0, 1]      | Static or from RACCU
-init_delay_sd        | [19]     | 1     | [0, 1]      | Static or from RACCU
-l1_delay_sd          | [18]     | 1     | [0, 1]      | Static or from RACCU
-l2_delay_sd          | [17]     | 1     | [0, 1]      | Static or from RACCU
-l1_step_sd           | [16]     | 1     | [0, 1]      | Static or from RACCU
-l2_step_sd           | [15]     | 1     | [0, 1]      | Static or from RACCU
-unused               | [14, 0]  | 15    | 0           | Unused
+Field                | Position | Width         | Range/Value | Description
+---------------------|----------|---------------|-------------|-------------------------
+instr_code           | [80, 77] | 4             | b'1101      | SRAMR instruction code
+rw                   | [76]     | 1             | [0, 1]      | Read or Write
+init_addr            | [75, 69] | 7<sup>*</sup> | [0, 127]    | Initial address
+init_delay           | [68, 65] | 4             | [0, 15]     | Initial delay
+l1_iter              | [64, 58] | 7<sup>*</sup> | [0, 127]    | Level 1 iteration
+l1_step              | [57, 50] | 8<sup>*</sup> | [-128, 127] | Level 1 step
+l1_delay             | [49, 44] | 6             | [0, 63]     | Level 1 delay
+l2_iter              | [43, 37] | 7<sup>*</sup> | [0, 127]    | Level 2 iteration
+l2_step              | [36, 29] | 8<sup>*</sup> | [-128, 127] | Level 2 step
+l2_delay             | [28, 23] | 6             | [0, 63]     | Level 2 delay
+init_addr_sd         | [22]     | 1             | [0, 1]      | Static or from RACCU
+l1_iter_sd           | [21]     | 1             | [0, 1]      | Static or from RACCU
+l2_iter_sd           | [20]     | 1             | [0, 1]      | Static or from RACCU
+init_delay_sd        | [19]     | 1             | [0, 1]      | Static or from RACCU
+l1_delay_sd          | [18]     | 1             | [0, 1]      | Static or from RACCU
+l2_delay_sd          | [17]     | 1             | [0, 1]      | Static or from RACCU
+l1_step_sd           | [16]     | 1             | [0, 1]      | Static or from RACCU
+l2_step_sd           | [15]     | 1             | [0, 1]      | Static or from RACCU
+unused               | [14, 0]  | 15            | 0           | Unused
 
-
-\* The number of bits of the marked fields depeneds on the size of the SRAM. The current number are set according to a 128 row SRAM, each row is of 256 bits.
+<sup>*</sup> The number of bits of the marked fields depends on the size of the SRAM. The current number are set according to a 128 row SRAM, each row is of 256 bits.
 
