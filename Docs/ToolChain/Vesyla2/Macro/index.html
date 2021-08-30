@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla2/Macro/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.be71726b.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -942,7 +942,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;VAR_A&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>To write a comment, use <code>{# #}</code> to wrap the commented words.</p>
@@ -953,7 +953,7 @@
 <div class="highlight"><pre><span></span><code>int x = 2; {# This is a comment #};
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>Inja supports complex types (like array or object) to be wrapped in <code>{{ }}</code>.</p>
@@ -974,8 +974,8 @@ int y = {{VAR_B/one}};
 <span class="p">}</span>
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="admonition bug">
@@ -996,7 +996,7 @@ int y = {{VAR_B/one}};
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;VAR_A&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="admonition example">
@@ -1007,9 +1007,9 @@ int y = {{VAR_B/one}};
 {% endfor %}
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h3 id="pre-defined-functions">Pre-defined functions</h3>
@@ -1060,33 +1060,33 @@ Min of vec is {{ min(vec) }}.
 <span class="p">}</span>
 </code></pre></div>
 <p>The redered output would be:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Hello</span> <span class="n">World</span><span class="o">!</span>
-<span class="n">Hello</span> <span class="n">WORLD</span><span class="o">!</span>
-<span class="n">Hello</span> <span class="n">world</span><span class="o">!</span>
+<div class="highlight"><pre><span></span><code><span class="n">Hello</span><span class="w"> </span><span class="n">World</span><span class="o">!</span><span class="w"></span>
+<span class="n">Hello</span><span class="w"> </span><span class="n">WORLD</span><span class="o">!</span><span class="w"></span>
+<span class="n">Hello</span><span class="w"> </span><span class="n">world</span><span class="o">!</span><span class="w"></span>
 
-<span class="mi">1234</span>
+<span class="mi">1234</span><span class="w"></span>
 
-<span class="n">In</span> <span class="n">total</span> <span class="mi">3</span> <span class="n">guests</span><span class="p">.</span>
+<span class="n">In</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">guests</span><span class="p">.</span><span class="w"></span>
 
-<span class="n">Tom</span> <span class="n">was</span> <span class="n">first</span><span class="p">.</span>
-<span class="n">John</span> <span class="n">was</span> <span class="n">last</span><span class="p">.</span>
+<span class="n">Tom</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="w"></span>
+<span class="n">John</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">last</span><span class="p">.</span><span class="w"></span>
 
-<span class="n">Guest</span> <span class="n">list</span> <span class="n">in</span> <span class="n">alphabetic</span> <span class="nl">order</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span><span class="s">&quot;Mike&quot;</span><span class="p">,</span><span class="s">&quot;Tom&quot;</span><span class="p">].</span>
+<span class="n">Guest</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">alphabetic</span><span class="w"> </span><span class="nl">order</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span><span class="s">&quot;Mike&quot;</span><span class="p">,</span><span class="s">&quot;Tom&quot;</span><span class="p">].</span><span class="w"></span>
 
-<span class="mf">3.0</span>
-<span class="mf">3.142</span>
+<span class="mf">3.0</span><span class="w"></span>
+<span class="mf">3.142</span><span class="w"></span>
 
 
-<span class="mi">42</span> <span class="n">is</span> <span class="n">even</span><span class="o">!</span> 
-<span class="mi">42</span> <span class="n">is</span> <span class="n">divisible</span> <span class="n">by</span> <span class="mi">7</span><span class="o">!</span> 
+<span class="mi">42</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">even</span><span class="o">!</span><span class="w"> </span>
+<span class="mi">42</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">divisible</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">7</span><span class="o">!</span><span class="w"> </span>
 
-<span class="n">Max</span> <span class="n">of</span> <span class="n">vec</span> <span class="n">is</span> <span class="mf">3.</span>
-<span class="n">Min</span> <span class="n">of</span> <span class="n">vec</span> <span class="n">is</span> <span class="mf">1.</span>
+<span class="n">Max</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">3.</span><span class="w"></span>
+<span class="n">Min</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">vec</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mf">1.</span><span class="w"></span>
 
-<span class="s">&quot;m&quot;</span> <span class="n">can</span> <span class="n">be</span> <span class="n">converted</span> <span class="n">to</span> <span class="n">number</span> <span class="mi">2</span>
-<span class="s">&quot;n&quot;</span> <span class="n">can</span> <span class="n">be</span> <span class="n">converted</span> <span class="n">to</span> <span class="n">number</span> <span class="mf">1.85</span>
+<span class="s">&quot;m&quot;</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">converted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="s">&quot;n&quot;</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">converted</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mf">1.85</span><span class="w"></span>
 
-<span class="n">node1</span><span class="o">/</span><span class="n">node2</span> <span class="n">exists</span><span class="o">!</span> <span class="n">The</span> <span class="n">value</span> <span class="n">is</span> <span class="mi">1</span>
+<span class="n">node1</span><span class="o">/</span><span class="n">node2</span><span class="w"> </span><span class="n">exists</span><span class="o">!</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>There are also several pre-defined functions that are defined by VeExpand program. They are:</p>
@@ -1167,10 +1167,10 @@ Min of vec is {{ min(vec) }}.
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56a63758.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

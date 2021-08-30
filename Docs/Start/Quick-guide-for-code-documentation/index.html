@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/Start/Quick-guide-for-code-documentation/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.be71726b.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -810,7 +810,7 @@ we make some guidelines for commenting the source code.</p>
 the example below.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/*!</span>
 <span class="cm"> * This is a block comment</span>
-<span class="cm"> */</span>
+<span class="cm"> */</span><span class="w"></span>
 </code></pre></div>
 <p>Single line comment is also allowed and should using style like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">//! This is a single line comment</span>
@@ -832,7 +832,7 @@ be included inside the comment block.</p>
 <span class="cm"> *   2017-01-03    author        created</span>
 <span class="cm"> *   2017-02-05    user1         add feature of xxx</span>
 <span class="cm"> *   2017-02-07    user2         fix bug xxx</span>
-<span class="cm"> */</span>
+<span class="cm"> */</span><span class="w"></span>
 </code></pre></div>
 <h3 id="comment-a-class">Comment a class</h3>
 <p>Every class should be documented right before its defination. Description of the
@@ -840,31 +840,31 @@ function of the class is very important.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/*!</span>
 <span class="cm"> * Description of class A</span>
-<span class="cm"> */</span>
- <span class="k">class</span> <span class="nc">A</span> <span class="o">:</span> <span class="k">public</span> <span class="n">B</span><span class="p">{</span>
-   <span class="p">....</span>
- <span class="p">};</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="w"> </span><span class="k">class</span> <span class="nc">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">....</span><span class="w"></span>
+<span class="w"> </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <h3 id="comment-a-methodfunction">Comment a method/function</h3>
 <p>Method function should be documented right before its declaration. The description,
 parameters, return type should be included inside the comment block.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code> <span class="k">class</span> <span class="nc">A</span> <span class="o">:</span> <span class="k">public</span> <span class="n">B</span><span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-   <span class="cm">/*!</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">class</span> <span class="nc">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">B</span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">   </span><span class="cm">/*!</span>
 <span class="cm">    * Constructor</span>
-<span class="cm">    */</span>
-   <span class="n">A</span><span class="p">();</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">   </span><span class="n">A</span><span class="p">();</span><span class="w"></span>
 
-   <span class="cm">/*!</span>
+<span class="w">   </span><span class="cm">/*!</span>
 <span class="cm">    * Some other function</span>
 <span class="cm">    * </span>
 <span class="cm">    * \param p0 some input</span>
 <span class="cm">    * \param p1 the second input</span>
 <span class="cm">    * \return the calculate result</span>
-<span class="cm">    */</span>
-   <span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">p0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">p1</span><span class="p">);</span>
- <span class="p">};</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">p0</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p1</span><span class="p">);</span><span class="w"></span>
+<span class="w"> </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
                 
               
@@ -901,10 +901,10 @@ parameters, return type should be included inside the comment block.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56a63758.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Style-guide/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.be71726b.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -884,9 +884,9 @@
 <p>Each class <code>Foo</code> is defined by a header file <code>Foo.hpp</code> and a source file <code>Foo.cpp</code>. Class name will uses capital letters to disdinguish each words. For example, <code>FooBar</code> is a valid class name.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">class</span> <span class="nc">FooBar</span> <span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span> <span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>Each header file will have a gardian macro. The gardian marcro will be the logic path of the header file. The macro should be in upper case letters and seperated by underscore symbol (<code>_</code>). It should also begin and end with double underscore symbols (<code>__</code>).</p>
@@ -894,7 +894,7 @@
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#ifndef __PRIMARY_NAMESPACE_SECONDARY_NAMESPACE_FOO_BAR_HPP__</span>
 <span class="cp">#define __PRIMARY_NAMESPACE_SECONDARY_NAMESPACE_FOO_BAR_HPP__</span>
-<span class="p">...</span>
+<span class="p">...</span><span class="w"></span>
 <span class="cp">#endif </span><span class="c1">// __PRIMARY_NAMESPACE_SECONDARY_NAMESPACE_FOO_BAR_HPP__</span>
 </code></pre></div>
 </div>
@@ -905,11 +905,11 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="nn">foo</span><span class="p">{</span>
-<span class="k">namespace</span> <span class="nn">bar</span><span class="p">{</span>
-<span class="p">...</span>
-<span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">foo</span><span class="p">{</span><span class="w"></span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">bar</span><span class="p">{</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>Macro names in general should be in all upper case letters and seperated by underscore symbol.</p>
@@ -922,35 +922,35 @@
 <p>Function names in general should be in all lower case letters and seperated by underscore symbol.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">FooBar::foo_bar</span><span class="p">(){</span>
-    <span class="p">...</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">FooBar::foo_bar</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>Variable names should be in all lower case letters and seperated by underscore symbol. If the variable is a private or protected variable in a class, it should also start with an underscore symbol. Public variables should not start with underscore symbol. If the variable is the input argument of a function, it should also end with an underscore symbol.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">class</span> <span class="nc">FooBar</span> <span class="p">{</span>
-    <span class="k">private</span><span class="o">:</span>
-        <span class="kt">int</span> <span class="n">_var_1</span><span class="p">;</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="kt">float</span> <span class="n">var_2</span><span class="p">;</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="kt">void</span> <span class="n">func_1</span><span class="p">(</span><span class="kt">int</span> <span class="n">arg_1_</span><span class="p">,</span> <span class="kt">int</span> <span class="n">arg_2_</span><span class="p">);</span>
-    <span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span> <span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">_var_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">var_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">func_1</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arg_1_</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">arg_2_</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 </div>
 <p>There is no rule to name temporary variables. As long as the variable name does not confuse readers, it can be accepted. However, there are some tradition of naming temporary variables one should follow. For example, <code>i</code>, <code>j</code>, <code>k</code> are usually reserved for loop iterators.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>    <span class="kt">int</span> <span class="nf">func_1</span><span class="p">(){</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-            <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-            <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">func_1</span><span class="p">(){</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">+</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
                 
@@ -1023,10 +1023,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56a63758.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

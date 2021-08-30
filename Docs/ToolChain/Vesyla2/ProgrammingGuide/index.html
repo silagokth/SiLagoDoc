@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla2/ProgrammingGuide/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.be71726b.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -947,9 +947,9 @@
                 <h1 id="programming-guide">Programming Guide</h1>
 <h2 id="top-level-function-declaration">Top-level Function Declaration</h2>
 <p>The top-level function is always defined as following:
-<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">model_l2</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">...</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <p>The function name <code>model_l2</code> means this is the 2<sup>nd</sup> level of computation model. The level 1 model is a free-style C++ model that defines the desired computation behavior. The level 2 model is a untimed C model that directly reflects the hardware mapping. The level 3 model is cycle-accurate model defined in either HDL or systemC.</p>
 <p>The compiler creates cycle-accurate configuration that can be co-simulated with level 3 model. The input of the compiler is level 2 model.</p>
@@ -982,21 +982,21 @@ REGISTERS inside DPU:
 <h2 id="pre-defined-primitive-functions">Pre-defined Primitive Functions</h2>
 <h3 id="data-transfer">Data Transfer</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// SRAM -&gt; VWR</span>
-<span class="kt">void</span> <span class="nf">read_sram_to_vwr</span><span class="p">(</span><span class="n">SramVector</span> <span class="n">sram_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sram_addr</span><span class="p">,</span> <span class="n">VwrVector</span><span class="o">&amp;</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shuffle_mode</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">read_sram_to_vwr</span><span class="p">(</span><span class="n">SramVector</span><span class="w"> </span><span class="n">sram_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sram_addr</span><span class="p">,</span><span class="w"> </span><span class="n">VwrVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">shuffle_mode</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// VWR -&gt; SRAM</span>
-<span class="kt">void</span> <span class="nf">write_sram_from_vwr</span><span class="p">(</span><span class="n">SramVector</span><span class="o">&amp;</span> <span class="n">sram_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sram_addr</span><span class="p">,</span> <span class="n">VwrVector</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">shuffle_mode</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">write_sram_from_vwr</span><span class="p">(</span><span class="n">SramVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sram_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sram_addr</span><span class="p">,</span><span class="w"> </span><span class="n">VwrVector</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">shuffle_mode</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// Read VWR content in parellel</span>
-<span class="kt">void</span> <span class="nf">read_vwr</span><span class="p">(</span><span class="n">VwrVector</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="p">...);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">read_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
 <span class="c1">// Write VWR content in parellel</span>
-<span class="kt">void</span> <span class="nf">write_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="o">&amp;</span> <span class="n">vwr_name</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="p">...);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">write_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="computation">Computation</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// DPU operation r0+r1-&gt;r2</span>
-<span class="kt">void</span> <span class="nf">dpu_add</span><span class="p">(</span><span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dpu_add</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// DPU operation r0*r1-&gt;r2</span>
-<span class="kt">void</span> <span class="nf">dpu_mul</span><span class="p">(</span><span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span> <span class="n">r1</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">dpu_mul</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// Shuffle in DPU: shuffle(r0) -&gt; r1</span>
-<span class="kt">void</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">RegVector</span> <span class="n">r0</span><span class="p">,</span> <span class="n">RegVector</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">shuffle</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r1</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h2 id="example">Example</h2>
 <p>Here we show a program that implement a simple vector addition. Vector <code>A</code>, <code>B</code> and <code>C</code> are both 16-word vector. Each word is 16-bit. They vector addition is described by equation: <code>C = A + B</code>.</p>
@@ -1032,60 +1032,60 @@ C[08], C[09], ..., C[15],
 <div class="highlight"><pre><span></span><code>[[16b]]
 </code></pre></div></p>
 <h3 id="algorithm">Algorithm</h3>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">model_l2</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="c1">// Read A and B vector from SRAM to VWR</span>
-        <span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">__vwr_vector_0__</span><span class="p">);</span>
-        <span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">__vwr_vector_1__</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Read A and B vector from SRAM to VWR</span>
+<span class="w">        </span><span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_0__</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_1__</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Create temp variables</span>
-        <span class="n">RegVector</span> <span class="n">_x0</span><span class="p">,</span> <span class="n">_x1</span><span class="p">,</span> <span class="n">_x2</span><span class="p">,</span> <span class="n">_x3</span><span class="p">,</span> <span class="n">_x4</span><span class="p">,</span> <span class="n">_x5</span><span class="p">,</span> <span class="n">_x6</span><span class="p">,</span> <span class="n">_x7</span><span class="p">;</span>
-        <span class="n">RegVector</span> <span class="n">_y0</span><span class="p">,</span> <span class="n">_y1</span><span class="p">,</span> <span class="n">_y2</span><span class="p">,</span> <span class="n">_y3</span><span class="p">,</span> <span class="n">_y4</span><span class="p">,</span> <span class="n">_y5</span><span class="p">,</span> <span class="n">_y6</span><span class="p">,</span> <span class="n">_y7</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Create temp variables</span>
+<span class="w">        </span><span class="n">RegVector</span><span class="w"> </span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">RegVector</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">;</span><span class="w"></span>
 
-        <span class="c1">// Read A in VWR0 to R1 registers</span>
-        <span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span> <span class="n">_x0</span><span class="p">,</span> <span class="n">_x1</span><span class="p">,</span> <span class="n">_x2</span><span class="p">,</span> <span class="n">_x3</span><span class="p">,</span> <span class="n">_x4</span><span class="p">,</span> 
-            <span class="n">_x5</span><span class="p">,</span> <span class="n">_x6</span><span class="p">,</span> <span class="n">_x7</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Read A in VWR0 to R1 registers</span>
+<span class="w">        </span><span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span> <span class="n">_x0</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span> <span class="n">_x1</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span> <span class="n">_x2</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span> <span class="n">_x3</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span> <span class="n">_x4</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span> <span class="n">_x5</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span> <span class="n">_x6</span><span class="p">);</span>
-        <span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span> <span class="n">_x7</span><span class="p">);</span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Read B in VWR1 to temp variables</span>
-        <span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_1__</span><span class="p">,</span> <span class="n">_y0</span><span class="p">,</span> <span class="n">_y1</span><span class="p">,</span> <span class="n">_y2</span><span class="p">,</span> <span class="n">_y3</span><span class="p">,</span> <span class="n">_y4</span><span class="p">,</span> 
-            <span class="n">_y5</span><span class="p">,</span> <span class="n">_y6</span><span class="p">,</span> <span class="n">_y7</span><span class="p">);</span> 
+<span class="w">        </span><span class="c1">// Read B in VWR1 to temp variables</span>
+<span class="w">        </span><span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"> </span>
 
-        <span class="c1">// Preform Addition</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span> <span class="n">_x0</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span> <span class="n">_x1</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span> <span class="n">_x2</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span> <span class="n">_x3</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span> <span class="n">_x4</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span> <span class="n">_x5</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span> <span class="n">_x6</span><span class="p">);</span>
-        <span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span> <span class="n">_x7</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Preform Addition</span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x0</span><span class="p">,</span> <span class="n">_y0</span><span class="p">,</span> <span class="n">_y0</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x1</span><span class="p">,</span> <span class="n">_y1</span><span class="p">,</span> <span class="n">_y1</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x2</span><span class="p">,</span> <span class="n">_y2</span><span class="p">,</span> <span class="n">_y2</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x3</span><span class="p">,</span> <span class="n">_y3</span><span class="p">,</span> <span class="n">_y3</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x4</span><span class="p">,</span> <span class="n">_y4</span><span class="p">,</span> <span class="n">_y4</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x5</span><span class="p">,</span> <span class="n">_y5</span><span class="p">,</span> <span class="n">_y5</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x6</span><span class="p">,</span> <span class="n">_y6</span><span class="p">,</span> <span class="n">_y6</span><span class="p">);</span>
-        <span class="n">dpu_add</span><span class="p">(</span><span class="n">_x7</span><span class="p">,</span> <span class="n">_y7</span><span class="p">,</span> <span class="n">_y7</span><span class="p">);</span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x7</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Write back the result from temp variables to VWR0, this is C vector</span>
-        <span class="n">write_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span> <span class="n">_y0</span><span class="p">,</span> <span class="n">_y1</span><span class="p">,</span> <span class="n">_y2</span><span class="p">,</span> <span class="n">_y3</span><span class="p">,</span> <span class="n">_y4</span><span class="p">,</span>
-            <span class="n">_y5</span><span class="p">,</span> <span class="n">_y6</span><span class="p">,</span> <span class="n">_y7</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Write back the result from temp variables to VWR0, this is C vector</span>
+<span class="w">        </span><span class="n">write_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"></span>
 
-        <span class="c1">// Write back C vector to SRAM</span>
-        <span class="n">write_sram_from_vwr</span><span class="p">(</span><span class="n">___sram_vector_0__</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span> <span class="n">__vwr_vector_0__</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="c1">// Write back C vector to SRAM</span>
+<span class="w">        </span><span class="n">write_sram_from_vwr</span><span class="p">(</span><span class="n">___sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_0__</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
                 
               
@@ -1157,10 +1157,10 @@ C[08], C[09], ..., C[15],
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56a63758.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
