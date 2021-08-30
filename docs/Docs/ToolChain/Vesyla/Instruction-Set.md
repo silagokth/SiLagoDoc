@@ -230,5 +230,5 @@ l2_step_sd           | [15]     | 1     | [0, 1]      | Static or from RACCU
 unused               | [14, 0]  | 15    | 0           | Unused
 
 
-* The number of bits of the marked fields depeneds on the size of the SRAM. The current number are set according to a 128 row SRAM, each row is of 256 bits.
+\* The number of bits of the marked fields depeneds on the size of the SRAM. The current number are set according to a 128 row SRAM, each row is of 256 bits.
 
