@@ -6,7 +6,7 @@
 
 #### Instruction Format
 
-```NOP CYCLES```
+```NOP```
 
 #### Primitive Function Format
 
@@ -14,7 +14,7 @@
 
 #### Description
 
-`NOP` instruciton is used for delay based synchronization. It cannot be directly used in untimed C++ input program. The `CYCLES` field specifies how many cycles it will dealy.
+`NOP` instruciton is used for delay based synchronization. It cannot be directly used in untimed C++ input program. Each `NOP` has a 1-cycle delay.
 
 ## Data Transfer Instructions
 
@@ -54,11 +54,11 @@
 
 #### Primitive Function Format
 
-```void VMV(VwrVector VWR, RegVector REG, int ADDR);```
+```void VMV(VwrVector VWR, RegVector REG, int SECTION, int OFFSET);```
 
 #### Description
 
-`VMV` shuffles move the data from the VWR inside VFU **R_IN**.
+`VMV` move the data from the VWR inside VFU **R_IN**. The `REG` has to be **R_IN**. The `SECTION` is the area that current VFU can write to. The `OFFSET` is the address inside the section.
 
 ## Data Rearrangement Instruction
 
@@ -80,15 +80,15 @@
 
 #### Instruction Format
 
-```RMV VWR_SEL ADDR```
+```RMV VWR ADDR```
 
 #### Primitive Function Format
 
-```void RMV(int VWR_SEL, int ADDR);```
+```void RMV(VwrVector VWR, RegVector REG, int SECTION, int OFFSET);```
 
 #### Description
 
-`RMV` instruction write the **R_OUT** register to VWR.
+`RMV` instruction write the **R_OUT** register to VWR. The `REG` has to be the **R_OUT**. The `SECTION` is the area that current VFU can write to. The `OFFSET` is the address inside the section.
 
 ### PACK
 
@@ -188,3 +188,74 @@ For single input FU operations, `INP_IN` decides between **R_IN** and VWR as inp
     `FU_MODE=0010` would imply that **R_IN** has 32x16 inputs and the output of `SRC_MUX [0:31]x8` are used. In the next step, **R_IN** should be loaded and then `FU_MODE=0011`.
 
     In case `FU_MODE=1xxx` or `FU_MODE=xx1x`, only half of the internal compute blocks would be used and these outputs would be written to appropriate register.
+
+### CAL
+
+#### Instruction Format
+
+```CAL OP R0 R1 R2 RI1 RI2```
+
+#### Primitive Function Format
+
+N/A
+
+#### Description
+
+`CAL` performs the scalar operation on registers or immediate integer values: `R0 <- OP(R1, R2)`
+
+The `OP` defines the supported operations:
+
+* `0000`: ADD
+* `0001`: SUB
+* `0010`: MUL
+* `0011`: DIV
+* `0100`: MOD
+* `0101`: Logic AND
+* `0110`: Logic OR
+* `0111`: Logic NOT
+* `1000`: Bit AND
+* `1001`: Bit OR
+* `1010`: Bit NOT
+* `1011`: Bit XOR
+
+The `R0` is the return register address. `R1` is the first operand registers if `RI1` is `0`, otherwise, the `R1` contains a immediate value. The same rule applies to `R2` and `RI2`.
+
+## Control Instructions
+
+### BRN
+
+#### Instruction Format
+
+```BRN MODE SRC NPC```
+
+#### Primitive Function Format
+
+N/A
+
+#### Description
+
+`BRN` instruction modifies the PC counter to implement loops and branches.
+
+The brancher recieves 4-bit flag:
+
+* Z (Zero) flag: This flag is set when the result of an instruction has a zero value or when a comparison of two data returns an equal result.
+* N (Negative) flag: This flag is set when the result of an instruction has a negative value.
+* C (Carry) flag: This flag is for unsigned data processing—for example, in add (ADD) it is set when an overflow occurs; in subtract (SUB) it is set when a borrow did not occur.
+* V (Overflow) flag: This flag is for signed data processing; for example, in an add (ADD), when two positive values added together produce a negative value, or when two negative values added together produce a positive value.
+
+The `MODE` defines how to inteprete the above flag. Through the `MODE` field, it can implement the following condition:
+
+* `000`: Uncondition
+* `001`: Great (signed)
+* `010`: Great and Equal (signed)
+* `011`: Less (signed)
+* `100`: Less and Equal (signed)
+* `101`: Equal / Is Zero
+* `110`: Not Equal / Is not Zero
+
+The `SRC` defines where should be the source that generate the flag. It can be:
+
+* `0`: Scalar ALU
+* `1`: VFU0
+
+The `NPC` is the next PC if the branch happens. It's a relative address.
