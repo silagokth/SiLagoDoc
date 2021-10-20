@@ -119,14 +119,23 @@
 
 #### Primitive Function Format
 
-```void PERM(int OUR_MUX_EN, int RRR, VwrVector VWR, int ADDR);```
+```void PERM(int MODE, int STAGE, RegVector V1, RegVector V2, RegVector V_OUT, VwrVector VWR, int SECTION, int OFFSET);```
 
 #### Description
 
-`PERM` instruction is used to permute subword at the level of channels. If `OUT_MUX_EN=1`, then (0:63) are written to **R_OUT**.  If `RRR=11`, the top output (64:127) of the shuffler is written to `VWR[VWR_SEL][ADDR]`. If `RRR=0x`, then **R_OUT** is written to the VWR.
+`PERM` instruction is used to permute subword at the level of channels. If `OUT_MUX_EN=1`, then (0:63) are written to **R_OUT**.  If `RRR=11`, the top output (64:127) of the shuffler is written to `VWR[VWR_SEL][ADDR]`. If `RRR=0x`, then **R_OUT** is written to the VWR. If `OUT_MUX_EN=0`, then (0:63) is lost. If `RRR=0x`, then (64:127) are lost.
 
-!!! WARNING
-    If `OUT_MUX_EN=0`, then (0:63) is lost. If `RRR=0x`, then (64:127) are lost.
+In the primitive function format, the field `MODE` specifies the storage mode:
+
+* MODE=0: Low address half section goes to V_OUT, high address half section goes to VWR.
+* MODE=1: Low address half section goes to V_OUT, high address half section is lost.
+* MODE=2: Low address half section is lost, high address half section goes to VWR.
+
+The `STAGE` specify how many times it will rotate. If it's positive, it rotate to right hand side, otherwise, left hand side.
+
+Register `V1` and `V2` must bind to the VFU internal register 1 and 2. `V_OUT` must bind to output register unless `MODE=2`, in such case, the `V_OUT` can be a dummy variable without binding information.
+
+The `SECTION` and `OFFSET` together specifify the address in the VWR. The `SECTION` is the VWR section corresponding to the VFU and the `OFFSET` is the address inside the VWR section.
 
 ## Computaion Instruction
 

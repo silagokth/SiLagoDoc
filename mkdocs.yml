@@ -43,6 +43,7 @@ pages:
               - Docs/ToolChain/Vesyla2/Tutorial.md
               - Docs/ToolChain/Vesyla2/ProgrammingGuide.md
               - Docs/ToolChain/Vesyla2/Macro.md
+              - Docs/ToolChain/Vesyla2/PrimitiveFunction.md
               - Docs/ToolChain/Vesyla2/InstructionSet.md
           - Manas:
               - Docs/ToolChain/Manas/Tutorial.md
