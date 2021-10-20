@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla2/InstructionSet/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -635,6 +635,20 @@
     <li class="md-nav__item">
       <a href="../Macro/" class="md-nav__link">
         Macro Expansion Preprocess
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PrimitiveFunction/" class="md-nav__link">
+        Primitive Function
       </a>
     </li>
   
@@ -1830,13 +1844,18 @@
 <h4 id="instruction-format_7">Instruction Format</h4>
 <p><code>PERM OUT_MUX_EN RRR VWR_SEL ADDR</code></p>
 <h4 id="primitive-function-format_7">Primitive Function Format</h4>
-<p><code>void PERM(int OUR_MUX_EN, int RRR, VwrVector VWR, int ADDR);</code></p>
+<p><code>void PERM(int MODE, int STAGE, RegVector V1, RegVector V2, RegVector V_OUT, VwrVector VWR, int SECTION, int OFFSET);</code></p>
 <h4 id="description_7">Description</h4>
-<p><code>PERM</code> instruction is used to permute subword at the level of channels. If <code>OUT_MUX_EN=1</code>, then (0:63) are written to <strong>R_OUT</strong>.  If <code>RRR=11</code>, the top output (64:127) of the shuffler is written to <code>VWR[VWR_SEL][ADDR]</code>. If <code>RRR=0x</code>, then <strong>R_OUT</strong> is written to the VWR.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If <code>OUT_MUX_EN=0</code>, then (0:63) is lost. If <code>RRR=0x</code>, then (64:127) are lost.</p>
-</div>
+<p><code>PERM</code> instruction is used to permute subword at the level of channels. If <code>OUT_MUX_EN=1</code>, then (0:63) are written to <strong>R_OUT</strong>.  If <code>RRR=11</code>, the top output (64:127) of the shuffler is written to <code>VWR[VWR_SEL][ADDR]</code>. If <code>RRR=0x</code>, then <strong>R_OUT</strong> is written to the VWR. If <code>OUT_MUX_EN=0</code>, then (0:63) is lost. If <code>RRR=0x</code>, then (64:127) are lost.</p>
+<p>In the primitive function format, the field <code>MODE</code> specifies the storage mode:</p>
+<ul>
+<li>MODE=0: Low address half section goes to V_OUT, high address half section goes to VWR.</li>
+<li>MODE=1: Low address half section goes to V_OUT, high address half section is lost.</li>
+<li>MODE=2: Low address half section is lost, high address half section goes to VWR.</li>
+</ul>
+<p>The <code>STAGE</code> specify how many times it will rotate. If it's positive, it rotate to right hand side, otherwise, left hand side.</p>
+<p>Register <code>V1</code> and <code>V2</code> must bind to the VFU internal register 1 and 2. <code>V_OUT</code> must bind to output register unless <code>MODE=2</code>, in such case, the <code>V_OUT</code> can be a dummy variable without binding information.</p>
+<p>The <code>SECTION</code> and <code>OFFSET</code> together specifify the address in the VWR. The <code>SECTION</code> is the VWR section corresponding to the VFU and the <code>OFFSET</code> is the address inside the VWR section.</p>
 <h2 id="computaion-instruction">Computaion Instruction</h2>
 <h3 id="vfux">VFUX</h3>
 <h4 id="instruction-format_8">Instruction Format</h4>
@@ -1958,7 +1977,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../Macro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Macro Expansion Preprocess" rel="prev">
+        <a href="../PrimitiveFunction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Primitive Function" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1967,7 +1986,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Macro Expansion Preprocess
+              Primitive Function
             </div>
           </div>
         </a>
@@ -2014,7 +2033,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
