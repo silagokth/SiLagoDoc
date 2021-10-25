@@ -1085,10 +1085,6 @@ int y = {{VAR_B/one}};
 <span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="admonition bug">
-<p class="admonition-title">Bug</p>
-<p>The template <code>int x = {{VAR_A/1}};</code> in above example is not working. It seems a bug of inja library.</p>
-</div>
 <h3 id="commands">Commands</h3>
 <p>Several commands are supported by inja to implement control flow. They include: branches and loops. The commands are wrapped in <code>{% %}</code>.</p>
 <div class="admonition example">
@@ -1196,14 +1192,6 @@ Min of vec is {{ min(vec) }}.
 <span class="n">node1</span><span class="o">/</span><span class="n">node2</span><span class="w"> </span><span class="n">exists</span><span class="o">!</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </code></pre></div>
 </div>
-<p>There are also several pre-defined functions that are defined by VeExpand program. They are:</p>
-<ul>
-<li>add(a, b)</li>
-<li>sub(a, b)</li>
-<li>mul(a, b)</li>
-<li>div(a, b)</li>
-<li>pow(a, b)</li>
-</ul>
                 
               
               

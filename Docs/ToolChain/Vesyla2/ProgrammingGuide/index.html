@@ -666,29 +666,23 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pre-defined-primitive-functions" class="md-nav__link">
     Pre-defined Primitive Functions
   </a>
   
-    <nav class="md-nav" aria-label="Pre-defined Primitive Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-transfer" class="md-nav__link">
-    Data Transfer
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#computation" class="md-nav__link">
-    Computation
+      
+        <li class="md-nav__item">
+  <a href="#temporary-variables" class="md-nav__link">
+    Temporary Variables
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -974,29 +968,23 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pre-defined-primitive-functions" class="md-nav__link">
     Pre-defined Primitive Functions
   </a>
   
-    <nav class="md-nav" aria-label="Pre-defined Primitive Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#data-transfer" class="md-nav__link">
-    Data Transfer
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#computation" class="md-nav__link">
-    Computation
+      
+        <li class="md-nav__item">
+  <a href="#temporary-variables" class="md-nav__link">
+    Temporary Variables
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1054,57 +1042,36 @@
                 <h1 id="programming-guide">Programming Guide</h1>
 <h2 id="top-level-function-declaration">Top-level Function Declaration</h2>
 <p>The top-level function is always defined as following:
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="p">...</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<p>The function name <code>model_l2</code> means this is the 2<sup>nd</sup> level of computation model. The level 1 model is a free-style C++ model that defines the desired computation behavior. The level 2 model is a untimed C model that directly reflects the hardware mapping. The level 3 model is cycle-accurate model defined in either HDL or systemC.</p>
-<p>The compiler creates cycle-accurate configuration that can be co-simulated with level 3 model. The input of the compiler is level 2 model.</p>
+<p>The function name <code>model_l1</code> means this is the level-1 of computation model. The level-0 model is a free-style C++ model that defines the desired computation behavior. The level-1 model is a untimed C model that directly reflects the hardware mapping. The level-2 model is cycle-accurate model defined in either HDL or systemC.</p>
+<p>The compiler creates cycle-accurate configuration that can be co-simulated with level-2 model. The input of the compiler is level-1 model.</p>
 <h2 id="global-variables">Global Variables</h2>
-<p>The global variables model the SRAM, the VWRs and the internal registers inside each DPU. Once the architecture is defined, these global variables is also defined. The global variables are:</p>
+<p>The global variables model the SRAM. Once the architecture is defined, these global variables is also defined. The global variables are:</p>
 <div class="highlight"><pre><span></span><code>SRAM used as I/O:
   __sram_vector_0__
-
-VWRs:
-  __vwr_vector_0__
-  __vwr_vector_1__
-  __vwr_vector_2__
-  ...
-
-REGISTERS inside DPU:
-  __reg_vector_r1_0__
-  __reg_vector_r2_0__
-  __reg_vector_r3_0__
-  __reg_vector_r4_0__
-  __reg_vector_r1_1__
-  __reg_vector_r2_2__
-  __reg_vector_r3_3__
-  __reg_vector_r4_4__
+  __sram_vector_1__
   ...
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The idea of defining VWRs and Registers as global variables might not be a good idea. It could be replaced by binding pragma associated with temporary variable declaration.</p>
-</div>
+<h2 id="macros">Macros</h2>
+<p>You can use macros. They macros are support through inja (a C++ binding for Jinja). Read more about macros in the <a href="../Macro/">Macro Expansion Process</a> section.</p>
 <h2 id="pre-defined-primitive-functions">Pre-defined Primitive Functions</h2>
-<h3 id="data-transfer">Data Transfer</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// SRAM -&gt; VWR</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">read_sram_to_vwr</span><span class="p">(</span><span class="n">SramVector</span><span class="w"> </span><span class="n">sram_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sram_addr</span><span class="p">,</span><span class="w"> </span><span class="n">VwrVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">shuffle_mode</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// VWR -&gt; SRAM</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">write_sram_from_vwr</span><span class="p">(</span><span class="n">SramVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sram_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sram_addr</span><span class="p">,</span><span class="w"> </span><span class="n">VwrVector</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">shuffle_mode</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Read VWR content in parellel</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">read_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
-<span class="c1">// Write VWR content in parellel</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">write_vwr</span><span class="p">(</span><span class="n">VwrVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vwr_name</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
-</code></pre></div>
-<h3 id="computation">Computation</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// DPU operation r0+r1-&gt;r2</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">dpu_add</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// DPU operation r0*r1-&gt;r2</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">dpu_mul</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r1</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r2</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Shuffle in DPU: shuffle(r0) -&gt; r1</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">shuffle</span><span class="p">(</span><span class="n">RegVector</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">RegVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r1</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
+<p>There are many pre-defined primitive functions that directly reflect the hardware implementation. They are defined in <a href="../PrimitiveFunction/">Primitive Function</a> section. You should use those primitive functions to move data, rearrange words and perform computation.</p>
+<h2 id="temporary-variables">Temporary Variables</h2>
+<p>All temporary variables, except for address variables, need to be bind to some actual storage device. The storage location can either be VWR or internal registers in VFU. The binding information is indicated by binding pragma.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Binding a variable named <code>A</code> to <code>VWR_0</code>.
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma bind vwr_0</span>
+<span class="n">VwrVector</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+<p>Binding a variable named <code>r</code> to internal register <code>R_0</code>(<code>R_IN</code>) of <code>VFU1</code>.
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma bind r_1_0</span>
+<span class="n">VwrVector</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></p>
+</div>
 <h2 id="example">Example</h2>
 <p>Here we show a program that implement a simple vector addition. Vector <code>A</code>, <code>B</code> and <code>C</code> are both 16-word vector. Each word is 16-bit. They vector addition is described by equation: <code>C = A + B</code>.</p>
 <h3 id="sram-organization">SRAM Organization</h3>
@@ -1118,79 +1085,61 @@ C[08], C[09], ..., C[15],
 <h3 id="architecture-definiation">Architecture Definiation</h3>
 <div class="highlight"><pre><span></span><code>#define ARCH_SRAM_NUM 1
 #define ARCH_VWR_NUM 2
-#define ARCH_DPU_NUM 8
+#define ARCH_VFU_NUM 2
 
 #define ARCH_SRAM_CHUNK_SIZE 128
-#define ARCH_VWR_CHUNK_SIZE 16
+#define ARCH_VWR_CHUNK_SIZE 32
 #define ARCH_REG_CHUNK_SIZE 16
 
 #define ARCH_SRAM_VECTOR_SIZE 6
-#define ARCH_VWR_VECTOR_SIZE 8
-#define ARCH_REG_VECTOR_SIZE 1
+#define ARCH_VWR_VECTOR_SIZE 4
+#define ARCH_REG_VECTOR_SIZE 2
 </code></pre></div>
 <p>This defination defines the following architecture:</p>
 <p>SRAM:
 <div class="highlight"><pre><span></span><code>[[128b], [128b], [128b], [128b], [128b], [128b]]
 </code></pre></div></p>
 <p>VWR:
-<div class="highlight"><pre><span></span><code>[[16b], [16b], [16b], [16b], [16b], [16b], [16b], [16b]]
+<div class="highlight"><pre><span></span><code>[[32b], [32b], [32b], [32b]]
 </code></pre></div></p>
 <p>Registers inside DPU:
-<div class="highlight"><pre><span></span><code>[[16b]]
+<div class="highlight"><pre><span></span><code>[[16b], [16b]]
 </code></pre></div></p>
 <h3 id="algorithm">Algorithm</h3>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma bind vwr_0</span>
+<span class="w">    </span><span class="n">VwrVector</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma bind vwr_1</span>
+<span class="w">    </span><span class="n">VwrVector</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma bind</span>
+
+<span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="n">ARCH_VFU_NUM</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma bind r_{{x}}_0</span>
+<span class="w">    </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_in</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma bind r_{{x}}_3</span>
+<span class="w">    </span><span class="n">RegVector</span><span class="w"> </span><span class="n">r_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_out</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// Read A and B vector from SRAM to VWR</span>
-<span class="w">        </span><span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_0__</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_sram_to_vwr</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_1__</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">RLB</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">RLb</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">        </span><span class="c1">// Create temp variables</span>
-<span class="w">        </span><span class="n">RegVector</span><span class="w"> </span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">RegVector</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="p">{{</span><span class="n">ARCH_VWR_SIZE</span><span class="o">/</span><span class="n">ARCH_VFU_NUM</span><span class="p">}};</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
+<span class="w">            </span><span class="cp">#pragma begin conflic_free_zone</span>
+<span class="w">            </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="n">ARCH_VFU_NUM</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Read chunk of A in R_in</span>
+<span class="w">            </span><span class="n">VMV</span><span class="p">({{</span><span class="n">x</span><span class="p">}},</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">r_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_in</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Addition with B</span>
+<span class="w">            </span><span class="n">VFUX_RV_R</span><span class="p">({{</span><span class="n">x</span><span class="p">}},</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">R_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_in</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">r_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_out</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Write the result to VWR. Reuse A to store the result.</span>
+<span class="w">            </span><span class="n">RMV</span><span class="p">({{</span><span class="n">x</span><span class="p">}},</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">r_</span><span class="p">{{</span><span class="n">x</span><span class="p">}}</span><span class="n">_out</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="cp">#pragma end conflict_free_zone</span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">        </span><span class="c1">// Read A in VWR0 to R1 registers</span>
-<span class="w">        </span><span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span>
-<span class="w">            </span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">write_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">// Read B in VWR1 to temp variables</span>
-<span class="w">        </span><span class="n">read_vwr</span><span class="p">(</span><span class="n">__vwr_vector_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span>
-<span class="w">            </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"> </span>
-
-<span class="w">        </span><span class="c1">// Preform Addition</span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_x0</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_1__</span><span class="p">,</span><span class="w"> </span><span class="n">_x1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_2__</span><span class="p">,</span><span class="w"> </span><span class="n">_x2</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_3__</span><span class="p">,</span><span class="w"> </span><span class="n">_x3</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_4__</span><span class="p">,</span><span class="w"> </span><span class="n">_x4</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_5__</span><span class="p">,</span><span class="w"> </span><span class="n">_x5</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_6__</span><span class="p">,</span><span class="w"> </span><span class="n">_x6</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">read_r1</span><span class="p">(</span><span class="n">__reg_vector_r1_7__</span><span class="p">,</span><span class="w"> </span><span class="n">_x7</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x0</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x1</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x2</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x3</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x4</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x5</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y5</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x6</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">dpu_add</span><span class="p">(</span><span class="n">_x7</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">// Write back the result from temp variables to VWR0, this is C vector</span>
-<span class="w">        </span><span class="n">write_vwr</span><span class="p">(</span><span class="n">__vwr_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">_y0</span><span class="p">,</span><span class="w"> </span><span class="n">_y1</span><span class="p">,</span><span class="w"> </span><span class="n">_y2</span><span class="p">,</span><span class="w"> </span><span class="n">_y3</span><span class="p">,</span><span class="w"> </span><span class="n">_y4</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">_y5</span><span class="p">,</span><span class="w"> </span><span class="n">_y6</span><span class="p">,</span><span class="w"> </span><span class="n">_y7</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">        </span><span class="c1">// Write back C vector to SRAM</span>
-<span class="w">        </span><span class="n">write_sram_from_vwr</span><span class="p">(</span><span class="n">___sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">__vwr_vector_0__</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Write result to SRAM</span>
+<span class="w">        </span><span class="n">WLB</span><span class="p">(</span><span class="n">__sram_vector_0__</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
