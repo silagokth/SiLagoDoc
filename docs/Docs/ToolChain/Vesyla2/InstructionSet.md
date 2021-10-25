@@ -4,15 +4,7 @@
 
 ### NOP
 
-#### Instruction Format
-
 ```NOP```
-
-#### Primitive Function Format
-
-```N/A```
-
-#### Description
 
 `NOP` instruciton is used for delay based synchronization. It cannot be directly used in untimed C++ input program. Each `NOP` has a 1-cycle delay.
 
@@ -20,43 +12,19 @@
 
 ### RLB
 
-#### Instruction Format
-
 ```RLB MASK ADDR VWR_SEL```
-
-#### Primitive Function Format
-
-```void RLB(SramVector SRAM, VwrVector VWR, int ADDR, int MASK);```
-
-#### Description
 
 `RLB` instructions transfer data from SRAM to VWR. The address of SRAM is defined by `ADDR`, and the id of VWR is defined by `VWR_SEL`. This instruction can transfer the data block partially. The `MASK` field is used to control which part of the data block should be copied. If `MASK[i]==1`, the *i*-th word of the data block will be copied.  
 
 ### WLB
 
-#### Instruction Format
-
 ```WLB MASK ADDR VWR_SEL```
-
-#### Primitive Function Format
-
-```void WLB(SramVector SRAM, VwrVector VWR, int ADDR, int MASK);```
-
-#### Description
 
 `WLB` instructions transfer data from VWR to SRAM. The address of SRAM is defined by `ADDR`, and the id of VWR is defined by `VWR_SEL`. This instruction can transfer the data block partially. The `MASK` field is used to control which part of the data block should be copied. If `MASK[i]==1`, the *i*-th word of the data block will be copied.
 
 ### VMV
 
-#### Instruction Format
-
 ```VMV VWR_SEL ADDR```
-
-#### Primitive Function Format
-
-```void VMV(VwrVector VWR, RegVector REG, int SECTION, int OFFSET);```
-
-#### Description
 
 `VMV` move the data from the VWR inside VFU **R_IN**. The `REG` has to be **R_IN**. The `SECTION` is the area that current VFU can write to. The `OFFSET` is the address inside the section.
 
@@ -64,43 +32,19 @@
 
 ### GLMV
 
-#### Instruction Format
-
 ```GLMV VWR_SEL ADDR EN0 BLOCK0 .... EN11 BLOCK11```
-
-#### Primitive Function Format
-
-```void GLMV(VwrVector VWR, int ADDR, int EN0, int BLOCK0, ..., int EN11, int BLOCK11);```
-
-#### Description
 
 `GLMV` shuffles a VWR contents and store it back to itself. The shuffle pattern is given by pair `(EN0, BLOCK0)` to `(EN11, BLOCK11)`. When `ENi` is non-zero, the block with address `BLOCKi` will be copied to block `ADDR+i`.
 
 ### RMV
 
-#### Instruction Format
-
 ```RMV VWR ADDR```
-
-#### Primitive Function Format
-
-```void RMV(VwrVector VWR, RegVector REG, int SECTION, int OFFSET);```
-
-#### Description
 
 `RMV` instruction write the **R_OUT** register to VWR. The `REG` has to be the **R_OUT**. The `SECTION` is the area that current VFU can write to. The `OFFSET` is the address inside the section.
 
 ### PACK
 
-#### Instruction Format
-
 ```PACK R1PACK R2PACK OUT_MUX_EN RRR VWR_SEL ADDR```
-
-#### Primitive Function Format
-
-```void PACK(int R1PACK, int R2PACK, int OUT_MUX_EN, int RRR, VwrVector VWR, int ADDR);```
-
-#### Description
 
 `PACK` instruction is primarily used for supporting soft-SIMD operations by means of guard bits. The filed `OUT_MUX_EN` is used to write the low-address half of output to the **R_OUT**. The filed `RRR` choosing whether the Reverse River Router is enabled and what is the output source. `R1PACK` and `R2PACK` are of the format: ```IN_LOC, SW_LEN, SW_OFFSET, OUT_LOC, SW_LEN_OUT, SW_COUNT```. Everything is aligned at 4 bits. Each part has the following meaning:
 
@@ -113,15 +57,7 @@
 
 ### PERM
 
-#### Instruction Format
-
 ```PERM OUT_MUX_EN RRR VWR_SEL ADDR```
-
-#### Primitive Function Format
-
-```void PERM(int MODE, int STAGE, RegVector V1, RegVector V2, RegVector V_OUT, VwrVector VWR, int SECTION, int OFFSET);```
-
-#### Description
 
 `PERM` instruction is used to permute subword at the level of channels. If `OUT_MUX_EN=1`, then (0:63) are written to **R_OUT**.  If `RRR=11`, the top output (64:127) of the shuffler is written to `VWR[VWR_SEL][ADDR]`. If `RRR=0x`, then **R_OUT** is written to the VWR. If `OUT_MUX_EN=0`, then (0:63) is lost. If `RRR=0x`, then (64:127) are lost.
 
@@ -141,24 +77,9 @@ The `SECTION` and `OFFSET` together specifify the address in the VWR. The `SECTI
 
 ### VFUX
 
-#### Instruction Format
-
 ```VFUX VWR_SEL ADDR SRC_MUX INP_IN FU FU_MODE OUT_REG OUT_MUX_EN```
 
-#### Primitive Function Format
-
-```void VFUX(RegVector IN1, VwrVector IN2, int ADDR, int FU, int FU_MODE, RegVector OUT);```
-
-```void VFUX(RegVector IN1, RegVector IN2, int FU, int FU_MODE, RegVector OUT);```
-
-```void VFUX(VwrVector IN1, int ADDR, int FU, int FU_MODE, RegVector OUT);```
-
-```void VFUX(RegVector IN1, int FU, int FU_MODE, RegVector OUT);```
-
-#### Description
-
 `VFUX` performs the computation based on field `FU`. It supports the following operations:
-
 
 * Bias [BIAS] : X + C1
 * BN [BN] : X*C2 + C1
@@ -200,15 +121,7 @@ For single input FU operations, `INP_IN` decides between **R_IN** and VWR as inp
 
 ### CAL
 
-#### Instruction Format
-
 ```CAL OP R0 R1 R2 RI1 RI2```
-
-#### Primitive Function Format
-
-N/A
-
-#### Description
 
 `CAL` performs the scalar operation on registers or immediate integer values: `R0 <- OP(R1, R2)`
 
@@ -233,15 +146,7 @@ The `R0` is the return register address. `R1` is the first operand registers if 
 
 ### BRN
 
-#### Instruction Format
-
 ```BRN MODE SRC NPC```
-
-#### Primitive Function Format
-
-N/A
-
-#### Description
 
 `BRN` instruction modifies the PC counter to implement loops and branches.
 
