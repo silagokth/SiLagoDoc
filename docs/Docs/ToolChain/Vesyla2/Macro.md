@@ -93,9 +93,6 @@ Inja supports complex types (like array or object) to be wrapped in `{{ }}`.
     int y = 1;
     ```
 
-!!! bug
-    The template `int x = {{VAR_A/1}};` in above example is not working. It seems a bug of inja library.
-
 ### Commands
 
 Several commands are supported by inja to implement control flow. They include: branches and loops. The commands are wrapped in `{% %}`.
@@ -227,11 +224,3 @@ There are many pre-defined functions that are directly supported by inja.
 
     node1/node2 exists! The value is 1
     ```
-
-There are also several pre-defined functions that are defined by VeExpand program. They are:
-
-* add(a, b)
-* sub(a, b)
-* mul(a, b)
-* div(a, b)
-* pow(a, b)
