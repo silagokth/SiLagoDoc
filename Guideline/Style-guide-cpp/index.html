@@ -9,25 +9,24 @@
         <meta name="description" content="Documentation of SiLago project">
       
       
-      
         <meta name="author" content="SiLago Team">
       
       
-        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Style-guide/">
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Guideline/Style-guide-cpp/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
-        <title>Style Guide - SiLago Documentation</title>
+        <title>C++ Style Guide - SiLago Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.cdeb8541.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -41,14 +40,13 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Lato";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -63,7 +61,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-green" data-md-color-accent="orange">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -71,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#style-guide" class="md-skip">
+        <a href="#c-style-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -80,11 +77,12 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="SiLago Documentation" class="md-header__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+    <a href="../.." title="SiLago Documentation" class="md-header__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Style Guide
+              C++ Style Guide
             
           </span>
         </div>
@@ -115,8 +113,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -148,8 +145,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/silagokth/SiLagoDoc/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/silagokth/SiLagoDoc/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -184,7 +180,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="SiLago Documentation" class="md-nav__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+    <a href="../.." title="SiLago Documentation" class="md-nav__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -194,8 +190,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/silagokth/SiLagoDoc/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/silagokth/SiLagoDoc/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -216,7 +211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -242,40 +237,14 @@
       
       
         <label class="md-nav__link" for="__nav_2">
-          Docs
+          Guideline
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+      <nav class="md-nav" aria-label="Guideline" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Docs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1">
-          Fabric
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Fabric" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Fabric
+          Guideline
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -285,71 +254,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Fabric/Overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Fabric/Style-guide/" class="md-nav__link">
-        Style Guide
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2">
-          Tool Chain
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Tool Chain" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Tool Chain
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Overview/" class="md-nav__link">
-        Overview
+      <a href="../Mkdocs-tutorial/" class="md-nav__link">
+        MkDocs Tutorial
       </a>
     </li>
   
@@ -372,16 +278,15 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Style Guide
+          C++ Style Guide
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Style Guide
+        C++ Style Guide
       </a>
       
         
-
 
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
@@ -397,36 +302,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-style" class="md-nav__link">
-    C++ Style
-  </a>
-  
-    <nav class="md-nav" aria-label="C++ Style">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#basics" class="md-nav__link">
     Basics
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#package-organization" class="md-nav__link">
     Package Organization
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#naming-convention" class="md-nav__link">
     Naming Convention
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -434,336 +326,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_3">
-          Vesyla
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Vesyla" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          Vesyla
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Overview/" class="md-nav__link">
-        Overview
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Tutorial/" class="md-nav__link">
-        Vesyla tutorial
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/ProgrammingGuide/" class="md-nav__link">
-        Programming Guide
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Instruction-Set/" class="md-nav__link">
-        Instruction Set
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Cadfg/" class="md-nav__link">
-        CADFG - Control Address Data-Flow Graph
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Hazzard/" class="md-nav__link">
-        Hazard
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/ExpressionSimplification/" class="md-nav__link">
-        Expression Simplification
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/DependencyAnalysis/" class="md-nav__link">
-        Dependency Analysis
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/DeadCodeElimination/" class="md-nav__link">
-        DeadCodeElimination
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Idg/" class="md-nav__link">
-        IDG - Instruction Dependency Graph
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/Scheduling/" class="md-nav__link">
-        Scheduling
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla/DiMArch/" class="md-nav__link">
-        DiMArch Reading and Writing
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_4">
-          Vesyla2
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Vesyla2" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          Vesyla2
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Vesyla2/Tutorial/" class="md-nav__link">
-        Vesyla tutorial
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5" type="checkbox" id="__nav_2_2_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5">
-          Manas
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Manas" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_5">
-          <span class="md-nav__icon md-icon"></span>
-          Manas
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Manas/Tutorial/" class="md-nav__link">
-        Manas Tutorial
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Manas/ProgrammingGuide/" class="md-nav__link">
-        Programming Guide
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Manas/InstructionSet/" class="md-nav__link">
-        Instruction Set
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -792,12 +354,477 @@
       
       
         <label class="md-nav__link" for="__nav_3">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Fabric
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fabric" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Fabric
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/Fabric/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/Fabric/Style-guide/" class="md-nav__link">
+        Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Tool Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tool Chain" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tool Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          Vesyla
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vesyla" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vesyla
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Tutorial/" class="md-nav__link">
+        Vesyla tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/ProgrammingGuide/" class="md-nav__link">
+        Programming Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Instruction-Set/" class="md-nav__link">
+        Instruction Set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Cadfg/" class="md-nav__link">
+        CADFG - Control Address Data-Flow Graph
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Hazzard/" class="md-nav__link">
+        Hazard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/ExpressionSimplification/" class="md-nav__link">
+        Expression Simplification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DependencyAnalysis/" class="md-nav__link">
+        Dependency Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DeadCodeElimination/" class="md-nav__link">
+        DeadCodeElimination
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Idg/" class="md-nav__link">
+        IDG - Instruction Dependency Graph
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Scheduling/" class="md-nav__link">
+        Scheduling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DiMArch/" class="md-nav__link">
+        DiMArch Reading and Writing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_3">
+          Vesyla2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vesyla2" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Vesyla2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla2/Tutorial/" class="md-nav__link">
+        Vesyla tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          Manas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manas" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Manas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/Tutorial/" class="md-nav__link">
+        Manas Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/ProgrammingGuide/" class="md-nav__link">
+        Programming Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/InstructionSet/" class="md-nav__link">
+        Instruction Set
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
           About
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="About" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           About
         </label>
@@ -809,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../About/About/" class="md-nav__link">
+      <a href="../../About/About/" class="md-nav__link">
         About
       </a>
     </li>
@@ -823,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../About/License/" class="md-nav__link">
+      <a href="../../About/License/" class="md-nav__link">
         License
       </a>
     </li>
@@ -850,7 +877,6 @@
                   <div class="md-sidebar__inner">
                     
 
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -865,36 +891,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-style" class="md-nav__link">
-    C++ Style
-  </a>
-  
-    <nav class="md-nav" aria-label="C++ Style">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#basics" class="md-nav__link">
     Basics
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#package-organization" class="md-nav__link">
     Package Organization
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#naming-convention" class="md-nav__link">
     Naming Convention
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -910,17 +923,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/silagokth/SiLagoDoc/edit/master/docs/Docs/ToolChain/Style-guide.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="style-guide">Style Guide</h1>
-<h2 id="c-style">C++ Style</h2>
-<h3 id="basics">Basics</h3>
+<a href="https://github.com/silagokth/SiLagoDoc/edit/master/docs/Guideline/Style-guide-cpp.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="c-style-guide">C++ Style Guide</h1>
+<h2 id="basics">Basics</h2>
 <p>In general, all C++ code should follow the <a href="https://llvm.org/docs/CodingStandards.html">LLVM Style</a>.</p>
 <p>The preferred editor for C++ program is <a href="https://code.visualstudio.com/">Visual Studio Code</a>. It works on all major operating systems.</p>
-<h3 id="package-organization">Package Organization</h3>
+<h2 id="package-organization">Package Organization</h2>
 <p>The package should be organized in the following way:</p>
 <div class="highlight"><pre><span></span><code>ROOT_DIR/
   +--README.md
@@ -935,11 +947,11 @@
   +--build/
       +--[some files]
 </code></pre></div>
-<h3 id="naming-convention">Naming Convention</h3>
+<h2 id="naming-convention">Naming Convention</h2>
 <p>Each class <code>Foo</code> is defined by a header file <code>Foo.hpp</code> and a source file <code>Foo.cpp</code>. Class name will uses capital letters to disdinguish each words. For example, <code>FooBar</code> is a valid class name.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span> <span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="p">...</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
@@ -985,7 +997,7 @@
 <p>Variable names should be in all lower case letters and seperated by underscore symbol. If the variable is a private or protected variable in a class, it should also start with an underscore symbol. Public variables should not start with underscore symbol. If the variable is the input argument of a function, it should also end with an underscore symbol.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span> <span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">FooBar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">_var_1</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
@@ -1008,11 +1020,6 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-                
-              
-              
-                
-
 
               
             </article>
@@ -1021,13 +1028,12 @@
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+        <a href="../Mkdocs-tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MkDocs Tutorial" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1036,14 +1042,14 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Overview
+              MkDocs Tutorial
             </div>
           </div>
         </a>
       
       
         
-        <a href="../Vesyla/Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+        <a href="../../Docs/Fabric/Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1061,16 +1067,15 @@
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -1080,10 +1085,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
