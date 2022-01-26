@@ -1,14 +1,12 @@
-# Style Guide
+# C++ Style Guide
 
-## C++ Style
-
-### Basics
+## Basics
 
 In general, all C++ code should follow the [LLVM Style](https://llvm.org/docs/CodingStandards.html).
 
 The preferred editor for C++ program is [Visual Studio Code](https://code.visualstudio.com/). It works on all major operating systems.
 
-### Package Organization
+## Package Organization
 
 The package should be organized in the following way:
 
@@ -27,7 +25,7 @@ ROOT_DIR/
       +--[some files]
 ```
 
-### Naming Convention
+## Naming Convention
 
 Each class ``Foo`` is defined by a header file ``Foo.hpp`` and a source file ``Foo.cpp``. Class name will uses capital letters to disdinguish each words. For example, ``FooBar`` is a valid class name.
 
