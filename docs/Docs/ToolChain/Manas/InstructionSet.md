@@ -95,9 +95,9 @@ active               | [22]     | 1     | 1           | Deprecated, always 1
 src_row              | [21]     | 1     | [0, 1]      | The source DRRA row
 src_block            | [20]     | 1     | [0, 1]      | [0] RF; [1] DPU
 src_port             | [19]     | 1     | [0, 1]      | Source port number
-hb_index             | [18, 16] | 3     | [0, 6]      | Index of horizontal bus
+hb_index             | [18, 16] | 3     | [0, 6]      | Index of horizontal bus. This is the column difference of the src and dest cell shifting by 2. For example if the path is from [0,0] to [1,2], the column difference is -2, so the hb_index = -2+2=0
 send_to_other_row    | [15]     | 1     | [0, 1]      | Flag of whether src and dest row are equal
-v_index              | [14, 12] | 3     | [0, 5]      | Index of vertical bus
+v_index              | [14, 12] | 3     | [0, 5]      | Index of vertical bus. This is the dest port. If destination is RF, the v_index is the port number, if the dest is DPU, the v_index is port number + 2.
 unused               | [11, 0]  | 12    | 0           | Deprecated
 
 ### 0110 JUMP
