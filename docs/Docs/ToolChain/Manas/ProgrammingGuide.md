@@ -78,7 +78,15 @@ An instruction consists a instruction name and an argument list. They are sepera
 	REFI_1 1 0 0 20 0 0 0 0
 	```
 
-### Dependency Segment
+### RELATION Segment
+
+Instructions hierarchy is defined in relation segment.
+
+```
+.RELATION
+```
+
+### DEPENDENCY Segment
 
 Dependencies among instructions are defined in dependency segment. A dependency segment starts with segment identifier:
 

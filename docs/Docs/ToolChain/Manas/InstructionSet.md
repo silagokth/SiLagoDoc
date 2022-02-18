@@ -13,7 +13,7 @@
 Field                | Position | Width | Range/Value | Description
 ---------------------|----------|-------|-------------|-------------------------
 instr_code           | [26, 23] | 4     | b'0001      | REFI1 instruction code
-port_no              | [22, 21] | 2     | [0, 3]      | Selects one of the RFile ports
+port_no              | [22, 21] | 2     | [0, 3]      | Selects one of the RFile ports; Writing ports: 0, 1; Reading ports: 2, 3
 extra                | [20, 19] | 2     | [0, 3]      | How many following instructions.
 init_addr_sd         | 18       | 1     | [0, 1]      | [0] init_addr is static; [1] init_addr is from RACCU.
 init_addr            | [17, 12] | 6     | [0, 63]     | Static init address or RACCU register.
