@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "instr_bitwidth": { "type": "integer" },
+    "instr_code_bitwidth": { "type": "integer" },
+    "instruction_templates": {
+      "type": "array",
+      "items": {
+        "type" : "object",
+        "properties":{
+          "code": {"type": "integer"},
+          "name": {"type": "string"},
+          "phase": {"type": "integer"},
+          "segment_templates": {
+            "type":"array",
+            "items":{
+              "type": "object",
+              "properties":{
+                "name" : {"type": "string"},
+                "bitwidth" : {"type": "integer"},
+                "default_val" : {"type": "integer"},
+                "controllable" : {"type":"boolean"}
+              }
+            },
+            "uniqueItems":true
+          }
+        }
+      },
+      "uniqueItems":true
+    }
+  }
+}

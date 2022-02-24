@@ -1,0 +1,578 @@
+{
+  "instr_bitwidth": 27,
+  "instr_code_bitwidth": 4,
+  "instruction_templates": [
+    {
+      "code": 1,
+      "name": "REFI",
+      "phase": 3,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "port_no",
+          "bitwidth": 2
+        },
+        {
+          "id": 1,
+          "name": "extra",
+          "bitwidth": 2
+        },
+        {
+          "id": 2,
+          "name": "init_addr_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 3,
+          "name": "init_addr",
+          "bitwidth": 6
+        },
+        {
+          "id": 4,
+          "name": "l1_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 5,
+          "name": "l1_iter",
+          "bitwidth": 6
+        },
+        {
+          "id": 6,
+          "name": "init_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 7,
+          "name": "init_delay",
+          "bitwidth": 4,
+          "controllable": false
+        },
+        {
+          "id": 9,
+          "name": "l1_step_sd",
+          "bitwidth": 1,
+          "default_val": 0
+        },
+        {
+          "id": 10,
+          "name": "l1_step",
+          "bitwidth": 6,
+          "default_val": 1
+        },
+        {
+          "id": 11,
+          "name": "l1_step_sign",
+          "bitwidth": 1
+        },
+        {
+          "id": 12,
+          "name": "l1_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 13,
+          "name": "l1_delay",
+          "bitwidth": 4,
+          "controllable": false
+        },
+        {
+          "id": 14,
+          "name": "l2_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 15,
+          "name": "l2_iter",
+          "bitwidth": 5
+        },
+        {
+          "id": 16,
+          "name": "l2_step",
+          "bitwidth": 4,
+          "default_val": 1
+        },
+        {
+          "id": 18,
+          "name": "l2_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 19,
+          "name": "l2_delay",
+          "bitwidth": 6,
+          "controllable": false
+        },
+        {
+          "id": 21,
+          "name": "l1_delay_ext",
+          "bitwidth": 2
+        },
+        {
+          "id": 22,
+          "name": "l2_iter_ext",
+          "bitwidth": 1
+        },
+        {
+          "id": 23,
+          "name": "l2_step_ext",
+          "bitwidth": 2
+        },
+        {
+          "id": 25,
+          "name": "dimarch",
+          "bitwidth": 1
+        },
+        {
+          "id": 26,
+          "name": "compress",
+          "bitwidth": 1
+        }
+      ]
+    },
+    {
+      "code": 4,
+      "name": "DPU",
+      "phase": 3,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "mode",
+          "bitwidth": 5
+        },
+        {
+          "id": 1,
+          "name": "control",
+          "bitwidth": 2,
+          "default_val": 2
+        },
+        {
+          "id": 3,
+          "name": "acc_clear",
+          "bitwidth": 8
+        },
+        {
+          "id": 4,
+          "name": "io_change",
+          "bitwidth": 2
+        }
+      ]
+    },
+    {
+      "code": 5,
+      "name": "SWB",
+      "phase": 2,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "active",
+          "bitwidth": 1,
+          "default_val": 1,
+          "controllable": false
+        },
+        {
+          "id": 1,
+          "name": "src_row",
+          "bitwidth": 1
+        },
+        {
+          "id": 2,
+          "name": "src_block",
+          "bitwidth": 1
+        },
+        {
+          "id": 3,
+          "name": "src_port",
+          "bitwidth": 1
+        },
+        {
+          "id": 4,
+          "name": "hb_index",
+          "bitwidth": 3
+        },
+        {
+          "id": 5,
+          "name": "send_to_other_row",
+          "bitwidth": 1
+        },
+        {
+          "id": 6,
+          "name": "v_index",
+          "bitwidth": 3
+        }
+      ]
+    },
+    {
+      "code": 6,
+      "name": "JUMP",
+      "phase": 1,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "pc",
+          "bitwidth": 6
+        }
+      ]
+    },
+    {
+      "code": 7,
+      "name": "WAIT",
+      "phase": 2,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "cycle_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 1,
+          "name": "cycle",
+          "bitwidth": 15
+        }
+      ]
+    },
+    {
+      "code": 8,
+      "name": "LOOP",
+      "phase": 1,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "extend",
+          "bitwidth": 1
+        },
+        {
+          "id": 1,
+          "name": "loopid",
+          "bitwidth": 2
+        },
+        {
+          "id": 2,
+          "name": "endpc",
+          "bitwidth": 6
+        },
+        {
+          "id": 3,
+          "name": "start_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 4,
+          "name": "start",
+          "bitwidth": 6
+        },
+        {
+          "id": 5,
+          "name": "iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 6,
+          "name": "iter",
+          "bitwidth": 6
+        },
+        {
+          "id": 7,
+          "name": "step_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 8,
+          "name": "step",
+          "bitwidth": 6,
+          "default_val": 1
+        }
+      ]
+    },
+    {
+      "code": 10,
+      "name": "RACCU",
+      "phase": 1,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "mode",
+          "bitwidth": 3
+        },
+        {
+          "id": 1,
+          "name": "operand1_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 2,
+          "name": "operand1",
+          "bitwidth": 7
+        },
+        {
+          "id": 3,
+          "name": "operand2_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 4,
+          "name": "operand2",
+          "bitwidth": 7
+        },
+        {
+          "id": 5,
+          "name": "result",
+          "bitwidth": 4
+        }
+      ]
+    },
+    {
+      "code": 11,
+      "name": "BRANCH",
+      "phase": 1,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "mode",
+          "bitwidth": 2
+        },
+        {
+          "id": 1,
+          "name": "false_pc",
+          "bitwidth": 6
+        }
+      ]
+    },
+    {
+      "code": 12,
+      "name": "ROUTE",
+      "phase": 2,
+      "segment_templates": [
+        {
+          "id": 0,
+          "name": "src_row",
+          "bitwidth": 1
+        },
+        {
+          "id": 1,
+          "name": "src_col",
+          "bitwidth": 3
+        },
+        {
+          "id": 2,
+          "name": "dest_row",
+          "bitwidth": 1
+        },
+        {
+          "id": 3,
+          "name": "dest_col",
+          "bitwidth": 3
+        },
+        {
+          "id": 5,
+          "name": "select_drra_row",
+          "bitwidth": 1
+        },
+        {
+          "id": 6,
+          "name": "origin",
+          "bitwidth": 1,
+          "controllable": false
+        }
+      ]
+    },
+    {
+      "code": 13,
+      "name": "SRAMR",
+      "phase": 4,
+      "segment_templates": [
+        {
+          "id": 1,
+          "name": "init_addr",
+          "bitwidth": 7
+        },
+         {
+          "id": 2,
+          "name": "init_delay",
+          "bitwidth": 4
+        },
+        {
+          "id": 3,
+          "name": "l1_iter",
+          "bitwidth": 7
+        },
+        {
+          "id": 4,
+          "name": "l1_step",
+          "bitwidth": 8,
+          "default_val": 1
+        },
+        {
+          "id": 5,
+          "name": "l1_delay",
+          "bitwidth": 6,
+          "controllable": false
+        },
+        {
+          "id": 6,
+          "name": "l2_iter",
+          "bitwidth": 7
+        },
+        {
+          "id": 7,
+          "name": "l2_step",
+          "bitwidth": 8,
+          "default_val": 1
+        },
+        {
+          "id": 8,
+          "name": "l2_delay",
+          "bitwidth": 6,
+          "controllable": false
+        },
+        {
+          "id": 9,
+          "name": "init_addr_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 10,
+          "name": "l1_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 11,
+          "name": "l2_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 12,
+          "name": "init_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 13,
+          "name": "l1_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 14,
+          "name": "l2_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 15,
+          "name": "l1_step_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 16,
+          "name": "l2_step_sd",
+          "bitwidth": 1
+        }
+      ]
+    },
+    {
+      "code": 14,
+      "name": "SRAMW",
+      "phase": 4,
+      "segment_templates": [
+        {
+          "id": 1,
+          "name": "init_addr",
+          "bitwidth": 7
+        },
+        {
+          "id": 2,
+          "name": "init_delay",
+          "bitwidth": 4,
+          "controllable": false
+        },
+        {
+          "id": 3,
+          "name": "l1_iter",
+          "bitwidth": 7
+        },
+        {
+          "id": 4,
+          "name": "l1_step",
+          "bitwidth": 8,
+          "default_val": 1
+        },
+        {
+          "id": 5,
+          "name": "l1_delay",
+          "bitwidth": 6,
+          "controllable": false
+        },
+        {
+          "id": 6,
+          "name": "l2_iter",
+          "bitwidth": 7
+        },
+        {
+          "id": 7,
+          "name": "l2_step",
+          "bitwidth": 8,
+          "default_val": 1
+        },
+        {
+          "id": 8,
+          "name": "l2_delay",
+          "bitwidth": 6,
+          "controllable": false
+        },
+        {
+          "id": 9,
+          "name": "init_addr_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 10,
+          "name": "l1_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 11,
+          "name": "l2_iter_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 12,
+          "name": "init_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 13,
+          "name": "l1_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 14,
+          "name": "l2_delay_sd",
+          "bitwidth": 1,
+          "controllable": false
+        },
+        {
+          "id": 15,
+          "name": "l1_step_sd",
+          "bitwidth": 1
+        },
+        {
+          "id": 16,
+          "name": "l2_step_sd",
+          "bitwidth": 1
+        }
+      ]
+    },
+    {
+      "code": 15,
+      "name": "HALT",
+      "phase": 1,
+      "segment_templates": []
+    }
+  ]
+}
