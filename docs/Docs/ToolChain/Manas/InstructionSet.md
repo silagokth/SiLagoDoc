@@ -187,7 +187,7 @@ instr_code               | [26, 23] | 4     | b'1011      | BRANCH instruction c
 **false_pc**             | [20, 15] | 6     | [0, 63]     | Configures the false address
 unused                   | [14, 0]  | 15    | 0           | Deprecated
 
-<!-- ### 1100 ROUTE
+<!--
 
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
@@ -206,6 +206,8 @@ unused                   | [14, 9]  | 6     | 0           | Deprecated
 **select_drra_row**      | [8]      | 1     | [0, 1]      | [0] source is origin; [1] destination is origin
 unused                   | [7, 0]   | 8     | 0           | Deprecated -->
 
+### 1100 ROUTE
+
 ```
 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -220,7 +222,7 @@ instr_code               | [26, 23] | 4     | b'1100      | ROUTE instruction co
 **vertical_dir**         | [18]     | 1     | [0, 1]      | 0: south, 1: north
 **vertical_hops**        | [17, 15] | 3     | [0, 7]      | number of hops
 **direction**            | [14]     | 1     | [0, 1]      | 0: read, 1: write
-**select_drra_row**      | [13]     | 1     | [0, 1]      | [0] source is origin; [1] destination is origin
+**select_drra_row**      | [13]     | 1     | [0, 1]      | DRRA row that sends the instruction
 unused                   | [12, 0]  | 13    | 0           | Deprecated
 
 ### 1101 SRAMR
