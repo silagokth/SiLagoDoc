@@ -15,7 +15,7 @@
 
 Field                    | Position | Width | Range/Value | Description
 -------------------------|----------|-------|-------------|-------------------------
-instr_code               | [26, 23] | 4     | b'1111      | HALT instruction code
+instr_code               | [26, 23] | 4     | b'0000      | HALT instruction code
 unused                   | [22, 0]  | 23    | 0           | Unused
 
 ### 0001 - REFI
