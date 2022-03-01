@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Manas/InstructionSet/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.3">
     
     
       
@@ -39,7 +39,7 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -835,15 +835,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1101-sramr" class="md-nav__link">
-    1101 SRAMR
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1110-sramw" class="md-nav__link">
-    1110 SRAMW
+  <a href="#1101-sram" class="md-nav__link">
+    1101 SRAM
   </a>
   
 </li>
@@ -1076,15 +1069,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1101-sramr" class="md-nav__link">
-    1101 SRAMR
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1110-sramw" class="md-nav__link">
-    1110 SRAMW
+  <a href="#1101-sram" class="md-nav__link">
+    1101 SRAM
   </a>
   
 </li>
@@ -1834,24 +1820,6 @@ H  I  I  I  I  I  I  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 </tr>
 </tbody>
 </table>
-<!--
-
-<div class="highlight"><pre><span></span><code>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-0  1  1  1  A  B  B  B  C  D  D  D  0  0  0  0  0  0  E  0  0  0  0  0  0  0  0
-</code></pre></div>
-
-Field                    | Position | Width | Range/Value | Description
--------------------------|----------|-------|-------------|-------------------------
-instr_code               | [26, 23] | 4     | b'1100      | ROUTE instruction code
-**src_row**              | [22]     | 1     | [0, 1]      | Source DiMArch row
-**src_col**              | [21, 19] | 3     | [0, 7]      | Source DiMArch column
-**dest_row**             | [18]     | 1     | [0, 1]      | Destination DiMArch row
-**dest_col**             | [17, 15] | 3     | [0, 7]      | Destination DiMArch column
-unused                   | [14, 9]  | 6     | 0           | Deprecated
-**select_drra_row**      | [8]      | 1     | [0, 1]      | [0] source is origin; [1] destination is origin
-unused                   | [7, 0]   | 8     | 0           | Deprecated -->
-
 <h3 id="1100-route">1100 ROUTE</h3>
 <div class="highlight"><pre><span></span><code>26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
@@ -1926,7 +1894,7 @@ unused                   | [7, 0]   | 8     | 0           | Deprecated -->
 </tr>
 </tbody>
 </table>
-<h3 id="1101-sramr">1101 SRAMR</h3>
+<h3 id="1101-sram">1101 SRAM</h3>
 <div class="highlight"><pre><span></span><code>80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
 1  1  0  1  A  B  B  B  B  B  B  B  C  C  C  C  D  D  D  D  D  D  D  E  E  E  E
@@ -1958,11 +1926,11 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
 <td>SRAMR instruction code</td>
 </tr>
 <tr>
-<td>unused</td>
+<td><strong>rw</strong></td>
 <td>[76]</td>
 <td>1</td>
-<td>0</td>
-<td>Deprecated</td>
+<td>[0, 1]</td>
+<td>[0] Read [1] Write</td>
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
@@ -2084,189 +2052,9 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
 <td>number of hops to the final dimarch cell</td>
 </tr>
 <tr>
-<td><strong>enable</strong></td>
-<td>[10]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>enable</td>
-</tr>
-<tr>
 <td>unused</td>
-<td>[9, 0]</td>
-<td>10</td>
-<td>0</td>
-<td>Unused</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1110-sramw">1110 SRAMW</h3>
-<div class="highlight"><pre><span></span><code>80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-1  1  1  0  A  B  B  B  B  B  B  B  C  C  C  C  D  D  D  D  D  D  D  E  E  E  E
-
-53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-E  E  E  E  F  F  F  F  F  F  G  G  G  G  G  G  G  H  H  H  H  H  H  H  H  I  I
-
-26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Range/Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[80, 77]</td>
-<td>4</td>
-<td>b'1110</td>
-<td>SRAMW instruction code</td>
-</tr>
-<tr>
-<td>unused</td>
-<td>[76]</td>
-<td>1</td>
-<td>0</td>
-<td>Deprecated</td>
-</tr>
-<tr>
-<td><strong>init_addr</strong></td>
-<td>[75, 69]</td>
-<td>7</td>
-<td>[0, 127]</td>
-<td>Initial address</td>
-</tr>
-<tr>
-<td>init_delay</td>
-<td>[68, 65]</td>
-<td>4</td>
-<td>[0, 15]</td>
-<td>Initial delay</td>
-</tr>
-<tr>
-<td><strong>l1_iter</strong></td>
-<td>[64, 58]</td>
-<td>7</td>
-<td>[0, 127]</td>
-<td>Level 1 iteration</td>
-</tr>
-<tr>
-<td><strong>l1_step</strong></td>
-<td>[57, 50]</td>
-<td>8</td>
-<td>[-128, 127]</td>
-<td>Level 1 step</td>
-</tr>
-<tr>
-<td>l1_delay</td>
-<td>[49, 44]</td>
-<td>6</td>
-<td>[0, 63]</td>
-<td>Level 1 delay</td>
-</tr>
-<tr>
-<td><strong>l2_iter</strong></td>
-<td>[43, 37]</td>
-<td>7</td>
-<td>[0, 127]</td>
-<td>Level 2 iteration</td>
-</tr>
-<tr>
-<td><strong>l2_step</strong></td>
-<td>[36, 29]</td>
-<td>8</td>
-<td>[-128, 127]</td>
-<td>Level 2 step</td>
-</tr>
-<tr>
-<td>l2_delay</td>
-<td>[28, 23]</td>
-<td>6</td>
-<td>[0, 63]</td>
-<td>Level 2 delay</td>
-</tr>
-<tr>
-<td><strong>init_addr_sd</strong></td>
-<td>[22]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td><strong>l1_iter_sd</strong></td>
-<td>[21]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td><strong>l2_iter_sd</strong></td>
-<td>[20]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td>init_delay_sd</td>
-<td>[19]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td>l1_delay_sd</td>
-<td>[18]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td>l2_delay_sd</td>
-<td>[17]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td><strong>l1_step_sd</strong></td>
-<td>[16]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td><strong>l2_step_sd</strong></td>
-<td>[15]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>Static or from RACCU</td>
-</tr>
-<tr>
-<td><strong>hops</strong></td>
-<td>[14, 11]</td>
-<td>4</td>
-<td>[0, 15]</td>
-<td>number of hops to the final dimarch cell</td>
-</tr>
-<tr>
-<td><strong>enable</strong></td>
-<td>[10]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>enable</td>
-</tr>
-<tr>
-<td>unused</td>
-<td>[9, 0]</td>
-<td>10</td>
+<td>[10, 0]</td>
+<td>11</td>
 <td>0</td>
 <td>Unused</td>
 </tr>
@@ -2961,7 +2749,7 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.b88e97c5.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
