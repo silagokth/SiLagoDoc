@@ -187,25 +187,6 @@ instr_code               | [26, 23] | 4     | b'1011      | BRANCH instruction c
 **false_pc**             | [20, 15] | 6     | [0, 63]     | Configures the false address
 unused                   | [14, 0]  | 15    | 0           | Deprecated
 
-<!--
-
-```
-26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-0  1  1  1  A  B  B  B  C  D  D  D  0  0  0  0  0  0  E  0  0  0  0  0  0  0  0
-```
-
-Field                    | Position | Width | Range/Value | Description
--------------------------|----------|-------|-------------|-------------------------
-instr_code               | [26, 23] | 4     | b'1100      | ROUTE instruction code
-**src_row**              | [22]     | 1     | [0, 1]      | Source DiMArch row
-**src_col**              | [21, 19] | 3     | [0, 7]      | Source DiMArch column
-**dest_row**             | [18]     | 1     | [0, 1]      | Destination DiMArch row
-**dest_col**             | [17, 15] | 3     | [0, 7]      | Destination DiMArch column
-unused                   | [14, 9]  | 6     | 0           | Deprecated
-**select_drra_row**      | [8]      | 1     | [0, 1]      | [0] source is origin; [1] destination is origin
-unused                   | [7, 0]   | 8     | 0           | Deprecated -->
-
 ### 1100 ROUTE
 
 ```
@@ -225,7 +206,7 @@ instr_code               | [26, 23] | 4     | b'1100      | ROUTE instruction co
 **select_drra_row**      | [13]     | 1     | [0, 1]      | DRRA row that sends the instruction
 unused                   | [12, 0]  | 13    | 0           | Deprecated
 
-### 1101 SRAMR
+### 1101 SRAM
 
 ```
 80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
@@ -244,7 +225,7 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
 Field                    | Position | Width | Range/Value | Description
 -------------------------|----------|-------|-------------|-------------------------
 instr_code               | [80, 77] | 4     | b'1101      | SRAMR instruction code
-unused                   | [76]     | 1     | 0           | Deprecated
+**rw**                   | [76]     | 1     | [0, 1]      | [0] Read [1] Write
 **init_addr**            | [75, 69] | 7     | [0, 127]    | Initial address
 init_delay               | [68, 65] | 4     | [0, 15]     | Initial delay
 **l1_iter**              | [64, 58] | 7     | [0, 127]    | Level 1 iteration
@@ -262,48 +243,7 @@ l2_delay_sd              | [17]     | 1     | [0, 1]      | Static or from RACCU
 **l1_step_sd**           | [16]     | 1     | [0, 1]      | Static or from RACCU
 **l2_step_sd**           | [15]     | 1     | [0, 1]      | Static or from RACCU
 **hops**                 | [14, 11] | 4     | [0, 15]     | number of hops to the final dimarch cell
-**enable**               | [10]     | 1     | [0, 1]      | enable
-unused                   | [9, 0]   | 10    | 0           | Unused
-
-### 1110 SRAMW
-
-```
-80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-1  1  1  0  A  B  B  B  B  B  B  B  C  C  C  C  D  D  D  D  D  D  D  E  E  E  E
-
-53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-E  E  E  E  F  F  F  F  F  F  G  G  G  G  G  G  G  H  H  H  H  H  H  H  H  I  I
-
-26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
-|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
-```
-
-Field                    | Position | Width | Range/Value | Description
--------------------------|----------|-------|-------------|-------------------------
-instr_code               | [80, 77] | 4     | b'1110      | SRAMW instruction code
-unused                   | [76]     | 1     | 0           | Deprecated
-**init_addr**            | [75, 69] | 7     | [0, 127]    | Initial address
-init_delay               | [68, 65] | 4     | [0, 15]     | Initial delay
-**l1_iter**              | [64, 58] | 7     | [0, 127]    | Level 1 iteration
-**l1_step**              | [57, 50] | 8     | [-128, 127] | Level 1 step
-l1_delay                 | [49, 44] | 6     | [0, 63]     | Level 1 delay
-**l2_iter**              | [43, 37] | 7     | [0, 127]    | Level 2 iteration
-**l2_step**              | [36, 29] | 8     | [-128, 127] | Level 2 step
-l2_delay                 | [28, 23] | 6     | [0, 63]     | Level 2 delay
-**init_addr_sd**         | [22]     | 1     | [0, 1]      | Static or from RACCU
-**l1_iter_sd**           | [21]     | 1     | [0, 1]      | Static or from RACCU
-**l2_iter_sd**           | [20]     | 1     | [0, 1]      | Static or from RACCU
-init_delay_sd            | [19]     | 1     | [0, 1]      | Static or from RACCU
-l1_delay_sd              | [18]     | 1     | [0, 1]      | Static or from RACCU
-l2_delay_sd              | [17]     | 1     | [0, 1]      | Static or from RACCU
-**l1_step_sd**           | [16]     | 1     | [0, 1]      | Static or from RACCU
-**l2_step_sd**           | [15]     | 1     | [0, 1]      | Static or from RACCU
-**hops**                 | [14, 11] | 4     | [0, 15]     | number of hops to the final dimarch cell
-**enable**               | [10]     | 1     | [0, 1]      | enable
-unused                   | [9, 0]   | 10    | 0           | Unused
+unused                   | [10, 0]  | 11    | 0           | Unused
 
 ## ISA Description File
 
