@@ -34,24 +34,24 @@ unused                   | [22, 0]  | 23    | 0           | Unused
 
 Field                    | Position | Width | Range/Value | Description
 -------------------------|----------|-------|-------------|-------------------------
-instr_code               | [26, 23] | 4     | b'0001      | REFI1 instruction code
-**port_no**              | [22, 21] | 2     | [0, 3]      | Selects one of the RFile ports
-**extra**                | [20, 19] | 2     | [0, 3]      | How many following instructions.
-**init_addr_sd**         | 18       | 1     | [0, 1]      | [0] init_addr is static; [1] init_addr is from RACCU.
-**init_addr**            | [17, 12] | 6     | [0, 63]     | Static init address or RACCU register.
-**l1_iter_sd**           | 11       | 1     | [0, 1]      | [0] Level 1 iteration is static; [1] L1 iteration is from RACCU.
-**l1_iter**              | [10, 5]  | 6     | [0, 63]     | Static L1 iteration or RACCU register.
-init_delay_sd            | 4        | 1     | [0, 1]      | [0] init_delay is static; [1] init_delay is from RACCU.
-init_delay               | [3, 0]   | 4     | [0, 15]     | Static init delay or RACCU register.
-unused                   | [26, 23] | 4     | b'0010      | Deprecated
-**l1_step_sd**           | [22]     | 1     | [0, 1]      | [0] l1_step is static; [1] l1_step is from RACCU
-**l1_step**              | [21, 16] | 6     | [0, 63]     | Static level 1 step value or RACCU register
-**l1_step_sign**         | [15]     | 1     | [0, 1]      | Sign bit of l1_step
-l1_delay_sd              | [14]     | 1     | [0, 1]      | [0] l1_delay is static; [1] l1_delay is from RACCU
-l1_delay                 | [13, 10] | 4     | [0, 15]     | Static level 1 delay or RACCU register
-**l2_iter_sd**           | [9]      | 1     | [0, 1]      | [0] l2_iter is static; [1] l2_iter is from RACCU
-**l2_iter**              | [8, 4]   | 5     | [0, 31]     | Static level 2 iteration or RACCU register
-**l2_step**              | [3, 0]   | 4     | [0, 15]     | Level 2 step value
+instr_code               | [80, 77] | 4     | b'0001      | REFI1 instruction code
+**port_no**              | [76, 75] | 2     | [0, 3]      | Selects one of the RFile ports
+**extra**                | [74, 73] | 2     | [0, 3]      | How many following instructions.
+**init_addr_sd**         | [72]     | 1     | [0, 1]      | [0] init_addr is static; [1] init_addr is from RACCU.
+**init_addr**            | [71, 66] | 6     | [0, 63]     | Static init address or RACCU register.
+**l1_iter_sd**           | [65]     | 1     | [0, 1]      | [0] Level 1 iteration is static; [1] L1 iteration is from RACCU.
+**l1_iter**              | [64, 59] | 6     | [0, 63]     | Static L1 iteration or RACCU register.
+init_delay_sd            | [58]     | 1     | [0, 1]      | [0] init_delay is static; [1] init_delay is from RACCU.
+init_delay               | [57, 54] | 4     | [0, 15]     | Static init delay or RACCU register.
+unused                   | [53, 50] | 4     | b'0010      | Deprecated
+**l1_step_sd**           | [49]     | 1     | [0, 1]      | [0] l1_step is static; [1] l1_step is from RACCU
+**l1_step**              | [48, 43] | 6     | [0, 63]     | Static level 1 step value or RACCU register
+**l1_step_sign**         | [42]     | 1     | [0, 1]      | Sign bit of l1_step
+l1_delay_sd              | [41]     | 1     | [0, 1]      | [0] l1_delay is static; [1] l1_delay is from RACCU
+l1_delay                 | [40, 37] | 4     | [0, 15]     | Static level 1 delay or RACCU register
+**l2_iter_sd**           | [36]     | 1     | [0, 1]      | [0] l2_iter is static; [1] l2_iter is from RACCU
+**l2_iter**              | [35, 31] | 5     | [0, 31]     | Static level 2 iteration or RACCU register
+**l2_step**              | [30, 27] | 4     | [0, 15]     | Level 2 step value
 unused                   | [26, 23] | 4     | b'0011      | Deprecated
 l2_delay_sd              | [22]     | 1     | [0, 1]      | [0] l2_delay is static; [1] l2_delay is from RACCU.
 l2_delay                 | [21, 16] | 6     | [0, 63]     | Static level 2 delay or RACCU register.
@@ -199,9 +199,9 @@ Field                    | Position | Width | Range/Value | Description
 -------------------------|----------|-------|-------------|-------------------------
 instr_code               | [26, 23] | 4     | b'1100      | ROUTE instruction code
 **horizontal_dir**       | [22]     | 1     | [0, 1]      | 0: west, 1: east
-**horizontal_hops**      | [21, 19] | 3     | [0, 7]      | number of hops
+**horizontal_hops**      | [21, 19] | 3     | [0, 7]      | number of hops - 1
 **vertical_dir**         | [18]     | 1     | [0, 1]      | 0: south, 1: north
-**vertical_hops**        | [17, 15] | 3     | [0, 7]      | number of hops
+**vertical_hops**        | [17, 15] | 3     | [0, 7]      | number of hops - 1
 **direction**            | [14]     | 1     | [0, 1]      | 0: read, 1: write
 **select_drra_row**      | [13]     | 1     | [0, 1]      | DRRA row that sends the instruction
 unused                   | [12, 0]  | 13    | 0           | Deprecated
@@ -242,7 +242,7 @@ l1_delay_sd              | [18]     | 1     | [0, 1]      | Static or from RACCU
 l2_delay_sd              | [17]     | 1     | [0, 1]      | Static or from RACCU
 **l1_step_sd**           | [16]     | 1     | [0, 1]      | Static or from RACCU
 **l2_step_sd**           | [15]     | 1     | [0, 1]      | Static or from RACCU
-**hops**                 | [14, 11] | 4     | [0, 15]     | number of hops to the final dimarch cell
+**hops**                 | [14, 11] | 4     | [0, 15]     | number of hops to the final dimarch cell - 1
 unused                   | [10, 0]  | 11    | 0           | Unused
 
 ## ISA Description File
