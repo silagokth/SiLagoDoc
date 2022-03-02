@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Manas/InstructionSet/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e8d9bf0c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2d9f7617.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -37,6 +37,7 @@
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -1187,126 +1188,126 @@
 <tbody>
 <tr>
 <td>instr_code</td>
-<td>[26, 23]</td>
+<td>[80, 77]</td>
 <td>4</td>
 <td>b'0001</td>
 <td>REFI1 instruction code</td>
 </tr>
 <tr>
 <td><strong>port_no</strong></td>
-<td>[22, 21]</td>
+<td>[76, 75]</td>
 <td>2</td>
 <td>[0, 3]</td>
 <td>Selects one of the RFile ports</td>
 </tr>
 <tr>
 <td><strong>extra</strong></td>
-<td>[20, 19]</td>
+<td>[74, 73]</td>
 <td>2</td>
 <td>[0, 3]</td>
 <td>How many following instructions.</td>
 </tr>
 <tr>
 <td><strong>init_addr_sd</strong></td>
-<td>18</td>
+<td>[72]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] init_addr is static; [1] init_addr is from RACCU.</td>
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
-<td>[17, 12]</td>
+<td>[71, 66]</td>
 <td>6</td>
 <td>[0, 63]</td>
 <td>Static init address or RACCU register.</td>
 </tr>
 <tr>
 <td><strong>l1_iter_sd</strong></td>
-<td>11</td>
+<td>[65]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] Level 1 iteration is static; [1] L1 iteration is from RACCU.</td>
 </tr>
 <tr>
 <td><strong>l1_iter</strong></td>
-<td>[10, 5]</td>
+<td>[64, 59]</td>
 <td>6</td>
 <td>[0, 63]</td>
 <td>Static L1 iteration or RACCU register.</td>
 </tr>
 <tr>
 <td>init_delay_sd</td>
-<td>4</td>
+<td>[58]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] init_delay is static; [1] init_delay is from RACCU.</td>
 </tr>
 <tr>
 <td>init_delay</td>
-<td>[3, 0]</td>
+<td>[57, 54]</td>
 <td>4</td>
 <td>[0, 15]</td>
 <td>Static init delay or RACCU register.</td>
 </tr>
 <tr>
 <td>unused</td>
-<td>[26, 23]</td>
+<td>[53, 50]</td>
 <td>4</td>
 <td>b'0010</td>
 <td>Deprecated</td>
 </tr>
 <tr>
 <td><strong>l1_step_sd</strong></td>
-<td>[22]</td>
+<td>[49]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] l1_step is static; [1] l1_step is from RACCU</td>
 </tr>
 <tr>
 <td><strong>l1_step</strong></td>
-<td>[21, 16]</td>
+<td>[48, 43]</td>
 <td>6</td>
 <td>[0, 63]</td>
 <td>Static level 1 step value or RACCU register</td>
 </tr>
 <tr>
 <td><strong>l1_step_sign</strong></td>
-<td>[15]</td>
+<td>[42]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>Sign bit of l1_step</td>
 </tr>
 <tr>
 <td>l1_delay_sd</td>
-<td>[14]</td>
+<td>[41]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] l1_delay is static; [1] l1_delay is from RACCU</td>
 </tr>
 <tr>
 <td>l1_delay</td>
-<td>[13, 10]</td>
+<td>[40, 37]</td>
 <td>4</td>
 <td>[0, 15]</td>
 <td>Static level 1 delay or RACCU register</td>
 </tr>
 <tr>
 <td><strong>l2_iter_sd</strong></td>
-<td>[9]</td>
+<td>[36]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] l2_iter is static; [1] l2_iter is from RACCU</td>
 </tr>
 <tr>
 <td><strong>l2_iter</strong></td>
-<td>[8, 4]</td>
+<td>[35, 31]</td>
 <td>5</td>
 <td>[0, 31]</td>
 <td>Static level 2 iteration or RACCU register</td>
 </tr>
 <tr>
 <td><strong>l2_step</strong></td>
-<td>[3, 0]</td>
+<td>[30, 27]</td>
 <td>4</td>
 <td>[0, 15]</td>
 <td>Level 2 step value</td>
@@ -1855,7 +1856,7 @@ H  I  I  I  I  I  I  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 <td>[21, 19]</td>
 <td>3</td>
 <td>[0, 7]</td>
-<td>number of hops</td>
+<td>number of hops - 1</td>
 </tr>
 <tr>
 <td><strong>vertical_dir</strong></td>
@@ -1869,7 +1870,7 @@ H  I  I  I  I  I  I  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 <td>[17, 15]</td>
 <td>3</td>
 <td>[0, 7]</td>
-<td>number of hops</td>
+<td>number of hops - 1</td>
 </tr>
 <tr>
 <td><strong>direction</strong></td>
@@ -2049,7 +2050,7 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
 <td>[14, 11]</td>
 <td>4</td>
 <td>[0, 15]</td>
-<td>number of hops to the final dimarch cell</td>
+<td>number of hops to the final dimarch cell - 1</td>
 </tr>
 <tr>
 <td>unused</td>
@@ -2749,7 +2750,7 @@ I  I  I  I  J  K  L  M  N  O  P  Q  R  R  R  R  S  0  0  0  0  0  0  0  0  0  0
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.b88e97c5.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5413a266.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
