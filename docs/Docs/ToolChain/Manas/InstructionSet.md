@@ -39,11 +39,11 @@ instr_code               | [80, 77] | 4     | b'0001      | REFI1 instruction co
 **extra**                | [74, 73] | 2     | [0, 3]      | How many following instructions.
 **init_addr_sd**         | [72]     | 1     | [0, 1]      | [0] init_addr is static; [1] init_addr is from RACCU.
 **init_addr**            | [71, 66] | 6     | [0, 63]     | Static init address or RACCU register.
-**l1_iter_sd**           | [65]     | 1     | [0, 1]      | [0] Level 1 iteration is static; [1] L1 iteration is from RACCU.
-**l1_iter**              | [64, 59] | 6     | [0, 63]     | Static L1 iteration or RACCU register.
-init_delay_sd            | [58]     | 1     | [0, 1]      | [0] init_delay is static; [1] init_delay is from RACCU.
-init_delay               | [57, 54] | 4     | [0, 15]     | Static init delay or RACCU register.
-unused                   | [53, 50] | 4     | b'0010      | Deprecated
+**l1_iter**              | [65, 60] | 6     | [0, 63]     | Static L1 iteration or RACCU register.
+init_delay               | [59, 54] | 6     | [0, 63]     | Static init delay or RACCU register.
+**l1_iter_sd**           | [53]     | 1     | [0, 1]      | [0] Level 1 iteration is static; [1] L1 iteration is from RACCU.
+init_delay_sd            | [52]     | 1     | [0, 1]      | [0] init_delay is static; [1] init_delay is from RACCU.
+unused                   | [51, 50] | 2     | b'10        | Deprecated
 **l1_step_sd**           | [49]     | 1     | [0, 1]      | [0] l1_step is static; [1] l1_step is from RACCU
 **l1_step**              | [48, 43] | 6     | [0, 63]     | Static level 1 step value or RACCU register
 **l1_step_sign**         | [42]     | 1     | [0, 1]      | Sign bit of l1_step
