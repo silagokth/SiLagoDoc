@@ -1222,38 +1222,38 @@
 <td>Static init address or RACCU register.</td>
 </tr>
 <tr>
-<td><strong>l1_iter_sd</strong></td>
-<td>[65]</td>
-<td>1</td>
-<td>[0, 1]</td>
-<td>[0] Level 1 iteration is static; [1] L1 iteration is from RACCU.</td>
-</tr>
-<tr>
 <td><strong>l1_iter</strong></td>
-<td>[64, 59]</td>
+<td>[65, 60]</td>
 <td>6</td>
 <td>[0, 63]</td>
 <td>Static L1 iteration or RACCU register.</td>
 </tr>
 <tr>
+<td>init_delay</td>
+<td>[59, 54]</td>
+<td>6</td>
+<td>[0, 63]</td>
+<td>Static init delay or RACCU register.</td>
+</tr>
+<tr>
+<td><strong>l1_iter_sd</strong></td>
+<td>[53]</td>
+<td>1</td>
+<td>[0, 1]</td>
+<td>[0] Level 1 iteration is static; [1] L1 iteration is from RACCU.</td>
+</tr>
+<tr>
 <td>init_delay_sd</td>
-<td>[58]</td>
+<td>[52]</td>
 <td>1</td>
 <td>[0, 1]</td>
 <td>[0] init_delay is static; [1] init_delay is from RACCU.</td>
 </tr>
 <tr>
-<td>init_delay</td>
-<td>[57, 54]</td>
-<td>4</td>
-<td>[0, 15]</td>
-<td>Static init delay or RACCU register.</td>
-</tr>
-<tr>
 <td>unused</td>
-<td>[53, 50]</td>
-<td>4</td>
-<td>b'0010</td>
+<td>[51, 50]</td>
+<td>2</td>
+<td>b'10</td>
 <td>Deprecated</td>
 </tr>
 <tr>
