@@ -549,8 +549,8 @@
           ]
         },
         {
-          "name": "horizontal_hops.",
-          "comment": "The horizontal hops - 1",
+          "name": "horizontal_hops",
+          "comment": "The horizontal hops - 1.",
           "bitwidth": 3
         },
         {
