@@ -2,6 +2,9 @@
 
 ## Instructions
 
+--8<-- "Docs/ToolChain/Manas/InstructionSet/isa.md"
+
+<!--
 !!! Note
     The fields marked by **bold text** in each instruction indicate that they are controllable. These fields can be directly set via assembly code.
 
@@ -244,6 +247,8 @@ l2_delay_sd              | [17]     | 1     | [0, 1]      | Static or from RACCU
 **l2_step_sd**           | [15]     | 1     | [0, 1]      | Static or from RACCU
 **hops**                 | [14, 11] | 4     | [0, 15]     | number of hops to the final dimarch cell - 1
 unused                   | [10, 0]  | 11    | 0           | Unused
+
+-->
 
 ## ISA Description File
 
