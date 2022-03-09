@@ -28,7 +28,7 @@ unused_0 | [51, 50] | 2 | 2 | Deprecated.
 l1_delay_sd | [41, 41] | 1 | 0 | Is the level-1 delay static or dynamic? [0]:s; [1]:d;
 l1_delay | [40, 37] | 4 | 0 | The level-1 delay, middle delay
 **l2_iter_sd** | [36, 36] | 1 | 0 | Is level-2 iteration static or dymamic? [0]:s; [1]:d;
-**l2_iter** | [35, 31] | 5 | 0 | The level-2 iteration.
+**l2_iter** | [35, 31] | 5 | 0 | The level-2 iteration - 1.
 **l2_step** | [30, 27] | 4 | 1 | The level-2 step.
 unused_1 | [26, 23] | 4 | 3 | Deprecated.
 l2_delay_sd | [22, 22] | 1 | 0 | Is the level-2 delay static or dynamic? [0]:s; [1]:d;
@@ -121,9 +121,9 @@ Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [26, 23] | 4 | 12 | Instruction code for ROUTE
 **horizontal_dir** | [22, 22] | 1 | 0 | The horizontal direction: West or East. [0]:w; [1]:e;
-**horizontal_hops** | [21, 19] | 3 | 0 | The horizontal hops - 1.
+**horizontal_hops** | [21, 19] | 3 | 0 | The horizontal hops.
 **vertical_dir** | [18, 18] | 1 | 0 | The vertical direction: South or North. [0]:s; [1]:n;
-**vertical_hops** | [17, 15] | 3 | 0 | The vertical hops - 1
+**vertical_hops** | [17, 15] | 3 | 0 | The vertical hops.
 **direction** | [14, 14] | 1 | 0 | The data transfer direction: Read or Write. [0]:r; [1]:w;
 **select_drra_row** | [13, 13] | 1 | 0 | The drra row that send/recieve the data.
 
@@ -135,10 +135,10 @@ instr_code | [80, 77] | 4 | 13 | Instruction code for SRAM
 **rw** | [76, 76] | 1 | 0 | Read or Write [0]:r; [1]:w;
 **init_addr** | [75, 69] | 7 | 0 | Initial address
 init_delay | [68, 65] | 4 | 0 | initial delay
-**l1_iter** | [64, 58] | 7 | 0 | level-1 iteration
+**l1_iter** | [64, 58] | 7 | 0 | level-1 iteration - 1.
 **l1_step** | [57, 50] | 8 | 1 | level-1 step
 l1_delay | [49, 44] | 6 | 0 | level-1 delay
-**l2_iter** | [43, 37] | 7 | 0 | level-2 iteration
+**l2_iter** | [43, 37] | 7 | 0 | level-2 iteration - 1.
 **l2_step** | [36, 29] | 8 | 1 | level-2 step
 l2_delay | [28, 23] | 6 | 0 | level-2 delay
 **init_addr_sd** | [22, 22] | 1 | 0 | Is initial address static or dynamic? [0]:s; [1]:d;
