@@ -929,6 +929,10 @@
 
   <h1>Isa</h1>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.</p>
+</div>
 <h3 id="halt">HALT</h3>
 <table>
 <thead>
@@ -970,35 +974,35 @@
 <td>Instruction code for REFI</td>
 </tr>
 <tr>
-<td>port_no</td>
+<td><strong>port_no</strong></td>
 <td>[76, 75]</td>
 <td>2</td>
 <td>0</td>
 <td>Selects one of the RFile port. [0]:w0; [1]:w1; [2]:r0; [3]:r1;</td>
 </tr>
 <tr>
-<td>extra</td>
+<td><strong>extra</strong></td>
 <td>[74, 73]</td>
 <td>2</td>
 <td>0</td>
 <td>How many following chunks?</td>
 </tr>
 <tr>
-<td>init_addr_sd</td>
+<td><strong>init_addr_sd</strong></td>
 <td>[72, 72]</td>
 <td>1</td>
 <td>0</td>
 <td>Is init_addr static or dymamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>init_addr</td>
+<td><strong>init_addr</strong></td>
 <td>[71, 66]</td>
 <td>6</td>
 <td>0</td>
 <td>Initial address.</td>
 </tr>
 <tr>
-<td>l1_iter</td>
+<td><strong>l1_iter</strong></td>
 <td>[65, 60]</td>
 <td>6</td>
 <td>0</td>
@@ -1012,7 +1016,7 @@
 <td>Initial delay.</td>
 </tr>
 <tr>
-<td>l1_iter_sd</td>
+<td><strong>l1_iter_sd</strong></td>
 <td>[53, 53]</td>
 <td>1</td>
 <td>0</td>
@@ -1033,21 +1037,21 @@
 <td>Deprecated.</td>
 </tr>
 <tr>
-<td>l1_step_sd</td>
+<td><strong>l1_step_sd</strong></td>
 <td>[49, 49]</td>
 <td>1</td>
 <td>0</td>
 <td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l1_step</td>
+<td><strong>l1_step</strong></td>
 <td>[48, 43]</td>
 <td>6</td>
 <td>1</td>
 <td>Level-1 step</td>
 </tr>
 <tr>
-<td>l1_step_sign</td>
+<td><strong>l1_step_sign</strong></td>
 <td>[42, 42]</td>
 <td>1</td>
 <td>0</td>
@@ -1068,21 +1072,21 @@
 <td>The level-1 delay, middle delay</td>
 </tr>
 <tr>
-<td>l2_iter_sd</td>
+<td><strong>l2_iter_sd</strong></td>
 <td>[36, 36]</td>
 <td>1</td>
 <td>0</td>
 <td>Is level-2 iteration static or dymamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l2_iter</td>
+<td><strong>l2_iter</strong></td>
 <td>[35, 31]</td>
 <td>5</td>
 <td>0</td>
 <td>The level-2 iteration.</td>
 </tr>
 <tr>
-<td>l2_step</td>
+<td><strong>l2_step</strong></td>
 <td>[30, 27]</td>
 <td>4</td>
 <td>1</td>
@@ -1124,14 +1128,14 @@
 <td>The extened bits near MSB of l1_delay.</td>
 </tr>
 <tr>
-<td>l2_iter_ext</td>
+<td><strong>l2_iter_ext</strong></td>
 <td>[7, 7]</td>
 <td>1</td>
 <td>0</td>
 <td>The extened bits near MSB of l2_iter.</td>
 </tr>
 <tr>
-<td>l2_step_ext</td>
+<td><strong>l2_step_ext</strong></td>
 <td>[6, 5]</td>
 <td>2</td>
 <td>0</td>
@@ -1145,14 +1149,14 @@
 <td>Deprecated.</td>
 </tr>
 <tr>
-<td>dimarch</td>
+<td><strong>dimarch</strong></td>
 <td>[1, 1]</td>
 <td>1</td>
 <td>0</td>
 <td>Is reading/writing from/to DiMArch? [0]:n; [1]:y;</td>
 </tr>
 <tr>
-<td>compress</td>
+<td><strong>compress</strong></td>
 <td>[0, 0]</td>
 <td>1</td>
 <td>0</td>
@@ -1180,14 +1184,14 @@
 <td>Instruction code for DPU</td>
 </tr>
 <tr>
-<td>mode</td>
+<td><strong>mode</strong></td>
 <td>[22, 18]</td>
 <td>5</td>
 <td>0</td>
 <td>The DPU mode. [0]:idle; [1]:add; [2]:add_3; [3]:add_acc; [4]:add_const; [5]:subt; [6]:subt_abs; [7]:subt_acc; [8]:mult; [9]:mult_add; [10]:mult_const; [11]:mac; [12]:som_dist; [13]:mac_const; [14]:max_acc; [15]:max_const; [16]:min_acc; [17]:max; [18]:shift_l; [19]:shift_r; [20]:sigm; [21]:tanhyp; [22]:expon; [23]:lk_relu; [24]:elu; [25]:div; [26]:acc_softmax; [27]:div_softmax; [28]:ld_regs; [29]:st_regs; [30]:change_q;</td>
 </tr>
 <tr>
-<td>control</td>
+<td><strong>control</strong></td>
 <td>[17, 16]</td>
 <td>2</td>
 <td>2</td>
@@ -1201,14 +1205,14 @@
 <td>Deprecated.</td>
 </tr>
 <tr>
-<td>acc_clear</td>
+<td><strong>acc_clear</strong></td>
 <td>[9, 2]</td>
 <td>8</td>
 <td>0</td>
 <td>The accumulator clear signal will be triggered if the accumulation reaches this number. It also serves as immediate value for some DPU mode.</td>
 </tr>
 <tr>
-<td>io_change</td>
+<td><strong>io_change</strong></td>
 <td>[1, 0]</td>
 <td>2</td>
 <td>0</td>
@@ -1243,42 +1247,42 @@
 <td>Deprecated.</td>
 </tr>
 <tr>
-<td>src_row</td>
+<td><strong>src_row</strong></td>
 <td>[21, 21]</td>
 <td>1</td>
 <td>0</td>
 <td>Source row.</td>
 </tr>
 <tr>
-<td>src_block</td>
+<td><strong>src_block</strong></td>
 <td>[20, 20]</td>
 <td>1</td>
 <td>0</td>
 <td>Source block, RF or DPU. [0]:rf; [1]:dpu;</td>
 </tr>
 <tr>
-<td>src_port</td>
+<td><strong>src_port</strong></td>
 <td>[19, 19]</td>
 <td>1</td>
 <td>0</td>
 <td>source port.</td>
 </tr>
 <tr>
-<td>hb_index</td>
+<td><strong>hb_index</strong></td>
 <td>[18, 16]</td>
 <td>3</td>
 <td>0</td>
 <td>Index of horizontal bus. This is the column difference of the src and dest cell shifting by 2. For example if the path is from [0,0] to [1,2], the column difference is -2, so the hb_index = -2+2=0.</td>
 </tr>
 <tr>
-<td>send_to_other_row</td>
+<td><strong>send_to_other_row</strong></td>
 <td>[15, 15]</td>
 <td>1</td>
 <td>0</td>
 <td>Flag of whether src and dest row are equal. [0]:y; [1]:n;</td>
 </tr>
 <tr>
-<td>v_index</td>
+<td><strong>v_index</strong></td>
 <td>[14, 12]</td>
 <td>3</td>
 <td>0</td>
@@ -1306,7 +1310,7 @@
 <td>Instruction code for JUMP</td>
 </tr>
 <tr>
-<td>pc</td>
+<td><strong>pc</strong></td>
 <td>[22, 17]</td>
 <td>6</td>
 <td>0</td>
@@ -1334,14 +1338,14 @@
 <td>Instruction code for WAIT</td>
 </tr>
 <tr>
-<td>cycle_sd</td>
+<td><strong>cycle_sd</strong></td>
 <td>[22, 22]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the cycle static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>cycle</td>
+<td><strong>cycle</strong></td>
 <td>[21, 7]</td>
 <td>15</td>
 <td>0</td>
@@ -1369,63 +1373,63 @@
 <td>Instruction code for LOOP</td>
 </tr>
 <tr>
-<td>extra</td>
+<td><strong>extra</strong></td>
 <td>[49, 49]</td>
 <td>1</td>
 <td>0</td>
 <td>How many following chunks?</td>
 </tr>
 <tr>
-<td>loopid</td>
+<td><strong>loopid</strong></td>
 <td>[48, 47]</td>
 <td>2</td>
 <td>0</td>
 <td>The id of the loop manager slot.</td>
 </tr>
 <tr>
-<td>endpc</td>
+<td><strong>endpc</strong></td>
 <td>[46, 41]</td>
 <td>6</td>
 <td>0</td>
 <td>The PC where loop ends.</td>
 </tr>
 <tr>
-<td>start_sd</td>
+<td><strong>start_sd</strong></td>
 <td>[40, 40]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the start static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>start</td>
+<td><strong>start</strong></td>
 <td>[39, 34]</td>
 <td>6</td>
 <td>0</td>
 <td>The start of iterator.</td>
 </tr>
 <tr>
-<td>iter_sd</td>
+<td><strong>iter_sd</strong></td>
 <td>[33, 33]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the iteration count static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>iter</td>
+<td><strong>iter</strong></td>
 <td>[32, 27]</td>
 <td>6</td>
 <td>0</td>
 <td>The number of iteration.</td>
 </tr>
 <tr>
-<td>step_sd</td>
+<td><strong>step_sd</strong></td>
 <td>[26, 26]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the step static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>step</td>
+<td><strong>step</strong></td>
 <td>[25, 20]</td>
 <td>6</td>
 <td>1</td>
@@ -1453,42 +1457,42 @@
 <td>Instruction code for RACCU</td>
 </tr>
 <tr>
-<td>mode</td>
+<td><strong>mode</strong></td>
 <td>[22, 20]</td>
 <td>3</td>
 <td>0</td>
 <td>RACCU mode [0]:idle; [1]:add; [2]:sub; [3]:shift_r; [4]:shift_l; [5]:mult; [6]:mult_add; [7]:mult_sub;</td>
 </tr>
 <tr>
-<td>operand1_sd</td>
+<td><strong>operand1_sd</strong></td>
 <td>[19, 19]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the first operand static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>operand1</td>
+<td><strong>operand1</strong></td>
 <td>[18, 12]</td>
 <td>7</td>
 <td>0</td>
 <td>First operand.</td>
 </tr>
 <tr>
-<td>operand2_sd</td>
+<td><strong>operand2_sd</strong></td>
 <td>[11, 11]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the second operand static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>operand2</td>
+<td><strong>operand2</strong></td>
 <td>[10, 4]</td>
 <td>7</td>
 <td>0</td>
 <td>Second operand.</td>
 </tr>
 <tr>
-<td>result</td>
+<td><strong>result</strong></td>
 <td>[3, 0]</td>
 <td>4</td>
 <td>0</td>
@@ -1516,14 +1520,14 @@
 <td>Instruction code for BRANCH</td>
 </tr>
 <tr>
-<td>mode</td>
+<td><strong>mode</strong></td>
 <td>[22, 21]</td>
 <td>2</td>
 <td>0</td>
 <td>The branch mode</td>
 </tr>
 <tr>
-<td>false_pc</td>
+<td><strong>false_pc</strong></td>
 <td>[20, 15]</td>
 <td>6</td>
 <td>0</td>
@@ -1551,42 +1555,42 @@
 <td>Instruction code for ROUTE</td>
 </tr>
 <tr>
-<td>horizontal_dir</td>
+<td><strong>horizontal_dir</strong></td>
 <td>[22, 22]</td>
 <td>1</td>
 <td>0</td>
 <td>The horizontal direction: West or East. [0]:w; [1]:e;</td>
 </tr>
 <tr>
-<td>horizontal_hops</td>
+<td><strong>horizontal_hops</strong></td>
 <td>[21, 19]</td>
 <td>3</td>
 <td>0</td>
 <td>The horizontal hops - 1.</td>
 </tr>
 <tr>
-<td>vertical_dir</td>
+<td><strong>vertical_dir</strong></td>
 <td>[18, 18]</td>
 <td>1</td>
 <td>0</td>
 <td>The vertical direction: South or North. [0]:s; [1]:n;</td>
 </tr>
 <tr>
-<td>vertical_hops</td>
+<td><strong>vertical_hops</strong></td>
 <td>[17, 15]</td>
 <td>3</td>
 <td>0</td>
 <td>The vertical hops - 1</td>
 </tr>
 <tr>
-<td>direction</td>
+<td><strong>direction</strong></td>
 <td>[14, 14]</td>
 <td>1</td>
 <td>0</td>
 <td>The data transfer direction: Read or Write. [0]:r; [1]:w;</td>
 </tr>
 <tr>
-<td>select_drra_row</td>
+<td><strong>select_drra_row</strong></td>
 <td>[13, 13]</td>
 <td>1</td>
 <td>0</td>
@@ -1614,14 +1618,14 @@
 <td>Instruction code for SRAM</td>
 </tr>
 <tr>
-<td>rw</td>
+<td><strong>rw</strong></td>
 <td>[76, 76]</td>
 <td>1</td>
 <td>0</td>
 <td>Read or Write [0]:r; [1]:w;</td>
 </tr>
 <tr>
-<td>init_addr</td>
+<td><strong>init_addr</strong></td>
 <td>[75, 69]</td>
 <td>7</td>
 <td>0</td>
@@ -1635,14 +1639,14 @@
 <td>initial delay</td>
 </tr>
 <tr>
-<td>l1_iter</td>
+<td><strong>l1_iter</strong></td>
 <td>[64, 58]</td>
 <td>7</td>
 <td>0</td>
 <td>level-1 iteration</td>
 </tr>
 <tr>
-<td>l1_step</td>
+<td><strong>l1_step</strong></td>
 <td>[57, 50]</td>
 <td>8</td>
 <td>1</td>
@@ -1656,14 +1660,14 @@
 <td>level-1 delay</td>
 </tr>
 <tr>
-<td>l2_iter</td>
+<td><strong>l2_iter</strong></td>
 <td>[43, 37]</td>
 <td>7</td>
 <td>0</td>
 <td>level-2 iteration</td>
 </tr>
 <tr>
-<td>l2_step</td>
+<td><strong>l2_step</strong></td>
 <td>[36, 29]</td>
 <td>8</td>
 <td>1</td>
@@ -1677,21 +1681,21 @@
 <td>level-2 delay</td>
 </tr>
 <tr>
-<td>init_addr_sd</td>
+<td><strong>init_addr_sd</strong></td>
 <td>[22, 22]</td>
 <td>1</td>
 <td>0</td>
 <td>Is initial address static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l1_iter_sd</td>
+<td><strong>l1_iter_sd</strong></td>
 <td>[21, 21]</td>
 <td>1</td>
 <td>0</td>
 <td>Is level-1 iteration static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l2_iter_sd</td>
+<td><strong>l2_iter_sd</strong></td>
 <td>[20, 20]</td>
 <td>1</td>
 <td>0</td>
@@ -1719,21 +1723,21 @@
 <td>Is level-2 delay static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l1_step_sd</td>
+<td><strong>l1_step_sd</strong></td>
 <td>[16, 16]</td>
 <td>1</td>
 <td>0</td>
 <td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>l2_step_sd</td>
+<td><strong>l2_step_sd</strong></td>
 <td>[15, 15]</td>
 <td>1</td>
 <td>0</td>
 <td>Is level-2 step static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
-<td>hops</td>
+<td><strong>hops</strong></td>
 <td>[14, 11]</td>
 <td>4</td>
 <td>0</td>
