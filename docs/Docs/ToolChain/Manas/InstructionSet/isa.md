@@ -94,6 +94,7 @@ instr_code | [53, 50] | 4 | 8 | Instruction code for LOOP
 **iter** | [32, 27] | 6 | 0 | The number of iteration.
 **step_sd** | [26, 26] | 1 | 0 | Is the step static or dynamic? [0]:s; [1]:d;
 **step** | [25, 20] | 6 | 1 | The iteration step.
+link | [19, 16] | 4 | 0 | The loops that have the same endpc will be linked together. This field is 1-hot encoded.
 
 ### RACCU
 

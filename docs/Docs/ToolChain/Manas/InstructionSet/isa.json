@@ -456,6 +456,12 @@
           "comment": "The iteration step.",
           "bitwidth": 6,
           "default_val": 1
+        },
+        {
+          "name": "link",
+          "comment": "The loops that have the same endpc will be linked together. This field is 1-hot encoded.",
+          "bitwidth": 4,
+          "controllable": false
         }
       ]
     },
