@@ -55,7 +55,7 @@
           "name": "init_delay",
           "comment": "Initial delay.",
           "bitwidth": 6,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "l1_iter_sd",
@@ -70,7 +70,7 @@
           "name": "init_delay_sd",
           "comment": "Is initial delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
@@ -113,7 +113,7 @@
           "name": "l1_delay_sd",
           "comment": "Is the level-1 delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
@@ -123,7 +123,7 @@
           "name": "l1_delay",
           "comment": "The level-1 delay, middle delay",
           "bitwidth": 4,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "l2_iter_sd",
@@ -157,7 +157,7 @@
           "name": "l2_delay_sd",
           "comment": "Is the level-2 delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
@@ -167,7 +167,7 @@
           "name": "l2_delay",
           "comment": "The level-2 delay, repetition delay.",
           "bitwidth": 6,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "unused_2",
@@ -180,7 +180,7 @@
         {
           "name": "l1_delay_ext",
           "comment": "The extened bits near MSB of l1_delay.",
-          "controllable": false,
+          "controllable": true,
           "bitwidth": 2
         },
         {
@@ -613,7 +613,7 @@
           "name": "init_delay",
           "comment": "initial delay",
           "bitwidth": 4,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "l1_iter",
@@ -630,7 +630,7 @@
           "name": "l1_delay",
           "comment": "level-1 delay",
           "bitwidth": 6,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "l2_iter",
@@ -647,7 +647,7 @@
           "name": "l2_delay",
           "comment": "level-2 delay",
           "bitwidth": 6,
-          "controllable": false
+          "controllable": true
         },
         {
           "name": "init_addr_sd",
@@ -680,7 +680,7 @@
           "name": "init_delay_sd",
           "comment": "Is initial delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
@@ -690,7 +690,7 @@
           "name": "l1_delay_sd",
           "comment": "Is level-1 delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
@@ -700,7 +700,7 @@
           "name": "l2_delay_sd",
           "comment": "Is level-2 delay static or dynamic?",
           "bitwidth": 1,
-          "controllable": false,
+          "controllable": true,
           "verbo_map": [
             { "key": 0, "val": "s" },
             { "key": 1, "val": "d" }
