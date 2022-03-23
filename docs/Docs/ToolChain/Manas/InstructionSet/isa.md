@@ -18,23 +18,23 @@ instr_code | [80, 77] | 4 | 1 | Instruction code for REFI
 **init_addr_sd** | [72, 72] | 1 | 0 | Is init_addr static or dymamic? [0]:s; [1]:d;
 **init_addr** | [71, 66] | 6 | 0 | Initial address.
 **l1_iter** | [65, 60] | 6 | 0 | Level-1 iteration - 1.
-init_delay | [59, 54] | 6 | 0 | Initial delay.
+**init_delay** | [59, 54] | 6 | 0 | Initial delay.
 **l1_iter_sd** | [53, 53] | 1 | 0 | Is level-1 iteration static or dymamic? [0]:s; [1]:d;
-init_delay_sd | [52, 52] | 1 | 0 | Is initial delay static or dynamic? [0]:s; [1]:d;
+**init_delay_sd** | [52, 52] | 1 | 0 | Is initial delay static or dynamic? [0]:s; [1]:d;
 unused_0 | [51, 50] | 2 | 2 | Deprecated.
 **l1_step_sd** | [49, 49] | 1 | 0 | Is level-1 step static or dynamic? [0]:s; [1]:d;
 **l1_step** | [48, 43] | 6 | 1 | Level-1 step
 **l1_step_sign** | [42, 42] | 1 | 0 | The sign of level-1 step. [0]:+; [1]:-;
-l1_delay_sd | [41, 41] | 1 | 0 | Is the level-1 delay static or dynamic? [0]:s; [1]:d;
-l1_delay | [40, 37] | 4 | 0 | The level-1 delay, middle delay
+**l1_delay_sd** | [41, 41] | 1 | 0 | Is the level-1 delay static or dynamic? [0]:s; [1]:d;
+**l1_delay** | [40, 37] | 4 | 0 | The level-1 delay, middle delay
 **l2_iter_sd** | [36, 36] | 1 | 0 | Is level-2 iteration static or dymamic? [0]:s; [1]:d;
 **l2_iter** | [35, 31] | 5 | 0 | The level-2 iteration - 1.
 **l2_step** | [30, 27] | 4 | 1 | The level-2 step.
 unused_1 | [26, 23] | 4 | 3 | Deprecated.
-l2_delay_sd | [22, 22] | 1 | 0 | Is the level-2 delay static or dynamic? [0]:s; [1]:d;
-l2_delay | [21, 16] | 6 | 0 | The level-2 delay, repetition delay.
+**l2_delay_sd** | [22, 22] | 1 | 0 | Is the level-2 delay static or dynamic? [0]:s; [1]:d;
+**l2_delay** | [21, 16] | 6 | 0 | The level-2 delay, repetition delay.
 unused_2 | [15, 10] | 6 | 0 | Deprecated.
-l1_delay_ext | [9, 8] | 2 | 0 | The extened bits near MSB of l1_delay.
+**l1_delay_ext** | [9, 8] | 2 | 0 | The extened bits near MSB of l1_delay.
 **l2_iter_ext** | [7, 7] | 1 | 0 | The extened bits near MSB of l2_iter.
 **l2_step_ext** | [6, 5] | 2 | 0 | The extened bits near MSB of l2_step.
 unused_3 | [4, 2] | 3 | 0 | Deprecated.
@@ -135,19 +135,19 @@ Field | Position | Width | Default Value | Description
 instr_code | [80, 77] | 4 | 13 | Instruction code for SRAM
 **rw** | [76, 76] | 1 | 0 | Read or Write [0]:r; [1]:w;
 **init_addr** | [75, 69] | 7 | 0 | Initial address
-init_delay | [68, 65] | 4 | 0 | initial delay
+**init_delay** | [68, 65] | 4 | 0 | initial delay
 **l1_iter** | [64, 58] | 7 | 0 | level-1 iteration - 1.
 **l1_step** | [57, 50] | 8 | 1 | level-1 step
-l1_delay | [49, 44] | 6 | 0 | level-1 delay
+**l1_delay** | [49, 44] | 6 | 0 | level-1 delay
 **l2_iter** | [43, 37] | 7 | 0 | level-2 iteration - 1.
 **l2_step** | [36, 29] | 8 | 1 | level-2 step
-l2_delay | [28, 23] | 6 | 0 | level-2 delay
+**l2_delay** | [28, 23] | 6 | 0 | level-2 delay
 **init_addr_sd** | [22, 22] | 1 | 0 | Is initial address static or dynamic? [0]:s; [1]:d;
 **l1_iter_sd** | [21, 21] | 1 | 0 | Is level-1 iteration static or dynamic? [0]:s; [1]:d;
 **l2_iter_sd** | [20, 20] | 1 | 0 | Is level-2 iteration static or dynamic? [0]:s; [1]:d;
-init_delay_sd | [19, 19] | 1 | 0 | Is initial delay static or dynamic? [0]:s; [1]:d;
-l1_delay_sd | [18, 18] | 1 | 0 | Is level-1 delay static or dynamic? [0]:s; [1]:d;
-l2_delay_sd | [17, 17] | 1 | 0 | Is level-2 delay static or dynamic? [0]:s; [1]:d;
+**init_delay_sd** | [19, 19] | 1 | 0 | Is initial delay static or dynamic? [0]:s; [1]:d;
+**l1_delay_sd** | [18, 18] | 1 | 0 | Is level-1 delay static or dynamic? [0]:s; [1]:d;
+**l2_delay_sd** | [17, 17] | 1 | 0 | Is level-2 delay static or dynamic? [0]:s; [1]:d;
 **l1_step_sd** | [16, 16] | 1 | 0 | Is level-1 step static or dynamic? [0]:s; [1]:d;
 **l2_step_sd** | [15, 15] | 1 | 0 | Is level-2 step static or dynamic? [0]:s; [1]:d;
 **hops** | [14, 11] | 4 | 0 | Number of hops to reach the DiMArch cell - 1
