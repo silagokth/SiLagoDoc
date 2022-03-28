@@ -46,7 +46,7 @@ unused_3 | [4, 2] | 3 | 0 | Deprecated.
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [26, 23] | 4 | 4 | Instruction code for DPU
-**mode** | [22, 18] | 5 | 0 | The DPU mode. [0]:idle; [1]:add; [2]:add_3; [3]:add_acc; [4]:add_const; [5]:subt; [6]:subt_abs; [7]:subt_acc; [8]:mult; [9]:mult_add; [10]:mult_const; [11]:mac; [12]:som_dist; [13]:mac_const; [14]:max_acc; [15]:max_const; [16]:min_acc; [17]:max; [18]:shift_l; [19]:shift_r; [20]:sigm; [21]:tanhyp; [22]:expon; [23]:lk_relu; [24]:elu; [25]:div; [26]:acc_softmax; [27]:div_softmax; [28]:ld_regs; [29]:st_regs; [30]:change_q;
+**mode** | [22, 18] | 5 | 0 | The DPU mode. [0]:idle; [1]:add; [2]:sum_acc; [3]:add_const; [4]:subt; [5]:subt_abs; [6]:mode_6; [7]:mult; [8]:mult_add; [9]:mult_const; [10]:mac; [11]:ld_ir; [12]:axpy; [13]:max_min_acc; [14]:max_min_const; [15]:mode_15; [16]:max_min; [17]:shift_l; [18]:shift_r; [19]:sigm; [20]:tanhyp; [21]:expon; [22]:lk_relu; [23]:relu; [24]:div; [25]:acc_softmax; [26]:div_softmax; [28]:ld_acc; [28]:scale_dw; [29]:scale_up; [30]:mac_inter, [31]:mode_31
 **control** | [17, 16] | 2 | 2 | The controll mode: saturation and operator type. [0]:nosat_int; [1]:nosat_fx; [2]:sat_int; [3]:sat_fx;
 unused_0 | [15, 10] | 6 | 2 | Deprecated.
 **acc_clear** | [9, 2] | 8 | 0 | The accumulator clear signal will be triggered if the accumulation reaches this number. It also serves as immediate value for some DPU mode.
