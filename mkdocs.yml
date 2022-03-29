@@ -8,7 +8,7 @@ site_url: "https://silagokth.github.io/SiLagoDoc/"
 repo_name: "silagokth/SiLagoDoc"
 repo_url: "https://github.com/silagokth/SiLagoDoc"
 
-pages:
+nav:
   - Home: index.md
   - Guideline:
       - Guideline/Mkdocs-tutorial.md
