@@ -46,6 +46,7 @@ nav:
               - Docs/ToolChain/Manas/Tutorial.md
               - Docs/ToolChain/Manas/ProgrammingGuide.md
               - Docs/ToolChain/Manas/InstructionSet.md
+              - Docs/ToolChain/Manas/InstructionPhase.md
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md
   #     - Library:
