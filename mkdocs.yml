@@ -30,6 +30,7 @@ nav:
           - Vesyla:
               - Docs/ToolChain/Vesyla/Overview.md
               - Docs/ToolChain/Vesyla/Tutorial.md
+              - Docs/ToolChain/Vesyla/RepoOrganization.md
               - Docs/ToolChain/Vesyla/ProgrammingGuide.md
               - Docs/ToolChain/Vesyla/Instruction-Set.md
               - Docs/ToolChain/Vesyla/Cadfg.md
