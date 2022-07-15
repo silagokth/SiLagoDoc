@@ -1,65 +1,45 @@
-# Vesyla tutorial
+# Vesyla-suite tutorial
 
-## Working environment
+## Installation
 
-- **Operating System**:
-    - Any modern Linux distribution
-- **Commercial Software**:
-    - Matlab
-    - QuestaSim
-
-## File structure
-
-```
-$VesylaRoot/
-  |- src/
-  |    |- all source files.
-  |
-  |- matlab_lib/
-  |    |- matlab behavior models for DPU modes
-  |
-  |- config/
-  |    |- some configuration files.
-  |
-  |- autotest/
-  |    |- some scripts for auto testing.
-  |    |- some testcases.
-  |
-  |- build/
-       |- compilation working directory
-```
-
-## Compile Vesyla
-
-First, install compilation tool chain. You need to use the correct package manager of your Linux distribution. The needed packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.
+Vesyla-suite can be compiled and installed on any modern linux distribution. Before compiling vesyla-suite, you need to install compilation tool chain. You need to use the correct package manager of your Linux distribution. The necessary packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.
 
 ```tcl
 sudo yum install g++ make cmake boost-devel
 ```
 
-Gecode is not really necessary, Vesyla only use it for CP scheduling engine. However, you still need to install it. You can install it according to the installation instruction on the official website: [https://www.gecode.org/](https://www.gecode.org/)
-
-Then, you create working directory *build*.
+Gecode is not really necessary, Vesyla only use it for CP scheduling engine. However, you still need to install it. You can install it according to the installation instruction on the official website: [https://www.gecode.org/](https://www.gecode.org/). Please install Gecode in stanard location (such as `/usr` or `/usr/local`) so that the cmake can find it.
 
 ```tcl
-cd $VesylaRoot
-mkdir build
-cd build
-```
-
-Next step is to generate makefile according to the CMake configuration file CMakeLists.txt.
-
-```tcl
-cmake ..
-```
-
-Now, it's time to compile vesyla.
-
-```tcl
+cd /gecode/root/folder
+./configure --prefix=/desired/install/path
 make
+make install
 ```
 
-After a while, the executable file named as "vesyla" should appear in the *build* directory.
+Then, you download the **vesyla-suite** source package and make a build directory.
+
+```tcl
+cd /vesyla-suite/root/folder
+mkdir build
+```
+
+Next step is to generate makefile according to the CMake configuration file CMakeLists.txt and specify the installation path. Once the makefile is generated, you can compile it and install the compiled program.
+
+```tcl
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/desired/install/path ..
+make
+make install
+```
+
+Now, all executable programs in vesyla-suite are installed. If vesyla-suite are installed in non-standard location, you need to set the following environment variables to make it work.
+
+```tcl
+export PATH=$PATH:/path/to/vesyla-suite/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/vesyla-suite/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/gecode/lib
+```
 
 ## Write the source code
 
