@@ -19,7 +19,7 @@
     
     
       
-        <title>Vesyla tutorial - SiLago Documentation</title>
+        <title>Vesyla-suite tutorial - SiLago Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vesyla-tutorial" class="md-skip">
+        <a href="#vesyla-suite-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vesyla tutorial
+              Vesyla-suite tutorial
             
           </span>
         </div>
@@ -473,12 +473,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Vesyla tutorial
+          Vesyla-suite tutorial
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Vesyla tutorial
+        Vesyla-suite tutorial
       </a>
       
         
@@ -497,22 +497,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#working-environment" class="md-nav__link">
-    Working environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-structure" class="md-nav__link">
-    File structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compile-vesyla" class="md-nav__link">
-    Compile Vesyla
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -1007,22 +993,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#working-environment" class="md-nav__link">
-    Working environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-structure" class="md-nav__link">
-    File structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compile-vesyla" class="md-nav__link">
-    Compile Vesyla
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -1127,54 +1099,32 @@
 
 
 
-<h1 id="vesyla-tutorial">Vesyla tutorial</h1>
-<h2 id="working-environment">Working environment</h2>
-<ul>
-<li><strong>Operating System</strong>:<ul>
-<li>Any modern Linux distribution</li>
-</ul>
-</li>
-<li><strong>Commercial Software</strong>:<ul>
-<li>Matlab</li>
-<li>QuestaSim</li>
-</ul>
-</li>
-</ul>
-<h2 id="file-structure">File structure</h2>
-<div class="highlight"><pre><span></span><code>$VesylaRoot/
-  |- src/
-  |    |- all source files.
-  |
-  |- matlab_lib/
-  |    |- matlab behavior models for DPU modes
-  |
-  |- config/
-  |    |- some configuration files.
-  |
-  |- autotest/
-  |    |- some scripts for auto testing.
-  |    |- some testcases.
-  |
-  |- build/
-       |- compilation working directory
-</code></pre></div>
-<h2 id="compile-vesyla">Compile Vesyla</h2>
-<p>First, install compilation tool chain. You need to use the correct package manager of your Linux distribution. The needed packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.</p>
+<h1 id="vesyla-suite-tutorial">Vesyla-suite tutorial</h1>
+<h2 id="installation">Installation</h2>
+<p>Vesyla-suite can be compiled and installed on any modern linux distribution. Before compiling vesyla-suite, you need to install compilation tool chain. You need to use the correct package manager of your Linux distribution. The necessary packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>g<span class="o">++</span><span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>boost-devel
 </code></pre></div>
-<p>Gecode is not really necessary, Vesyla only use it for CP scheduling engine. However, you still need to install it. You can install it according to the installation instruction on the official website: <a href="https://www.gecode.org/">https://www.gecode.org/</a></p>
-<p>Then, you create working directory <em>build</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$VesylaRoot</span>
+<p>Gecode is not really necessary, Vesyla only use it for CP scheduling engine. However, you still need to install it. You can install it according to the installation instruction on the official website: <a href="https://www.gecode.org/">https://www.gecode.org/</a>. Please install Gecode in stanard location (such as <code>/usr</code> or <code>/usr/local</code>) so that the cmake can find it.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>gecode<span class="o">/</span>root<span class="o">/</span>folder
+<span class="nv">.</span><span class="o">/</span>configure<span class="w"> </span><span class="o">--</span>prefix<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path
+<span class="nv">make</span>
+<span class="nv">make</span><span class="w"> </span>install
+</code></pre></div>
+<p>Then, you download the <strong>vesyla-suite</strong> source package and make a build directory.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>vesyla-suite<span class="o">/</span>root<span class="o">/</span>folder
 <span class="nv">mkdir</span><span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
 </code></pre></div>
-<p>Next step is to generate makefile according to the CMake configuration file CMakeLists.txt.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">cmake</span><span class="w"> </span>..
+<p>Next step is to generate makefile according to the CMake configuration file CMakeLists.txt and specify the installation path. Once the makefile is generated, you can compile it and install the compiled program.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build
+<span class="nv">cmake</span><span class="w"> </span><span class="o">-</span>DCMAKE_INSTALL_PREFIX<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path<span class="w"> </span>..
+<span class="nv">make</span>
+<span class="nv">make</span><span class="w"> </span>install
 </code></pre></div>
-<p>Now, it's time to compile vesyla.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">make</span>
+<p>Now, all executable programs in vesyla-suite are installed. If vesyla-suite are installed in non-standard location, you need to set the following environment variables to make it work.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">export</span><span class="w"> </span>PATH<span class="err">=</span><span class="nv">$PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>bin
+<span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>lib
+<span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>gecode<span class="o">/</span>lib
 </code></pre></div>
-<p>After a while, the executable file named as "vesyla" should appear in the <em>build</em> directory.</p>
 <h2 id="write-the-source-code">Write the source code</h2>
 <p>Please Check the <a href="../ProgrammingGuide/">Programming Guide</a>.</p>
 <h2 id="compilation-and-simulation">Compilation and simulation</h2>
