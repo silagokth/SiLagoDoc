@@ -100,7 +100,7 @@ link | [19, 16] | 4 | 0 | The loops that have the same endpc will be linked toge
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [26, 23] | 4 | 8 | Instruction code for BW
+instr_code | [26, 23] | 4 | 9 | Instruction code for BW
 **config** | [22, 21] | 2 | 0 | Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit
 
 ### RACCU
