@@ -13,7 +13,7 @@
     {
       "code": 1,
       "name": "REFI",
-      "phase": 3,
+      "phase": 4,
       "max_chunk": 3,
       "segment_templates": [
         {
@@ -21,10 +21,22 @@
           "comment": "Selects one of the RFile port.",
           "bitwidth": 2,
           "verbo_map": [
-            { "key": 0, "val": "w0" },
-            { "key": 1, "val": "w1" },
-            { "key": 2, "val": "r0" },
-            { "key": 3, "val": "r1" }
+            {
+              "key": 0,
+              "val": "w0"
+            },
+            {
+              "key": 1,
+              "val": "w1"
+            },
+            {
+              "key": 2,
+              "val": "r0"
+            },
+            {
+              "key": 3,
+              "val": "r1"
+            }
           ]
         },
         {
@@ -37,8 +49,14 @@
           "comment": "Is init_addr static or dymamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -62,8 +80,14 @@
           "comment": "Is level-1 iteration static or dymamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -72,8 +96,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -90,8 +120,14 @@
           "bitwidth": 1,
           "default_val": 0,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -105,8 +141,14 @@
           "comment": "The sign of level-1 step.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "+" },
-            { "key": 1, "val": "-" }
+            {
+              "key": 0,
+              "val": "+"
+            },
+            {
+              "key": 1,
+              "val": "-"
+            }
           ]
         },
         {
@@ -115,8 +157,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -130,8 +178,14 @@
           "comment": "Is level-2 iteration static or dymamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -159,8 +213,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -206,8 +266,14 @@
           "comment": "Is reading/writing from/to DiMArch?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "n" },
-            { "key": 1, "val": "y" }
+            {
+              "key": 0,
+              "val": "n"
+            },
+            {
+              "key": 1,
+              "val": "y"
+            }
           ]
         },
         {
@@ -215,8 +281,14 @@
           "comment": "Is the data compressed?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "n" },
-            { "key": 1, "val": "y" }
+            {
+              "key": 0,
+              "val": "n"
+            },
+            {
+              "key": 1,
+              "val": "y"
+            }
           ]
         }
       ]
@@ -224,7 +296,7 @@
     {
       "code": 4,
       "name": "DPU",
-      "phase": 3,
+      "phase": 4,
       "max_chunk": 1,
       "segment_templates": [
         {
@@ -232,38 +304,134 @@
           "comment": "The DPU mode.",
           "bitwidth": 5,
           "verbo_map": [
-            { "key": 0, "val": "idle" },
-            { "key": 1, "val": "add" },
-            { "key": 2, "val": "sum_acc" },
-            { "key": 3, "val": "add_const" },
-            { "key": 4, "val": "subt" },
-            { "key": 5, "val": "subt_abs" },
-            { "key": 6, "val": "mode_6" },
-            { "key": 7, "val": "mult" },
-            { "key": 8, "val": "mult_add" },
-            { "key": 9, "val": "mult_const" },
-            { "key": 10, "val": "mac" },
-            { "key": 11, "val": "ld_ir" },
-            { "key": 12, "val": "axpy" },
-            { "key": 13, "val": "max_min_acc" },
-            { "key": 14, "val": "max_min_const" },
-            { "key": 15, "val": "mode_15" },
-            { "key": 16, "val": "max_min" },
-            { "key": 17, "val": "shift_l" },
-            { "key": 18, "val": "shift_r" },
-            { "key": 19, "val": "sigm" },
-            { "key": 20, "val": "tanhyp" },
-            { "key": 21, "val": "expon" },
-            { "key": 22, "val": "lk_relu" },
-            { "key": 23, "val": "relu" },
-            { "key": 24, "val": "div" },
-            { "key": 25, "val": "acc_softmax" },
-            { "key": 26, "val": "div_softmax" },
-            { "key": 27, "val": "ld_acc" },
-            { "key": 28, "val": "scale_dw" },
-            { "key": 29, "val": "scale_up" },
-            { "key": 30, "val": "mac_inter" },
-            { "key": 31, "val": "mode_31" }
+            {
+              "key": 0,
+              "val": "idle"
+            },
+            {
+              "key": 1,
+              "val": "add"
+            },
+            {
+              "key": 2,
+              "val": "sum_acc"
+            },
+            {
+              "key": 3,
+              "val": "add_const"
+            },
+            {
+              "key": 4,
+              "val": "subt"
+            },
+            {
+              "key": 5,
+              "val": "subt_abs"
+            },
+            {
+              "key": 6,
+              "val": "mode_6"
+            },
+            {
+              "key": 7,
+              "val": "mult"
+            },
+            {
+              "key": 8,
+              "val": "mult_add"
+            },
+            {
+              "key": 9,
+              "val": "mult_const"
+            },
+            {
+              "key": 10,
+              "val": "mac"
+            },
+            {
+              "key": 11,
+              "val": "ld_ir"
+            },
+            {
+              "key": 12,
+              "val": "axpy"
+            },
+            {
+              "key": 13,
+              "val": "max_min_acc"
+            },
+            {
+              "key": 14,
+              "val": "max_min_const"
+            },
+            {
+              "key": 15,
+              "val": "mode_15"
+            },
+            {
+              "key": 16,
+              "val": "max_min"
+            },
+            {
+              "key": 17,
+              "val": "shift_l"
+            },
+            {
+              "key": 18,
+              "val": "shift_r"
+            },
+            {
+              "key": 19,
+              "val": "sigm"
+            },
+            {
+              "key": 20,
+              "val": "tanhyp"
+            },
+            {
+              "key": 21,
+              "val": "expon"
+            },
+            {
+              "key": 22,
+              "val": "lk_relu"
+            },
+            {
+              "key": 23,
+              "val": "relu"
+            },
+            {
+              "key": 24,
+              "val": "div"
+            },
+            {
+              "key": 25,
+              "val": "acc_softmax"
+            },
+            {
+              "key": 26,
+              "val": "div_softmax"
+            },
+            {
+              "key": 27,
+              "val": "ld_acc"
+            },
+            {
+              "key": 28,
+              "val": "scale_dw"
+            },
+            {
+              "key": 29,
+              "val": "scale_up"
+            },
+            {
+              "key": 30,
+              "val": "mac_inter"
+            },
+            {
+              "key": 31,
+              "val": "mode_31"
+            }
           ]
         },
         {
@@ -272,10 +440,22 @@
           "bitwidth": 2,
           "default_val": 2,
           "verbo_map": [
-            { "key": 0, "val": "nosat_int" },
-            { "key": 1, "val": "nosat_fx" },
-            { "key": 2, "val": "sat_int" },
-            { "key": 3, "val": "sat_fx" }
+            {
+              "key": 0,
+              "val": "nosat_int"
+            },
+            {
+              "key": 1,
+              "val": "nosat_fx"
+            },
+            {
+              "key": 2,
+              "val": "sat_int"
+            },
+            {
+              "key": 3,
+              "val": "sat_fx"
+            }
           ]
         },
         {
@@ -297,10 +477,22 @@
           "comment": "The IO mode: negate input and absolute output.",
           "bitwidth": 2,
           "verbo_map": [
-            { "key": 0, "val": "no_change" },
-            { "key": 1, "val": "negate_in0" },
-            { "key": 2, "val": "negate_in1" },
-            { "key": 3, "val": "abs_out" }
+            {
+              "key": 0,
+              "val": "no_change"
+            },
+            {
+              "key": 1,
+              "val": "negate_in0"
+            },
+            {
+              "key": 2,
+              "val": "negate_in1"
+            },
+            {
+              "key": 3,
+              "val": "abs_out"
+            }
           ]
         }
       ]
@@ -308,7 +500,7 @@
     {
       "code": 5,
       "name": "SWB",
-      "phase": 2,
+      "phase": 3,
       "max_chunk": 1,
       "segment_templates": [
         {
@@ -329,8 +521,14 @@
           "comment": "Source block, RF or DPU.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "rf" },
-            { "key": 1, "val": "dpu" }
+            {
+              "key": 0,
+              "val": "rf"
+            },
+            {
+              "key": 1,
+              "val": "dpu"
+            }
           ]
         },
         {
@@ -348,8 +546,14 @@
           "comment": "Flag of whether src and dest row are equal.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "y" },
-            { "key": 1, "val": "n" }
+            {
+              "key": 0,
+              "val": "y"
+            },
+            {
+              "key": 1,
+              "val": "n"
+            }
           ]
         },
         {
@@ -383,8 +587,14 @@
           "comment": "Is the cycle static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -420,8 +630,14 @@
           "comment": "Is the start static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -434,8 +650,14 @@
           "comment": "Is the iteration count static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -448,8 +670,14 @@
           "comment": "Is the step static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -467,9 +695,22 @@
       ]
     },
     {
+      "code": 8,
+      "name": "BW",
+      "phase": 1,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "config",
+          "comment": "Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit",
+          "bitwidth": 2
+        }
+      ]
+    },
+    {
       "code": 10,
       "name": "RACCU",
-      "phase": 1,
+      "phase": 2,
       "max_chunk": 1,
       "segment_templates": [
         {
@@ -477,14 +718,38 @@
           "comment": "RACCU mode",
           "bitwidth": 3,
           "verbo_map": [
-            { "key": 0, "val": "idle" },
-            { "key": 1, "val": "add" },
-            { "key": 2, "val": "sub" },
-            { "key": 3, "val": "shift_r" },
-            { "key": 4, "val": "shift_l" },
-            { "key": 5, "val": "mult" },
-            { "key": 6, "val": "mult_add" },
-            { "key": 7, "val": "mult_sub" }
+            {
+              "key": 0,
+              "val": "idle"
+            },
+            {
+              "key": 1,
+              "val": "add"
+            },
+            {
+              "key": 2,
+              "val": "sub"
+            },
+            {
+              "key": 3,
+              "val": "shift_r"
+            },
+            {
+              "key": 4,
+              "val": "shift_l"
+            },
+            {
+              "key": 5,
+              "val": "mult"
+            },
+            {
+              "key": 6,
+              "val": "mult_add"
+            },
+            {
+              "key": 7,
+              "val": "mult_sub"
+            }
           ]
         },
         {
@@ -492,8 +757,14 @@
           "comment": "Is the first operand static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -506,8 +777,14 @@
           "comment": "Is the second operand static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -543,7 +820,7 @@
     {
       "code": 12,
       "name": "ROUTE",
-      "phase": 2,
+      "phase": 3,
       "max_chunk": 1,
       "segment_templates": [
         {
@@ -551,8 +828,14 @@
           "comment": "The horizontal direction: West or East.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "w" },
-            { "key": 1, "val": "e" }
+            {
+              "key": 0,
+              "val": "w"
+            },
+            {
+              "key": 1,
+              "val": "e"
+            }
           ]
         },
         {
@@ -565,8 +848,14 @@
           "comment": "The vertical direction: South or North.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "n" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "n"
+            }
           ]
         },
         {
@@ -579,8 +868,14 @@
           "comment": "The data transfer direction: Read or Write.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
+            {
+              "key": 0,
+              "val": "r"
+            },
+            {
+              "key": 1,
+              "val": "w"
+            }
           ]
         },
         {
@@ -593,7 +888,7 @@
     {
       "code": 13,
       "name": "SRAM",
-      "phase": 4,
+      "phase": 5,
       "max_chunk": 3,
       "segment_templates": [
         {
@@ -601,8 +896,14 @@
           "comment": "Read or Write",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
+            {
+              "key": 0,
+              "val": "r"
+            },
+            {
+              "key": 1,
+              "val": "w"
+            }
           ]
         },
         {
@@ -655,8 +956,14 @@
           "comment": "Is initial address static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -664,8 +971,14 @@
           "comment": "Is level-1 iteration static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -673,8 +986,14 @@
           "comment": "Is level-2 iteration static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -683,8 +1002,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -693,8 +1018,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -703,8 +1034,14 @@
           "bitwidth": 1,
           "controllable": true,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -712,8 +1049,14 @@
           "comment": "Is level-1 step static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
@@ -721,8 +1064,14 @@
           "comment": "Is level-2 step static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
+            {
+              "key": 0,
+              "val": "s"
+            },
+            {
+              "key": 1,
+              "val": "d"
+            }
           ]
         },
         {
