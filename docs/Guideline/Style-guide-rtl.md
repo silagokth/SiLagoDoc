@@ -143,25 +143,25 @@ This is the snippet code for vs-code. You can modify the code and add it as a sn
 ## Style and Formatting
 
 1. Tabs and indentation 	          :
-  - Each indentation and tab should be 2 spaces. Remember to change the settings of your editor so that it adds 2 space characters when pressing tab, and not a ‘tab’ character.
+    - Each indentation and tab should be 2 spaces. Remember to change the settings of your editor so that it adds 2 space characters when pressing tab, and not a ‘tab’ character.
 2.	Keywords			                  :
-  - All VHDL keywords, such as SIGNAL, VARIABLE, etc., should be capitalized.
+    - All VHDL keywords, such as SIGNAL, VARIABLE, etc., should be capitalized.
 3.	=, <=, =>, :, and :=		        :
-  - All VHDL operands should be aligned as best as possible.
+    - All VHDL operands should be aligned as best as possible.
 4.	Constant’s name		              :
-  - The names of all constants should be capitalized.
+    - The names of all constants should be capitalized.
 5.	Signal’s & variable’s name      :
-  - A Signal/Variable’s name should be low-case. The name should be descriptive and multiple words should be separated with ‘_’.
+    - A Signal/Variable’s name should be low-case. The name should be descriptive and multiple words should be separated with ‘_’.
 6.	Type’s name			                :
-  - A type or subtype name should be in low-case letters and end with the suffix _ty. For example conf_ty.
+    - A type or subtype name should be in low-case letters and end with the suffix _ty. For example conf_ty.
 7.	Special suffix for signal names	:
-  - When a signal is active on a negative level (for example a negative triggered reset) use the suffix _n. For example rst_n.
+    - When a signal is active on a negative level (for example a negative triggered reset) use the suffix _n. For example rst_n.
 8.	Entity’s name 		              :
-  - The name of the entity should be the same as the name of the file and low-case.
+    - The name of the entity should be the same as the name of the file and low-case.
 9.	Architecture’s name 		        :
-  - The name of the architecture should be the name of the entity with the suffix ‘_BEH’, ‘_STR’ for behavioral or structural style.
+    - The name of the architecture should be the name of the entity with the suffix ‘_BEH’, ‘_STR’ for behavioral or structural style.
 10.	ENTITY			                    :
-  - When defying an entity the GENERIC and PORT should always start in a new line. The declaration of the signals and generics should also start in a new line. For example:
+    - When defying an entity the GENERIC and PORT should always start in a new line. The declaration of the signals and generics should also start in a new line. For example:
 
 ```
 ENTITY <NAME> IS
@@ -177,7 +177,7 @@ ENTITY <NAME> IS
 ```
 
 11.	IF - THEN … ELSE … END	:
-  - IF - THEN … ELSE statements should always start in a new line and comments should be added in the previous line, before the condition. Always leave an empty line before and after the code block for readability. For example:
+    - IF - THEN … ELSE statements should always start in a new line and comments should be added in the previous line, before the condition. Always leave an empty line before and after the code block for readability. For example:
 
 ```
 -- This if statement checks condition A, if True it does code A
@@ -199,9 +199,9 @@ END;
 ```
 
 12.	CASE, FOR, etc.			:
-  - Use the same guide as IF.
+    - Use the same guide as IF.
 13.	WHEN … ELSE			:
-  - When using WHEN … ELSE there should be a new line after the ELSE. For example:
+    - When using WHEN … ELSE there should be a new line after the ELSE. For example:
 
 ```
 -- Description comment
@@ -210,9 +210,9 @@ END;
 ```
 
 14.	IF/FOR … GENERATE		:
-  - Generate statements should always have a descriptive name.
+    - Generate statements should always have a descriptive name.
 15.	PORT MAPS			:
-  - When instantiating a component, the GENERIC/PORT MAP should always start in a new line and the port/generic connection should also start in a new line. The component should always have a descriptive name starting with U_. Also, it is recommended to instantiate using ENTITY instead of COMPONENT. Before the installation there should be a comment to describe the component. For example:
+    - When instantiating a component, the GENERIC/PORT MAP should always start in a new line and the port/generic connection should also start in a new line. The component should always have a descriptive name starting with U_. Also, it is recommended to instantiate using ENTITY instead of COMPONENT. Before the installation there should be a comment to describe the component. For example:
 
 ```
 --! This component is doing something
@@ -229,7 +229,7 @@ DUT : ENTITY work.conf_mul_Beh
 ```
 
 16.	ASSERTIONS			:
-  - ASSERT, REPORT and SEVERITY should always start in a new line.
+    - ASSERT, REPORT and SEVERITY should always start in a new line.
 17.	There should be a maximum of 1 empty line between code segments and comments should be directly above or next to the code that they comment.
 
 ## Coding style
@@ -325,7 +325,9 @@ Complex processes should have a description of what they are implementing
 ####	Language servers:
 - https://marketplace.visualstudio.com/items?itemName=hbohlin.vhdl-ls : Good but it has some small issues.
 
-- https://marketplace.visualstudio.com/items?itemName=ViDE-Software.v4pvhdlforprofessionals : Extremely good, free as of now (2021) in beta version but will require a license in the future. Does not work with modern-VHDL plugin.
+- https://marketplace.visualstudio.com/items?itemName=vhdl-tool.vhdl-tool : Good and multiplatform, free as of now (2023)
+
+- https://marketplace.visualstudio.com/items?itemName=ViDE-Software.v4pvhdlforprofessionals : Extremely good, it requires a license. Does not work with modern-VHDL plugin.
 
 ####	Productivity plugins
 - https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-new-file : Advance functions for creating new files.

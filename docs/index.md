@@ -7,36 +7,36 @@
 
 - Supervisor:
 
-  > Ahmed Hemani <hemani@kth.se>
+  	> Ahmed Hemani <hemani@kth.se>
 
 - HW architecture and verification:
-  - Post-Doc:
+  	- Post-Doc:
 
-    > Dimitrios Stathis <stathis@kth.se>
+    	> Dimitrios Stathis <stathis@kth.se>
 
-  - PhD students:
+  	- PhD students:
 
-    > Jordi Altayo Gonzalez <jordiag@kth.se>
+    	> Jordi Altayo Gonzalez <jordiag@kth.se>
 
-    > Ritika Ratnu <ratnu@kth.se>
+    	> Ritika Ratnu <ratnu@kth.se>
 
 - Backend software and compilers:
-  - Post-Doc:
+  	- Post-Doc:
 
-    > Yu Yang <yuyang2@kth.se>
+    	> Yu Yang <yuyang2@kth.se>
 
-  - PhD students:
+  	- PhD students:
 
-    > Björn Lindqvist	<bjolin2@kth.se>
+    	> Björn Lindqvist	<bjolin2@kth.se>
 
-    > Saba Yousefzadeh <sabay@kth.se>
+    	> Saba Yousefzadeh <sabay@kth.se>
 
 - Frontend and applications:
-  - PhD students:
+  	- PhD students:
 
-    > Sofia Olsson <sools@kth.se>
+    	> Sofia Olsson <sools@kth.se>
 
-    > Ivan Sraichuk <ivan.sraichuk@strikersoft.com>
+    	> Ivan Sraichuk <ivan.sraichuk@strikersoft.com>
 
 ## Repos
 - [Fabric Repo](https://github.com/silagokth/fabric)
