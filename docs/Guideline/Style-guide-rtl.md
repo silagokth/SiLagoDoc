@@ -1,40 +1,5 @@
 # Coding Guidelines for RTL and VHDL coding
 
-## SiLago Team
-
-- Supervisor:
-
-  > Ahmed Hemani <hemani@kth.se>
-
-- HW architecture and verification:
-  - Post-Doc:
-
-    > Dimitrios Stathis <stathis@kth.se>
-
-  - PhD students:
-
-    > Jordi Altayo Gonzalez <jordiag@kth.se>
-
-    > Ritika Ratnu <ratnu@kth.se>
-
-- Backend software and compilers:
-  - Post-Doc:
-
-    > Yu Yang <yuyang2@kth.se>
-
-  - PhD students:
-
-    > Björn Lindqvist	<bjolin2@kth.se>
-
-    > Saba Yousefzadeh <sabay@kth.se>
-
-- Frontend and applications:
-  - PhD students:
-
-    > Sofia Olsson <sools@kth.se>
-
-    > Ivan Sraichuk <ivan.sraichuk@strikersoft.com>
-
 ## File Header
 
 Each file in the SiLago project has to contain a header that includes the copyright, license, author and change log information. The header should have the following form:
