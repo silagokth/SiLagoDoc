@@ -3,31 +3,37 @@
 ## SiLago Team
 
 - Supervisor:
+
   > Ahmed Hemani <hemani@kth.se>
 
 - HW architecture and verification:
   - Post-Doc:
+
     > Dimitrios Stathis <stathis@kth.se>
 
   - PhD students:
+
     > Jordi Altayo Gonzalez <jordiag@kth.se>
 
-    > Ritika
+    > Ritika Ratnu <ratnu@kth.se>
 
 - Backend software and compilers:
   - Post-Doc:
-    > Yu Yang
+
+    > Yu Yang <yuyang2@kth.se>
 
   - PhD students:
-    > Bjorn
 
-    > Saba
+    > Björn Lindqvist	<bjolin2@kth.se>
+
+    > Saba Yousefzadeh <sabay@kth.se>
 
 - Frontend and applications:
   - PhD students:
-    > Sofia
 
-    > Ivan
+    > Sofia Olsson <sools@kth.se>
+
+    > Ivan Sraichuk <ivan.sraichuk@strikersoft.com>
 
 ## File Header
 
