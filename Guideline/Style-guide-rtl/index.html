@@ -1,0 +1,1738 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation of SiLago project">
+      
+      
+        <meta name="author" content="SiLago Team">
+      
+      
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Guideline/Style-guide-rtl/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+    
+    
+      
+        <title>Coding Guidelines for RTL and VHDL coding - SiLago Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#8bc34b">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-green" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coding-guidelines-for-rtl-and-vhdl-coding" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SiLago Documentation" class="md-header__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SiLago Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Coding Guidelines for RTL and VHDL coding
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/silagokth/SiLagoDoc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    silagokth/SiLagoDoc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SiLago Documentation" class="md-nav__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SiLago Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/silagokth/SiLagoDoc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    silagokth/SiLagoDoc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Guideline
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Guideline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guideline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs-tutorial/" class="md-nav__link">
+        MkDocs Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Style-guide-cpp/" class="md-nav__link">
+        C++ Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Coding Guidelines for RTL and VHDL coding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Coding Guidelines for RTL and VHDL coding
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#silago-team" class="md-nav__link">
+    SiLago Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-header" class="md-nav__link">
+    File Header
+  </a>
+  
+    <nav class="md-nav" aria-label="File Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode-snippet" class="md-nav__link">
+    VSCODE Snippet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-and-formatting" class="md-nav__link">
+    Style and Formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-style" class="md-nav__link">
+    Coding style
+  </a>
+  
+    <nav class="md-nav" aria-label="Coding style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocking" class="md-nav__link">
+    Clocking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsm-description" class="md-nav__link">
+    FSM description
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commenting-and-documentation" class="md-nav__link">
+    COMMENTING AND DOCUMENTATION
+  </a>
+  
+    <nav class="md-nav" aria-label="COMMENTING AND DOCUMENTATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libraries_1" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities" class="md-nav__link">
+    Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inoutsignalsvariablesgenerics" class="md-nav__link">
+    IN/OUT/SIGNALS/VARIABLES/GENERICS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectures" class="md-nav__link">
+    Architectures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-usefull-toolsplugins" class="md-nav__link">
+    OTHER USEFULL TOOLS/PLUGINS
+  </a>
+  
+    <nav class="md-nav" aria-label="OTHER USEFULL TOOLS/PLUGINS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCODE:
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCODE:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vhdl-specific" class="md-nav__link">
+    VHDL specific
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-servers" class="md-nav__link">
+    Language servers:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productivity-plugins" class="md-nav__link">
+    Productivity plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcut-keys-and-emulation" class="md-nav__link">
+    Shortcut keys and emulation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Fabric
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fabric" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Fabric
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/Fabric/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/Fabric/Style-guide/" class="md-nav__link">
+        Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Tool Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tool Chain" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tool Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_2">
+          Vesyla
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vesyla" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vesyla
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Tutorial/" class="md-nav__link">
+        Vesyla-suite tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/RepoOrganization/" class="md-nav__link">
+        Repo Organization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/ProgrammingGuide/" class="md-nav__link">
+        Programming Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Instruction-Set/" class="md-nav__link">
+        Instruction Set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Cadfg/" class="md-nav__link">
+        CADFG - Control Address Data-Flow Graph
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Hazzard/" class="md-nav__link">
+        Hazard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/ExpressionSimplification/" class="md-nav__link">
+        Expression Simplification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DependencyAnalysis/" class="md-nav__link">
+        Dependency Analysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DeadCodeElimination/" class="md-nav__link">
+        DeadCodeElimination
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Idg/" class="md-nav__link">
+        IDG - Instruction Dependency Graph
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/Scheduling/" class="md-nav__link">
+        Scheduling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla/DiMArch/" class="md-nav__link">
+        DiMArch Reading and Writing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_3">
+          Vesyla2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vesyla2" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Vesyla2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Vesyla2/Tutorial/" class="md-nav__link">
+        Vesyla tutorial
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4" type="checkbox" id="__nav_3_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_4">
+          Manas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manas" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Manas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/Tutorial/" class="md-nav__link">
+        Manas Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/ProgrammingGuide/" class="md-nav__link">
+        Programming Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/InstructionSet/" class="md-nav__link">
+        Instruction Set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Docs/ToolChain/Manas/InstructionPhase/" class="md-nav__link">
+        Instruction Phase
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/About/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../About/License/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#silago-team" class="md-nav__link">
+    SiLago Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-header" class="md-nav__link">
+    File Header
+  </a>
+  
+    <nav class="md-nav" aria-label="File Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode-snippet" class="md-nav__link">
+    VSCODE Snippet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-and-formatting" class="md-nav__link">
+    Style and Formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-style" class="md-nav__link">
+    Coding style
+  </a>
+  
+    <nav class="md-nav" aria-label="Coding style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocking" class="md-nav__link">
+    Clocking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsm-description" class="md-nav__link">
+    FSM description
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commenting-and-documentation" class="md-nav__link">
+    COMMENTING AND DOCUMENTATION
+  </a>
+  
+    <nav class="md-nav" aria-label="COMMENTING AND DOCUMENTATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libraries_1" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities" class="md-nav__link">
+    Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inoutsignalsvariablesgenerics" class="md-nav__link">
+    IN/OUT/SIGNALS/VARIABLES/GENERICS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectures" class="md-nav__link">
+    Architectures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-usefull-toolsplugins" class="md-nav__link">
+    OTHER USEFULL TOOLS/PLUGINS
+  </a>
+  
+    <nav class="md-nav" aria-label="OTHER USEFULL TOOLS/PLUGINS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCODE:
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCODE:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vhdl-specific" class="md-nav__link">
+    VHDL specific
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-servers" class="md-nav__link">
+    Language servers:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productivity-plugins" class="md-nav__link">
+    Productivity plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcut-keys-and-emulation" class="md-nav__link">
+    Shortcut keys and emulation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/silagokth/SiLagoDoc/edit/master/docs/Guideline/Style-guide-rtl.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="coding-guidelines-for-rtl-and-vhdl-coding">Coding Guidelines for RTL and VHDL coding</h1>
+<h2 id="silago-team">SiLago Team</h2>
+<ul>
+<li>
+<p>Supervisor:</p>
+<blockquote>
+<p>Ahmed Hemani <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#109;&#97;&#110;&#105;&#64;&#107;&#116;&#104;&#46;&#115;&#101;">&#104;&#101;&#109;&#97;&#110;&#105;&#64;&#107;&#116;&#104;&#46;&#115;&#101;</a></p>
+</blockquote>
+</li>
+<li>
+<p>HW architecture and verification:</p>
+</li>
+<li>
+<p>Post-Doc:
+    &gt; Dimitrios Stathis <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#116;&#97;&#116;&#104;&#105;&#115;&#64;&#107;&#116;&#104;&#46;&#115;&#101;">&#115;&#116;&#97;&#116;&#104;&#105;&#115;&#64;&#107;&#116;&#104;&#46;&#115;&#101;</a></p>
+</li>
+<li>
+<p>PhD students:
+    &gt; Jordi Altayo Gonzalez <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#114;&#100;&#105;&#97;&#103;&#64;&#107;&#116;&#104;&#46;&#115;&#101;">&#106;&#111;&#114;&#100;&#105;&#97;&#103;&#64;&#107;&#116;&#104;&#46;&#115;&#101;</a></p>
+<blockquote>
+<p>Ritika</p>
+</blockquote>
+</li>
+<li>
+<p>Backend software and compilers:</p>
+</li>
+<li>
+<p>Post-Doc:
+    &gt; Yu Yang</p>
+</li>
+<li>
+<p>PhD students:
+    &gt; Bjorn</p>
+<blockquote>
+<p>Saba</p>
+</blockquote>
+</li>
+<li>
+<p>Frontend and applications:</p>
+</li>
+<li>
+<p>PhD students:
+    &gt; Sofia</p>
+<blockquote>
+<p>Ivan</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="file-header">File Header</h2>
+<p>Each file in the SiLago project has to contain a header that includes the copyright, license, author and change log information. The header should have the following form:</p>
+<div class="highlight"><pre><span></span><code>-------------------------------------------------------
+--! @file &lt;name of the file&gt;
+--! @brief &lt;Brief description of the file&gt;
+--! @details &lt;Detail description of the file (optional)&gt;
+--! @author &lt;Author’s Name&gt;
+--! @version &lt;Version&gt;
+--! @date &lt;Date of last edit&gt;
+--! @bug &lt;Known Bugs (“NONE” if there are no bugs)&gt;
+--! @todo &lt;Todo, create one “--! @todo” for every todo&gt;
+--! @copyright GNU Public License [GPL-3.0].
+-------------------------------------------------------
+---------------- Copyright (c) notice -----------------------------------------
+--
+-- The VHDL code, the logic and concepts described in this file constitute
+-- the intellectual property of the authors listed below, who are affiliated
+-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.
+-- Any unauthorised use, copy or distribution is strictly prohibited.
+-- Any authorised use, copy or distribution should carry this copyright notice
+-- unaltered.
+-------------------------------------------------------------------------------
+-- Title      : &lt;Title of the Entity or Package&gt;
+-- Project    : &lt;Project that file belongs to (e.g. SiLago, eBrain, etc)&gt;
+-------------------------------------------------------------------------------
+-- File       : &lt;name of the file&gt;
+-- Library    : &lt;Name of the library that this file should be compiled in&gt;
+-- Author     : &lt;Author’s Name&gt;
+-- Company    : KTH
+-- Created    : &lt;Date of creation&gt;
+-- Last update: &lt;Date of last edit&gt;
+-- Platform   : SiLago
+-- Standard   : VHDL&#39;08
+-------------------------------------------------------------------------------
+-- Copyright (c) &lt;year of creation&gt;
+-------------------------------------------------------------------------------
+-- Contact    : &lt;Main contact person eg. Dimitrios Stathis &lt;stathis@kth.se&gt;&gt;
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author                  Description
+-- 2020-12-07  1.0      &lt;Authors Name&gt;          &lt;description&gt;
+-------------------------------------------------------------------------------
+
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+--                                                                         #
+--This file is part of SiLago.                                             #
+--                                                                         #
+--    SiLago platform source code is distributed freely: you can           #
+--    redistribute it and/or modify it under the terms of the GNU          #
+--    General Public License as published by the Free Software Foundation, #
+--    either version 3 of the License, or (at your option) any             #
+--    later version.                                                       #
+--                                                                         #
+--    SiLago is distributed in the hope that it will be useful,            #
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #
+--    GNU General Public License for more details.                         #
+--                                                                         #
+--    You should have received a copy of the GNU General Public License    #
+--    along with SiLago.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #
+--                                                                         #
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+</code></pre></div>
+<h3 id="vscode-snippet">VSCODE Snippet</h3>
+<p>This is the snippet code for vs-code. You can modify the code and add it as a snippet in your favorite editor.</p>
+<div class="highlight"><pre><span></span><code>&quot;vhdl_notice&quot;: {
+        &quot;scope&quot;: &quot;vhdl&quot;,
+        &quot;prefix&quot;: &quot;note&quot;,
+        &quot;body&quot;: [
+            &quot;-------------------------------------------------------&quot;,
+            &quot;--! @file $TM_FILENAME&quot;,
+            &quot;--! @brief ${1:UnitX}&quot;,
+            &quot;--! @details &quot;,
+            &quot;--! @author ${3:Dimitrios Stathis}&quot;,
+            &quot;--! @version 1.0&quot;,
+            &quot;--! @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;--! @bug NONE&quot;,
+            &quot;--! @todo NONE&quot;,
+            &quot;--! @copyright  GNU Public License [GPL-3.0].&quot;,
+            &quot;-------------------------------------------------------&quot;,
+            &quot;---------------- Copyright (c) notice -----------------------------------------&quot;,
+            &quot;--&quot;,
+            &quot;-- The VHDL code, the logic and concepts described in this file constitute&quot;,
+            &quot;-- the intellectual property of the authors listed below, who are affiliated&quot;,
+            &quot;-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.&quot;,
+            &quot;-- Any unauthorised use, copy or distribution is strictly prohibited.&quot;,
+            &quot;-- Any authorised use, copy or distribution should carry this copyright notice&quot;,
+            &quot;-- unaltered.&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Title      : ${1:UnitX}&quot;,
+            &quot;-- Project    : ${2:SiLago}&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- File       : $TM_FILENAME&quot;,
+            &quot;-- Library    : ${4:work}$&quot;
+            &quot;-- Author     : ${3:Dimitrios Stathis}&quot;,
+            &quot;-- Company    : KTH&quot;,
+            &quot;-- Created    : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;-- Last update: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;-- Platform   : ${2:SiLago}&quot;,
+            &quot;-- Standard   : VHDL&#39;08&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Copyright (c) $CURRENT_YEAR&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Contact    : ${3:Dimitrios Stathis} ${4:&lt;stathis@kth.se&gt;}&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Revisions  :&quot;,
+            &quot;-- Date        Version  Author                  Description&quot;,
+            &quot;-- $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE  1.0      ${3:Dimitrios Stathis}      Created&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;&quot;,
+            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--This file is part of ${2:SiLago}.                                             #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    ${2:SiLago} platform source code is distributed freely: you can           #&quot;,
+            &quot;--    redistribute it and/or modify it under the terms of the GNU          #&quot;,
+            &quot;--    General Public License as published by the Free Software Foundation, #&quot;,
+            &quot;--    either version 3 of the License, or (at your option) any             #&quot;,
+            &quot;--    later version.                                                       #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    ${2:SiLago} is distributed in the hope that it will be useful,            #&quot;,
+            &quot;--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #&quot;,
+            &quot;--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #&quot;,
+            &quot;--    GNU General Public License for more details.                         #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    You should have received a copy of the GNU General Public License    #&quot;,
+            &quot;--    along with ${2:SiLago}.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
+</code></pre></div>
+<h2 id="style-and-formatting">Style and Formatting</h2>
+<ol>
+<li>Tabs and indentation               :</li>
+<li>Each indentation and tab should be 2 spaces. Remember to change the settings of your editor so that it adds 2 space characters when pressing tab, and not a ‘tab’ character.</li>
+<li>Keywords                              :</li>
+<li>All VHDL keywords, such as SIGNAL, VARIABLE, etc., should be capitalized.</li>
+<li>=, &lt;=, =&gt;, :, and :=                :</li>
+<li>All VHDL operands should be aligned as best as possible.</li>
+<li>Constant’s name                   :</li>
+<li>The names of all constants should be capitalized.</li>
+<li>Signal’s &amp; variable’s name      :</li>
+<li>A Signal/Variable’s name should be low-case. The name should be descriptive and multiple words should be separated with ‘_’.</li>
+<li>Type’s name                         :</li>
+<li>A type or subtype name should be in low-case letters and end with the suffix _ty. For example conf_ty.</li>
+<li>Special suffix for signal names :</li>
+<li>When a signal is active on a negative level (for example a negative triggered reset) use the suffix _n. For example rst_n.</li>
+<li>Entity’s name                     :</li>
+<li>The name of the entity should be the same as the name of the file and low-case.</li>
+<li>Architecture’s name                 :</li>
+<li>The name of the architecture should be the name of the entity with the suffix ‘_BEH’, ‘_STR’ for behavioral or structural style.</li>
+<li>ENTITY                              :</li>
+<li>When defying an entity the GENERIC and PORT should always start in a new line. The declaration of the signals and generics should also start in a new line. For example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>ENTITY &lt;NAME&gt; IS
+  GENERIC (
+    width : NATURAL := 8 --! Input width (N)
+  );
+  PORT (
+    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
+    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
+    conf : IN STD_LOGIC;
+    out  : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)
+  );
+</code></pre></div>
+<ol>
+<li>IF - THEN … ELSE … END  :</li>
+<li>IF - THEN … ELSE statements should always start in a new line and comments should be added in the previous line, before the condition. Always leave an empty line before and after the code block for readability. For example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>-- This if statement checks condition A, if True it does code A
+IF condition A THEN
+
+    Code A
+
+-- IF condition B is true it does code B
+ELSIF condition B THEN
+
+    Code B
+
+-- In other case do code other
+ELSE
+
+    Code other
+
+END;
+</code></pre></div>
+<ol>
+<li>CASE, FOR, etc.         :</li>
+<li>Use the same guide as IF.</li>
+<li>WHEN … ELSE         :</li>
+<li>When using WHEN … ELSE there should be a new line after the ELSE. For example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>-- Description comment
+&lt;signal&gt; &lt;= &#39;1&#39; WHEN &lt;condition&gt; ELSE
+    &#39;0&#39;;
+</code></pre></div>
+<ol>
+<li>IF/FOR … GENERATE       :</li>
+<li>Generate statements should always have a descriptive name.</li>
+<li>PORT MAPS           :</li>
+<li>When instantiating a component, the GENERIC/PORT MAP should always start in a new line and the port/generic connection should also start in a new line. The component should always have a descriptive name starting with U_. Also, it is recommended to instantiate using ENTITY instead of COMPONENT. Before the installation there should be a comment to describe the component. For example:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>--! This component is doing something
+DUT : ENTITY work.conf_mul_Beh
+    GENERIC MAP(
+      width =&gt; bit_width
+    )
+    PORT MAP(
+      in_a =&gt; STD_LOGIC_VECTOR(inst_a),
+      in_b =&gt; STD_LOGIC_VECTOR(inst_b),
+      conf =&gt; conf,
+      prod =&gt; prod
+    );
+</code></pre></div>
+<ol>
+<li>ASSERTIONS          :</li>
+<li>ASSERT, REPORT and SEVERITY should always start in a new line.</li>
+<li>There should be a maximum of 1 empty line between code segments and comments should be directly above or next to the code that they comment.</li>
+</ol>
+<h2 id="coding-style">Coding style</h2>
+<p>Each entity should implement a specific function of the design. It is not recommended to have large entities that implement complex functions. We recommend that when describing a complex function, you use one entity for each FSM of the design and a separate entity for each register files, data computation, etc.</p>
+<h3 id="libraries">Libraries</h3>
+<p>For all VHDL files always use <code>numeric_std</code> library and do not use <code>std_logic_arith</code>, <code>std_logic_signed</code>, or <code>std_logic_unsigned</code>.</p>
+<h3 id="clocking">Clocking</h3>
+<p>Always use the <code>rising_edge</code> or <code>falling_edge</code> for checking the clock edge and not <code>clk=’1’ and clk’event</code>.</p>
+<h3 id="fsm-description">FSM description</h3>
+<p>When describing in VHDL it is recommended that you use a two-process design. In the two process design each ARCHITECTURE has two processes. The first process is a clocked process and registers the state of the FSM and any other signal that is required. The second process is combinatorial, and it is used to describe the FSM, using a CASE statement. When writing the combinatorial process the designer needs to be careful to include all the required signals in the sensitivity list and make sure that no latches are generated. While debugging, the ALL keyword can be used in the sensitivity list to make sure that the behavior of the process is correct. To avoid any latches, all signals that are edited inside the combinatorial process should be assigned a default value in the beginning of the process (before the case statement).</p>
+<p>Alternatively, a single process design can be used. In a single process design, only one process is required in the entity. The process is clocked and it both describes the FSM and registers its state. The single process design should be used with care since it can only describe registered FSMs (i.e. the outputs of the FSM are always registered).</p>
+<h2 id="commenting-and-documentation">COMMENTING AND DOCUMENTATION</h2>
+<p>Commenting in RTL is important for you as a designer, and for the people taking over your code. It is important to remember that RTL is not programming, when you code in RTL you describe something real. So you should add descriptions before your entities or modules and your architecture that describe what exactly your entity, module or architecture is meant to implement. If you can not describe it in words, then you can not implement it. In the following examples we follow the Doxygen commenting style, but this is not necessary.</p>
+<h3 id="libraries_1">Libraries</h3>
+<p>Before each custom library/package import a comment should be added that describes the library. For example:
+<div class="highlight"><pre><span></span><code>--! Use misc package for utility functions
+USE work.misc.ALL;
+</code></pre></div></p>
+<h3 id="entities">Entities</h3>
+<p>Each entity should have a brief and possible a detail description. The brief description should explain the basic function of the component. The detail description should describe its interface, such as special relation between signals, and a more detail view of its functionality. For example:
+<div class="highlight"><pre><span></span><code>--! This is a reconfigurable multiplier. It can operate in different fixed point precision.
+
+--! The input of the multiplier is a N-bit bit stream. The stream can be treated as a N-bit signed
+--! number, two N/2-bit signed numbers, or four N/4-bit signed numbers. The output is a 2N-bit bit stream.
+--! The output is splitted in one, two, or four, depending on the configuration.
+ENTITY conf_mul_Beh IS
+  GENERIC (
+    width : NATURAL := 8 --! Input width (N)
+  );
+  PORT (
+    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input A, N-bit
+    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input B, N-bit
+    conf : IN STD_LOGIC;                                  --! Configuration bits, define
+    prod : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)   --! Product output, 2N-bit
+  );
+END ENTITY conf_mul_Beh;
+</code></pre></div></p>
+<h3 id="inoutsignalsvariablesgenerics">IN/OUT/SIGNALS/VARIABLES/GENERICS</h3>
+<p>All signals, variables, generics, etc. should include a description comment after its definition, see the code above.</p>
+<h3 id="architectures">Architectures</h3>
+<p>All architectures should have possible a brief and mandatory a detail description. The descriptions should describe the architectural details of the implementation, for example if it is a one or two process design etc. For example:</p>
+<div class="highlight"><pre><span></span><code>--! @brief This is the architecture of a reconfigurable multiplier (16-bit)
+--! @details In this version we are using a shift and ADD architecture instead of the
+--! conventional array multiplier, the multiplication is decomposed in to 4 smaller
+--! multipliers. The products of the smaller multiplication are shifted and then added
+--! to generate the final result. A sign extension is used to switch between the two modes
+ARCHITECTURE rtl OF conf_mul_Beh IS
+
+  CONSTANT width2 : NATURAL := divUp(width, 2); --! Constant value for Width/2
+  SIGNAL temp_a1 : signed(width2 - 1 DOWNTO 0); --! MSBs of A
+  SIGNAL temp_a0 : signed(width2 DOWNTO 0);     --! LSBs of A
+
+BEGIN
+</code></pre></div>
+<h3 id="processes">Processes</h3>
+<p>Complex processes should have a description of what they are implementing</p>
+<div class="highlight"><pre><span></span><code>--! This process checks if the loop should be executed (i.e. if  number of iterations &gt;0 )
+    zero_loop : PROCESS (instr, config)
+    BEGIN
+
+        &lt;CODE BLOCK&gt;
+
+    END PROCESS zero_loop;
+</code></pre></div>
+<h2 id="other-usefull-toolsplugins">OTHER USEFULL TOOLS/PLUGINS</h2>
+<h3 id="vscode">VSCODE:</h3>
+<h4 id="vhdl-specific">VHDL specific</h4>
+<ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=rjyoung.vscode-modern-vhdl-support">https://marketplace.visualstudio.com/items?itemName=rjyoung.vscode-modern-vhdl-support</a> : Highlight, Snippets and some autocompletion.</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=Vinrobot.vhdl-formatter">https://marketplace.visualstudio.com/items?itemName=Vinrobot.vhdl-formatter</a> : VHDL formatter</p>
+</li>
+</ul>
+<h4 id="language-servers">Language servers:</h4>
+<ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=hbohlin.vhdl-ls">https://marketplace.visualstudio.com/items?itemName=hbohlin.vhdl-ls</a> : Good but it has some small issues.</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ViDE-Software.v4pvhdlforprofessionals">https://marketplace.visualstudio.com/items?itemName=ViDE-Software.v4pvhdlforprofessionals</a> : Extremely good, free as of now (2021) in beta version but will require a license in the future. Does not work with modern-VHDL plugin.</p>
+</li>
+</ul>
+<h4 id="productivity-plugins">Productivity plugins</h4>
+<ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-new-file">https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-new-file</a> : Advance functions for creating new files.</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=bladnman.auto-align">https://marketplace.visualstudio.com/items?itemName=bladnman.auto-align</a> : Auto align</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow">https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow</a> : Colors the indentation.</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=adammaras.overtype">https://marketplace.visualstudio.com/items?itemName=adammaras.overtype</a> : Enables overtype using INS button.</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets">https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets</a> : Colors the brackets</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker</a> : Spell checker for your code and comments</p>
+</li>
+</ul>
+<h4 id="shortcut-keys-and-emulation">Shortcut keys and emulation</h4>
+<ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs">https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs</a> : Emacs keymap</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">https://marketplace.visualstudio.com/items?itemName=vscodevim.vim</a> : Vim emulator</p>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Style-guide-cpp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: C++ Style Guide" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              C++ Style Guide
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Docs/Fabric/Overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
