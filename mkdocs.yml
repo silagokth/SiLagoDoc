@@ -13,6 +13,7 @@ nav:
   - Guideline:
       - Guideline/Mkdocs-tutorial.md
       - Guideline/Style-guide-cpp.md
+      - Guideline/Style-guide-rtl.md
       # - Guideline/Style-guide-python.md
       # - Guideline/Style-guide-vhdl.md
       # - Guideline/Style-guide-verilog.md
