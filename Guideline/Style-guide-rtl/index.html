@@ -389,13 +389,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#libraries_1" class="md-nav__link">
-    Libraries
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#entities" class="md-nav__link">
     Entities
   </a>
@@ -420,6 +413,33 @@
   <a href="#processes" class="md-nav__link">
     Processes
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-convention" class="md-nav__link">
+    Naming convention
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-signals-and-constants" class="md-nav__link">
+    Variables, Signals and Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities-files-functions-and-architectures" class="md-nav__link">
+    Entities, Files, Functions and Architectures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1148,13 +1168,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#libraries_1" class="md-nav__link">
-    Libraries
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#entities" class="md-nav__link">
     Entities
   </a>
@@ -1179,6 +1192,33 @@
   <a href="#processes" class="md-nav__link">
     Processes
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-convention" class="md-nav__link">
+    Naming convention
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-signals-and-constants" class="md-nav__link">
+    Variables, Signals and Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities-files-functions-and-architectures" class="md-nav__link">
+    Entities, Files, Functions and Architectures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1523,11 +1563,6 @@ DUT : ENTITY work.conf_mul_Beh
 <p>Alternatively, a single process design can be used. In a single process design, only one process is required in the entity. The process is clocked and it both describes the FSM and registers its state. The single process design should be used with care since it can only describe registered FSMs (i.e. the outputs of the FSM are always registered).</p>
 <h2 id="commenting-and-documentation">COMMENTING AND DOCUMENTATION</h2>
 <p>Commenting in RTL is important for you as a designer, and for the people taking over your code. It is important to remember that RTL is not programming, when you code in RTL you describe something real. So you should add descriptions before your entities or modules and your architecture that describe what exactly your entity, module or architecture is meant to implement. If you can not describe it in words, then you can not implement it. In the following examples we follow the Doxygen commenting style, but this is not necessary.</p>
-<h3 id="libraries_1">Libraries</h3>
-<p>Before each custom library/package import a comment should be added that describes the library. For example:
-<div class="highlight"><pre><span></span><code>--! Use misc package for utility functions
-USE work.misc.ALL;
-</code></pre></div></p>
 <h3 id="entities">Entities</h3>
 <p>Each entity should have a brief and possible a detail description. The brief description should explain the basic function of the component. The detail description should describe its interface, such as special relation between signals, and a more detail view of its functionality. For example:
 <div class="highlight"><pre><span></span><code>--! This is a reconfigurable multiplier. It can operate in different fixed point precision.
@@ -1565,7 +1600,7 @@ ARCHITECTURE rtl OF conf_mul_Beh IS
 BEGIN
 </code></pre></div>
 <h3 id="processes">Processes</h3>
-<p>Complex processes should have a description of what they are implementing</p>
+<p>Complex processes should have a description of what they are trying to implement</p>
 <div class="highlight"><pre><span></span><code>--! This process checks if the loop should be executed (i.e. if  number of iterations &gt;0 )
     zero_loop : PROCESS (instr, config)
     BEGIN
@@ -1574,6 +1609,15 @@ BEGIN
 
     END PROCESS zero_loop;
 </code></pre></div>
+<h3 id="naming-convention">Naming convention</h3>
+<p>Keep the naming of your objects clear and descriptive. When multiple words are used in a name they should be seperated by <code>_</code>.</p>
+<p>Avoid using names like north, south, east and west. Instead use names top, bottom, left and right. </p>
+<h4 id="variables-signals-and-constants">Variables, Signals and Constants</h4>
+<p>All variables, signals and constnats should use clear and descriptive names. They should also have a comment describing what the do in their definition.</p>
+<p>Constants should use all capital letters, and variables and singals small letters.</p>
+<h4 id="entities-files-functions-and-architectures">Entities, Files, Functions and Architectures</h4>
+<p>Entities should have descriptive names, but simple and short. Each entity should be in one single file and followed by its architecture. The file name should be the same as the entity. The architecture name should be descriptive of the style, for example behavioral or structural. </p>
+<p>Functions should have clear descriptive names, it is ok if they are long.</p>
 <h2 id="other-usefull-toolsplugins">OTHER USEFULL TOOLS/PLUGINS</h2>
 <h3 id="vscode">VSCODE:</h3>
 <h4 id="vhdl-specific">VHDL specific</h4>
