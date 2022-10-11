@@ -251,13 +251,6 @@ Alternatively, a single process design can be used. In a single process design, 
 
 Commenting in RTL is important for you as a designer, and for the people taking over your code. It is important to remember that RTL is not programming, when you code in RTL you describe something real. So you should add descriptions before your entities or modules and your architecture that describe what exactly your entity, module or architecture is meant to implement. If you can not describe it in words, then you can not implement it. In the following examples we follow the Doxygen commenting style, but this is not necessary.
 
-###	 Libraries
-Before each custom library/package import a comment should be added that describes the library. For example:
-```
---! Use misc package for utility functions
-USE work.misc.ALL;
-```
-
 ###	 Entities
 
 Each entity should have a brief and possible a detail description. The brief description should explain the basic function of the component. The detail description should describe its interface, such as special relation between signals, and a more detail view of its functionality. For example:
@@ -303,7 +296,7 @@ BEGIN
 ```
 
 ###	Processes
-Complex processes should have a description of what they are implementing
+Complex processes should have a description of what they are trying to implement
 
 ```
 --! This process checks if the loop should be executed (i.e. if  number of iterations >0 )
@@ -314,6 +307,25 @@ Complex processes should have a description of what they are implementing
 
     END PROCESS zero_loop;
 ```
+
+### Naming convention
+
+Keep the naming of your objects clear and descriptive. When multiple words are used in a name they should be seperated by `_`.
+
+Avoid using names like north, south, east and west. Instead use names top, bottom, left and right. 
+
+#### Variables, Signals and Constants
+
+All variables, signals and constnats should use clear and descriptive names. They should also have a comment describing what the do in their definition.
+
+Constants should use all capital letters, and variables and singals small letters.
+
+#### Entities, Files, Functions and Architectures
+
+Entities should have descriptive names, but simple and short. Each entity should be in one single file and followed by its architecture. The file name should be the same as the entity. The architecture name should be descriptive of the style, for example behavioral or structural. 
+
+Functions should have clear descriptive names, it is ok if they are long.
+
 
 ##	OTHER USEFULL TOOLS/PLUGINS
 ###	VSCODE:
