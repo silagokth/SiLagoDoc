@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Manas/InstructionSet/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -846,13 +846,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bw" class="md-nav__link">
-    BW
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#raccu" class="md-nav__link">
     RACCU
   </a>
@@ -1096,13 +1089,6 @@
           <li class="md-nav__item">
   <a href="#loop" class="md-nav__link">
     LOOP
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bw" class="md-nav__link">
-    BW
   </a>
   
 </li>
@@ -1539,7 +1525,7 @@
 <td>[15, 15]</td>
 <td>1</td>
 <td>0</td>
-<td>Flag of whether src and dest row are equal. [0]:y; [1]:n;</td>
+<td>Flag of whether src and dest row are equal. [0]:n; [1]:y;</td>
 </tr>
 <tr>
 <td><strong>v_index</strong></td>
@@ -1701,34 +1687,6 @@
 <td>4</td>
 <td>0</td>
 <td>The loops that have the same endpc will be linked together. This field is 1-hot encoded.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="bw">BW</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[26, 23]</td>
-<td>4</td>
-<td>9</td>
-<td>Instruction code for BW</td>
-</tr>
-<tr>
-<td><strong>config</strong></td>
-<td>[22, 21]</td>
-<td>2</td>
-<td>0</td>
-<td>Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit</td>
 </tr>
 </tbody>
 </table>
@@ -2127,22 +2085,10 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Selects one of the RFile port.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w0&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w1&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r0&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r1&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w0&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w1&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r0&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r1&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2155,14 +2101,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is init_addr static or dymamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2186,14 +2126,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-1 iteration static or dymamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2202,14 +2136,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2226,14 +2154,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;default_val&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2247,14 +2169,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The sign of level-1 step.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2263,14 +2179,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2284,14 +2194,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-2 iteration static or dymamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2319,14 +2223,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2372,14 +2270,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is reading/writing from/to DiMArch?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2387,14 +2279,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the data compressed?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="p">]</span><span class="w"></span>
@@ -2410,134 +2296,38 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The DPU mode.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idle&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_acc&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add_const&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;subt&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;subt_abs&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_6&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_add&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_const&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mac&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ld_ir&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;axpy&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min_acc&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min_const&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_15&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_l&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_r&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sigm&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tanhyp&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;expon&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lk_relu&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;relu&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;div&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acc_softmax&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;div_softmax&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ld_acc&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scale_dw&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scale_up&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mac_inter&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_31&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idle&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_acc&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add_const&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;subt&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;subt_abs&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_6&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_add&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_const&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mac&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ld_ir&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;axpy&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min_acc&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min_const&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_15&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;max_min&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_l&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_r&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sigm&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tanhyp&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;expon&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lk_relu&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;relu&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;div&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acc_softmax&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;div_softmax&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ld_acc&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scale_dw&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scale_up&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mac_inter&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mode_31&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2546,22 +2336,10 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;default_val&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nosat_int&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nosat_fx&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sat_int&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sat_fx&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nosat_int&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nosat_fx&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sat_int&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sat_fx&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2583,22 +2361,10 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The IO mode: negate input and absolute output.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no_change&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;negate_in0&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;negate_in1&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abs_out&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no_change&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;negate_in0&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;negate_in1&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abs_out&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="p">]</span><span class="w"></span>
@@ -2627,14 +2393,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Source block, RF or DPU.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dpu&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dpu&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2652,14 +2412,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Flag of whether src and dest row are equal.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2693,14 +2447,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the cycle static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2736,14 +2484,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the start static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2756,14 +2498,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the iteration count static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2776,14 +2512,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the step static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2801,19 +2531,6 @@
 <span class="w">      </span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BW&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;max_chunk&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;segment_templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;config&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RACCU&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;phase&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
@@ -2824,38 +2541,14 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RACCU mode&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idle&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sub&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_r&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_l&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_add&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_sub&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;idle&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;add&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sub&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_r&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift_l&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_add&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mult_sub&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2863,14 +2556,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the first operand static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2883,14 +2570,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is the second operand static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2934,14 +2615,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The horizontal direction: West or East.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2954,14 +2629,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The vertical direction: South or North.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;n&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -2974,14 +2643,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The data transfer direction: Read or Write.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3002,14 +2665,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Read or Write&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3062,14 +2719,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is initial address static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3077,14 +2728,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-1 iteration static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3092,14 +2737,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-2 iteration static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3108,14 +2747,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3124,14 +2757,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3140,14 +2767,8 @@
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;controllable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3155,14 +2776,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-1 step static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
@@ -3170,14 +2785,8 @@
 <span class="w">          </span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is level-2 step static or dynamic?&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;verbo_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">              </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">          </span><span class="p">]</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
