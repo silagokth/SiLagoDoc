@@ -62,7 +62,7 @@ unused0 | [22, 22] | 1 | 1 | Deprecated.
 **src_block** | [20, 20] | 1 | 0 | Source block, RF or DPU. [0]:rf; [1]:dpu;
 **src_port** | [19, 19] | 1 | 0 | source port.
 **hb_index** | [18, 16] | 3 | 0 | Index of horizontal bus. This is the column difference of the src and dest cell shifting by 2. For example if the path is from [0,0] to [1,2], the column difference is -2, so the hb_index = -2+2=0.
-**send_to_other_row** | [15, 15] | 1 | 0 | Flag of whether src and dest row are equal. [0]:y; [1]:n;
+**send_to_other_row** | [15, 15] | 1 | 0 | Flag of whether src and dest row are equal. [0]:n; [1]:y;
 **v_index** | [14, 12] | 3 | 0 | Index of vertical bus. This is the dest port. If destination is RF, the v_index is the port number, if the dest is DPU, the v_index is port number + 2.
 
 ### JUMP
@@ -95,13 +95,6 @@ instr_code | [53, 50] | 4 | 8 | Instruction code for LOOP
 **step_sd** | [26, 26] | 1 | 0 | Is the step static or dynamic? [0]:s; [1]:d;
 **step** | [25, 20] | 6 | 1 | The iteration step.
 link | [19, 16] | 4 | 0 | The loops that have the same endpc will be linked together. This field is 1-hot encoded.
-
-### BW
-
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [26, 23] | 4 | 9 | Instruction code for BW
-**config** | [22, 21] | 2 | 0 | Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit
 
 ### RACCU
 
