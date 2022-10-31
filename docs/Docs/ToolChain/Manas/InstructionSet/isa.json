@@ -467,6 +467,19 @@
       ]
     },
     {
+      "code": 9,
+      "name": "BW",
+      "phase": 1,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "config",
+          "comment": "Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit",
+          "bitwidth": 2
+        }
+      ]
+    },
+    {
       "code": 10,
       "name": "RACCU",
       "phase": 2,
@@ -543,7 +556,7 @@
     {
       "code": 12,
       "name": "ROUTE",
-      "phase": 3,
+      "phase": 4,
       "max_chunk": 1,
       "segment_templates": [
         {

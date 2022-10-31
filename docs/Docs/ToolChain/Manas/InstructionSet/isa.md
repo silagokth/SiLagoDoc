@@ -96,6 +96,13 @@ instr_code | [53, 50] | 4 | 8 | Instruction code for LOOP
 **step** | [25, 20] | 6 | 1 | The iteration step.
 link | [19, 16] | 4 | 0 | The loops that have the same endpc will be linked together. This field is 1-hot encoded.
 
+### BW
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [26, 23] | 4 | 9 | Instruction code for BW
+**config** | [22, 21] | 2 | 0 | Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit
+
 ### RACCU
 
 Field | Position | Width | Default Value | Description
