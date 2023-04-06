@@ -1,4 +1,10 @@
-# Programming Guide
+# Manas Programming Guide
+
+!!! note
+    This page is written for both vesyla-suite **version 2** and **version 3**.
+
+!!! warning
+    This programming guide is intended to fine-grained control of Manas. We do not recommend you to use this guide unless you are familiar with the internal structure of Manas. For most cases, you can use the [Vesyla Programming Guide](../VesylaProgrammingGuide) to generate inputs for Manas.
 
 ## Basics
 

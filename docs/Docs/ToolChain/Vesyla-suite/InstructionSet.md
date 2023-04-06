@@ -2,7 +2,7 @@
 
 ## Instructions
 
---8<-- "Docs/ToolChain/Manas/InstructionSet/isa.md"
+--8<-- "Docs/ToolChain/Vesyla-suite/InstructionSet/isa.md"
 
 ## ISA Description File
 
@@ -11,7 +11,7 @@
 The ISA description file uses *json* format and validated by the following json schema:
 
 ```json
---8<-- "Docs/ToolChain/Manas/InstructionSet/isa_schema.json"
+--8<-- "Docs/ToolChain/Vesyla-suite/InstructionSet/isa_schema.json"
 ```
 
 !!! Note
@@ -22,5 +22,5 @@ The ISA description file uses *json* format and validated by the following json 
 The ISA description file used for DRRA is shown as follow:
 
 ```json
---8<-- "Docs/ToolChain/Manas/InstructionSet/isa.json"
+--8<-- "Docs/ToolChain/Vesyla-suite/InstructionSet/isa.json"
 ```

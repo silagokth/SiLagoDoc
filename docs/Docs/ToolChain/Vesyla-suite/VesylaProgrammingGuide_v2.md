@@ -1,4 +1,7 @@
-# Programming Guide
+# Vesyla Programming Guide (v2)
+
+!!! note
+    This page is written for vesyla-suite **version 2**. It's deprecated and will be removed soon. You should only use it for old project such as DRRA characterization. For vesyla-suite version 3, please see [Vesyla Programming Guide](../VesylaProgrammingGuide).
 
 ## Basics
 

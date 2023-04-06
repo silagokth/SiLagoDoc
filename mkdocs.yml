@@ -14,41 +14,40 @@ nav:
       - Guideline/Mkdocs-tutorial.md
       - Guideline/Style-guide-cpp.md
       - Guideline/Style-guide-rtl.md
-      # - Guideline/Style-guide-python.md
-      # - Guideline/Style-guide-vhdl.md
-      # - Guideline/Style-guide-verilog.md
 
   - Docs:
-      - Fabric:
-          - Docs/Fabric/Overview.md
-          - Docs/Fabric/Style-guide.md
+      # - Fabric:
+      #     - Docs/Fabric/Overview.md
+      #     - Docs/Fabric/Style-guide.md
       #       - DRRA:
       #         - Docs/Fabric/DRRA/RACCU.md
       #       - RISC V:
       #         - Docs/Fabric/RISCV/Overview.md
       - Tool Chain:
           - Docs/ToolChain/Overview.md
-          - Vesyla:
-              - Docs/ToolChain/Vesyla/Overview.md
-              - Docs/ToolChain/Vesyla/Tutorial.md
-              - Docs/ToolChain/Vesyla/RepoOrganization.md
-              - Docs/ToolChain/Vesyla/ProgrammingGuide.md
-              - Docs/ToolChain/Vesyla/Instruction-Set.md
-              - Docs/ToolChain/Vesyla/Cadfg.md
-              - Docs/ToolChain/Vesyla/Hazzard.md
-              - Docs/ToolChain/Vesyla/ExpressionSimplification.md
-              - Docs/ToolChain/Vesyla/DependencyAnalysis.md
-              - Docs/ToolChain/Vesyla/DeadCodeElimination.md
-              - Docs/ToolChain/Vesyla/Idg.md
-              - Docs/ToolChain/Vesyla/Scheduling.md
-              - Docs/ToolChain/Vesyla/DiMArch.md
-          - Vesyla2:
-              - Docs/ToolChain/Vesyla2/Tutorial.md
-          - Manas:
-              - Docs/ToolChain/Manas/Tutorial.md
-              - Docs/ToolChain/Manas/ProgrammingGuide.md
-              - Docs/ToolChain/Manas/InstructionSet.md
-              - Docs/ToolChain/Manas/InstructionPhase.md
+          # - Vesyla:
+          #     - Docs/ToolChain/Vesyla/Overview.md
+          #     - Docs/ToolChain/Vesyla/RepoOrganization.md
+          #     - Docs/ToolChain/Vesyla/Instruction-Set.md
+          #     - Docs/ToolChain/Vesyla/Cadfg.md
+          #     - Docs/ToolChain/Vesyla/Hazzard.md
+          #     - Docs/ToolChain/Vesyla/ExpressionSimplification.md
+          #     - Docs/ToolChain/Vesyla/DependencyAnalysis.md
+          #     - Docs/ToolChain/Vesyla/DeadCodeElimination.md
+          #     - Docs/ToolChain/Vesyla/Idg.md
+          #     - Docs/ToolChain/Vesyla/Scheduling.md
+          #     - Docs/ToolChain/Vesyla/DiMArch.md
+          - Vesyla-suite:
+              - Docs/ToolChain/Vesyla-suite/Overview.md
+              - Docs/ToolChain/Vesyla-suite/Installation.md
+              - Docs/ToolChain/Vesyla-suite/Tutorial.md
+              - Docs/ToolChain/Vesyla-suite/Tutorial_v2.md
+              - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide.md
+              - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide_v2.md
+              - Docs/ToolChain/Vesyla-suite/ManasProgrammingGuide.md
+              - Docs/ToolChain/Vesyla-suite/InstructionSet.md
+              - Docs/ToolChain/Vesyla-suite/InstructionPhase.md
+              - Docs/ToolChain/Vesyla-suite/RepoOrganization.md
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md
   #     - Library:
