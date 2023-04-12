@@ -6,8 +6,8 @@ Vesyla-suite version 2 is used for compiling **Matlab** code to **DRRA and DiMAr
 
 ### Tool collection
 
-* vs-vesyla
-* vs-manas
+* vesyla
+* manas
 
 ### Usage
 
@@ -18,7 +18,7 @@ Vesyla-suite version 2 has already been installed on Mozzarella. Since it's a de
 To access vesyla-suite commands, you need to first load the vesyla-suite module by command:
 
 ```tcl
-module load vesyla-suite
+module load vesyla-suite/2
 ```
 
 Now you should be able to access ``vesyla`` and ``manas`` command.
@@ -46,8 +46,13 @@ See [Vesyla Programming Guide v2](../VesylaProgrammingGuide_v2)
 
 #### Installation on Mozzarella
 
-!!! note
-    This option is not available yet! We will update this section once the vesyla-suite is installed on Mozzarella.
+Vesyla-suite version 3 has already been installed on Mozzarella.
+
+To access vesyla-suite commands, you need to first load the vesyla-suite module by command:
+
+```tcl
+module load vesyla-suite/3
+```
 
 #### Docker
 
