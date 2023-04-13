@@ -799,13 +799,105 @@
 <p>You will notice that several files has been created in this directory. One of the files is <code>config.json</code>. This file contains the configuration of the vesyla-suite project. You can modify this file to change the configuration of the project. The configuration file is described in the following section.</p>
 <p>Another file you need to modify is <code>main.cpp.jinja2</code>. This file is a template file used to generate the <code>main.cpp</code> file. You need to define some of the functions in this file. The functions are described in the following section.</p>
 <h2 id="implementation">Implementation</h2>
-<p>In <code>config.json</code>, you can define the hardware architecture of the DRRA fabric.</p>
+<p>We use a simple example to demonstrate the implementation of algorithms. The example is a element-wise addition of two vectors. It has two inputs: vector <code>A</code> and vector <code>B</code>. It has one output: vector <code>C</code>. All of them have size equal to 16. The element-wise addition is defined as: <code>C[i] = A[i] + B[i]</code>.</p>
+<p>We first define the hardware architecture in <code>config.json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_DRRA_ROW&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_DRRA_COL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_SRAM_ROW&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_SRAM_COL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_SRAM_DEPTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_SRAM_WIDTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_RF_DEPTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_RF_WIDTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_IO_DEPTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_IO_WIDTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;ARCH_IRAM_DEPTH&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>ARCH_DRRA_ROW</code> and <code>ARCH_DRRA_COL</code> are the number of rows and columns of the DRRA fabric. <code>ARCH_SRAM_ROW</code> and <code>ARCH_SRAM_COL</code> are the number of rows and columns of the SRAM array used as scratch-pad memory. <code>ARCH_SRAM_DEPTH</code> is the depth of each SRAM cell. <code>ARCH_SRAM_WIDTH</code> is the width of each SRAM cell in terms of bits. In this example, we will not use any SRAM cell. <code>ARCH_RF_DEPTH</code> is the depth of each register file. <code>ARCH_RF_WIDTH</code> is the width of each register file in terms of bits. <code>ARCH_IO_DEPTH</code> is the depth of each input and output buffer. <code>ARCH_IO_WIDTH</code> is the width of each input and output buffer in terms of bits. <code>ARCH_IRAM_DEPTH</code> is the depth of the instruction RAM in each DRRA cell.</p>
+<p>Before we implement the algorithm in <code>main.cpp.jinja2</code>, we need to define the input and output data layout in input and output buffer. Both input and output buffer has width that equals to 256 bits. So, each row can be divided by 16 16-bit chunks, each of which stores an element of <code>A</code>, <code>B</code>, or <code>C</code>. The layout is described by the following table.</p>
+<div class="highlight"><pre><span></span><code>Input Buffer:
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+| addr | CHK0| CHK1| CHK2| CHK3| CHK4| CHK5| CHK6| CHK7| CHK8| CHK9|CHK10|CHK11|CHK12|CHK13|CHK14|CHK15|
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|    0 | A[0]| A[1]| A[2]| A[3]| A[4]| A[5]| A[6]| A[7]| A[8]| A[9]|A[10]|A[11]|A[12]|A[13]|A[14]|A[15]|
+|    1 | B[0]| B[1]| B[2]| B[3]| B[4]| B[5]| B[6]| B[7]| B[8]| B[9]|B[10]|B[11]|B[12]|B[13]|B[14]|B[15]|
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+
+Output Buffer:
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+| addr | CHK0| CHK1| CHK2| CHK3| CHK4| CHK5| CHK6| CHK7| CHK8| CHK9|CHK10|CHK11|CHK12|CHK13|CHK14|CHK15|
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|    0 | C[0]| C[1]| C[2]| C[3]| C[4]| C[5]| C[6]| C[7]| C[8]| C[9]|C[10]|C[11]|C[12]|C[13]|C[14]|C[15]|
++------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+</code></pre></div>
 <p>In <code>main.cpp.jinja2</code>, you need to implement the following functions:</p>
 <ul>
 <li><code>void init()</code>: This function is used to initialize the input buffer.</li>
 <li><code>void model_l0()</code>: This function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm.</li>
 <li><code>void model_l1()</code>: This function is used to implement the algorithm in the level 1 model. It will be the input of vesyla-suite compiler. It's a software implementation of the algorithm with some hardware primitives. For syntax, plaese refer to <a href="../VesylaProgrammingGuide">Vesyla Programming Guide</a>.</li>
 </ul>
+<p>We implement these functions one by one.</p>
+<p>The <code>init()</code> function is used to initialize the input buffer. It's a pure software implementation. The following code shows how to initialize the input buffer.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(){</span>
+<span class="w">  </span><span class="c1">// Set the seed for random number generator</span>
+<span class="w">  </span><span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Generate 32 random numbers in range [0,100) for both vector A and B</span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">100</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Write the random numbers to the input buffer at starting address 0, and the number of row to write is 2.</span>
+<span class="w">  </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">write</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>model_l0()</code> function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm. The following code shows how to implement the algorithm in the level 0 model.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l0</span><span class="p">(){</span>
+<span class="w">  </span><span class="c1">// Read the input buffer to A. The starting address is 0, and the number of row to read is 1. </span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Read the input buffer to B. The starting address is 1, and the number of row to read is 1. </span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Add A and B</span>
+<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// Write the result C to the output buffer at starting address 0, and the number of row to write is 1.</span>
+<span class="w">  </span><span class="n">__output_buffer__</span><span class="p">.</span><span class="n">write</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now, it's time to implement the algorithm in the level 1 model. The level 1 model is a software implementation of the algorithm with some hardware primitives. It serves dual purposes. First, it's used to verify the correctness of the algorithm. Second, it's used as the input of the compiler. The following code shows how to implement the algorithm in the level 1 model.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l1</span><span class="p">(){</span>
+<span class="w">  </span><span class="c1">// Declare the input and output streams. The input and output streams are disorganized data after reading or before writing to the input and output buffer.</span>
+<span class="w">  </span><span class="n">STREAM_IO_CHUNK</span><span class="w"> </span><span class="n">sab</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Read the input buffer to sab. The starting address is 0, the step is 1, and the number of row to read is 2. This stream include data for both A and B.</span>
+<span class="w">  </span><span class="n">sab</span><span class="o">=</span><span class="n">silago_io_read</span><span class="p">(</span><span class="n">__input_buffer__</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Declare the RF variable to model register file. We use pragma to bind it to the register file in cell [0,0]. We then store the data stream to the register file.</span>
+<span class="w">  </span><span class="cp">#pragma bind rf_0_0</span>
+<span class="w">  </span><span class="n">RF</span><span class="w"> </span><span class="n">rf_0_0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">rf_0_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_rf_write_from_io_stream</span><span class="w"> </span><span class="p">(</span><span class="n">sab</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rf_0_0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Declare the register file streams.</span>
+<span class="w">  </span><span class="n">STREAM_RF_CHUNK</span><span class="w"> </span><span class="n">aa</span><span class="p">,</span><span class="w"> </span><span class="n">bb</span><span class="p">,</span><span class="w"> </span><span class="n">cc</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// Read the data from the register file to aa and bb.</span>
+<span class="w">  </span><span class="n">aa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_rf_read</span><span class="p">(</span><span class="n">rf_0_0</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">));</span>
+<span class="w">  </span><span class="n">bb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_rf_read</span><span class="p">(</span><span class="n">rf_0_0</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// We use pragma to bind the following arithmetic operation to DPU[0,0]. We then add aa and bb and produce cc.</span>
+<span class="w">  </span><span class="cp">#pragma bind dpu_0_0</span>
+<span class="w">  </span><span class="n">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_dpu_add</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span><span class="w"> </span><span class="n">bb</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// The stream cc is stored to the register file.</span>
+<span class="w">  </span><span class="n">rf_0_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_rf_write</span><span class="p">(</span><span class="n">cc</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span><span class="w"> </span><span class="n">rf_0_0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Read the data from the register file to sc to generate the output stream sc.</span>
+<span class="w">  </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_rf_read_to_io_stream</span><span class="w"> </span><span class="p">(</span><span class="n">rf_0_0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">  </span><span class="c1">// We then write the output stream sc to the output buffer.</span>
+<span class="w">  </span><span class="n">__output_buffer__</span><span class="o">=</span><span class="n">silago_io_write</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">__output_buffer__</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="simulation-and-verification">Simulation and Verification</h2>
 <p>To simulate the algorithm, simply run:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>run.sh
