@@ -1,7 +1,7 @@
-# Tutorial (v3)
+# DRRA-based AlImp Design Tutorial (v3)
 
 !!! note
-    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [Tutorial v2](../Tutorial_v2).
+    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [ DRRA-based AlImp Design Tutorial v3](../Tutorial_DRRA_v2).
 
 ## Introduction
 
@@ -9,7 +9,7 @@
 
 Each algorithm compiled by vesyla-suite will be mapped to a DRRA fabric. The DRRA fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
 
-![Programming Model](../Tutorial/programming_model.png)
+![Programming Model](../Tutorial_DRRA/programming_model.png)
 
 The input buffer is used to store the input data of the algorithm. The output buffer is used to store the output data of the algorithm. The input buffer and the output buffer are connected to the DRRA fabric through the input and output ports of the fabric. The input and output ports are used to connect the DRRA fabric to the outside world.
 

@@ -40,13 +40,14 @@ nav:
           - Vesyla-suite:
               - Docs/ToolChain/Vesyla-suite/Overview.md
               - Docs/ToolChain/Vesyla-suite/Installation.md
-              - Docs/ToolChain/Vesyla-suite/Tutorial.md
-              - Docs/ToolChain/Vesyla-suite/Tutorial_v2.md
+              - Docs/ToolChain/Vesyla-suite/Tutorial_DRRA.md
+              - Docs/ToolChain/Vesyla-suite/Tutorial_DRRA_v2.md
               - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide.md
               - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide_v2.md
               - Docs/ToolChain/Vesyla-suite/ManasProgrammingGuide.md
               - Docs/ToolChain/Vesyla-suite/InstructionSet.md
               - Docs/ToolChain/Vesyla-suite/InstructionPhase.md
+              - Docs/ToolChain/Vesyla-suite/Tutorial_RISCV.md
               - Docs/ToolChain/Vesyla-suite/RepoOrganization.md
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md

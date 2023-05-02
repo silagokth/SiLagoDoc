@@ -1,4 +1,4 @@
-# Tutorial (v2)
+# DRRA-based AlImp Design Tutorial (v2)
 
 !!! note
     This page is written for vesyla-suite **version 2**. It's deprecated and will be removed soon. You should only use it for old project such as DRRA characterization. For vesyla-suite version 3, please see [Tutorial](../Tutorial).

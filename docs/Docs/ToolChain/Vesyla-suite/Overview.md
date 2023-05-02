@@ -64,7 +64,7 @@ See [Installation](../Installation#compile-and-install-from-source-code)
 
 ### Tutorial
 
-See [Turorial](../Tutorial).
+See [DRRA-based AlImp Design Tutorial](../Tutorial_DRRA) and [RISCV-based AlImp Design Tutorial](../Tutorial_RISCV).
 
 ### Programming Guide
 
