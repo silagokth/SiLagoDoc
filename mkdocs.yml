@@ -25,18 +25,6 @@ nav:
       #         - Docs/Fabric/RISCV/Overview.md
       - Tool Chain:
           - Docs/ToolChain/Overview.md
-          # - Vesyla:
-          #     - Docs/ToolChain/Vesyla/Overview.md
-          #     - Docs/ToolChain/Vesyla/RepoOrganization.md
-          #     - Docs/ToolChain/Vesyla/Instruction-Set.md
-          #     - Docs/ToolChain/Vesyla/Cadfg.md
-          #     - Docs/ToolChain/Vesyla/Hazzard.md
-          #     - Docs/ToolChain/Vesyla/ExpressionSimplification.md
-          #     - Docs/ToolChain/Vesyla/DependencyAnalysis.md
-          #     - Docs/ToolChain/Vesyla/DeadCodeElimination.md
-          #     - Docs/ToolChain/Vesyla/Idg.md
-          #     - Docs/ToolChain/Vesyla/Scheduling.md
-          #     - Docs/ToolChain/Vesyla/DiMArch.md
           - Vesyla-suite:
               - Docs/ToolChain/Vesyla-suite/Overview.md
               - Docs/ToolChain/Vesyla-suite/Installation.md
