@@ -10,10 +10,11 @@ repo_url: "https://github.com/silagokth/SiLagoDoc"
 
 nav:
   - Home: index.md
-  - Guideline:
+  - Guidelines:
       - Guideline/Mkdocs-tutorial.md
       - Guideline/Style-guide-cpp.md
       - Guideline/Style-guide-VHDL.md
+      - Guideline/Style-guide-Verilog.md
 
   - Docs:
       # - Fabric:
@@ -91,6 +92,8 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: 'docs/'
       check_paths: true
+  - pymdownx.highlight:
+      anchor_linenums: true
 
 extra_javascript:
   - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
