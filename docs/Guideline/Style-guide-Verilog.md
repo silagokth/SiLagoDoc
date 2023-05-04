@@ -50,21 +50,21 @@ logic read_address;
 ### Sufixes
 Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:
 
-| Type               | Sufix  |
-| ------------------ | ------ |
-| Clock signals      | `_clk` |
-| Reset signals      | `_rst` |
-| Enable signals     | `_en`  |
-| Active low signals | `_n`   |
-| Register signals   | `_reg` |
-| Struct             | `_st`  |
+| Type               | Sufix   |
+|--------------------|---------|
+| Instances          | `_inst` |
+| Clock signals      | `_clk`  |
+| Reset signals      | `_rst`  |
+| Enable signals     | `_en`   |
+| Active low signals | `_n`    |
+| Register signals   | `_reg`  |
+| Struct             | `_st`   |
 
 ### Prefixes
 Some types of labels have a standard prefix. They should be used whenever possible. The following table shows the standard prefixes:
 
 | Block                | Label   |
-| -------------------- | ------- |
-| Instances            | `u_`    |
+|----------------------|---------|
 | `always_comb` blocks | `comb_` |
 | `always_ff` blocks   | `ff_`   |
 
