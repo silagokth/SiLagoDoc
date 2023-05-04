@@ -247,14 +247,14 @@
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-          Guideline
+          Guidelines
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Guideline
+          Guidelines
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -424,6 +424,20 @@
     <li class="md-nav__item">
       <a href="../Style-guide-VHDL/" class="md-nav__link">
         Coding Guidelines for VHDL coding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Style-guide-Verilog/" class="md-nav__link">
+        Style guide for Verilog and SystemVerilog RTL
       </a>
     </li>
   
@@ -917,12 +931,12 @@
 <p>MkDocs is based on <a href="https://www.python.org/">python</a>. The SiLagoDoc uses <strong>python 3</strong>.</p>
 <h2 id="how-to-install-mkdocs">How to install MkDocs?</h2>
 <p>Like all python packages, you can install MkDocs and its theme via <strong>pip</strong>.</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material
 </code></pre></div>
 <h2 id="how-to-use-mkdocs">How to use MkDocs?</h2>
 <h3 id="clone-silagodoc-repo">Clone SiLagoDoc repo</h3>
 <p>Use the following command:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:silagokth/SiLagoDoc.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:silagokth/SiLagoDoc.git
 </code></pre></div>
 <h3 id="check-the-modification">Check the modification</h3>
 <div class="admonition note">
@@ -930,8 +944,8 @@
 <p>The render result is just on your local machine. It hasn't been commited to the server yet.</p>
 </div>
 <p>Use the the follwing command:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>SiLagoDoc
-mkdocs<span class="w"> </span>serve
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>SiLagoDoc
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mkdocs<span class="w"> </span>serve
 </code></pre></div>
 Now you can view the SiLagoDoc on your browser via the url: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>. The site will be automatically refreshed when you save your changes.</p>
 <h3 id="automatically-deploy-the-site">Automatically deploy the site</h3>
@@ -942,11 +956,11 @@ Now you can view the SiLagoDoc on your browser via the url: <a href="http://127.
 <p>SiLagoDoc has been configured with continous integration. You <strong>should not</strong> use this step to manually deploy the site. You should instead directly commit your source code to github and let it automatically generate the site.</p>
 </div>
 <p>Once you are satisfied with the modification, you can build the site using the command:</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdocs<span class="w"> </span>build
 </code></pre></div>
 <p>You will notice that a folder called <strong><em>site</em></strong> has been created. This site can then be deployed to the server.</p>
 <p>SiLagoDoc uses <a href="https://pages.github.com/">github pages</a> to host the site. So you can use the following command to deploy:</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdocs<span class="w"> </span>gh-deploy
 </code></pre></div>
 <h2 id="how-to-write-documentation">How to write documentation?</h2>
 <h3 id="add-a-page">Add a page</h3>

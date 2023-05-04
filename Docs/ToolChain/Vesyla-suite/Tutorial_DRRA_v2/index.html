@@ -245,14 +245,14 @@
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-          Guideline
+          Guidelines
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Guideline
+          Guidelines
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -292,6 +292,20 @@
     <li class="md-nav__item">
       <a href="../../../../Guideline/Style-guide-VHDL/" class="md-nav__link">
         Coding Guidelines for VHDL coding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Guideline/Style-guide-Verilog/" class="md-nav__link">
+        Style guide for Verilog and SystemVerilog RTL
       </a>
     </li>
   
@@ -789,17 +803,17 @@
 <p>Please Check the <a href="../VesylaProgrammingGuide_v2/">Vesyla Programming Guide v2</a>.</p>
 <h2 id="compilation">Compilation</h2>
 <p>To compile a program that is purely matlab script by using Vesyla and Manas, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">vesyla</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="nv">$PathToMatlabFile</span>
-<span class="nv">manas</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="o">-</span>t<span class="w"> </span>json<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="o">/</span>filegen
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">vesyla</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="nv">$PathToMatlabFile</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">manas</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="o">-</span>t<span class="w"> </span>json<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="o">/</span>filegen
 </code></pre></div>
 <h2 id="rtl-simulation">RTL simulation</h2>
 <p>Vesyla also generates environment for RTL simulation. It's in <em>$OUTPUT/filegen/sim_vsim</em>. However, you can't directly simulate it under QuestaSim because you need to specify the path to the DRRA+DiMArch fabric.</p>
 <p>To specify the path to the fabric, use the command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">export</span><span class="w"> </span>FABRIC_PATH<span class="err">=</span><span class="nv">$PathToFabric</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">export</span><span class="w"> </span>FABRIC_PATH<span class="err">=</span><span class="nv">$PathToFabric</span>
 </code></pre></div>
 <p>Then, you can use Questasim to run the simulation script genereated by Vesyla:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$OUTPUT</span><span class="o">/</span>filegen<span class="o">/</span>
-<span class="nv">vsim</span><span class="w"> </span><span class="o">-</span>c<span class="w"> </span><span class="o">-</span>do<span class="w"> </span>run_gui.do
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$OUTPUT</span><span class="o">/</span>filegen<span class="o">/</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">vsim</span><span class="w"> </span><span class="o">-</span>c<span class="w"> </span><span class="o">-</span>do<span class="w"> </span>run_gui.do
 </code></pre></div>
 
 
