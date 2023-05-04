@@ -1,9 +1,9 @@
 # Style guide for Verilog and SystemVerilog RTL
 
 The coding guides are splited into three parts:
- - Naming conventions
- - Coding style 
- - Inline documentation
+- Naming conventions
+- Coding style 
+- Inline documentation
 
 ## Naming conventions
 
@@ -46,6 +46,7 @@ logic write_enable;
 ```
 ### Sufixes
 Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:
+
 | Type               | Sufix  |
 | ------------------ | ------ |
 | Clock signals      | `_clk` |
@@ -57,6 +58,7 @@ Some types of signals/ports have a standard sufix. They should be used whenever 
 
 ### Prefixes
 Some types of labels have a standard prefix. They should be used whenever possible. The following table shows the standard prefixes:
+
 | Block                | Label   |
 | -------------------- | ------- |
 | Instances            | `u_`    |
