@@ -179,9 +179,95 @@ It is recomended to use a tool to automatically format the code. This will save 
  - [verible](https://github.com/chipsalliance/verible) is a SystemVerilog formatter. It can be used as a standalone tool or called from other tools, such as TerosHDL or svlangserver.
 
  ## Inline documentation
-    Inline documentation is used to describe the design. It is important to document the design to make it easier to understand. The following rules should be followed when writing the documentation:
-    - The documentation should be written in a way that is easy to understand by people that are not familiar with the design.
-    - The documentation should be written in English.
-    - Ports, parameters should be documented. I.e. all inputs and outputs of a module should be documented.
-    - Internal signals that are self-explanatory do not need to be documented.
+ Inline documentation is used to describe the design. It is important to document the design to make it easier to understand. The following rules should be followed when writing the documentation:
+ - The documentation should be written in a way that is easy to understand by people that are not familiar with the design.
+ - The documentation should be written in English.
+ - Ports, parameters should be documented. I.e. all inputs and outputs of a module should be documented.
+ - Internal signals that are self-explanatory do not need to be documented.
 
+The inline comments can then be used to automatically generate documentation for the designs. For this project we use TerosHDL documentation generator, which can be used as part of the VS Code extension or in standalone mode using the python package.
+
+To add documentation to a design use `//!` as the comment character. Comments that start with `//!` will be parsed by the documentation generator. Comments with `//` can be used for "local" explanations that should not be reflected in the global documentation.
+
+Comments should be added at the begining of the module, before the ports and parameters. A decription of the module should be priovided before the module starts. Additional information can be included in the module description, such as fsm or timing diagrams with wavedrom, etc. The following example shows how to document a module:
+```sv
+//! Implements the storage section of the register file
+//! 
+//! Multiple register_row instances are created according to the
+//! <register_page.REGISTER_FILE_DEPTH> parameter.
+//! 
+//! Timing diagram:
+//! This is an example of a read transaction
+//! {signal: [
+//!  {name: 'clk', wave: 'p.....|...'},
+//!  {name: 'dat', wave: 'x.345x|=.x', data: ['head', 'body', 'tail', 'data']},
+//!  {name: 'req', wave: '0.1..0|1.0'},
+//!  {},
+//!  {name: 'ack', wave: '1..01.|01.'}
+//! ]}
+
+
+module register_page #(
+    //! Width of the data words
+    parameter DATA_WIDTH = 16,
+    //! Width of the blocks, connection between register file and memory
+    parameter BLOCK_WIDTH = 256,
+    //! Number of words
+    parameter REGISTER_FILE_DEPTH = 64,
+    //! Number of read ports
+    parameter NUMBER_OF_READ_PORTS = 2,
+    //! Number of input ports
+    parameter NUMBER_OF_WRITE_PORTS = 1,
+    /* Local parameters */
+    //! Length of the address of a word
+    parameter WORD_ADDRESS_WIDTH = $clog2(REGISTER_FILE_DEPTH),
+    //! Number of blocks accessed by the wide port
+    parameter NUMBER_OF_BLOCKS = (DATA_WIDTH * REGISTER_FILE_DEPTH) / BLOCK_WIDTH,
+    //! Number of words in a block
+    parameter BLOCK_DEPTH = BLOCK_WIDTH / DATA_WIDTH,
+    //! Length of the address of a block
+    parameter BLOCK_ADDRESS_WIDTH = $clog2(NUMBER_OF_BLOCKS)
+) (
+    //! Asynchronous active low reset
+    input logic rst_n,
+    //! Clock signal
+    input logic clk,
+
+    /* Word access signals */
+    //! Array of write addresses for word access, one for each write port
+    input  logic [WORD_ADDRESS_WIDTH-1:0] write_address[NUMBER_OF_WRITE_PORTS-1:0],
+    //! Array of read addresses for word access, one for each read port
+    input  logic [WORD_ADDRESS_WIDTH-1:0] read_address [ NUMBER_OF_READ_PORTS-1:0],
+    //! Data input for word access, one word for each read port
+    input  logic [        DATA_WIDTH-1:0] data_in      [NUMBER_OF_WRITE_PORTS-1:0],
+    //! Data output for word access, one word for each write port
+    output logic [        DATA_WIDTH-1:0] data_out     [ NUMBER_OF_READ_PORTS-1:0],
+    //! Read enable flag, one bit for each read port
+    input  logic                          read_enable  [ NUMBER_OF_READ_PORTS-1:0],
+    //! Write enable flab, one bit for each write port
+    input  logic                          write_enable [NUMBER_OF_WRITE_PORTS-1:0],
+
+    /* Block access signals */
+    //! Read address for block access
+    input  logic [BLOCK_ADDRESS_WIDTH-1:0] block_read_address,
+    //! Write address for block access
+    input  logic [BLOCK_ADDRESS_WIDTH-1:0] block_write_address,
+    //! Data input for block access
+    input  logic [        BLOCK_WIDTH-1:0] block_data_in,
+    //! Data output for block access
+    output logic [        BLOCK_WIDTH-1:0] block_data_out,
+    //! Block read enable flag
+    //! '0' -> Row access mode (depending on read_enable flags)
+    //! '1' -> Block access mode
+    input  logic                           block_read_enable,
+    //! Block write enable flag
+    //! - <0> -> Row access mode (depending on write_enable flags)
+    //! - '1' -> Block access mode
+    input  logic                           block_write_enable
+);
+
+endmodule;
+```
+
+This code will generate the following documentation:
+![Documentation example](../../img/documentation_example.png)
