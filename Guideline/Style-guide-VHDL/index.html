@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Guideline/Style-guide-VHDL/">
       
       
+        <link rel="prev" href="../Style-guide-cpp/">
+      
+      
+        <link rel="next" href="../../Docs/ToolChain/Overview/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
@@ -229,14 +233,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -245,7 +251,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Guideline
@@ -284,11 +290,228 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Style-guide-rtl.md" class="md-nav__link">
-        None
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Coding Guidelines for VHDL coding
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Coding Guidelines for VHDL coding
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-header" class="md-nav__link">
+    File Header
+  </a>
+  
+    <nav class="md-nav" aria-label="File Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode-snippet" class="md-nav__link">
+    VSCODE Snippet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-and-formatting" class="md-nav__link">
+    Style and Formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-style" class="md-nav__link">
+    Coding style
+  </a>
+  
+    <nav class="md-nav" aria-label="Coding style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clocking" class="md-nav__link">
+    Clocking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsm-description" class="md-nav__link">
+    FSM description
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commenting-and-documentation" class="md-nav__link">
+    COMMENTING AND DOCUMENTATION
+  </a>
+  
+    <nav class="md-nav" aria-label="COMMENTING AND DOCUMENTATION">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entities" class="md-nav__link">
+    Entities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inoutsignalsvariablesgenerics" class="md-nav__link">
+    IN/OUT/SIGNALS/VARIABLES/GENERICS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectures" class="md-nav__link">
+    Architectures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-convention" class="md-nav__link">
+    Naming convention
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables-signals-and-constants" class="md-nav__link">
+    Variables, Signals and Constants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entities-files-functions-and-architectures" class="md-nav__link">
+    Entities, Files, Functions and Architectures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-usefull-toolsplugins" class="md-nav__link">
+    OTHER USEFULL TOOLS/PLUGINS
+  </a>
+  
+    <nav class="md-nav" aria-label="OTHER USEFULL TOOLS/PLUGINS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCODE:
+  </a>
+  
+    <nav class="md-nav" aria-label="VSCODE:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vhdl-specific" class="md-nav__link">
+    VHDL specific
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-servers" class="md-nav__link">
+    Language servers:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productivity-plugins" class="md-nav__link">
+    Productivity plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcut-keys-and-emulation" class="md-nav__link">
+    Shortcut keys and emulation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
