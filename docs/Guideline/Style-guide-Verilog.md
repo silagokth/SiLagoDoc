@@ -44,6 +44,25 @@ logic data_out;
 logic read_enable;
 logic write_enable;
 ```
+### Sufixes
+Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:
+| Type               | Sufix  |
+| ------------------ | ------ |
+| Clock signals      | `_clk` |
+| Reset signals      | `_rst` |
+| Enable signals     | `_en`  |
+| Active low signals | `_n`   |
+| Register signals   | `_reg` |
+| Struct             | `_st`  |
+
+### Prefixes
+Some types of labels have a standard prefix. They should be used whenever possible. The following table shows the standard prefixes:
+| Block                | Label   |
+| -------------------- | ------- |
+| Instances            | `u_`    |
+| `always_comb` blocks | `comb_` |
+| `always_ff` blocks   | `ff_`   |
+
 
 ## Coding style
 The style is the way to write the code. It is important to follow the same style across all files and projects. This helps people that might be unfamiliar with the code to navigate through it. The style is defined by the following rules:
@@ -86,9 +105,7 @@ Please refer to the editor documentation to find out how to change the indentati
 
 ### Line length
 The line length should be limited to a reasonable number of characters. [The historically recommended maximum line length is 80 characters](https://softwareengineering.stackexchange.com/a/148678). 
-Nowadays with big computer screens 80 characters is usually too small.  
-A good compromise is to limit the line length to 120 characters.
-This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
+Nowadays with big computer screens 80 characters is usually too small. A good compromise is to limit the line length to 120 characters. This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
 ```sv
 // Bad
 assign result = (a + b) * (c + d) * (e + f) * (g + h) * (i + j) * (k + l) * (m + n) * (o + p) * (q + r) * (s + t) * (u + v) * (w + x) * (y + z);
@@ -116,12 +133,12 @@ Alignment should be used to improve readability. The following example shows how
 // Bad
 assign result = (a + b) * (c + d);
 assign result2 = (a + b) * (c + d);
-assign result3 = (a + b) * (c + d);
+assign result10 = (a + b) * (c + d);
 
 // Good
-assign result  = (a + b) * (c + d);
-assign result2 = (a + b) * (c + d);
-assign result3 = (a + b) * (c + d);
+assign result   = (a + b) * (c + d);
+assign result2  = (a + b) * (c + d);
+assign result10 = (a + b) * (c + d);
 ```
 
 For module declarations, each port should be in a new line and aligned. The following example shows how to align module ports:
@@ -139,9 +156,10 @@ module my_module (
 ```
 
 For module instantiations, each port and parameter should also be in a new line and aligned. The following example shows how to align module ports and parameters:
+
 ```sv
 // Bad
-my_module $(WIDTH = 4, DEPTH = 5) my_module_inst (.clk(clk), .rst(rst), .data(data), .result(result));
+my_module #(WIDTH = 4, DEPTH = 5) my_module_inst (.clk(clk), .rst(rst), .data(data), .result(result));
 
 // Good
 my_module #(
@@ -154,4 +172,16 @@ my_module #(
     .result(result)
 );
 ```
+## Automatic styler
+It is recomended to use a tool to automatically format the code. This will save you time and will ensure that the code is always formatted in the same way. The following tools are recomended:
+ - [TerosHDL](https://terostechnology.github.io/terosHDLdoc/) is a VS Code extension that provides styling, linting, documentation generation, etc.
+ - [svlangserver](https://github.com/imc-trading/svlangserver) is a language server for SystemVerilog. It provides styling, linting, code completion, etc. It can be used with any editor that supports language servers, such as VS Code, Vim, Emacs, etc.
+ - [verible](https://github.com/chipsalliance/verible) is a SystemVerilog formatter. It can be used as a standalone tool or called from other tools, such as TerosHDL or svlangserver.
+
+ ## Inline documentation
+    Inline documentation is used to describe the design. It is important to document the design to make it easier to understand. The following rules should be followed when writing the documentation:
+    - The documentation should be written in a way that is easy to understand by people that are not familiar with the design.
+    - The documentation should be written in English.
+    - Ports, parameters should be documented. I.e. all inputs and outputs of a module should be documented.
+    - Internal signals that are self-explanatory do not need to be documented.
 
