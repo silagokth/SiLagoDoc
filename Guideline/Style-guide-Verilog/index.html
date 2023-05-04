@@ -994,9 +994,9 @@
 
 <h1 id="style-guide-for-verilog-and-systemverilog-rtl">Style guide for Verilog and SystemVerilog RTL</h1>
 <p>The coding guides are splited into three parts:
- - Naming conventions
- - Coding style 
- - Inline documentation</p>
+- Naming conventions
+- Coding style 
+- Inline documentation</p>
 <h2 id="naming-conventions">Naming conventions</h2>
 <h3 id="capitalization">Capitalization</h3>
 <p>All names must be written in lower case. This includes acronyms and abbreviations such as <code>sram</code>, <code>dpu</code>, <code>drra</code>, etc. The only exception are constants and parameters, which must be written in upper case. The following example shows how to use capitalization:
@@ -1033,22 +1033,65 @@ Remember that abreviations are not always clear. For example, addr could mean ad
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kt">logic</span><span class="w"> </span><span class="n">write_enable</span><span class="p">;</span>
 </code></pre></div></p>
 <h3 id="sufixes">Sufixes</h3>
-<p>Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:
-| Type               | Sufix  |
-| ------------------ | ------ |
-| Clock signals      | <code>_clk</code> |
-| Reset signals      | <code>_rst</code> |
-| Enable signals     | <code>_en</code>  |
-| Active low signals | <code>_n</code>   |
-| Register signals   | <code>_reg</code> |
-| Struct             | <code>_st</code>  |</p>
+<p>Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Sufix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clock signals</td>
+<td><code>_clk</code></td>
+</tr>
+<tr>
+<td>Reset signals</td>
+<td><code>_rst</code></td>
+</tr>
+<tr>
+<td>Enable signals</td>
+<td><code>_en</code></td>
+</tr>
+<tr>
+<td>Active low signals</td>
+<td><code>_n</code></td>
+</tr>
+<tr>
+<td>Register signals</td>
+<td><code>_reg</code></td>
+</tr>
+<tr>
+<td>Struct</td>
+<td><code>_st</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="prefixes">Prefixes</h3>
-<p>Some types of labels have a standard prefix. They should be used whenever possible. The following table shows the standard prefixes:
-| Block                | Label   |
-| -------------------- | ------- |
-| Instances            | <code>u_</code>    |
-| <code>always_comb</code> blocks | <code>comb_</code> |
-| <code>always_ff</code> blocks   | <code>ff_</code>   |</p>
+<p>Some types of labels have a standard prefix. They should be used whenever possible. The following table shows the standard prefixes:</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instances</td>
+<td><code>u_</code></td>
+</tr>
+<tr>
+<td><code>always_comb</code> blocks</td>
+<td><code>comb_</code></td>
+</tr>
+<tr>
+<td><code>always_ff</code> blocks</td>
+<td><code>ff_</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="coding-style">Coding style</h2>
 <p>The style is the way to write the code. It is important to follow the same style across all files and projects. This helps people that might be unfamiliar with the code to navigate through it. The style is defined by the following rules:</p>
 <h3 id="indentation">Indentation</h3>
