@@ -13,7 +13,7 @@ nav:
   - Guideline:
       - Guideline/Mkdocs-tutorial.md
       - Guideline/Style-guide-cpp.md
-      - Guideline/Style-guide-rtl.md
+      - Guideline/Style-guide-VHDL.md
 
   - Docs:
       # - Fabric:
