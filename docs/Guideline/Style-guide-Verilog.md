@@ -1,9 +1,11 @@
 # Style guide for Verilog and SystemVerilog RTL
 
 The coding guides are splited into three parts:
+
 - Naming conventions
 - Coding style 
 - Inline documentation
+
 
 ## Naming conventions
 
@@ -29,20 +31,21 @@ module my_module (
 The only exception to this rule are macros that are originally written in upper case and thus shouldn't be changed. For example DesignWare/ChipWare, SRAM macros, etc. 
 
 ### Naming
-Signals, modules, parameters and all design elements should be named with descriptive names. Try to avoid abbreviations unless for extremely common names, such as `clk`, `rst_n`, `ack`, etc.
-Remember that abreviations are not always clear. For example, addr could mean address or `adder`. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
+Signals, modules, parameters and all design elements should be named with descriptive names. Try to avoid abbreviations unless for extremely common names, such as `clk`, `rst_n`, `ack`, etc. Remember that abreviations are not always clear. For example, addr could mean address or `adder`. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
 ```sv
 // Bad
 logic din;
 logic dout;
 logic re;
 logic we;
+logic raddr;
 
 // Good
 logic data_in;
 logic data_out;
 logic read_enable;
 logic write_enable;
+logic read_address;
 ```
 ### Sufixes
 Some types of signals/ports have a standard sufix. They should be used whenever possible. The following table shows the standard sufixes:
@@ -176,16 +179,18 @@ my_module #(
 ```
 ## Automatic styler
 It is recomended to use a tool to automatically format the code. This will save you time and will ensure that the code is always formatted in the same way. The following tools are recomended:
- - [TerosHDL](https://terostechnology.github.io/terosHDLdoc/) is a VS Code extension that provides styling, linting, documentation generation, etc.
- - [svlangserver](https://github.com/imc-trading/svlangserver) is a language server for SystemVerilog. It provides styling, linting, code completion, etc. It can be used with any editor that supports language servers, such as VS Code, Vim, Emacs, etc.
- - [verible](https://github.com/chipsalliance/verible) is a SystemVerilog formatter. It can be used as a standalone tool or called from other tools, such as TerosHDL or svlangserver.
 
- ## Inline documentation
- Inline documentation is used to describe the design. It is important to document the design to make it easier to understand. The following rules should be followed when writing the documentation:
- - The documentation should be written in a way that is easy to understand by people that are not familiar with the design.
- - The documentation should be written in English.
- - Ports, parameters should be documented. I.e. all inputs and outputs of a module should be documented.
- - Internal signals that are self-explanatory do not need to be documented.
+- [TerosHDL](https://terostechnology.github.io/terosHDLdoc) is a VS Code extension that provides styling, linting, documentation generation, etc.
+- [svlangserver](https://github.com/imc-trading/svlangserver) is a language server for SystemVerilog. It provides styling, linting, code completion, etc. It can be used with any editor that supports language servers, such as VS Code, Vim, Emacs, etc.
+- [verible](https://github.com/chipsalliance/verible) is a SystemVerilog formatter. It can be used as a standalone tool or called from other tools, such as TerosHDL or svlangserver.
+
+## Inline documentation
+Inline documentation is used to describe the design. It is important to document the design to make it easier to understand. The following rules should be followed when writing the documentation:
+
+- The documentation should be written in a way that is easy to understand by people that are not familiar with the design.
+- The documentation should be written in English.
+- Ports, parameters should be documented. I.e. all inputs and outputs of a module should be documented.
+- Internal signals that are self-explanatory do not need to be documented.
 
 The inline comments can then be used to automatically generate documentation for the designs. For this project we use TerosHDL documentation generator, which can be used as part of the VS Code extension or in standalone mode using the python package.
 
@@ -272,4 +277,4 @@ endmodule;
 ```
 
 This code will generate the following documentation:
-![Documentation example](../../img/documentation_example.png)
+![Documentation example](../img/documentation_example.png)
