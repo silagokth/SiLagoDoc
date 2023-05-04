@@ -73,6 +73,7 @@ theme:
 
 # Extensions
 markdown_extensions:
+  - tables
   - footnotes
   - admonition
   - codehilite:
