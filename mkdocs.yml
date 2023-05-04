@@ -78,6 +78,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - footnotes
+  - attr_list
+  - md_in_html
   - admonition
   - codehilite:
       linenums: true
