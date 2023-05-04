@@ -1,4 +1,4 @@
-# Coding Guidelines for VHDL coding
+# Style guide for VHDL RTL
 
 ## File Header
 
