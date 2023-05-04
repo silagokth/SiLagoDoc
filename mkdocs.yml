@@ -74,6 +74,9 @@ theme:
 # Extensions
 markdown_extensions:
   - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - footnotes
   - admonition
   - codehilite:
