@@ -14,23 +14,23 @@ All names must be written in lower case. This includes acronyms and abbreviation
 module My_Module (
     input Clk,
     input Rst,
-    input [7:0] DataInput,
-    output [7:0] RESULT
+    input [width-1:0] DataInput,
+    output [width-1:0] RESULT
 );
 
 // Good
 module my_module (
-    input        clk,
-    input        rst,
-    input  [7:0] data,
-    output [7:0] result
+    input              clk,
+    input              rst,
+    input  [WIDTH-1:0] data,
+    output [WIDTH-1:0] result
 );
 ```
 The only exception to this rule are macros that are originally written in upper case and thus shouldn't be changed. For example DesignWare/ChipWare, SRAM macros, etc. 
 
 ### Naming
 Signals, modules, parameters and all design elements should be named with descriptive names. Try to avoid abbreviations unless for extremely common names, such as `clk`, `rst_n`, `ack`, etc.
-Remember that abreviations are not always clear. For example, `addr` could mean `address` or `adder`. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
+Remember that abreviations are not always clear. For example, addr could mean address or `adder`. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
 ```sv
 // Bad
 logic din;
@@ -52,7 +52,7 @@ The style is the way to write the code. It is important to follow the same style
 The indentation is done with 4 spaces. No tabs are allowed. Modify your editor settings to use 4 spaces when pressing the tab key. 
 
 #### Vim
-Add the following lines to your .vimrc file:
+Add the following lines to your `.vimrc` file:
 ```vim
 set tabstop=4
 set shiftwidth=4
@@ -60,7 +60,7 @@ set expandtab
 ```
 
 #### Emacs
-Add the following lines to your .emacs file:
+Add the following lines to your `.emacs` file:
 ```elisp
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -68,14 +68,14 @@ Add the following lines to your .emacs file:
 ```
 
 #### Visual Studio Code
-Add the following lines to your settings.json file:
+Add the following lines to your `settings.json` file:
 ```sv
 "editor.tabSize": 4,
 "editor.insertSpaces": true,
 ```
 
-### Gedit
-Add the following lines to your .profile file:
+#### Gedit
+Add the following lines to your `.profile` file:
 ```sv
 export GEDIT_TAB_WIDTH=4
 export GEDIT_REPLACE_TABS=1
@@ -85,7 +85,10 @@ export GEDIT_REPLACE_TABS=1
 Please refer to the editor documentation to find out how to change the indentation settings.
 
 ### Line length
-The line length should be limited to a reasonable number of characters. The recommended maximum line length is 80 characters. This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
+The line length should be limited to a reasonable number of characters. [The historically recommended maximum line length is 80 characters](https://softwareengineering.stackexchange.com/a/148678). 
+Nowadays with big computer screens 80 characters is usually too small.  
+A good compromise is to limit the line length to 120 characters.
+This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
 ```sv
 // Bad
 assign result = (a + b) * (c + d) * (e + f) * (g + h) * (i + j) * (k + l) * (m + n) * (o + p) * (q + r) * (s + t) * (u + v) * (w + x) * (y + z);
