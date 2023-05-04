@@ -403,18 +403,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#gedit" class="md-nav__link">
     Gedit
   </a>
   
-    <nav class="md-nav" aria-label="Gedit">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#other-editors" class="md-nav__link">
@@ -893,18 +887,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#gedit" class="md-nav__link">
     Gedit
   </a>
   
-    <nav class="md-nav" aria-label="Gedit">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#other-editors" class="md-nav__link">
@@ -974,22 +962,22 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">module</span><span class="w"> </span><span class="n">My_Module</span><span class="w"> </span><span class="p">(</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">Clk</span><span class="p">,</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="n">Rst</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">DataInput</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">RESULT</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="n">width</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">DataInput</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="n">width</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">RESULT</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">);</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1">// Good</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">module</span><span class="w"> </span><span class="n">my_module</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">input</span><span class="w">        </span><span class="n">clk</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">input</span><span class="w">        </span><span class="n">rst</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">data</span><span class="p">,</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">result</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">input</span><span class="w">              </span><span class="n">clk</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">input</span><span class="w">              </span><span class="n">rst</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">data</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="n">result</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">);</span>
 </code></pre></div>
 The only exception to this rule are macros that are originally written in upper case and thus shouldn't be changed. For example DesignWare/ChipWare, SRAM macros, etc. </p>
 <h3 id="naming">Naming</h3>
 <p>Signals, modules, parameters and all design elements should be named with descriptive names. Try to avoid abbreviations unless for extremely common names, such as <code>clk</code>, <code>rst_n</code>, <code>ack</code>, etc.
-Remember that abreviations are not always clear. For example, <code>addr</code> could mean <code>address</code> or <code>adder</code>. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
+Remember that abreviations are not always clear. For example, addr could mean address or <code>adder</code>. The over-use of abbreviations can make the code difficult to read and understand, especially for people that are not familiar with the code. The following example shows how to use descriptive names:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Bad</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">logic</span><span class="w"> </span><span class="n">din</span><span class="p">;</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">logic</span><span class="w"> </span><span class="n">dout</span><span class="p">;</span>
@@ -1007,31 +995,34 @@ Remember that abreviations are not always clear. For example, <code>addr</code> 
 <h3 id="indentation">Indentation</h3>
 <p>The indentation is done with 4 spaces. No tabs are allowed. Modify your editor settings to use 4 spaces when pressing the tab key. </p>
 <h4 id="vim">Vim</h4>
-<p>Add the following lines to your .vimrc file:
+<p>Add the following lines to your <code>.vimrc</code> file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">set</span> <span class="nb">tabstop</span><span class="p">=</span><span class="m">4</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">set</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">set</span> <span class="nb">expandtab</span>
 </code></pre></div></p>
 <h4 id="emacs">Emacs</h4>
-<p>Add the following lines to your .emacs file:
+<p>Add the following lines to your <code>.emacs</code> file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">(</span><span class="k">setq-default</span><span class="w"> </span><span class="nv">indent-tabs-mode</span><span class="w"> </span><span class="no">nil</span><span class="p">)</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">(</span><span class="k">setq-default</span><span class="w"> </span><span class="nv">tab-width</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">indent-line-function</span><span class="w"> </span><span class="ss">&#39;insert-tab</span><span class="p">)</span>
 </code></pre></div></p>
 <h4 id="visual-studio-code">Visual Studio Code</h4>
-<p>Add the following lines to your settings.json file:
+<p>Add the following lines to your <code>settings.json</code> file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="s">&quot;editor.tabSize&quot;</span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s">&quot;editor.insertSpaces&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">true</span><span class="p">,</span>
 </code></pre></div></p>
-<h3 id="gedit">Gedit</h3>
-<p>Add the following lines to your .profile file:
+<h4 id="gedit">Gedit</h4>
+<p>Add the following lines to your <code>.profile</code> file:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">export</span><span class="w"> </span><span class="n">GEDIT_TAB_WIDTH</span><span class="o">=</span><span class="mi">4</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">export</span><span class="w"> </span><span class="n">GEDIT_REPLACE_TABS</span><span class="o">=</span><span class="mi">1</span>
 </code></pre></div></p>
 <h4 id="other-editors">Other editors</h4>
 <p>Please refer to the editor documentation to find out how to change the indentation settings.</p>
 <h3 id="line-length">Line length</h3>
-<p>The line length should be limited to a reasonable number of characters. The recommended maximum line length is 80 characters. This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
+<p>The line length should be limited to a reasonable number of characters. <a href="https://softwareengineering.stackexchange.com/a/148678">The historically recommended maximum line length is 80 characters</a>. 
+Nowadays with big computer screens 80 characters is usually too small.<br />
+A good compromise is to limit the line length to 120 characters.
+This is not a hard limit, but it should be used as a guideline. If a line is too long, it should be split into multiple lines. The line should be split at a logical point, for example, after a comma or an operator. The following example shows how to split a line:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Bad</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">assign</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">);</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
