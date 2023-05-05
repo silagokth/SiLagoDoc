@@ -10,14 +10,14 @@ The coding guides are splited into three parts:
 ## Naming conventions
 
 ### Capitalization
-All names must be written in lower case. This includes acronyms and abbreviations such as `sram`, `dpu`, `drra`, etc. The only exception are constants and parameters, which must be written in upper case. The following example shows how to use capitalization:
+All signal/variables and module names must be written in lower case. This includes acronyms and abbreviations such as `sram`, `dpu`, `drra`, etc. All constants and parameters must be written in upper case. The following example shows how to use capitalization:
 ```sv
 // Bad
 module My_Module (
     input Clk,
     input Rst,
     input [width-1:0] DataInput,
-    output [width-1:0] RESULT
+    output [width-1:0] RESULt
 );
 
 // Good
