@@ -1101,133 +1101,133 @@
 <h1 id="style-guide-for-vhdl-rtl">Style guide for VHDL RTL</h1>
 <h2 id="file-header">File Header</h2>
 <p>Each file in the SiLago project has to contain a header that includes the copyright, license, author and change log information. The header should have the following form:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-------------------------------------------------------
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>--! @file &lt;name of the file&gt;
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>--! @brief &lt;Brief description of the file&gt;
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>--! @details &lt;Detail description of the file (optional)&gt;
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>--! @author &lt;Author’s Name&gt;
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>--! @version &lt;Version&gt;
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>--! @date &lt;Date of last edit&gt;
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>--! @bug &lt;Known Bugs (“NONE” if there are no bugs)&gt;
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>--! @todo &lt;Todo, create one “--! @todo” for every todo&gt;
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>--! @copyright GNU Public License [GPL-3.0].
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>-------------------------------------------------------
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>---------------- Copyright (c) notice -----------------------------------------
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>--
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>-- The VHDL code, the logic and concepts described in this file constitute
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>-- the intellectual property of the authors listed below, who are affiliated
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>-- Any unauthorised use, copy or distribution is strictly prohibited.
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>-- Any authorised use, copy or distribution should carry this copyright notice
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>-- unaltered.
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>-- Title      : &lt;Title of the Entity or Package&gt;
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>-- Project    : &lt;Project that file belongs to (e.g. SiLago, eBrain, etc)&gt;
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>-- File       : &lt;name of the file&gt;
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>-- Library    : &lt;Name of the library that this file should be compiled in&gt;
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>-- Author     : &lt;Author’s Name&gt;
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>-- Company    : KTH
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>-- Created    : &lt;Date of creation&gt;
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>-- Last update: &lt;Date of last edit&gt;
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>-- Platform   : SiLago
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>-- Standard   : VHDL&#39;08
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>-- Copyright (c) &lt;year of creation&gt;
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>-- Contact    : &lt;Main contact person eg. Dimitrios Stathis &lt;stathis@kth.se&gt;&gt;
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>-- Revisions  :
-<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>-- Date        Version  Author                  Description
-<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>-- 2020-12-07  1.0      &lt;Authors Name&gt;          &lt;description&gt;
-<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>-------------------------------------------------------------------------------
-<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>--                                                                         #
-<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>--This file is part of SiLago.                                             #
-<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>--                                                                         #
-<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>--    SiLago platform source code is distributed freely: you can           #
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>--    redistribute it and/or modify it under the terms of the GNU          #
-<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>--    General Public License as published by the Free Software Foundation, #
-<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>--    either version 3 of the License, or (at your option) any             #
-<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>--    later version.                                                       #
-<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>--                                                                         #
-<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>--    SiLago is distributed in the hope that it will be useful,            #
-<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #
-<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #
-<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>--    GNU General Public License for more details.                         #
-<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>--                                                                         #
-<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>--    You should have received a copy of the GNU General Public License    #
-<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>--    along with SiLago.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #
-<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>--                                                                         #
-<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+<div class="highlight"><pre><span></span><code>-------------------------------------------------------
+--! @file &lt;name of the file&gt;
+--! @brief &lt;Brief description of the file&gt;
+--! @details &lt;Detail description of the file (optional)&gt;
+--! @author &lt;Author’s Name&gt;
+--! @version &lt;Version&gt;
+--! @date &lt;Date of last edit&gt;
+--! @bug &lt;Known Bugs (“NONE” if there are no bugs)&gt;
+--! @todo &lt;Todo, create one “--! @todo” for every todo&gt;
+--! @copyright GNU Public License [GPL-3.0].
+-------------------------------------------------------
+---------------- Copyright (c) notice -----------------------------------------
+--
+-- The VHDL code, the logic and concepts described in this file constitute
+-- the intellectual property of the authors listed below, who are affiliated
+-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.
+-- Any unauthorised use, copy or distribution is strictly prohibited.
+-- Any authorised use, copy or distribution should carry this copyright notice
+-- unaltered.
+-------------------------------------------------------------------------------
+-- Title      : &lt;Title of the Entity or Package&gt;
+-- Project    : &lt;Project that file belongs to (e.g. SiLago, eBrain, etc)&gt;
+-------------------------------------------------------------------------------
+-- File       : &lt;name of the file&gt;
+-- Library    : &lt;Name of the library that this file should be compiled in&gt;
+-- Author     : &lt;Author’s Name&gt;
+-- Company    : KTH
+-- Created    : &lt;Date of creation&gt;
+-- Last update: &lt;Date of last edit&gt;
+-- Platform   : SiLago
+-- Standard   : VHDL&#39;08
+-------------------------------------------------------------------------------
+-- Copyright (c) &lt;year of creation&gt;
+-------------------------------------------------------------------------------
+-- Contact    : &lt;Main contact person eg. Dimitrios Stathis &lt;stathis@kth.se&gt;&gt;
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author                  Description
+-- 2020-12-07  1.0      &lt;Authors Name&gt;          &lt;description&gt;
+-------------------------------------------------------------------------------
+
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+--                                                                         #
+--This file is part of SiLago.                                             #
+--                                                                         #
+--    SiLago platform source code is distributed freely: you can           #
+--    redistribute it and/or modify it under the terms of the GNU          #
+--    General Public License as published by the Free Software Foundation, #
+--    either version 3 of the License, or (at your option) any             #
+--    later version.                                                       #
+--                                                                         #
+--    SiLago is distributed in the hope that it will be useful,            #
+--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #
+--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #
+--    GNU General Public License for more details.                         #
+--                                                                         #
+--    You should have received a copy of the GNU General Public License    #
+--    along with SiLago.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #
+--                                                                         #
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 </code></pre></div>
 <h3 id="vscode-snippet">VSCODE Snippet</h3>
 <p>This is the snippet code for vs-code. You can modify the code and add it as a snippet in your favorite editor.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;vhdl_notice&quot;: {
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        &quot;scope&quot;: &quot;vhdl&quot;,
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        &quot;prefix&quot;: &quot;note&quot;,
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        &quot;body&quot;: [
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            &quot;-------------------------------------------------------&quot;,
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>            &quot;--! @file $TM_FILENAME&quot;,
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            &quot;--! @brief ${1:UnitX}&quot;,
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            &quot;--! @details &quot;,
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>            &quot;--! @author ${3:Dimitrios Stathis}&quot;,
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            &quot;--! @version 1.0&quot;,
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>            &quot;--! @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            &quot;--! @bug NONE&quot;,
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>            &quot;--! @todo NONE&quot;,
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            &quot;--! @copyright  GNU Public License [GPL-3.0].&quot;,
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            &quot;-------------------------------------------------------&quot;,
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            &quot;---------------- Copyright (c) notice -----------------------------------------&quot;,
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            &quot;--&quot;,
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>            &quot;-- The VHDL code, the logic and concepts described in this file constitute&quot;,
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            &quot;-- the intellectual property of the authors listed below, who are affiliated&quot;,
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            &quot;-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.&quot;,
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            &quot;-- Any unauthorised use, copy or distribution is strictly prohibited.&quot;,
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>            &quot;-- Any authorised use, copy or distribution should carry this copyright notice&quot;,
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>            &quot;-- unaltered.&quot;,
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>            &quot;-- Title      : ${1:UnitX}&quot;,
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>            &quot;-- Project    : ${2:SiLago}&quot;,
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>            &quot;-- File       : $TM_FILENAME&quot;,
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>            &quot;-- Library    : ${4:work}$&quot;
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>            &quot;-- Author     : ${3:Dimitrios Stathis}&quot;,
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>            &quot;-- Company    : KTH&quot;,
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>            &quot;-- Created    : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>            &quot;-- Last update: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>            &quot;-- Platform   : ${2:SiLago}&quot;,
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>            &quot;-- Standard   : VHDL&#39;08&quot;,
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>            &quot;-- Copyright (c) $CURRENT_YEAR&quot;,
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>            &quot;-- Contact    : ${3:Dimitrios Stathis} ${4:&lt;stathis@kth.se&gt;}&quot;,
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>            &quot;-- Revisions  :&quot;,
-<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>            &quot;-- Date        Version  Author                  Description&quot;,
-<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>            &quot;-- $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE  1.0      ${3:Dimitrios Stathis}      Created&quot;,
-<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>            &quot;-------------------------------------------------------------------------------&quot;,
-<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>            &quot;&quot;,
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>            &quot;--                                                                         #&quot;,
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>            &quot;--This file is part of ${2:SiLago}.                                             #&quot;,
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>            &quot;--                                                                         #&quot;,
-<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>            &quot;--    ${2:SiLago} platform source code is distributed freely: you can           #&quot;,
-<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>            &quot;--    redistribute it and/or modify it under the terms of the GNU          #&quot;,
-<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>            &quot;--    General Public License as published by the Free Software Foundation, #&quot;,
-<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>            &quot;--    either version 3 of the License, or (at your option) any             #&quot;,
-<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>            &quot;--    later version.                                                       #&quot;,
-<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>            &quot;--                                                                         #&quot;,
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>            &quot;--    ${2:SiLago} is distributed in the hope that it will be useful,            #&quot;,
-<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>            &quot;--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #&quot;,
-<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>            &quot;--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #&quot;,
-<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>            &quot;--    GNU General Public License for more details.                         #&quot;,
-<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>            &quot;--                                                                         #&quot;,
-<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>            &quot;--    You should have received a copy of the GNU General Public License    #&quot;,
-<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>            &quot;--    along with ${2:SiLago}.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #&quot;,
-<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>            &quot;--                                                                         #&quot;,
-<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
+<div class="highlight"><pre><span></span><code>&quot;vhdl_notice&quot;: {
+        &quot;scope&quot;: &quot;vhdl&quot;,
+        &quot;prefix&quot;: &quot;note&quot;,
+        &quot;body&quot;: [
+            &quot;-------------------------------------------------------&quot;,
+            &quot;--! @file $TM_FILENAME&quot;,
+            &quot;--! @brief ${1:UnitX}&quot;,
+            &quot;--! @details &quot;,
+            &quot;--! @author ${3:Dimitrios Stathis}&quot;,
+            &quot;--! @version 1.0&quot;,
+            &quot;--! @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;--! @bug NONE&quot;,
+            &quot;--! @todo NONE&quot;,
+            &quot;--! @copyright  GNU Public License [GPL-3.0].&quot;,
+            &quot;-------------------------------------------------------&quot;,
+            &quot;---------------- Copyright (c) notice -----------------------------------------&quot;,
+            &quot;--&quot;,
+            &quot;-- The VHDL code, the logic and concepts described in this file constitute&quot;,
+            &quot;-- the intellectual property of the authors listed below, who are affiliated&quot;,
+            &quot;-- to KTH(Kungliga Tekniska Högskolan), School of EECS, Kista.&quot;,
+            &quot;-- Any unauthorised use, copy or distribution is strictly prohibited.&quot;,
+            &quot;-- Any authorised use, copy or distribution should carry this copyright notice&quot;,
+            &quot;-- unaltered.&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Title      : ${1:UnitX}&quot;,
+            &quot;-- Project    : ${2:SiLago}&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- File       : $TM_FILENAME&quot;,
+            &quot;-- Library    : ${4:work}$&quot;
+            &quot;-- Author     : ${3:Dimitrios Stathis}&quot;,
+            &quot;-- Company    : KTH&quot;,
+            &quot;-- Created    : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;-- Last update: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE&quot;,
+            &quot;-- Platform   : ${2:SiLago}&quot;,
+            &quot;-- Standard   : VHDL&#39;08&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Copyright (c) $CURRENT_YEAR&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Contact    : ${3:Dimitrios Stathis} ${4:&lt;stathis@kth.se&gt;}&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;-- Revisions  :&quot;,
+            &quot;-- Date        Version  Author                  Description&quot;,
+            &quot;-- $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE  1.0      ${3:Dimitrios Stathis}      Created&quot;,
+            &quot;-------------------------------------------------------------------------------&quot;,
+            &quot;&quot;,
+            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--This file is part of ${2:SiLago}.                                             #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    ${2:SiLago} platform source code is distributed freely: you can           #&quot;,
+            &quot;--    redistribute it and/or modify it under the terms of the GNU          #&quot;,
+            &quot;--    General Public License as published by the Free Software Foundation, #&quot;,
+            &quot;--    either version 3 of the License, or (at your option) any             #&quot;,
+            &quot;--    later version.                                                       #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    ${2:SiLago} is distributed in the hope that it will be useful,            #&quot;,
+            &quot;--    but WITHOUT ANY WARRANTY; without even the implied warranty of       #&quot;,
+            &quot;--    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        #&quot;,
+            &quot;--    GNU General Public License for more details.                         #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--    You should have received a copy of the GNU General Public License    #&quot;,
+            &quot;--    along with ${2:SiLago}.  If not, see &lt;https://www.gnu.org/licenses/&gt;.     #&quot;,
+            &quot;--                                                                         #&quot;,
+            &quot;--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#&quot;,
 </code></pre></div>
 <h2 id="style-and-formatting">Style and Formatting</h2>
 <ol>
@@ -1272,16 +1272,16 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ENTITY &lt;NAME&gt; IS
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  GENERIC (
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    width : NATURAL := 8 --! Input width (N)
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  );
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  PORT (
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    conf : IN STD_LOGIC;
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    out  : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  );
+<div class="highlight"><pre><span></span><code>ENTITY &lt;NAME&gt; IS
+  GENERIC (
+    width : NATURAL := 8 --! Input width (N)
+  );
+  PORT (
+    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
+    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
+    conf : IN STD_LOGIC;
+    out  : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)
+  );
 </code></pre></div>
 <ol>
 <li>IF - THEN … ELSE … END  :<ul>
@@ -1289,22 +1289,22 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>-- This if statement checks condition A, if True it does code A
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>IF condition A THEN
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    Code A
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>-- IF condition B is true it does code B
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ELSIF condition B THEN
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    Code B
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>-- In other case do code other
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>ELSE
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    Code other
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>END;
+<div class="highlight"><pre><span></span><code>-- This if statement checks condition A, if True it does code A
+IF condition A THEN
+
+    Code A
+
+-- IF condition B is true it does code B
+ELSIF condition B THEN
+
+    Code B
+
+-- In other case do code other
+ELSE
+
+    Code other
+
+END;
 </code></pre></div>
 <ol>
 <li>CASE, FOR, etc.         :<ul>
@@ -1316,9 +1316,9 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-- Description comment
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&lt;signal&gt; &lt;= &#39;1&#39; WHEN &lt;condition&gt; ELSE
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    &#39;0&#39;;
+<div class="highlight"><pre><span></span><code>-- Description comment
+&lt;signal&gt; &lt;= &#39;1&#39; WHEN &lt;condition&gt; ELSE
+    &#39;0&#39;;
 </code></pre></div>
 <ol>
 <li>IF/FOR … GENERATE       :<ul>
@@ -1330,17 +1330,17 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>--! This component is doing something
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>DUT : ENTITY work.conf_mul_Beh
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    GENERIC MAP(
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      width =&gt; bit_width
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    )
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    PORT MAP(
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>      in_a =&gt; STD_LOGIC_VECTOR(inst_a),
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>      in_b =&gt; STD_LOGIC_VECTOR(inst_b),
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>      conf =&gt; conf,
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>      prod =&gt; prod
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    );
+<div class="highlight"><pre><span></span><code>--! This component is doing something
+DUT : ENTITY work.conf_mul_Beh
+    GENERIC MAP(
+      width =&gt; bit_width
+    )
+    PORT MAP(
+      in_a =&gt; STD_LOGIC_VECTOR(inst_a),
+      in_b =&gt; STD_LOGIC_VECTOR(inst_b),
+      conf =&gt; conf,
+      prod =&gt; prod
+    );
 </code></pre></div>
 <ol>
 <li>ASSERTIONS          :<ul>
@@ -1362,49 +1362,49 @@
 <p>Commenting in RTL is important for you as a designer, and for the people taking over your code. It is important to remember that RTL is not programming, when you code in RTL you describe something real. So you should add descriptions before your entities or modules and your architecture that describe what exactly your entity, module or architecture is meant to implement. If you can not describe it in words, then you can not implement it. In the following examples we follow the Doxygen commenting style, but this is not necessary.</p>
 <h3 id="entities">Entities</h3>
 <p>Each entity should have a brief and possible a detail description. The brief description should explain the basic function of the component. The detail description should describe its interface, such as special relation between signals, and a more detail view of its functionality. For example:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>--! This is a reconfigurable multiplier. It can operate in different fixed point precision.
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>--! The input of the multiplier is a N-bit bit stream. The stream can be treated as a N-bit signed
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>--! number, two N/2-bit signed numbers, or four N/4-bit signed numbers. The output is a 2N-bit bit stream.
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>--! The output is splitted in one, two, or four, depending on the configuration.
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>ENTITY conf_mul_Beh IS
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  GENERIC (
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    width : NATURAL := 8 --! Input width (N)
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  );
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  PORT (
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input A, N-bit
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input B, N-bit
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    conf : IN STD_LOGIC;                                  --! Configuration bits, define
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    prod : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)   --! Product output, 2N-bit
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  );
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>END ENTITY conf_mul_Beh;
+<div class="highlight"><pre><span></span><code>--! This is a reconfigurable multiplier. It can operate in different fixed point precision.
+
+--! The input of the multiplier is a N-bit bit stream. The stream can be treated as a N-bit signed
+--! number, two N/2-bit signed numbers, or four N/4-bit signed numbers. The output is a 2N-bit bit stream.
+--! The output is splitted in one, two, or four, depending on the configuration.
+ENTITY conf_mul_Beh IS
+  GENERIC (
+    width : NATURAL := 8 --! Input width (N)
+  );
+  PORT (
+    in_a : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input A, N-bit
+    in_b : IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);       --! Input B, N-bit
+    conf : IN STD_LOGIC;                                  --! Configuration bits, define
+    prod : OUT STD_LOGIC_VECTOR(2 * width - 1 DOWNTO 0)   --! Product output, 2N-bit
+  );
+END ENTITY conf_mul_Beh;
 </code></pre></div></p>
 <h3 id="inoutsignalsvariablesgenerics">IN/OUT/SIGNALS/VARIABLES/GENERICS</h3>
 <p>All signals, variables, generics, etc. should include a description comment after its definition, see the code above.</p>
 <h3 id="architectures">Architectures</h3>
 <p>All architectures should have possible a brief and mandatory a detail description. The descriptions should describe the architectural details of the implementation, for example if it is a one or two process design etc. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>--! @brief This is the architecture of a reconfigurable multiplier (16-bit)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>--! @details In this version we are using a shift and ADD architecture instead of the
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>--! conventional array multiplier, the multiplication is decomposed in to 4 smaller
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>--! multipliers. The products of the smaller multiplication are shifted and then added
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>--! to generate the final result. A sign extension is used to switch between the two modes
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>ARCHITECTURE rtl OF conf_mul_Beh IS
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  CONSTANT width2 : NATURAL := divUp(width, 2); --! Constant value for Width/2
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  SIGNAL temp_a1 : signed(width2 - 1 DOWNTO 0); --! MSBs of A
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  SIGNAL temp_a0 : signed(width2 DOWNTO 0);     --! LSBs of A
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>BEGIN
+<div class="highlight"><pre><span></span><code>--! @brief This is the architecture of a reconfigurable multiplier (16-bit)
+--! @details In this version we are using a shift and ADD architecture instead of the
+--! conventional array multiplier, the multiplication is decomposed in to 4 smaller
+--! multipliers. The products of the smaller multiplication are shifted and then added
+--! to generate the final result. A sign extension is used to switch between the two modes
+ARCHITECTURE rtl OF conf_mul_Beh IS
+
+  CONSTANT width2 : NATURAL := divUp(width, 2); --! Constant value for Width/2
+  SIGNAL temp_a1 : signed(width2 - 1 DOWNTO 0); --! MSBs of A
+  SIGNAL temp_a0 : signed(width2 DOWNTO 0);     --! LSBs of A
+
+BEGIN
 </code></pre></div>
 <h3 id="processes">Processes</h3>
 <p>Complex processes should have a description of what they are trying to implement</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>--! This process checks if the loop should be executed (i.e. if  number of iterations &gt;0 )
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    zero_loop : PROCESS (instr, config)
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    BEGIN
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        &lt;CODE BLOCK&gt;
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    END PROCESS zero_loop;
+<div class="highlight"><pre><span></span><code>--! This process checks if the loop should be executed (i.e. if  number of iterations &gt;0 )
+    zero_loop : PROCESS (instr, config)
+    BEGIN
+
+        &lt;CODE BLOCK&gt;
+
+    END PROCESS zero_loop;
 </code></pre></div>
 <h3 id="naming-convention">Naming convention</h3>
 <p>Keep the naming of your objects clear and descriptive. When multiple words are used in a name they should be seperated by <code>_</code>.</p>

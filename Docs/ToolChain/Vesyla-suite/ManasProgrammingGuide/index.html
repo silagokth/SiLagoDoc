@@ -853,10 +853,10 @@
 </ul>
 <h3 id="data-segment">DATA Segment</h3>
 <p>Data layout in DiMArch and Register Files are defined in DATA segment. A DATA segment starts with a segment identifier:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.DATA
+<div class="highlight"><pre><span></span><code>.DATA
 </code></pre></div>
 <p>A variable is defined by the following syntax:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>VAR_NAME VAR_LOCATION VAR_TYPE ROW COL INIT_DATA
+<div class="highlight"><pre><span></span><code>VAR_NAME VAR_LOCATION VAR_TYPE ROW COL INIT_DATA
 </code></pre></div>
 <p>VAR_NAME: the name of a variable. It must start with the symbol <code>$</code>. It must be unique.</p>
 <p>VAR_LOCATION: the location of the varialbe, either DiMArch (VAR_LOCATION=1) or Register File (VAR_LOCATION=0).</p>
@@ -866,41 +866,41 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Example of variable initialization</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$A 1 0 0 0 ONES(16)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$B 1 0 0 0 ZEROS(16)
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$C 1 0 0 0 [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1]
+<div class="highlight"><pre><span></span><code>$A 1 0 0 0 ONES(16)
+$B 1 0 0 0 ZEROS(16)
+$C 1 0 0 0 [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1]
 </code></pre></div>
 </div>
 <h3 id="code-segment">CODE Segment</h3>
 <p>Instructions are defined in CODE segment. A CODE segment starts with segment identifier:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.CODE
+<div class="highlight"><pre><span></span><code>.CODE
 </code></pre></div>
 <p>All statements after the CODE segment identifer and before any other segment identifier are considered part of the CODE segment.</p>
 <p>A code segment can include multiple sections leading by a cell location identifier:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>CELL &lt;r, c&gt;
+<div class="highlight"><pre><span></span><code>CELL &lt;r, c&gt;
 </code></pre></div>
 <p>It defines the coordinate in terms of row (<code>r</code>) and column (<code>c</code>) of each instructions that follow it. It applies to all instructions until another cell location identifier or the end of the CODE segment.</p>
 <p>An instruction consists a instruction name and an argument list. They are seperated by space. All arguments should be integers unless specified otherwise. You can find all supported instructions in the <a href="../InstructionSet">Instruction Set</a>.</p>
 <p>Each instruction has multiple fields. Some fields are controllable which means one can set the value of that field through the assembly language. All the controllable fields are marked by <strong>bold text</strong> in the <a href="../InstructionSet">Instruction Set</a>.</p>
 <p>Each field in an instruction has a default value. In the Instruction Set page, the default value is explicitly written in the <strong>Range/Value</strong> section unless the default value is 0. While wring the Assebly language, you only need to set the field whoes expected value is not the default value.</p>
 <p>To write a instruction, use the following format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>LABEL INSTR_NAME NAME_0 = VALUE_0, NAME_1 = VALUE_1, ...
+<div class="highlight"><pre><span></span><code>LABEL INSTR_NAME NAME_0 = VALUE_0, NAME_1 = VALUE_1, ...
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>This is a example for code segment</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.CODE
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>CELL &lt;0,0&gt;
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>&quot;label_0&quot; REFI port_no=2, init_addr=16
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>&quot;label_1&quot; REFI port_no=0
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&quot;label_2&quot; DPU mode=10
+<div class="highlight"><pre><span></span><code>.CODE
+CELL &lt;0,0&gt;
+&quot;label_0&quot; REFI port_no=2, init_addr=16
+&quot;label_1&quot; REFI port_no=0
+&quot;label_2&quot; DPU mode=10
 </code></pre></div>
 </div>
 <h3 id="relation-segment">RELATION Segment</h3>
 <p>Relation segment specifies the hierarchical structure of the mapping. The entire mapping is organized as a hierarichical graph. The outer most node is called <code>ROOT</code>. Inside the <code>ROOT</code> node, there are other nodes, such as loop node, branch node, and other normal instruction node.</p>
 <p>Each node represents either an hierarchical structure or an instruction phase. For example, a node can represent the whole loop structure and it contains all instructions and inner loops inside its children graph. Each instruction in the CODE segment can be divided into multiple instruction phases. Each phase marks a critical timing point when the instruction changes behavior. For example, a <code>REFI</code> instruction has four phases: FETCH, ISSUE, ACTIVE, and END. The name of the node that represents an instruction phase is to combine the instruction label and the phase index. For example, if a <code>REFI</code> instruction has a label called <code>instr_refi_0</code>, then the FETCH phase will be mapped to the node named as <code>instr_refi_0_0</code> since the FETCH phase is the first phase of the REFI instruction. See <a href="../InstructionPhase">Instruction Phase</a></p>
 <p>Each relation record in the RELATION segment specifies the children of one hierarchical node. The format is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>&quot;NODE_NAME&quot; 1 IS_BULK [NODE0_IN_CHILD0, NODE1_IN_CHILD0, ...] [NODE0_IN_CHILD1, NODE1_IN_CHILD1, ...] EXPAND_LOOP
+<div class="highlight"><pre><span></span><code>&quot;NODE_NAME&quot; 1 IS_BULK [NODE0_IN_CHILD0, NODE1_IN_CHILD0, ...] [NODE0_IN_CHILD1, NODE1_IN_CHILD1, ...] EXPAND_LOOP
 </code></pre></div>
 <p>The NODE_NAME can be any string, it's the name of the hierarchical node. The second parameter is deprecated, it's always 1. The third parameter IS_BULK specifies whether this node should be treated as bulk node. A bulk node does not allow overlap with other nodes. The array of child0 and child1 are used to specify the children node in the 0<sup>th</sup> and 1th child graph. All hierarchical node other than IF-ELSE branch has only child0. The brach node has two children, child0 is the true branch, and child1 is the false branch. The last parameter is the EXPAND_LOOP. It's a flag to suggest the assembler to do cross-iteration software pipelining.</p>
 <div class="admonition note">
@@ -911,72 +911,72 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>This is a example for relation segment</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.CODE
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>CELL &lt;0,0&gt;
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&quot;instr0&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0, select_drra_row=0
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>&quot;instr1&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=2, send_to_other_row=0, v_index=2
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>&quot;instr2&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=3, send_to_other_row=0, v_index=3
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>&quot;instr3&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, send_to_other_row=0, v_index=4
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>&quot;instr4&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=3, send_to_other_row=0, v_index=5
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>&quot;instr5&quot; LOOP extra=1, loopid=0, iter=2, step=4
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>&quot;instr6&quot; LOOP loopid=1, iter=3, step=2
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>&quot;instr7&quot; RACCU mode=1, operand1_sd=1, operand1=14, operand2_sd=1, operand2=15, result=0 
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>&quot;instr8&quot; SRAM rw=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, init_addr_sd=1, hops=0
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>&quot;instr9&quot; REFI port_no=0, extra=2, init_addr_sd=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, dimarch=1
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>&quot;instr10&quot; REFI port_no=2, extra=2, init_addr=0,  l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1 
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>&quot;instr11&quot; REFI port_no=3, extra=2, init_addr=32, l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>&quot;instr12&quot; LOOP loopid=2, iter=29, step=1
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>&quot;instr13&quot; DPU mode=10, control=2
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>CELL &lt;0,1&gt;
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>&quot;instr14&quot; DPU mode=1, control=2 
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>&quot;instr15&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>&quot;instr16&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=2 
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>&quot;instr17&quot; SWB src_row=0, src_block=1, src_port=1, hb_index=1, v_index=3
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>&quot;instr18&quot; SRAM l1_iter=1, l1_step=1, l1_delay=0, l2_iter=1, l2_step=2, l2_delay=0, hops=0
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>&quot;instr19&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>&quot;instr20&quot; LOOP extra=1, loopid=0, iter=2, step=4
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>&quot;instr21&quot; LOOP extra=0, loopid=1, iter=3, step=2
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>&quot;instr22&quot; REFI port_no=2, extra=2, init_addr= 0, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>&quot;instr23&quot; REFI port_no=3, extra=2, init_addr=16, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>&quot;instr24&quot; LOOP loopid=2, iter=29, step=1
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
-<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>CELL &lt;0,2&gt;
-<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>&quot;instr25&quot; DPU mode=1, control=2 
-<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>&quot;instr26&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
-<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>&quot;instr27&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=1 
-<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>&quot;instr28&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, v_index=2
-<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>&quot;instr29&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=2, v_index=1
-<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>&quot;instr30&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=3
-<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>&quot;instr31&quot; LOOP extra=1, loopid=0, iter=2, step=4
-<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>&quot;instr32&quot; REFI port_no=3, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
-<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>&quot;instr33&quot; REFI port_no=1, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
-<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>&quot;instr34&quot; LOOP extra=0, loopid=1, iter=3, step=2
-<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>&quot;instr35&quot; SRAM rw=0, l1_iter=1, l1_step=1, l1_delay=0, hops=0, init_addr_sd=d, init_addr=14
-<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>&quot;instr36&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
-<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>&quot;instr37&quot; LOOP loopid=2, iter=29, step=1
-<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>&quot;instr38&quot; SRAM rw=1, l1_iter=1, l1_step=1, l1_delay=0, hops= 0, init_addr_sd=d, init_addr=14
-<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>&quot;instr39&quot; REFI port_no=2, extra=2, l1_iter=1, l1_step=1, dimarch=1
-<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>
-<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>.RELATION
-<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>&quot;ROOT&quot; 1 0 [&quot;LOOP0&quot;,&quot;Op_0_0_0_1&quot;, &quot;Op_0_0_0_2&quot;, &quot;Op_0_0_1_1&quot;, &quot;Op_0_0_1_2&quot;, &quot;Op_0_0_2_1&quot;,&quot;Op_0_0_2_2&quot;, &quot;Op_0_0_3_1&quot;, &quot;Op_0_0_3_2&quot;, &quot;Op_0_0_4_1&quot;, &quot;Op_0_0_4_2&quot;,&quot;Op_0_1_0_1&quot;, &quot;Op_0_1_0_2&quot;, &quot;Op_0_1_0_3&quot;, &quot;Op_0_1_1_1&quot;, &quot;Op_0_1_1_2&quot;,&quot;Op_0_1_2_1&quot;, &quot;Op_0_1_2_2&quot;, &quot;Op_0_1_3_1&quot;, &quot;Op_0_1_3_2&quot;, &quot;Op_0_1_4_1&quot;, &quot;Op_0_1_4_2&quot;, &quot;Op_0_1_5_1&quot;,&quot;Op_0_2_0_1&quot;, &quot;Op_0_2_0_2&quot;, &quot;Op_0_2_0_3&quot;, &quot;Op_0_2_1_1&quot;, &quot;Op_0_2_1_2&quot;,&quot;Op_0_2_2_1&quot;, &quot;Op_0_2_2_2&quot;, &quot;Op_0_2_3_1&quot;, &quot;Op_0_2_3_2&quot;, &quot;Op_0_2_4_1&quot;, &quot;Op_0_2_4_2&quot;,&quot;Op_0_2_5_1&quot;, &quot;Op_0_2_5_2&quot;] [] 0
-<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>
-<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>&quot;LOOP0&quot; 1 1 [&quot;LOOP0_BODY&quot;,&quot;Op_0_0_5_1&quot;,&quot;Op_0_1_6_1&quot;,&quot;Op_0_2_6_1&quot;] [] 1
-<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>
-<a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>&quot;LOOP0_BODY&quot; 1 0 [&quot;LOOP1&quot;,&quot;Op_0_1_4_3&quot;, &quot;Op_0_1_4_4&quot;, &quot;Op_0_1_5_2&quot;, &quot;Op_0_1_5_3&quot;,&quot;Op_0_2_7_1&quot;,&quot;Op_0_2_8_1&quot;] [] 0
-<a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>
-<a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>&quot;LOOP1&quot; 1 1 [&quot;LOOP1_BODY&quot;,&quot;Op_0_0_6_1&quot;,&quot;Op_0_1_7_1&quot;,&quot;Op_0_2_9_1&quot;] [] 1
-<a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>
-<a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>&quot;LOOP1_BODY&quot; 1 0 [&quot;LOOP2&quot;,&quot;Op_0_0_7_1&quot;, &quot;Op_0_0_8_1&quot;, &quot;Op_0_0_8_2&quot;, &quot;Op_0_0_8_3&quot;, &quot;Op_0_0_8_4&quot;, &quot;Op_0_0_10_1&quot;, &quot;Op_0_0_11_1&quot;,&quot;Op_0_0_9_1&quot;, &quot;Op_0_0_9_2&quot;, &quot;Op_0_0_9_3&quot;,&quot;Op_0_1_8_1&quot;, &quot;Op_0_1_9_1&quot;, &quot;Op_0_2_10_1&quot;, &quot;Op_0_2_10_2&quot;, &quot;Op_0_2_10_3&quot;, &quot;Op_0_2_10_4&quot;,&quot;Op_0_2_11_1&quot;,&quot;Op_0_2_11_2&quot;, &quot;Op_0_2_11_3&quot;,&quot;Op_0_2_13_1&quot;,&quot;Op_0_2_13_2&quot;,&quot;Op_0_2_13_3&quot;, &quot;Op_0_2_13_4&quot;, &quot;Op_0_2_14_1&quot;, &quot;Op_0_2_14_2&quot;,&quot;Op_0_2_14_3&quot;] [] 0
-<a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>
-<a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>&quot;LOOP2&quot; 1 0 [&quot;LOOP2_BODY&quot;, &quot;Op_0_0_12_1&quot;,&quot;Op_0_1_10_1&quot;, &quot;Op_0_2_12_1&quot;] [] 1
-<a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>
-<a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>&quot;LOOP2_BODY&quot; 1 0 [&quot;Op_0_0_13_1&quot;, &quot;Op_0_0_13_2&quot;, &quot;Op_0_0_13_3&quot;, &quot;Op_0_0_10_2&quot;, &quot;Op_0_0_10_3&quot;, &quot;Op_0_0_11_2&quot;,&quot;Op_0_0_11_3&quot;, &quot;Op_0_1_8_2&quot;, &quot;Op_0_1_8_3&quot;,  &quot;Op_0_1_9_2&quot;, &quot;Op_0_1_9_3&quot;,&quot;Op_0_2_7_2&quot;,&quot;Op_0_2_7_3&quot;, &quot;Op_0_2_8_2&quot;,&quot;Op_0_2_8_3&quot;] [] 0
+<div class="highlight"><pre><span></span><code>.CODE
+CELL &lt;0,0&gt;
+&quot;instr0&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0, select_drra_row=0
+&quot;instr1&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=2, send_to_other_row=0, v_index=2
+&quot;instr2&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=3, send_to_other_row=0, v_index=3
+&quot;instr3&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, send_to_other_row=0, v_index=4
+&quot;instr4&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=3, send_to_other_row=0, v_index=5
+&quot;instr5&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr6&quot; LOOP loopid=1, iter=3, step=2
+&quot;instr7&quot; RACCU mode=1, operand1_sd=1, operand1=14, operand2_sd=1, operand2=15, result=0 
+&quot;instr8&quot; SRAM rw=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, init_addr_sd=1, hops=0
+&quot;instr9&quot; REFI port_no=0, extra=2, init_addr_sd=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, dimarch=1
+&quot;instr10&quot; REFI port_no=2, extra=2, init_addr=0,  l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1 
+&quot;instr11&quot; REFI port_no=3, extra=2, init_addr=32, l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1
+&quot;instr12&quot; LOOP loopid=2, iter=29, step=1
+&quot;instr13&quot; DPU mode=10, control=2
+
+CELL &lt;0,1&gt;
+&quot;instr14&quot; DPU mode=1, control=2 
+&quot;instr15&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
+&quot;instr16&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=2 
+&quot;instr17&quot; SWB src_row=0, src_block=1, src_port=1, hb_index=1, v_index=3
+&quot;instr18&quot; SRAM l1_iter=1, l1_step=1, l1_delay=0, l2_iter=1, l2_step=2, l2_delay=0, hops=0
+&quot;instr19&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
+&quot;instr20&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr21&quot; LOOP extra=0, loopid=1, iter=3, step=2
+&quot;instr22&quot; REFI port_no=2, extra=2, init_addr= 0, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
+&quot;instr23&quot; REFI port_no=3, extra=2, init_addr=16, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
+&quot;instr24&quot; LOOP loopid=2, iter=29, step=1
+
+CELL &lt;0,2&gt;
+&quot;instr25&quot; DPU mode=1, control=2 
+&quot;instr26&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
+&quot;instr27&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=1 
+&quot;instr28&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, v_index=2
+&quot;instr29&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=2, v_index=1
+&quot;instr30&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=3
+&quot;instr31&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr32&quot; REFI port_no=3, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
+&quot;instr33&quot; REFI port_no=1, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
+&quot;instr34&quot; LOOP extra=0, loopid=1, iter=3, step=2
+&quot;instr35&quot; SRAM rw=0, l1_iter=1, l1_step=1, l1_delay=0, hops=0, init_addr_sd=d, init_addr=14
+&quot;instr36&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
+&quot;instr37&quot; LOOP loopid=2, iter=29, step=1
+&quot;instr38&quot; SRAM rw=1, l1_iter=1, l1_step=1, l1_delay=0, hops= 0, init_addr_sd=d, init_addr=14
+&quot;instr39&quot; REFI port_no=2, extra=2, l1_iter=1, l1_step=1, dimarch=1
+
+.RELATION
+&quot;ROOT&quot; 1 0 [&quot;LOOP0&quot;,&quot;Op_0_0_0_1&quot;, &quot;Op_0_0_0_2&quot;, &quot;Op_0_0_1_1&quot;, &quot;Op_0_0_1_2&quot;, &quot;Op_0_0_2_1&quot;,&quot;Op_0_0_2_2&quot;, &quot;Op_0_0_3_1&quot;, &quot;Op_0_0_3_2&quot;, &quot;Op_0_0_4_1&quot;, &quot;Op_0_0_4_2&quot;,&quot;Op_0_1_0_1&quot;, &quot;Op_0_1_0_2&quot;, &quot;Op_0_1_0_3&quot;, &quot;Op_0_1_1_1&quot;, &quot;Op_0_1_1_2&quot;,&quot;Op_0_1_2_1&quot;, &quot;Op_0_1_2_2&quot;, &quot;Op_0_1_3_1&quot;, &quot;Op_0_1_3_2&quot;, &quot;Op_0_1_4_1&quot;, &quot;Op_0_1_4_2&quot;, &quot;Op_0_1_5_1&quot;,&quot;Op_0_2_0_1&quot;, &quot;Op_0_2_0_2&quot;, &quot;Op_0_2_0_3&quot;, &quot;Op_0_2_1_1&quot;, &quot;Op_0_2_1_2&quot;,&quot;Op_0_2_2_1&quot;, &quot;Op_0_2_2_2&quot;, &quot;Op_0_2_3_1&quot;, &quot;Op_0_2_3_2&quot;, &quot;Op_0_2_4_1&quot;, &quot;Op_0_2_4_2&quot;,&quot;Op_0_2_5_1&quot;, &quot;Op_0_2_5_2&quot;] [] 0
+
+&quot;LOOP0&quot; 1 1 [&quot;LOOP0_BODY&quot;,&quot;Op_0_0_5_1&quot;,&quot;Op_0_1_6_1&quot;,&quot;Op_0_2_6_1&quot;] [] 1
+
+&quot;LOOP0_BODY&quot; 1 0 [&quot;LOOP1&quot;,&quot;Op_0_1_4_3&quot;, &quot;Op_0_1_4_4&quot;, &quot;Op_0_1_5_2&quot;, &quot;Op_0_1_5_3&quot;,&quot;Op_0_2_7_1&quot;,&quot;Op_0_2_8_1&quot;] [] 0
+
+&quot;LOOP1&quot; 1 1 [&quot;LOOP1_BODY&quot;,&quot;Op_0_0_6_1&quot;,&quot;Op_0_1_7_1&quot;,&quot;Op_0_2_9_1&quot;] [] 1
+
+&quot;LOOP1_BODY&quot; 1 0 [&quot;LOOP2&quot;,&quot;Op_0_0_7_1&quot;, &quot;Op_0_0_8_1&quot;, &quot;Op_0_0_8_2&quot;, &quot;Op_0_0_8_3&quot;, &quot;Op_0_0_8_4&quot;, &quot;Op_0_0_10_1&quot;, &quot;Op_0_0_11_1&quot;,&quot;Op_0_0_9_1&quot;, &quot;Op_0_0_9_2&quot;, &quot;Op_0_0_9_3&quot;,&quot;Op_0_1_8_1&quot;, &quot;Op_0_1_9_1&quot;, &quot;Op_0_2_10_1&quot;, &quot;Op_0_2_10_2&quot;, &quot;Op_0_2_10_3&quot;, &quot;Op_0_2_10_4&quot;,&quot;Op_0_2_11_1&quot;,&quot;Op_0_2_11_2&quot;, &quot;Op_0_2_11_3&quot;,&quot;Op_0_2_13_1&quot;,&quot;Op_0_2_13_2&quot;,&quot;Op_0_2_13_3&quot;, &quot;Op_0_2_13_4&quot;, &quot;Op_0_2_14_1&quot;, &quot;Op_0_2_14_2&quot;,&quot;Op_0_2_14_3&quot;] [] 0
+
+&quot;LOOP2&quot; 1 0 [&quot;LOOP2_BODY&quot;, &quot;Op_0_0_12_1&quot;,&quot;Op_0_1_10_1&quot;, &quot;Op_0_2_12_1&quot;] [] 1
+
+&quot;LOOP2_BODY&quot; 1 0 [&quot;Op_0_0_13_1&quot;, &quot;Op_0_0_13_2&quot;, &quot;Op_0_0_13_3&quot;, &quot;Op_0_0_10_2&quot;, &quot;Op_0_0_10_3&quot;, &quot;Op_0_0_11_2&quot;,&quot;Op_0_0_11_3&quot;, &quot;Op_0_1_8_2&quot;, &quot;Op_0_1_8_3&quot;,  &quot;Op_0_1_9_2&quot;, &quot;Op_0_1_9_3&quot;,&quot;Op_0_2_7_2&quot;,&quot;Op_0_2_7_3&quot;, &quot;Op_0_2_8_2&quot;,&quot;Op_0_2_8_3&quot;] [] 0
 </code></pre></div>
 </div>
 <h3 id="dependency-segment">DEPENDENCY Segment</h3>
 <p>Dependencies among instructions are defined in dependency segment. A dependency segment starts with segment identifier:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>.DEPENDENCY
+<div class="highlight"><pre><span></span><code>.DEPENDENCY
 </code></pre></div>
 <p>Each instruction of DRRA has 5 phases: FETCH, ISSUE, ARRIVE, ACTIVE, END. They are represented by number: 1 to 5 respectively.</p>
 <p>User can define dependencies among instruction phases. These dependencies will guide the scheduler to order instructions properly. Each phase corresponds to a vertex in the dependency graph. You should know the naming convension when reference those phases. For example, the 2<sup>nd</sup> phase of the 1<sup>st</sup> instruction in cell &lt;3,5&gt; will be mapped to a vertex called <strong>Op_3_5_0_2</strong>.</p>
@@ -988,15 +988,15 @@
 <li>D_HI: the higher bound of distance.</li>
 </ul>
 <p>The format is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SRC DEST D_LO D_HI
+<div class="highlight"><pre><span></span><code>SRC DEST D_LO D_HI
 </code></pre></div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>This is a example for dependency segment</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.DEPENDENCY
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>&quot;0_0_0_0&quot; &quot;0_0_1_1&quot; 1 +INF
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>&quot;0_0_1_1&quot; &quot;0_0_1_3&quot; 0 +INF
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>&quot;1_0_1_1&quot; &quot;1_0_1_1&quot; 2 5
+<div class="highlight"><pre><span></span><code>.DEPENDENCY
+&quot;0_0_0_0&quot; &quot;0_0_1_1&quot; 1 +INF
+&quot;0_0_1_1&quot; &quot;0_0_1_3&quot; 0 +INF
+&quot;1_0_1_1&quot; &quot;1_0_1_1&quot; 2 5
 </code></pre></div>
 </div>
 

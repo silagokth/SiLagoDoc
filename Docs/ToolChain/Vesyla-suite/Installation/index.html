@@ -924,62 +924,62 @@
 <p>To use docker image, you need to install docker first. You can install docker according to the instruction on the official website: <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a>.</p>
 <h3 id="build-docker-image">Build Docker Image</h3>
 <p>There is a docker file in the root folder of vesyla-suite. You can use it to create a docker image for vesyla-suite. The docker image is based on Fedora Linux. You can use the following command to create a docker image (assuming the version is 3.0):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">docker</span><span class="w"> </span>build<span class="w"> </span><span class="o">-</span>t<span class="w"> </span>vesyla-suite:3.0<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>build<span class="w"> </span><span class="o">-</span>t<span class="w"> </span>vesyla-suite:3.0<span class="w"> </span>.
 </code></pre></div>
 <p>Optionally, you can export the docker image to a tar file by using the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">docker</span><span class="w"> </span>save<span class="w"> </span><span class="o">-</span>o<span class="w"> </span>vesyla-suite-3.0.tar<span class="w"> </span>vesyla-suite:3.0
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>save<span class="w"> </span><span class="o">-</span>o<span class="w"> </span>vesyla-suite-3.0.tar<span class="w"> </span>vesyla-suite:3.0
 </code></pre></div>
 <p>You don't have to build your own docker image from the source code. It is also possible to download the docker image from one-drive. Ask the vesyla-suite maintainer for the download link. Once you can import the docker image using the command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">docker</span><span class="w"> </span>load<span class="w"> </span><span class="o">-</span>i<span class="w"> </span>vesyla-suite-3.0.tar
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>load<span class="w"> </span><span class="o">-</span>i<span class="w"> </span>vesyla-suite-3.0.tar
 </code></pre></div>
 <h3 id="create-docker-container">Create Docker Container</h3>
 <p>To create a docker container from the docker image and bind the current directory to the <code>/work</code> directory in the container, you can use the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">docker</span><span class="w"> </span>run<span class="w"> </span><span class="o">--</span>name<span class="w"> </span>vesyla-suite<span class="w"> </span><span class="o">-</span>v<span class="w"> </span><span class="nv">$PWD:</span><span class="o">/</span>work<span class="w"> </span>vesyla-suite:3.0
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>run<span class="w"> </span><span class="o">--</span>name<span class="w"> </span>vesyla-suite<span class="w"> </span><span class="o">-</span>v<span class="w"> </span><span class="nv">$PWD:</span><span class="o">/</span>work<span class="w"> </span>vesyla-suite:3.0
 </code></pre></div>
 <h3 id="use-docker-container">Use Docker Container</h3>
 <p>Once the container has been created, you can use the following command to enter the container and access the commands provided by vesyla-suite:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">docker</span><span class="w"> </span>start<span class="w"> </span><span class="o">-</span>i<span class="w"> </span>vesyla-suite
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>start<span class="w"> </span><span class="o">-</span>i<span class="w"> </span>vesyla-suite
 </code></pre></div>
 <h2 id="compile-and-install-from-source-code">Compile and Install from Source Code</h2>
 <h3 id="prerequisites_1">Prerequisites</h3>
 <p>Vesyla-suite can be compiled and installed on any modern linux distribution. Before compiling vesyla-suite, you need to install compilation tool chain. You need to use the correct package manager of your Linux distribution. The necessary packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>g<span class="o">++</span><span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>boost-devel<span class="w"> </span>perl<span class="w"> </span>autoconf<span class="w"> </span>libgmp-devel<span class="w">  </span>
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>g<span class="o">++</span><span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>boost-devel<span class="w"> </span>perl<span class="w"> </span>autoconf<span class="w"> </span>libgmp-devel<span class="w">  </span>
 </code></pre></div>
 <h3 id="installation-gecode">Installation Gecode</h3>
 <p>Vesyla uses Gecode it for CP scheduling engine. You can install it according to the installation instruction on the official website: <a href="https://www.gecode.org/">https://www.gecode.org/</a>. Please install Gecode in stanard location (such as <code>/usr</code> or <code>/usr/local</code>) so that the cmake can find it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>gecode<span class="o">/</span>root<span class="o">/</span>folder
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">.</span><span class="o">/</span>configure<span class="w"> </span><span class="o">--</span>prefix<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">make</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">make</span><span class="w"> </span>install
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>gecode<span class="o">/</span>root<span class="o">/</span>folder
+<span class="nv">.</span><span class="o">/</span>configure<span class="w"> </span><span class="o">--</span>prefix<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path
+<span class="nv">make</span>
+<span class="nv">make</span><span class="w"> </span>install
 </code></pre></div>
 <h3 id="install-python3-and-python3-packages">Install Python3 and Python3 packages</h3>
 <p>Python3 is assential for vesyla-suite. You can install it according to the instruction on the official website: <a href="https://www.python.org/">https://www.python.org/</a>. You also need to install some python3 packages. Here, we give the example command for Fedora Linux.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>python3-pip
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>python3-pip
 </code></pre></div>
 <p>Vesyla-suite uses <strong>nuitka</strong> to compile python3 scripts into native executable programs. You can install it by using pip3.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>patchelf
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">pip3</span><span class="w"> </span>install<span class="w"> </span>nuitka
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>patchelf
+<span class="nv">pip3</span><span class="w"> </span>install<span class="w"> </span>nuitka
 </code></pre></div>
 <h3 id="compile-and-install-vesyla-suite">Compile and install vesyla-suite</h3>
 <p>Vesyla-suite also need flex and bison to compile. You can install them by using the package manager of your Linux distribution. Here, we give the example command for Fedora Linux.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span>flex
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span>flex
 </code></pre></div>
 <p>Then, you can download the <strong>vesyla-suite</strong> source package and make a build directory.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>vesyla-suite<span class="o">/</span>root<span class="o">/</span>folder
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">mkdir</span><span class="w"> </span>build
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">/</span>vesyla-suite<span class="o">/</span>root<span class="o">/</span>folder
+<span class="nv">mkdir</span><span class="w"> </span>build
 </code></pre></div>
 <p>Next step is to generate makefile according to the CMake configuration file CMakeLists.txt and specify the installation path. Once the makefile is generated, you can compile it and install the compiled program.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>build
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">cmake</span><span class="w"> </span><span class="o">-</span>DCMAKE_INSTALL_PREFIX<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path<span class="w"> </span>..
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">make</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">make</span><span class="w"> </span>install
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>build
+<span class="nv">cmake</span><span class="w"> </span><span class="o">-</span>DCMAKE_INSTALL_PREFIX<span class="err">=</span><span class="o">/</span>desired<span class="o">/</span>install<span class="o">/</span>path<span class="w"> </span>..
+<span class="nv">make</span>
+<span class="nv">make</span><span class="w"> </span>install
 </code></pre></div>
 <p>Now, all executable programs in vesyla-suite are installed.</p>
 <h3 id="post-installation-setup">Post-installation Setup</h3>
 <p>If vesyla-suite are installed in non-standard location, you need to set the following environment variables to make it work.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">export</span><span class="w"> </span>PATH<span class="err">=</span><span class="nv">$PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>bin
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>lib
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>gecode<span class="o">/</span>lib
+<div class="highlight"><pre><span></span><code><span class="nv">export</span><span class="w"> </span>PATH<span class="err">=</span><span class="nv">$PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>bin
+<span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>vesyla-suite<span class="o">/</span>lib
+<span class="nv">export</span><span class="w"> </span>LD_LIBRARY_PATH<span class="err">=</span><span class="nv">$LD_LIBRARY_PATH:</span><span class="o">/</span>path<span class="o">/</span>to<span class="o">/</span>gecode<span class="o">/</span>lib
 </code></pre></div>
 
 
