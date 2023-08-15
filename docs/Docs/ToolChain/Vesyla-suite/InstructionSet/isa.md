@@ -158,3 +158,29 @@ instr_code | [80, 77] | 4 | 13 | Instruction code for SRAM
 **l1_step_sd** | [16, 16] | 1 | 0 | Is level-1 step static or dynamic? [0]:s; [1]:d;
 **l2_step_sd** | [15, 15] | 1 | 0 | Is level-2 step static or dynamic? [0]:s; [1]:d;
 **hops** | [14, 11] | 4 | 0 | Number of hops to reach the DiMArch cell - 1
+
+### IO
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [80, 77] | 4 | 13 | Instruction code for IO
+**rw** | [76, 76] | 1 | 0 | Read or Write. [0]:r; [1]:w;
+**init_addr** | [75, 51] | 25 | 0 | Initial address
+**init_delay** | [50, 45] | 6 | 0 | initial delay
+**l1_iter** | [44, 40] | 5 | 0 | level-1 iteration - 1.
+**l1_step** | [39, 35] | 5 | 1 | level-1 step
+**l1_delay** | [34, 29] | 6 | 0 | level-1 delay
+**mask** | [28, 13] | 16 | 0 | mask it to 1 if a word is not useful.
+**init_addr_sd** | [12, 12] | 1 | 0 | Is initial address static or dynamic? [0]:s; [1]:d;
+**init_delay_sd** | [11, 11] | 1 | 0 | Is initial delay static or dynamic? [0]:s; [1]:d;
+**l1_iter_sd** | [10, 10] | 1 | 0 | Is level-1 iteration static or dynamic? [0]:s; [1]:d;
+**l1_step_sd** | [9, 9] | 1 | 0 | Is level-1 step static or dynamic? [0]:s; [1]:d;
+
+### PERM
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [26, 23] | 4 | 14 | Instruction code for SHUFFLE
+**mode** | [22, 20] | 3 | 0 | Shuffle mode. [0]:left shift (zero-fill); [1]:right shift (zero-fill); [2]:left shift (same fill); [3]:right shift (same fill); [4]:left rotate; [5]:right rotate; 
+**block** | [19, 18] | 2 | 0 | Sub-block in register file.
+**distance** | [17, 2] | 16 | 0 | shuffle distance.

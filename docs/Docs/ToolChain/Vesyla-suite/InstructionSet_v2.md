@@ -1,5 +1,8 @@
 # Instruction Set (v2)
 
+!!! warning
+    This is an old version of the instruction set. Please refer to [Instruction Set (v3)](../InstructionSet) for the latest version.
+
 ## Instructions
 
 --8<-- "Docs/ToolChain/Vesyla-suite/InstructionSet_v2/isa.md"

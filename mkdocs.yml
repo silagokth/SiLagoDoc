@@ -35,6 +35,8 @@ nav:
               - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide_v2.md
               - Docs/ToolChain/Vesyla-suite/ManasProgrammingGuide.md
               - Docs/ToolChain/Vesyla-suite/InstructionSet.md
+              - Docs/ToolChain/Vesyla-suite/InstructionSet_v2.md
+              - Docs/ToolChain/Vesyla-suite/InstructionSet_v4.md
               - Docs/ToolChain/Vesyla-suite/InstructionPhase.md
               - Docs/ToolChain/Vesyla-suite/Tutorial_RISCV.md
               - Docs/ToolChain/Vesyla-suite/RepoOrganization.md
@@ -73,10 +75,6 @@ theme:
 
 # Extensions
 markdown_extensions:
-  # - tables
-  # - def_list
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
   - footnotes
   - attr_list
   - md_in_html
@@ -95,11 +93,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist
   - pymdownx.tilde
-#  - pymdownx.snippets:
-#      base_path: 'docs/'
-#      check_paths: true
-#  - pymdownx.highlight:
-#      anchor_linenums: true
+  - pymdownx.snippets:
+     base_path: 'docs/'
+     check_paths: true
 
 extra_javascript:
   - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
