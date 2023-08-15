@@ -2,6 +2,9 @@
 !!! Note
     Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.
 
+!!! Note
+    The slot number will decide which data port it configures.
+
 ## Instruction Format
 Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data; The rest of the bits are used to encode the instruction content. For data instructions, the first 4 bits in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.
 
