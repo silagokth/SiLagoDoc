@@ -12,7 +12,7 @@
         <meta name="author" content="SiLago Team">
       
       
-        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/InstructionSet/isa/">
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/InstructionSet_v2/isa/">
       
       
       
@@ -515,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../InstructionSet/" class="md-nav__link">
         Instruction Set
       </a>
     </li>
@@ -529,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../InstructionSet_v2/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Instruction Set (v2)
       </a>
     </li>
@@ -780,20 +780,6 @@
         <li class="md-nav__item">
   <a href="#sram" class="md-nav__link">
     SRAM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#io" class="md-nav__link">
-    IO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#perm" class="md-nav__link">
-    PERM
   </a>
   
 </li>
@@ -1666,146 +1652,6 @@
 <td>4</td>
 <td>0</td>
 <td>Number of hops to reach the DiMArch cell - 1</td>
-</tr>
-</tbody>
-</table>
-<h3 id="io">IO</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[80, 77]</td>
-<td>4</td>
-<td>13</td>
-<td>Instruction code for IO</td>
-</tr>
-<tr>
-<td><strong>rw</strong></td>
-<td>[76, 76]</td>
-<td>1</td>
-<td>0</td>
-<td>Read or Write. [0]:r; [1]:w;</td>
-</tr>
-<tr>
-<td><strong>init_addr</strong></td>
-<td>[75, 51]</td>
-<td>25</td>
-<td>0</td>
-<td>Initial address</td>
-</tr>
-<tr>
-<td><strong>init_delay</strong></td>
-<td>[50, 45]</td>
-<td>6</td>
-<td>0</td>
-<td>initial delay</td>
-</tr>
-<tr>
-<td><strong>l1_iter</strong></td>
-<td>[44, 40]</td>
-<td>5</td>
-<td>0</td>
-<td>level-1 iteration - 1.</td>
-</tr>
-<tr>
-<td><strong>l1_step</strong></td>
-<td>[39, 35]</td>
-<td>5</td>
-<td>1</td>
-<td>level-1 step</td>
-</tr>
-<tr>
-<td><strong>l1_delay</strong></td>
-<td>[34, 29]</td>
-<td>6</td>
-<td>0</td>
-<td>level-1 delay</td>
-</tr>
-<tr>
-<td><strong>mask</strong></td>
-<td>[28, 13]</td>
-<td>16</td>
-<td>0</td>
-<td>mask it to 1 if a word is not useful.</td>
-</tr>
-<tr>
-<td><strong>init_addr_sd</strong></td>
-<td>[12, 12]</td>
-<td>1</td>
-<td>0</td>
-<td>Is initial address static or dynamic? [0]:s; [1]:d;</td>
-</tr>
-<tr>
-<td><strong>init_delay_sd</strong></td>
-<td>[11, 11]</td>
-<td>1</td>
-<td>0</td>
-<td>Is initial delay static or dynamic? [0]:s; [1]:d;</td>
-</tr>
-<tr>
-<td><strong>l1_iter_sd</strong></td>
-<td>[10, 10]</td>
-<td>1</td>
-<td>0</td>
-<td>Is level-1 iteration static or dynamic? [0]:s; [1]:d;</td>
-</tr>
-<tr>
-<td><strong>l1_step_sd</strong></td>
-<td>[9, 9]</td>
-<td>1</td>
-<td>0</td>
-<td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="perm">PERM</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[26, 23]</td>
-<td>4</td>
-<td>14</td>
-<td>Instruction code for SHUFFLE</td>
-</tr>
-<tr>
-<td><strong>mode</strong></td>
-<td>[22, 20]</td>
-<td>3</td>
-<td>0</td>
-<td>Shuffle mode. [0]:left shift (zero-fill); [1]:right shift (zero-fill); [2]:left shift (same fill); [3]:right shift (same fill); [4]:left rotate; [5]:right rotate;</td>
-</tr>
-<tr>
-<td><strong>block</strong></td>
-<td>[19, 18]</td>
-<td>2</td>
-<td>0</td>
-<td>Sub-block in register file.</td>
-</tr>
-<tr>
-<td><strong>distance</strong></td>
-<td>[17, 2]</td>
-<td>16</td>
-<td>0</td>
-<td>shuffle distance.</td>
 </tr>
 </tbody>
 </table>

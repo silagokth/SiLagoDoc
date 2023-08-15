@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "platform": { "type": "string" },
+    "instr_bitwidth": { "type": "integer" },
+    "instr_code_bitwidth": { "type": "integer" },
+    "instruction_templates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "integer" },
+          "name": { "type": "string" },
+          "phase": { "type": "integer" },
+          "max_chunk": { "type": "integer" },
+          "segment_templates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "bitwidth": { "type": "integer" },
+                "default_val": { "type": "integer" },
+                "controllable": { "type": "boolean" },
+                "observable": { "type": "boolean" },
+                "verbo_map": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": { "type": "integer" },
+                      "val": { "type": "string" }
+                    }
+                  }
+                },
+                "comment": { "type": "string" }
+              },
+              "required": ["name", "bitwidth", "comment"]
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": ["code", "name"]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "platform",
+    "instr_bitwidth",
+    "instr_code_bitwidth",
+    "instruction_templates"
+  ]
+}

@@ -18,10 +18,10 @@
         <link rel="prev" href="../ManasProgrammingGuide/">
       
       
-        <link rel="next" href="../InstructionPhase/">
+        <link rel="next" href="../InstructionSet_v2/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -563,26 +563,103 @@
     Instructions
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#isa-description-file" class="md-nav__link">
-    ISA Description File
-  </a>
-  
-    <nav class="md-nav" aria-label="ISA Description File">
+    <nav class="md-nav" aria-label="Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#json-schema" class="md-nav__link">
-    JSON Schema
+  <a href="#halt" class="md-nav__link">
+    HALT
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    JSON
+  <a href="#refi" class="md-nav__link">
+    REFI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpu" class="md-nav__link">
+    DPU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swb" class="md-nav__link">
+    SWB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    JUMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    WAIT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    LOOP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bw" class="md-nav__link">
+    BW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raccu" class="md-nav__link">
+    RACCU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch" class="md-nav__link">
+    BRANCH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route" class="md-nav__link">
+    ROUTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    SRAM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perm" class="md-nav__link">
+    PERM
   </a>
   
 </li>
@@ -596,6 +673,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstructionSet_v2/" class="md-nav__link">
+        Instruction Set (v2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstructionSet_v4/" class="md-nav__link">
+        Instruction Set V4 for DRRA-2
+      </a>
     </li>
   
 
@@ -757,26 +862,103 @@
     Instructions
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#isa-description-file" class="md-nav__link">
-    ISA Description File
-  </a>
-  
-    <nav class="md-nav" aria-label="ISA Description File">
+    <nav class="md-nav" aria-label="Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#json-schema" class="md-nav__link">
-    JSON Schema
+  <a href="#halt" class="md-nav__link">
+    HALT
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#json" class="md-nav__link">
-    JSON
+  <a href="#refi" class="md-nav__link">
+    REFI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpu" class="md-nav__link">
+    DPU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swb" class="md-nav__link">
+    SWB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump" class="md-nav__link">
+    JUMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    WAIT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    LOOP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bw" class="md-nav__link">
+    BW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raccu" class="md-nav__link">
+    RACCU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch" class="md-nav__link">
+    BRANCH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route" class="md-nav__link">
+    ROUTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    SRAM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perm" class="md-nav__link">
+    PERM
   </a>
   
 </li>
@@ -806,20 +988,997 @@
 
 <h1 id="instruction-set">Instruction Set</h1>
 <h2 id="instructions">Instructions</h2>
-<p>--8&larr; "Docs/ToolChain/Vesyla-suite/InstructionSet/isa.md"</p>
-<h2 id="isa-description-file">ISA Description File</h2>
-<h3 id="json-schema">JSON Schema</h3>
-<p>The ISA description file uses <em>json</em> format and validated by the following json schema:</p>
-<div class="highlight"><pre><span></span><code><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="s2">&quot;Docs/ToolChain/Vesyla-suite/InstructionSet/isa_schema.json&quot;</span>
-</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can validate a ISA description json file using this schema on <a href="https://www.jsonschemavalidator.net/">Json Schema Validator</a>.</p>
+<p>Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.</p>
 </div>
-<h3 id="json">JSON</h3>
-<p>The ISA description file used for DRRA is shown as follow:</p>
-<div class="highlight"><pre><span></span><code><span class="mi">--8</span><span class="err">&lt;</span><span class="mi">--</span><span class="w"> </span><span class="s2">&quot;Docs/ToolChain/Vesyla-suite/InstructionSet/isa.json&quot;</span>
-</code></pre></div>
+<h3 id="halt">HALT</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>0</td>
+<td>Instruction code for HALT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="refi">REFI</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[80, 77]</td>
+<td>4</td>
+<td>1</td>
+<td>Instruction code for REFI</td>
+</tr>
+<tr>
+<td><strong>port_no</strong></td>
+<td>[76, 75]</td>
+<td>2</td>
+<td>0</td>
+<td>Selects one of the RFile port. [0]:w0; [1]:w1; [2]:r0; [3]:r1;</td>
+</tr>
+<tr>
+<td><strong>extra</strong></td>
+<td>[74, 73]</td>
+<td>2</td>
+<td>0</td>
+<td>How many following chunks?</td>
+</tr>
+<tr>
+<td><strong>init_addr_sd</strong></td>
+<td>[72, 72]</td>
+<td>1</td>
+<td>0</td>
+<td>Is init_addr static or dymamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>init_addr</strong></td>
+<td>[71, 66]</td>
+<td>6</td>
+<td>0</td>
+<td>Initial address.</td>
+</tr>
+<tr>
+<td><strong>l1_iter</strong></td>
+<td>[65, 60]</td>
+<td>6</td>
+<td>0</td>
+<td>Level-1 iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>init_delay</strong></td>
+<td>[59, 54]</td>
+<td>6</td>
+<td>0</td>
+<td>Initial delay.</td>
+</tr>
+<tr>
+<td><strong>l1_iter_sd</strong></td>
+<td>[53, 53]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 iteration static or dymamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>init_delay_sd</strong></td>
+<td>[52, 52]</td>
+<td>1</td>
+<td>0</td>
+<td>Is initial delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td>unused_0</td>
+<td>[51, 50]</td>
+<td>2</td>
+<td>2</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>l1_step_sd</strong></td>
+<td>[49, 49]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_step</strong></td>
+<td>[48, 43]</td>
+<td>6</td>
+<td>1</td>
+<td>Level-1 step</td>
+</tr>
+<tr>
+<td><strong>l1_step_sign</strong></td>
+<td>[42, 42]</td>
+<td>1</td>
+<td>0</td>
+<td>The sign of level-1 step. [0]:+; [1]:-;</td>
+</tr>
+<tr>
+<td><strong>l1_delay_sd</strong></td>
+<td>[41, 41]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the level-1 delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_delay</strong></td>
+<td>[40, 37]</td>
+<td>4</td>
+<td>0</td>
+<td>The level-1 delay, middle delay</td>
+</tr>
+<tr>
+<td><strong>l2_iter_sd</strong></td>
+<td>[36, 36]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-2 iteration static or dymamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l2_iter</strong></td>
+<td>[35, 31]</td>
+<td>5</td>
+<td>0</td>
+<td>The level-2 iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>l2_step</strong></td>
+<td>[30, 27]</td>
+<td>4</td>
+<td>1</td>
+<td>The level-2 step.</td>
+</tr>
+<tr>
+<td>unused_1</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>3</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>l2_delay_sd</strong></td>
+<td>[22, 22]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the level-2 delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l2_delay</strong></td>
+<td>[21, 16]</td>
+<td>6</td>
+<td>0</td>
+<td>The level-2 delay, repetition delay.</td>
+</tr>
+<tr>
+<td>unused_2</td>
+<td>[15, 10]</td>
+<td>6</td>
+<td>0</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>l1_delay_ext</strong></td>
+<td>[9, 8]</td>
+<td>2</td>
+<td>0</td>
+<td>The extened bits near MSB of l1_delay.</td>
+</tr>
+<tr>
+<td><strong>l2_iter_ext</strong></td>
+<td>[7, 7]</td>
+<td>1</td>
+<td>0</td>
+<td>The extened bits near MSB of l2_iter.</td>
+</tr>
+<tr>
+<td><strong>l2_step_ext</strong></td>
+<td>[6, 5]</td>
+<td>2</td>
+<td>0</td>
+<td>The extened bits near MSB of l2_step.</td>
+</tr>
+<tr>
+<td>unused_3</td>
+<td>[4, 2]</td>
+<td>3</td>
+<td>0</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>dimarch</strong></td>
+<td>[1, 1]</td>
+<td>1</td>
+<td>0</td>
+<td>Is reading/writing from/to DiMArch? [0]:n; [1]:y;</td>
+</tr>
+<tr>
+<td><strong>compress</strong></td>
+<td>[0, 0]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the data compressed? [0]:n; [1]:y;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dpu">DPU</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>4</td>
+<td>Instruction code for DPU</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>[22, 18]</td>
+<td>5</td>
+<td>0</td>
+<td>The DPU mode. [0]:idle; [1]:add; [2]:sum_acc; [3]:add_const; [4]:subt; [5]:subt_abs; [6]:mode_6; [7]:mult; [8]:mult_add; [9]:mult_const; [10]:mac; [11]:ld_ir; [12]:axpy; [13]:max_min_acc; [14]:max_min_const; [15]:mode_15; [16]:max_min; [17]:shift_l; [18]:shift_r; [19]:sigm; [20]:tanhyp; [21]:expon; [22]:lk_relu; [23]:relu; [24]:div; [25]:acc_softmax; [26]:div_softmax; [27]:ld_acc; [28]:scale_dw; [29]:scale_up; [30]:mac_inter; [31]:mode_31;</td>
+</tr>
+<tr>
+<td><strong>control</strong></td>
+<td>[17, 16]</td>
+<td>2</td>
+<td>2</td>
+<td>The controll mode: saturation and operator type. [0]:nosat_int; [1]:nosat_fx; [2]:sat_int; [3]:sat_fx;</td>
+</tr>
+<tr>
+<td>unused_0</td>
+<td>[15, 10]</td>
+<td>6</td>
+<td>2</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>acc_clear</strong></td>
+<td>[9, 2]</td>
+<td>8</td>
+<td>0</td>
+<td>The accumulator clear signal will be triggered if the accumulation reaches this number. It also serves as immediate value for some DPU mode.</td>
+</tr>
+<tr>
+<td><strong>io_change</strong></td>
+<td>[1, 0]</td>
+<td>2</td>
+<td>0</td>
+<td>The IO mode: negate input and absolute output. [0]:no_change; [1]:negate_in0; [2]:negate_in1; [3]:abs_out;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="swb">SWB</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>5</td>
+<td>Instruction code for SWB</td>
+</tr>
+<tr>
+<td>unused0</td>
+<td>[22, 22]</td>
+<td>1</td>
+<td>1</td>
+<td>Deprecated.</td>
+</tr>
+<tr>
+<td><strong>src_row</strong></td>
+<td>[21, 21]</td>
+<td>1</td>
+<td>0</td>
+<td>Source row.</td>
+</tr>
+<tr>
+<td><strong>src_block</strong></td>
+<td>[20, 20]</td>
+<td>1</td>
+<td>0</td>
+<td>Source block, RF or DPU. [0]:rf; [1]:dpu;</td>
+</tr>
+<tr>
+<td><strong>src_port</strong></td>
+<td>[19, 19]</td>
+<td>1</td>
+<td>0</td>
+<td>source port.</td>
+</tr>
+<tr>
+<td><strong>hb_index</strong></td>
+<td>[18, 16]</td>
+<td>3</td>
+<td>0</td>
+<td>Index of horizontal bus. This is the column difference of the src and dest cell shifting by 2. For example if the path is from [0,0] to [1,2], the column difference is -2, so the hb_index = -2+2=0.</td>
+</tr>
+<tr>
+<td><strong>send_to_other_row</strong></td>
+<td>[15, 15]</td>
+<td>1</td>
+<td>0</td>
+<td>Flag of whether src and dest row are equal. [0]:n; [1]:y;</td>
+</tr>
+<tr>
+<td><strong>v_index</strong></td>
+<td>[14, 12]</td>
+<td>3</td>
+<td>0</td>
+<td>Index of vertical bus. This is the dest port. If destination is RF, the v_index is the port number, if the dest is DPU, the v_index is port number + 2.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jump">JUMP</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>6</td>
+<td>Instruction code for JUMP</td>
+</tr>
+<tr>
+<td><strong>pc</strong></td>
+<td>[22, 17]</td>
+<td>6</td>
+<td>0</td>
+<td>The PC to jump to</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wait">WAIT</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>7</td>
+<td>Instruction code for WAIT</td>
+</tr>
+<tr>
+<td><strong>cycle_sd</strong></td>
+<td>[22, 22]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the cycle static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>cycle</strong></td>
+<td>[21, 7]</td>
+<td>15</td>
+<td>0</td>
+<td>Number of cycles - 1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="loop">LOOP</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[53, 50]</td>
+<td>4</td>
+<td>8</td>
+<td>Instruction code for LOOP</td>
+</tr>
+<tr>
+<td><strong>extra</strong></td>
+<td>[49, 49]</td>
+<td>1</td>
+<td>0</td>
+<td>How many following chunks?</td>
+</tr>
+<tr>
+<td><strong>loopid</strong></td>
+<td>[48, 47]</td>
+<td>2</td>
+<td>0</td>
+<td>The id of the loop manager slot.</td>
+</tr>
+<tr>
+<td><strong>endpc</strong></td>
+<td>[46, 41]</td>
+<td>6</td>
+<td>0</td>
+<td>The PC where loop ends.</td>
+</tr>
+<tr>
+<td><strong>start_sd</strong></td>
+<td>[40, 40]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the start static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>start</strong></td>
+<td>[39, 34]</td>
+<td>6</td>
+<td>0</td>
+<td>The start of iterator.</td>
+</tr>
+<tr>
+<td><strong>iter_sd</strong></td>
+<td>[33, 33]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the iteration count static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>iter</strong></td>
+<td>[32, 27]</td>
+<td>6</td>
+<td>0</td>
+<td>The number of iteration.</td>
+</tr>
+<tr>
+<td><strong>step_sd</strong></td>
+<td>[26, 26]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the step static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>step</strong></td>
+<td>[25, 20]</td>
+<td>6</td>
+<td>1</td>
+<td>The iteration step.</td>
+</tr>
+<tr>
+<td>link</td>
+<td>[19, 16]</td>
+<td>4</td>
+<td>0</td>
+<td>The loops that have the same endpc will be linked together. This field is 1-hot encoded.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bw">BW</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>9</td>
+<td>Instruction code for BW</td>
+</tr>
+<tr>
+<td><strong>config</strong></td>
+<td>[22, 21]</td>
+<td>2</td>
+<td>0</td>
+<td>Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="raccu">RACCU</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>10</td>
+<td>Instruction code for RACCU</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>[22, 20]</td>
+<td>3</td>
+<td>0</td>
+<td>RACCU mode [0]:idle; [1]:add; [2]:sub; [3]:shift_r; [4]:shift_l; [5]:mult; [6]:mult_add; [7]:mult_sub;</td>
+</tr>
+<tr>
+<td><strong>operand1_sd</strong></td>
+<td>[19, 19]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the first operand static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>operand1</strong></td>
+<td>[18, 12]</td>
+<td>7</td>
+<td>0</td>
+<td>First operand.</td>
+</tr>
+<tr>
+<td><strong>operand2_sd</strong></td>
+<td>[11, 11]</td>
+<td>1</td>
+<td>0</td>
+<td>Is the second operand static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>operand2</strong></td>
+<td>[10, 4]</td>
+<td>7</td>
+<td>0</td>
+<td>Second operand.</td>
+</tr>
+<tr>
+<td><strong>result</strong></td>
+<td>[3, 0]</td>
+<td>4</td>
+<td>0</td>
+<td>The RACCU register to store the result.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="branch">BRANCH</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>11</td>
+<td>Instruction code for BRANCH</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>[22, 21]</td>
+<td>2</td>
+<td>0</td>
+<td>The branch mode</td>
+</tr>
+<tr>
+<td><strong>false_pc</strong></td>
+<td>[20, 15]</td>
+<td>6</td>
+<td>0</td>
+<td>The PC to jump to in case the condition is false.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="route">ROUTE</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>12</td>
+<td>Instruction code for ROUTE</td>
+</tr>
+<tr>
+<td><strong>horizontal_dir</strong></td>
+<td>[22, 22]</td>
+<td>1</td>
+<td>0</td>
+<td>The horizontal direction: West or East. [0]:w; [1]:e;</td>
+</tr>
+<tr>
+<td><strong>horizontal_hops</strong></td>
+<td>[21, 19]</td>
+<td>3</td>
+<td>0</td>
+<td>The horizontal hops.</td>
+</tr>
+<tr>
+<td><strong>vertical_dir</strong></td>
+<td>[18, 18]</td>
+<td>1</td>
+<td>0</td>
+<td>The vertical direction: South or North. [0]:s; [1]:n;</td>
+</tr>
+<tr>
+<td><strong>vertical_hops</strong></td>
+<td>[17, 15]</td>
+<td>3</td>
+<td>0</td>
+<td>The vertical hops.</td>
+</tr>
+<tr>
+<td><strong>direction</strong></td>
+<td>[14, 14]</td>
+<td>1</td>
+<td>0</td>
+<td>The data transfer direction: Read or Write. [0]:r; [1]:w;</td>
+</tr>
+<tr>
+<td><strong>select_drra_row</strong></td>
+<td>[13, 13]</td>
+<td>1</td>
+<td>0</td>
+<td>The drra row that send/recieve the data.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sram">SRAM</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[80, 77]</td>
+<td>4</td>
+<td>13</td>
+<td>Instruction code for SRAM</td>
+</tr>
+<tr>
+<td><strong>rw</strong></td>
+<td>[76, 76]</td>
+<td>1</td>
+<td>0</td>
+<td>Read or Write [0]:r; [1]:w;</td>
+</tr>
+<tr>
+<td><strong>init_addr</strong></td>
+<td>[75, 69]</td>
+<td>7</td>
+<td>0</td>
+<td>Initial address</td>
+</tr>
+<tr>
+<td><strong>init_delay</strong></td>
+<td>[68, 65]</td>
+<td>4</td>
+<td>0</td>
+<td>initial delay</td>
+</tr>
+<tr>
+<td><strong>l1_iter</strong></td>
+<td>[64, 58]</td>
+<td>7</td>
+<td>0</td>
+<td>level-1 iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>l1_step</strong></td>
+<td>[57, 50]</td>
+<td>8</td>
+<td>1</td>
+<td>level-1 step</td>
+</tr>
+<tr>
+<td><strong>l1_delay</strong></td>
+<td>[49, 44]</td>
+<td>6</td>
+<td>0</td>
+<td>level-1 delay</td>
+</tr>
+<tr>
+<td><strong>l2_iter</strong></td>
+<td>[43, 37]</td>
+<td>7</td>
+<td>0</td>
+<td>level-2 iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>l2_step</strong></td>
+<td>[36, 29]</td>
+<td>8</td>
+<td>1</td>
+<td>level-2 step</td>
+</tr>
+<tr>
+<td><strong>l2_delay</strong></td>
+<td>[28, 23]</td>
+<td>6</td>
+<td>0</td>
+<td>level-2 delay</td>
+</tr>
+<tr>
+<td><strong>init_addr_sd</strong></td>
+<td>[22, 22]</td>
+<td>1</td>
+<td>0</td>
+<td>Is initial address static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_iter_sd</strong></td>
+<td>[21, 21]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 iteration static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l2_iter_sd</strong></td>
+<td>[20, 20]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-2 iteration static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>init_delay_sd</strong></td>
+<td>[19, 19]</td>
+<td>1</td>
+<td>0</td>
+<td>Is initial delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_delay_sd</strong></td>
+<td>[18, 18]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l2_delay_sd</strong></td>
+<td>[17, 17]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-2 delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_step_sd</strong></td>
+<td>[16, 16]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l2_step_sd</strong></td>
+<td>[15, 15]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-2 step static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>hops</strong></td>
+<td>[14, 11]</td>
+<td>4</td>
+<td>0</td>
+<td>Number of hops to reach the DiMArch cell - 1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="io">IO</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[80, 77]</td>
+<td>4</td>
+<td>13</td>
+<td>Instruction code for IO</td>
+</tr>
+<tr>
+<td><strong>rw</strong></td>
+<td>[76, 76]</td>
+<td>1</td>
+<td>0</td>
+<td>Read or Write. [0]:r; [1]:w;</td>
+</tr>
+<tr>
+<td><strong>init_addr</strong></td>
+<td>[75, 51]</td>
+<td>25</td>
+<td>0</td>
+<td>Initial address</td>
+</tr>
+<tr>
+<td><strong>init_delay</strong></td>
+<td>[50, 45]</td>
+<td>6</td>
+<td>0</td>
+<td>initial delay</td>
+</tr>
+<tr>
+<td><strong>l1_iter</strong></td>
+<td>[44, 40]</td>
+<td>5</td>
+<td>0</td>
+<td>level-1 iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>l1_step</strong></td>
+<td>[39, 35]</td>
+<td>5</td>
+<td>1</td>
+<td>level-1 step</td>
+</tr>
+<tr>
+<td><strong>l1_delay</strong></td>
+<td>[34, 29]</td>
+<td>6</td>
+<td>0</td>
+<td>level-1 delay</td>
+</tr>
+<tr>
+<td><strong>mask</strong></td>
+<td>[28, 13]</td>
+<td>16</td>
+<td>0</td>
+<td>mask it to 1 if a word is not useful.</td>
+</tr>
+<tr>
+<td><strong>init_addr_sd</strong></td>
+<td>[12, 12]</td>
+<td>1</td>
+<td>0</td>
+<td>Is initial address static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>init_delay_sd</strong></td>
+<td>[11, 11]</td>
+<td>1</td>
+<td>0</td>
+<td>Is initial delay static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_iter_sd</strong></td>
+<td>[10, 10]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 iteration static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+<tr>
+<td><strong>l1_step_sd</strong></td>
+<td>[9, 9]</td>
+<td>1</td>
+<td>0</td>
+<td>Is level-1 step static or dynamic? [0]:s; [1]:d;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="perm">PERM</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[26, 23]</td>
+<td>4</td>
+<td>14</td>
+<td>Instruction code for SHUFFLE</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>[22, 20]</td>
+<td>3</td>
+<td>0</td>
+<td>Shuffle mode. [0]:left shift (zero-fill); [1]:right shift (zero-fill); [2]:left shift (same fill); [3]:right shift (same fill); [4]:left rotate; [5]:right rotate;</td>
+</tr>
+<tr>
+<td><strong>block</strong></td>
+<td>[19, 18]</td>
+<td>2</td>
+<td>0</td>
+<td>Sub-block in register file.</td>
+</tr>
+<tr>
+<td><strong>distance</strong></td>
+<td>[17, 2]</td>
+<td>16</td>
+<td>0</td>
+<td>shuffle distance.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -857,12 +2016,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
       
     
   </body>
