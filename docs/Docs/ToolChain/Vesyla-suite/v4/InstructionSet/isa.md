@@ -10,10 +10,10 @@ Instructions are 32-bit wide. The MSB indicates whether it's a control instructi
 
 ## Control Instructions
 
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 0 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
-instr_content | [27, 0] | 27 | 0 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
+Field | Position | Width | Description
+------|----------|-------|-------------------------
+instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
+instr_content | [27, 0] | 27 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
 
 ### 0000 HALT/RET
 
@@ -71,11 +71,11 @@ instr_code | [31, 28] | 4 | 5 | Instruction code for SWB
 
 ## Data Instructions
 
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 0 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
-slot | [27, 24] | 4 | 0 | The slot number.
-instr_content | [23, 0] | 24 | 0 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
+Field | Position | Width | Description
+------|----------|-------|-------------------------
+instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
+slot | [27, 24] | 4 | The slot number.
+instr_content | [23, 0] | 24 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
 
 Slot Type | Supported Instructions
 ------|-------------------------
@@ -97,7 +97,7 @@ instr_code | [31, 28] | 4 | 8 | Instruction code for SWB
 **iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
 **step** | [5, 0] | 6 | 0 | Level-1 iteration step.
 
-### 1001 SRAM
+### 1001 SRAM/IO
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -110,20 +110,7 @@ instr_code | [31, 28] | 4 | 9 | Instruction code for SRAM
 **iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
 **step** | [5, 0] | 6 | 0 | Level-1 iteration step.
 
-### 1010 IO
-
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 10 | Instruction code for IO
-**slot**  | [27, 24] | 4 | N/A | Slot number.
-**rw** | [22, 22] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**init_delay** | [22, 19] | 4 | 0 | Initial delay.
-**init_addr_sd** | [18, 18] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
-**init_addr** | [17, 12] | 6 | 0 | Initial address.
-**iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
-**step** | [5, 0] | 6 | 0 | Level-1 iteration step.
-
-### 1011 REP
+### 1010 REP
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -133,7 +120,7 @@ instr_code | [31, 28] | 4 | 11 | Instruction code for REP
 **extra_iter** | [21, 16] | 6 | 0 | iteration - 1.
 **extra_step** | [15, 10] | 6 | 0 | iteration step.
 
-### 1100 MASK
+### 1011 MASK
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -142,7 +129,7 @@ instr_code | [31, 28] | 4 | 12 | Instruction code for MASK
 **chunk** | [23, 21] | 3 | 0 | Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.
 **mask** | [20, 5] | 16 | 0 | The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.
 
-### 1101 DPU
+### 1100 DPU
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------

@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "platform": { "type": "string" },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "size": { "type": "integer" },
+          "word_input_port": { "type": "integer" },
+          "word_output_port": { "type": "integer" },
+          "bulk_input_port": { "type": "integer" },
+          "bulk_output_port": { "type": "integer" }
+        },
+        "required": [
+          "name",
+          "size",
+          "word_input_port",
+          "word_output_port",
+          "bulk_input_port",
+          "bulk_output_port"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "controllers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "size": { "type": "integer" },
+          "iram_size": { "type": "integer" },
+          "reg_bitwidth": { "type": "integer" }
+        },
+        "required": ["name", "size", "iram_size", "reg_bitwidth"]
+      },
+      "uniqueItems": true
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "controller": { "type": "string" },
+          "resource_list": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["name", "controller", "resource_list"]
+      },
+      "uniqueItems": true
+    },
+    "fabric": {
+      "type": "object",
+      "properties": {
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "cell_list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "row": { "type": "integer" },
+                    "col": { "type": "integer" }
+                  },
+                  "required": ["row", "col"]
+                },
+                "uniqueItems": true
+              },
+              "cell": { "type": "string" }
+            },
+            "required": ["coordinates", "cell"]
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  },
+  "required": ["platform", "resources", "controllers", "cells", "fabric"]
+}

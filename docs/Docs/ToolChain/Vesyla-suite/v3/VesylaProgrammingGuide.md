@@ -1,7 +1,7 @@
 # Vesyla Programming Guide (v3)
 
 !!! note
-    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [Vesyla Programming Guide v2](../VesylaProgrammingGuide_v2/).
+    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [Vesyla Programming Guide v2](../../v2/VesylaProgrammingGuide/).
 
 !!! note
     Vesyla-suite version 3 is under active development. Some of the features that exists on version 2 may not be available on version 3. We will update this page actively to reflect the changes.

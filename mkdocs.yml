@@ -28,18 +28,22 @@ nav:
           - Docs/ToolChain/Overview.md
           - Vesyla-suite:
               - Docs/ToolChain/Vesyla-suite/Overview.md
-              - Docs/ToolChain/Vesyla-suite/Installation.md
-              - Docs/ToolChain/Vesyla-suite/Tutorial_DRRA.md
-              - Docs/ToolChain/Vesyla-suite/Tutorial_DRRA_v2.md
-              - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide.md
-              - Docs/ToolChain/Vesyla-suite/VesylaProgrammingGuide_v2.md
-              - Docs/ToolChain/Vesyla-suite/ManasProgrammingGuide.md
-              - Docs/ToolChain/Vesyla-suite/InstructionSet.md
-              - Docs/ToolChain/Vesyla-suite/InstructionSet_v2.md
-              - Docs/ToolChain/Vesyla-suite/InstructionSet_v4.md
-              - Docs/ToolChain/Vesyla-suite/InstructionPhase.md
-              - Docs/ToolChain/Vesyla-suite/Tutorial_RISCV.md
-              - Docs/ToolChain/Vesyla-suite/RepoOrganization.md
+              - v2 (old):
+                  - Docs/ToolChain/Vesyla-suite/v2/Tutorial_DRRA.md
+                  - Docs/ToolChain/Vesyla-suite/v2/VesylaProgrammingGuide.md
+                  - Docs/ToolChain/Vesyla-suite/v2/InstructionSet.md
+              - v3 (current):
+                  - Docs/ToolChain/Vesyla-suite/v3/Installation.md
+                  - Docs/ToolChain/Vesyla-suite/v3/Tutorial_DRRA.md
+                  - Docs/ToolChain/Vesyla-suite/v3/VesylaProgrammingGuide.md
+                  - Docs/ToolChain/Vesyla-suite/v3/ManasProgrammingGuide.md
+                  - Docs/ToolChain/Vesyla-suite/v3/InstructionPhase.md
+                  - Docs/ToolChain/Vesyla-suite/v3/InstructionSet.md
+                  - Docs/ToolChain/Vesyla-suite/v3/Tutorial_RISCV.md
+                  - Docs/ToolChain/Vesyla-suite/v3/RepoOrganization.md
+              - v4 (future):
+                  - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
+
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md
   #     - Library:

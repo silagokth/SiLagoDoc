@@ -25,11 +25,11 @@ Now you should be able to access ``vesyla`` and ``manas`` command.
 
 ### Tutorial
 
-See [Turorial v2](../Tutorial_v2) for vesyla and manas version 2.
+See [Turorial v2](../v2/Tutorial_DRRA) for vesyla and manas version 2.
 
 ### Programming Guide
 
-See [Vesyla Programming Guide v2](../VesylaProgrammingGuide_v2)
+See [Vesyla Programming Guide v2](../v2/VesylaProgrammingGuide)
 
 ## Version 3
 
@@ -56,16 +56,16 @@ module load vesyla-suite/3
 
 #### Docker
 
-See [Installation](../Installation#create-and-use-docker-image)
+See [Installation](../v3/Installation#create-and-use-docker-image)
 
 #### Compile from Source
 
-See [Installation](../Installation#compile-and-install-from-source-code)
+See [Installation](../v3/Installation#compile-and-install-from-source-code)
 
 ### Tutorial
 
-See [DRRA-based AlImp Design Tutorial](../Tutorial_DRRA) and [RISCV-based AlImp Design Tutorial](../Tutorial_RISCV).
+See [DRRA-based AlImp Design Tutorial](../v3/Tutorial_DRRA) and [RISCV-based AlImp Design Tutorial](../v3/Tutorial_RISCV).
 
 ### Programming Guide
 
-See [Vesyla Programming Guide](../VesylaProgrammingGuide)
+See [Vesyla Programming Guide](../v3/VesylaProgrammingGuide)

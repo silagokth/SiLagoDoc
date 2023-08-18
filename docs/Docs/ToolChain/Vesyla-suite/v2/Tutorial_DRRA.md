@@ -1,7 +1,7 @@
 # DRRA-based AlImp Design Tutorial (v2)
 
 !!! note
-    This page is written for vesyla-suite **version 2**. It's deprecated and will be removed soon. You should only use it for old project such as DRRA characterization. For vesyla-suite version 3, please see [Tutorial](../Tutorial_DRRA).
+    This page is written for vesyla-suite **version 2**. It's deprecated and will be removed soon. You should only use it for old project such as DRRA characterization. For vesyla-suite version 3, please see [Tutorial](../../v3/Tutorial_DRRA).
 
 ## Introduction
 
@@ -9,7 +9,7 @@ Vesyla-suite provides two commands: vesyla and manas. Vesyla is used for compili
 
 ## Write the source code
 
-Please Check the [Vesyla Programming Guide v2](../VesylaProgrammingGuide_v2/).
+Please Check the [Vesyla Programming Guide v2](../../v3/VesylaProgrammingGuide_v2/).
 
 ## Compilation
 
