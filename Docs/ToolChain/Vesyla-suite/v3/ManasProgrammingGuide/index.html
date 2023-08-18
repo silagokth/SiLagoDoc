@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation of SiLago project">
+      
+      
+        <meta name="author" content="SiLago Team">
+      
+      
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v3/ManasProgrammingGuide/">
+      
+      
+        <link rel="prev" href="../VesylaProgrammingGuide/">
+      
+      
+        <link rel="next" href="../InstructionPhase/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Manas Programming Guide - SiLago Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manas-programming-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="SiLago Documentation" class="md-header__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SiLago Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manas Programming Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/silagokth/SiLagoDoc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    silagokth/SiLagoDoc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="SiLago Documentation" class="md-nav__button md-logo" aria-label="SiLago Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SiLago Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/silagokth/SiLagoDoc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    silagokth/SiLagoDoc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guidelines
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Guideline/Mkdocs-tutorial/" class="md-nav__link">
+        MkDocs Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Guideline/Style-guide-cpp/" class="md-nav__link">
+        C++ Style Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Guideline/Style-guide-VHDL/" class="md-nav__link">
+        Style guide for VHDL RTL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Guideline/Style-guide-Verilog/" class="md-nav__link">
+        Style guide for Verilog and SystemVerilog RTL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Tool Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tool Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Overview/" class="md-nav__link">
+        Toolchain for SiLago Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+          Vesyla-suite
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vesyla-suite
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/" class="md-nav__link">
+        Vesyla-suite Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_2_2" id="__nav_3_1_2_2_label" tabindex="0">
+          v2 (old)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          v2 (old)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../v2/Tutorial_DRRA/" class="md-nav__link">
+        DRRA-based AlImp Design Tutorial (v2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../v2/VesylaProgrammingGuide/" class="md-nav__link">
+        Vesyla Programming Guide (v2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../v2/InstructionSet/" class="md-nav__link">
+        Instruction Set (v2)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_2_3" id="__nav_3_1_2_3_label" tabindex="0">
+          v3 (current)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          v3 (current)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial_DRRA/" class="md-nav__link">
+        DRRA-based AlImp Design Tutorial (v3)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VesylaProgrammingGuide/" class="md-nav__link">
+        Vesyla Programming Guide (v3)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Manas Programming Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Manas Programming Guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-guide" class="md-nav__link">
+    General Guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-segment" class="md-nav__link">
+    DATA Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-segment" class="md-nav__link">
+    CODE Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-segment" class="md-nav__link">
+    RELATION Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-segment" class="md-nav__link">
+    DEPENDENCY Segment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstructionPhase/" class="md-nav__link">
+        Instruction Phase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstructionSet/" class="md-nav__link">
+        Instruction Set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial_RISCV/" class="md-nav__link">
+        RISCV-based AlImp Design Tutorial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RepoOrganization/" class="md-nav__link">
+        Repo Organization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_2_4" id="__nav_3_1_2_4_label" tabindex="0">
+          v4 (future)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          v4 (future)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../v4/InstructionSet/" class="md-nav__link">
+        Instruction Set V4 for DRRA-2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../About/About/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../About/License/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-guide" class="md-nav__link">
+    General Guide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-segment" class="md-nav__link">
+    DATA Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-segment" class="md-nav__link">
+    CODE Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relation-segment" class="md-nav__link">
+    RELATION Segment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-segment" class="md-nav__link">
+    DEPENDENCY Segment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="manas-programming-guide">Manas Programming Guide</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page is written for both vesyla-suite <strong>version 2</strong> and <strong>version 3</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This programming guide is intended to fine-grained control of Manas. We do not recommend you to use this guide unless you are familiar with the internal structure of Manas. For most cases, you can use the <a href="../VesylaProgrammingGuide">Vesyla Programming Guide</a> to generate inputs for Manas.</p>
+</div>
+<h2 id="basics">Basics</h2>
+<h3 id="general-guide">General Guide</h3>
+<p>Manas is an assembler for SiLago platform (DRRA+DiMArch). It accepts defination of instructions and their dependencies and generates a RTL testbench for simulation. Manas uses the scheduling engine of Vesyla to schedule these instructions based on user-defined dependencies.</p>
+<p>The input file of Manas is a plan text file with four segments:</p>
+<ul>
+<li>the DATA segment</li>
+<li>the CODE segment</li>
+<li>the RELATION segment</li>
+<li>the DEPENDENCY segment.</li>
+</ul>
+<h3 id="data-segment">DATA Segment</h3>
+<p>Data layout in DiMArch and Register Files are defined in DATA segment. A DATA segment starts with a segment identifier:</p>
+<div class="highlight"><pre><span></span><code>.DATA
+</code></pre></div>
+<p>A variable is defined by the following syntax:</p>
+<div class="highlight"><pre><span></span><code>VAR_NAME VAR_LOCATION VAR_TYPE ROW COL INIT_DATA
+</code></pre></div>
+<p>VAR_NAME: the name of a variable. It must start with the symbol <code>$</code>. It must be unique.</p>
+<p>VAR_LOCATION: the location of the varialbe, either DiMArch (VAR_LOCATION=1) or Register File (VAR_LOCATION=0).</p>
+<p>VAR_TYPE: the type of the variable, either integer (VAR_TYPE=0) or fixpoint(VAR_TYPE=1)</p>
+<p>ROW &amp; COL: The coordinate of the DiMArch or Register File.</p>
+<p>INIT_DATA: The initialization data of the variable. It also defines the variable size. The size must be multiple of 16 for DiMArch variables since each DiMArch row has 16 words. To initialize the variable, one can use any of the following method:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Example of variable initialization</p>
+<div class="highlight"><pre><span></span><code>$A 1 0 0 0 ONES(16)
+$B 1 0 0 0 ZEROS(16)
+$C 1 0 0 0 [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1]
+</code></pre></div>
+</div>
+<h3 id="code-segment">CODE Segment</h3>
+<p>Instructions are defined in CODE segment. A CODE segment starts with segment identifier:</p>
+<div class="highlight"><pre><span></span><code>.CODE
+</code></pre></div>
+<p>All statements after the CODE segment identifer and before any other segment identifier are considered part of the CODE segment.</p>
+<p>A code segment can include multiple sections leading by a cell location identifier:</p>
+<div class="highlight"><pre><span></span><code>CELL &lt;r, c&gt;
+</code></pre></div>
+<p>It defines the coordinate in terms of row (<code>r</code>) and column (<code>c</code>) of each instructions that follow it. It applies to all instructions until another cell location identifier or the end of the CODE segment.</p>
+<p>An instruction consists a instruction name and an argument list. They are seperated by space. All arguments should be integers unless specified otherwise. You can find all supported instructions in the <a href="../InstructionSet">Instruction Set</a>.</p>
+<p>Each instruction has multiple fields. Some fields are controllable which means one can set the value of that field through the assembly language. All the controllable fields are marked by <strong>bold text</strong> in the <a href="../InstructionSet">Instruction Set</a>.</p>
+<p>Each field in an instruction has a default value. In the Instruction Set page, the default value is explicitly written in the <strong>Range/Value</strong> section unless the default value is 0. While wring the Assebly language, you only need to set the field whoes expected value is not the default value.</p>
+<p>To write a instruction, use the following format:</p>
+<div class="highlight"><pre><span></span><code>LABEL INSTR_NAME NAME_0 = VALUE_0, NAME_1 = VALUE_1, ...
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>This is a example for code segment</p>
+<div class="highlight"><pre><span></span><code>.CODE
+CELL &lt;0,0&gt;
+&quot;label_0&quot; REFI port_no=2, init_addr=16
+&quot;label_1&quot; REFI port_no=0
+&quot;label_2&quot; DPU mode=10
+</code></pre></div>
+</div>
+<h3 id="relation-segment">RELATION Segment</h3>
+<p>Relation segment specifies the hierarchical structure of the mapping. The entire mapping is organized as a hierarichical graph. The outer most node is called <code>ROOT</code>. Inside the <code>ROOT</code> node, there are other nodes, such as loop node, branch node, and other normal instruction node.</p>
+<p>Each node represents either an hierarchical structure or an instruction phase. For example, a node can represent the whole loop structure and it contains all instructions and inner loops inside its children graph. Each instruction in the CODE segment can be divided into multiple instruction phases. Each phase marks a critical timing point when the instruction changes behavior. For example, a <code>REFI</code> instruction has four phases: FETCH, ISSUE, ACTIVE, and END. The name of the node that represents an instruction phase is to combine the instruction label and the phase index. For example, if a <code>REFI</code> instruction has a label called <code>instr_refi_0</code>, then the FETCH phase will be mapped to the node named as <code>instr_refi_0_0</code> since the FETCH phase is the first phase of the REFI instruction. See <a href="../InstructionPhase">Instruction Phase</a></p>
+<p>Each relation record in the RELATION segment specifies the children of one hierarchical node. The format is:</p>
+<div class="highlight"><pre><span></span><code>&quot;NODE_NAME&quot; 1 IS_BULK [NODE0_IN_CHILD0, NODE1_IN_CHILD0, ...] [NODE0_IN_CHILD1, NODE1_IN_CHILD1, ...] EXPAND_LOOP
+</code></pre></div>
+<p>The NODE_NAME can be any string, it's the name of the hierarchical node. The second parameter is deprecated, it's always 1. The third parameter IS_BULK specifies whether this node should be treated as bulk node. A bulk node does not allow overlap with other nodes. The array of child0 and child1 are used to specify the children node in the 0<sup>th</sup> and 1th child graph. All hierarchical node other than IF-ELSE branch has only child0. The brach node has two children, child0 is the true branch, and child1 is the false branch. The last parameter is the EXPAND_LOOP. It's a flag to suggest the assembler to do cross-iteration software pipelining.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The IS_BULK and EXPAND_LOOP are very confusing in manas. We will modify manas to make it more clear. Right now, all nodes other than loop should set both parameters to 0. For most inner loop, you should let IS_BULK=0 and EXPAND_LOOP=1. For other loops, set IS_BULK=1 and EXPAND_LOOP=1.</p>
+</div>
+<p>When write node names in child graph array, you can use regular expression to include a group of nodes. For example, <code>instr_refi_0_.*</code> will include all the phases of the instruction named as "instr_refi_0".</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>This is a example for relation segment</p>
+<div class="highlight"><pre><span></span><code>.CODE
+CELL &lt;0,0&gt;
+&quot;instr0&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0, select_drra_row=0
+&quot;instr1&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=2, send_to_other_row=0, v_index=2
+&quot;instr2&quot; SWB src_row=0, src_block=0, src_port=0, hb_index=3, send_to_other_row=0, v_index=3
+&quot;instr3&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, send_to_other_row=0, v_index=4
+&quot;instr4&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=3, send_to_other_row=0, v_index=5
+&quot;instr5&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr6&quot; LOOP loopid=1, iter=3, step=2
+&quot;instr7&quot; RACCU mode=1, operand1_sd=1, operand1=14, operand2_sd=1, operand2=15, result=0 
+&quot;instr8&quot; SRAM rw=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, init_addr_sd=1, hops=0
+&quot;instr9&quot; REFI port_no=0, extra=2, init_addr_sd=0, init_addr=0, l1_iter=3, l1_step=1, l1_delay=0, dimarch=1
+&quot;instr10&quot; REFI port_no=2, extra=2, init_addr=0,  l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1 
+&quot;instr11&quot; REFI port_no=3, extra=2, init_addr=32, l1_iter=3, l1_step=1, l2_delay=2, l2_iter=28, l2_step=1
+&quot;instr12&quot; LOOP loopid=2, iter=29, step=1
+&quot;instr13&quot; DPU mode=10, control=2
+
+CELL &lt;0,1&gt;
+&quot;instr14&quot; DPU mode=1, control=2 
+&quot;instr15&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
+&quot;instr16&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=2 
+&quot;instr17&quot; SWB src_row=0, src_block=1, src_port=1, hb_index=1, v_index=3
+&quot;instr18&quot; SRAM l1_iter=1, l1_step=1, l1_delay=0, l2_iter=1, l2_step=2, l2_delay=0, hops=0
+&quot;instr19&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
+&quot;instr20&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr21&quot; LOOP extra=0, loopid=1, iter=3, step=2
+&quot;instr22&quot; REFI port_no=2, extra=2, init_addr= 0, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
+&quot;instr23&quot; REFI port_no=3, extra=2, init_addr=16, l1_iter=3, l1_step=1, l2_iter=28, l2_delay=2, l2_step=0 
+&quot;instr24&quot; LOOP loopid=2, iter=29, step=1
+
+CELL &lt;0,2&gt;
+&quot;instr25&quot; DPU mode=1, control=2 
+&quot;instr26&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=0
+&quot;instr27&quot; ROUTE horizontal_dir=0, horizontal_hops=0, vertical_dir=1, vertical_hops=1, direction=1 
+&quot;instr28&quot; SWB src_row=0, src_block=0, src_port=1, hb_index=2, v_index=2
+&quot;instr29&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=2, v_index=1
+&quot;instr30&quot; SWB src_row=0, src_block=1, src_port=0, hb_index=1, v_index=3
+&quot;instr31&quot; LOOP extra=1, loopid=0, iter=2, step=4
+&quot;instr32&quot; REFI port_no=3, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
+&quot;instr33&quot; REFI port_no=1, extra=2, l1_step=1, l1_iter=28, l1_delay=5, l2_iter=2, l2_delay=25, l2_step=0
+&quot;instr34&quot; LOOP extra=0, loopid=1, iter=3, step=2
+&quot;instr35&quot; SRAM rw=0, l1_iter=1, l1_step=1, l1_delay=0, hops=0, init_addr_sd=d, init_addr=14
+&quot;instr36&quot; REFI port_no=0, extra=2, l1_iter=1, l1_step=1, dimarch=1
+&quot;instr37&quot; LOOP loopid=2, iter=29, step=1
+&quot;instr38&quot; SRAM rw=1, l1_iter=1, l1_step=1, l1_delay=0, hops= 0, init_addr_sd=d, init_addr=14
+&quot;instr39&quot; REFI port_no=2, extra=2, l1_iter=1, l1_step=1, dimarch=1
+
+.RELATION
+&quot;ROOT&quot; 1 0 [&quot;LOOP0&quot;,&quot;Op_0_0_0_1&quot;, &quot;Op_0_0_0_2&quot;, &quot;Op_0_0_1_1&quot;, &quot;Op_0_0_1_2&quot;, &quot;Op_0_0_2_1&quot;,&quot;Op_0_0_2_2&quot;, &quot;Op_0_0_3_1&quot;, &quot;Op_0_0_3_2&quot;, &quot;Op_0_0_4_1&quot;, &quot;Op_0_0_4_2&quot;,&quot;Op_0_1_0_1&quot;, &quot;Op_0_1_0_2&quot;, &quot;Op_0_1_0_3&quot;, &quot;Op_0_1_1_1&quot;, &quot;Op_0_1_1_2&quot;,&quot;Op_0_1_2_1&quot;, &quot;Op_0_1_2_2&quot;, &quot;Op_0_1_3_1&quot;, &quot;Op_0_1_3_2&quot;, &quot;Op_0_1_4_1&quot;, &quot;Op_0_1_4_2&quot;, &quot;Op_0_1_5_1&quot;,&quot;Op_0_2_0_1&quot;, &quot;Op_0_2_0_2&quot;, &quot;Op_0_2_0_3&quot;, &quot;Op_0_2_1_1&quot;, &quot;Op_0_2_1_2&quot;,&quot;Op_0_2_2_1&quot;, &quot;Op_0_2_2_2&quot;, &quot;Op_0_2_3_1&quot;, &quot;Op_0_2_3_2&quot;, &quot;Op_0_2_4_1&quot;, &quot;Op_0_2_4_2&quot;,&quot;Op_0_2_5_1&quot;, &quot;Op_0_2_5_2&quot;] [] 0
+
+&quot;LOOP0&quot; 1 1 [&quot;LOOP0_BODY&quot;,&quot;Op_0_0_5_1&quot;,&quot;Op_0_1_6_1&quot;,&quot;Op_0_2_6_1&quot;] [] 1
+
+&quot;LOOP0_BODY&quot; 1 0 [&quot;LOOP1&quot;,&quot;Op_0_1_4_3&quot;, &quot;Op_0_1_4_4&quot;, &quot;Op_0_1_5_2&quot;, &quot;Op_0_1_5_3&quot;,&quot;Op_0_2_7_1&quot;,&quot;Op_0_2_8_1&quot;] [] 0
+
+&quot;LOOP1&quot; 1 1 [&quot;LOOP1_BODY&quot;,&quot;Op_0_0_6_1&quot;,&quot;Op_0_1_7_1&quot;,&quot;Op_0_2_9_1&quot;] [] 1
+
+&quot;LOOP1_BODY&quot; 1 0 [&quot;LOOP2&quot;,&quot;Op_0_0_7_1&quot;, &quot;Op_0_0_8_1&quot;, &quot;Op_0_0_8_2&quot;, &quot;Op_0_0_8_3&quot;, &quot;Op_0_0_8_4&quot;, &quot;Op_0_0_10_1&quot;, &quot;Op_0_0_11_1&quot;,&quot;Op_0_0_9_1&quot;, &quot;Op_0_0_9_2&quot;, &quot;Op_0_0_9_3&quot;,&quot;Op_0_1_8_1&quot;, &quot;Op_0_1_9_1&quot;, &quot;Op_0_2_10_1&quot;, &quot;Op_0_2_10_2&quot;, &quot;Op_0_2_10_3&quot;, &quot;Op_0_2_10_4&quot;,&quot;Op_0_2_11_1&quot;,&quot;Op_0_2_11_2&quot;, &quot;Op_0_2_11_3&quot;,&quot;Op_0_2_13_1&quot;,&quot;Op_0_2_13_2&quot;,&quot;Op_0_2_13_3&quot;, &quot;Op_0_2_13_4&quot;, &quot;Op_0_2_14_1&quot;, &quot;Op_0_2_14_2&quot;,&quot;Op_0_2_14_3&quot;] [] 0
+
+&quot;LOOP2&quot; 1 0 [&quot;LOOP2_BODY&quot;, &quot;Op_0_0_12_1&quot;,&quot;Op_0_1_10_1&quot;, &quot;Op_0_2_12_1&quot;] [] 1
+
+&quot;LOOP2_BODY&quot; 1 0 [&quot;Op_0_0_13_1&quot;, &quot;Op_0_0_13_2&quot;, &quot;Op_0_0_13_3&quot;, &quot;Op_0_0_10_2&quot;, &quot;Op_0_0_10_3&quot;, &quot;Op_0_0_11_2&quot;,&quot;Op_0_0_11_3&quot;, &quot;Op_0_1_8_2&quot;, &quot;Op_0_1_8_3&quot;,  &quot;Op_0_1_9_2&quot;, &quot;Op_0_1_9_3&quot;,&quot;Op_0_2_7_2&quot;,&quot;Op_0_2_7_3&quot;, &quot;Op_0_2_8_2&quot;,&quot;Op_0_2_8_3&quot;] [] 0
+</code></pre></div>
+</div>
+<h3 id="dependency-segment">DEPENDENCY Segment</h3>
+<p>Dependencies among instructions are defined in dependency segment. A dependency segment starts with segment identifier:</p>
+<div class="highlight"><pre><span></span><code>.DEPENDENCY
+</code></pre></div>
+<p>Each instruction of DRRA has 5 phases: FETCH, ISSUE, ARRIVE, ACTIVE, END. They are represented by number: 1 to 5 respectively.</p>
+<p>User can define dependencies among instruction phases. These dependencies will guide the scheduler to order instructions properly. Each phase corresponds to a vertex in the dependency graph. You should know the naming convension when reference those phases. For example, the 2<sup>nd</sup> phase of the 1<sup>st</sup> instruction in cell &lt;3,5&gt; will be mapped to a vertex called <strong>Op_3_5_0_2</strong>.</p>
+<p>A dependency is defined by four fields:</p>
+<ul>
+<li>SRC : the source vertex name.</li>
+<li>DEST: the destination vertex name.</li>
+<li>D_LO: the lower bound of distance.</li>
+<li>D_HI: the higher bound of distance.</li>
+</ul>
+<p>The format is:</p>
+<div class="highlight"><pre><span></span><code>SRC DEST D_LO D_HI
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>This is a example for dependency segment</p>
+<div class="highlight"><pre><span></span><code>.DEPENDENCY
+&quot;0_0_0_0&quot; &quot;0_0_1_1&quot; 1 +INF
+&quot;0_0_1_1&quot; &quot;0_0_1_3&quot; 0 +INF
+&quot;1_0_1_1&quot; &quot;1_0_1_1&quot; 2 5
+</code></pre></div>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
+    
+  </body>
+</html>
