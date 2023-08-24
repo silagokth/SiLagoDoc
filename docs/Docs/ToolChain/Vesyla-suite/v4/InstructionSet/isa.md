@@ -125,10 +125,10 @@ Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 11 | Instruction code for REP
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**level** | [23, 22] | 2 | 0 | The level of the REP instruction. [0]: level-1; [1]: level-2; [2]: level-3; [3]: level-4;
-**extra_iter** | [21, 16] | 6 | 0 | iteration - 1.
-**extra_step** | [15, 10] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.
-**delay** | [9, 0] | 10 | 0 | Repetition delay.
+**level** | [23, 20] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
+**extra_iter** | [19, 14] | 6 | 0 | iteration - 1.
+**extra_step** | [13, 8] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.
+**delay** | [7, 0] | 8 | 0 | Repetition delay.
 
 ### 1011 MASK
 
