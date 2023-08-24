@@ -1513,7 +1513,7 @@
 </tr>
 <tr>
 <td>DPU</td>
-<td>DPU</td>
+<td>DPU, REP</td>
 </tr>
 </tbody>
 </table>
@@ -1702,7 +1702,14 @@
 <td>[15, 10]</td>
 <td>6</td>
 <td>0</td>
-<td>iteration step.</td>
+<td>iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.</td>
+</tr>
+<tr>
+<td><strong>delay</strong></td>
+<td>[9, 0]</td>
+<td>10</td>
+<td>0</td>
+<td>Repetition delay.</td>
 </tr>
 </tbody>
 </table>
