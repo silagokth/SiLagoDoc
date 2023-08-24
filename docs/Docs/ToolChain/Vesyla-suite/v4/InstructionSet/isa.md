@@ -69,6 +69,15 @@ instr_code | [31, 28] | 4 | 5 | Instruction code for SWB
 **source** | [23, 20] | 4 | 0 | Source slot.
 **target** | [19, 16] | 4 | 0 | Target slot
 
+### 0110 ROUTE
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 5 | Instruction code for SWB
+**sr**     | [27, 27] | 1 | 0 | Send or receive. [0]: send; [1]: receive;
+**direction** | [26, 23] | 4 | 0 | 1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.
+**slot** | [22, 7] | 16 | 0 | 1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.
+
 ## Data Instructions
 
 Field | Position | Width | Description
