@@ -1685,29 +1685,29 @@
 </tr>
 <tr>
 <td><strong>level</strong></td>
-<td>[23, 22]</td>
-<td>2</td>
+<td>[23, 20]</td>
+<td>4</td>
 <td>0</td>
-<td>The level of the REP instruction. [0]: level-1; [1]: level-2; [2]: level-3; [3]: level-4;</td>
+<td>The level of the REP instruction. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 <tr>
 <td><strong>extra_iter</strong></td>
-<td>[21, 16]</td>
+<td>[19, 14]</td>
 <td>6</td>
 <td>0</td>
 <td>iteration - 1.</td>
 </tr>
 <tr>
 <td><strong>extra_step</strong></td>
-<td>[15, 10]</td>
+<td>[13, 8]</td>
 <td>6</td>
 <td>0</td>
 <td>iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.</td>
 </tr>
 <tr>
 <td><strong>delay</strong></td>
-<td>[9, 0]</td>
-<td>10</td>
+<td>[7, 0]</td>
+<td>8</td>
 <td>0</td>
 <td>Repetition delay.</td>
 </tr>
