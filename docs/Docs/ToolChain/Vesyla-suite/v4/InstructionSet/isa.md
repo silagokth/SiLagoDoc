@@ -91,7 +91,7 @@ Slot Type | Supported Instructions
 Register File | MASK REFI, SRAM, REP
 SRAM Block | MASK, SRAM, REP
 IO Block | MASK, IO, REP
-DPU | DPU
+DPU | DPU, REP
 
 ### 1000 REFI
 
