@@ -59,6 +59,7 @@ Field | Position | Width | Default Value | Description
 instr_code | [31, 28] | 4 | 4 | Instruction code for BRN
 **mode** | [27, 25] | 3 | 0 | The branch mode: [0]: always; [1]: equal; [2]: not_equal; [3]: greater; [4]: less; [5]: greater_equal; [6]: less_equal;
 **pc** | [24, 18] | 7 | 0 | The PC to jump to in case the condition is true. The PC is relative to the current PC.
+**slot** | [17, 14] | 4 | 0 | The slot that will provide the flags.
 
 ### 0101 SWB
 
@@ -99,10 +100,10 @@ Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 8 | Instruction code for SWB
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**rw** | [23, 23] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**init_delay** | [22, 19] | 4 | 0 | Initial delay.
-**init_addr_sd** | [18, 18] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
-**init_addr** | [17, 12] | 6 | 0 | Initial address.
+**init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
+**init_addr** | [22, 17] | 6 | 0 | Initial address.
+**rw** | [16, 16] | 1 | 0 | Read or Write. [0]:r; [1]:w;
+**init_delay** | [15, 12] | 4 | 0 | Initial delay.
 **iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
 **step** | [5, 0] | 6 | 0 | Level-1 iteration step.
 
@@ -112,10 +113,10 @@ Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 9 | Instruction code for SRAM
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**rw** | [23, 23] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**init_delay** | [22, 19] | 4 | 0 | Initial delay.
-**init_addr_sd** | [18, 18] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
-**init_addr** | [17, 12] | 6 | 0 | Initial address.
+**init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
+**init_addr** | [22, 17] | 6 | 0 | Initial address.
+**rw** | [16, 16] | 1 | 0 | Read or Write. [0]:r; [1]:w;
+**init_delay** | [15, 12] | 4 | 0 | Initial delay.
 **iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
 **step** | [5, 0] | 6 | 0 | Level-1 iteration step.
 

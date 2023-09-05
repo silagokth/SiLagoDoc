@@ -42,6 +42,7 @@ nav:
                   - Docs/ToolChain/Vesyla-suite/v3/Tutorial_RISCV.md
                   - Docs/ToolChain/Vesyla-suite/v3/RepoOrganization.md
               - v4 (future):
+                  - Docs/ToolChain/Vesyla-suite/v4/Architecture.md
                   - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
 
   #       - Sylva:
