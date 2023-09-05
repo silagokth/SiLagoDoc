@@ -12,13 +12,13 @@
         <meta name="author" content="SiLago Team">
       
       
-        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v2/Tutorial_DRRA/">
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/Architecture/">
       
       
-        <link rel="prev" href="../../Overview/">
+        <link rel="prev" href="../../v3/RepoOrganization/">
       
       
-        <link rel="next" href="../VesylaProgrammingGuide/">
+        <link rel="next" href="../InstructionSet/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>DRRA-based AlImp Design Tutorial (v2) - SiLago Documentation</title>
+        <title>Architecture Description - SiLago Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drra-based-alimp-design-tutorial-v2" class="md-skip">
+        <a href="#architecture-description" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DRRA-based AlImp Design Tutorial (v2)
+              Architecture Description
             
           </span>
         </div>
@@ -514,19 +514,17 @@
                 
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_2" >
         
           <label class="md-nav__link" for="__nav_3_1_2_2" id="__nav_3_1_2_2_label" tabindex="0">
             
@@ -539,7 +537,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1_2_2">
             <span class="md-nav__icon md-icon"></span>
             v2 (old)
@@ -550,29 +548,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    DRRA-based AlImp Design Tutorial (v2)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../v2/Tutorial_DRRA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,54 +559,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#write-the-source-code" class="md-nav__link">
-    Write the source code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compilation" class="md-nav__link">
-    Compilation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rtl-simulation" class="md-nav__link">
-    RTL simulation
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -640,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VesylaProgrammingGuide/" class="md-nav__link">
+      <a href="../../v2/VesylaProgrammingGuide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -660,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../InstructionSet/" class="md-nav__link">
+      <a href="../../v2/InstructionSet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,17 +818,19 @@
                 
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2_4" checked>
         
           <label class="md-nav__link" for="__nav_3_1_2_4" id="__nav_3_1_2_4_label" tabindex="0">
             
@@ -911,7 +843,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1_2_4">
             <span class="md-nav__icon md-icon"></span>
             v4 (future)
@@ -922,9 +854,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../v4/Architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Architecture Description
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -933,6 +885,74 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-concepts" class="md-nav__link">
+    Main Concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Main Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    Controllers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cells" class="md-nav__link">
+    Cells
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric" class="md-nav__link">
+    Fabric
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    JSON Schema
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -944,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../v4/InstructionSet/" class="md-nav__link">
+      <a href="../InstructionSet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1097,29 +1117,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#main-concepts" class="md-nav__link">
+    Main Concepts
   </a>
+  
+    <nav class="md-nav" aria-label="Main Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    Controllers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cells" class="md-nav__link">
+    Cells
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric" class="md-nav__link">
+    Fabric
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#write-the-source-code" class="md-nav__link">
-    Write the source code
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compilation" class="md-nav__link">
-    Compilation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rtl-simulation" class="md-nav__link">
-    RTL simulation
+  <a href="#json-schema" class="md-nav__link">
+    JSON Schema
   </a>
   
 </li>
@@ -1142,29 +1182,115 @@
   
 
 
-<h1 id="drra-based-alimp-design-tutorial-v2">DRRA-based AlImp Design Tutorial (v2)</h1>
+<h1 id="architecture-description">Architecture Description</h1>
+<h2 id="main-concepts">Main Concepts</h2>
+<h3 id="resources">Resources</h3>
+<p>Resources are the basic building blocks for implement vector processing. Typical resources include register files, SRAMs, IOs, and DPUs. Each resource can occupy a number of slots. The interconnection interface attached on each resource is standardized. They can be either word level or bulk level. Word level interface is used for intra-cell communication, while bulk level interface is used for inter-cell communication.</p>
+<p>A slot is the basic "place-holder" for a resource. It can be either occupied or unoccupied. Each slot contains a instruction decoder, a function implementation space, a word-level input port, a word-level output port, a bulk-level input port and a bulk-level output port.</p>
+<p>A resource can occupy one or more continuous slots. The number of slots occupied by a resource is called the resource size. The resource size is determined by several factors, including the number of input/output ports, the complexity of the function logic, etc.</p>
+<h3 id="controllers">Controllers</h3>
+<p>A controller is the building block that manages the resources in a cell. It issues instructions into the slots of the resources. The controller can have many flavors, varying its instruction memory size, maximum slot number, RACCU register width, etc.</p>
+<h3 id="cells">Cells</h3>
+<p>Each cell consists of a controller and one or more resources. The controller manages the resources in the cell. The resources can be either homogeneous or heterogeneous. Only bulk-level interface is visible between cells.</p>
+<h3 id="fabric">Fabric</h3>
+<p>The fabric is the collection of cells. The cells are connected together using bulk-level interface. The fabric can be either homogeneous or heterogeneous. The cells in a fabric is arranged in a 2-D mesh style.</p>
+<h2 id="json-schema">JSON Schema</h2>
+<p>The architecture description file uses <em>json</em> format and validated by the following json schema:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;word_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;word_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;bulk_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;bulk_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;size&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;word_input_port&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;word_output_port&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;bulk_input_port&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;bulk_output_port&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;controllers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;iram_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;reg_bitwidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;size&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;iram_size&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;reg_bitwidth&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;resource_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;controller&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;resource_list&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;fabric&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;cell_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;row&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                    </span><span class="nt">&quot;col&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                  </span><span class="p">},</span>
+<span class="w">                  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;row&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;col&quot;</span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">              </span><span class="p">},</span>
+<span class="w">              </span><span class="nt">&quot;cell&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cell&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;uniqueItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;resources&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;controllers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cells&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fabric&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This page is written for vesyla-suite <strong>version 2</strong>. It's deprecated and will be removed soon. You should only use it for old project such as DRRA characterization. For vesyla-suite version 3, please see <a href="../../v3/Tutorial_DRRA">Tutorial</a>.</p>
+<p>You can validate a architecture description json file using this schema on <a href="https://www.jsonschemavalidator.net/">Json Schema Validator</a>.</p>
 </div>
-<h2 id="introduction">Introduction</h2>
-<p>Vesyla-suite provides two commands: vesyla and manas. Vesyla is used for compiling Matlab code to DRRA and DiMArch based SiLago fabric. Manas is used for instruction scheduling and generating RTL simulation environment.</p>
-<h2 id="write-the-source-code">Write the source code</h2>
-<p>Please Check the <a href="../../v3/VesylaProgrammingGuide_v2/">Vesyla Programming Guide v2</a>.</p>
-<h2 id="compilation">Compilation</h2>
-<p>To compile a program that is purely matlab script by using Vesyla and Manas, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">vesyla</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="nv">$PathToMatlabFile</span>
-<span class="nv">manas</span><span class="w"> </span><span class="o">-</span>o<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="w"> </span><span class="o">-</span>t<span class="w"> </span>json<span class="w"> </span><span class="nv">$PathToOutputDirectory</span><span class="o">/</span>filegen
-</code></pre></div>
-<h2 id="rtl-simulation">RTL simulation</h2>
-<p>Vesyla also generates environment for RTL simulation. It's in <em>$OUTPUT/filegen/sim_vsim</em>. However, you can't directly simulate it under QuestaSim because you need to specify the path to the DRRA+DiMArch fabric.</p>
-<p>To specify the path to the fabric, use the command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">export</span><span class="w"> </span>FABRIC_PATH<span class="err">=</span><span class="nv">$PathToFabric</span>
-</code></pre></div>
-<p>Then, you can use Questasim to run the simulation script genereated by Vesyla:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$OUTPUT</span><span class="o">/</span>filegen<span class="o">/</span>
-<span class="nv">vsim</span><span class="w"> </span><span class="o">-</span>c<span class="w"> </span><span class="o">-</span>do<span class="w"> </span>run_gui.do
-</code></pre></div>
 
 
 

@@ -15,22 +15,22 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/InstructionSet/">
       
       
-        <link rel="prev" href="../../v3/RepoOrganization/">
+        <link rel="prev" href="../Architecture/">
       
       
         <link rel="next" href="../../../../../About/About/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
-        <title>Instruction Set V4 for DRRA-2 - SiLago Documentation</title>
+        <title>Instruction Set V4 - SiLago Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.046329b4.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instruction-set-v4-for-drra-2" class="md-skip">
+        <a href="#instruction-set-v4" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Instruction Set V4 for DRRA-2
+              Instruction Set V4
             
           </span>
         </div>
@@ -854,6 +854,26 @@
                 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -869,7 +889,7 @@
           
   
   <span class="md-ellipsis">
-    Instruction Set V4 for DRRA-2
+    Instruction Set V4
   </span>
   
 
@@ -880,7 +900,7 @@
         
   
   <span class="md-ellipsis">
-    Instruction Set V4 for DRRA-2
+    Instruction Set V4
   </span>
   
 
@@ -1300,7 +1320,7 @@
   
 
 
-<h1 id="instruction-set-v4-for-drra-2">Instruction Set V4 for DRRA-2</h1>
+<h1 id="instruction-set-v4">Instruction Set V4</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.</p>
@@ -1544,6 +1564,13 @@
 <td>0</td>
 <td>The PC to jump to in case the condition is true. The PC is relative to the current PC.</td>
 </tr>
+<tr>
+<td><strong>slot</strong></td>
+<td>[17, 14]</td>
+<td>4</td>
+<td>0</td>
+<td>The slot that will provide the flags.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="0101-swb">0101 SWB</h3>
@@ -1714,32 +1741,32 @@
 <td>Slot number.</td>
 </tr>
 <tr>
-<td><strong>rw</strong></td>
-<td>[23, 23]</td>
-<td>1</td>
-<td>0</td>
-<td>Read or Write. [0]:r; [1]:w;</td>
-</tr>
-<tr>
-<td><strong>init_delay</strong></td>
-<td>[22, 19]</td>
-<td>4</td>
-<td>0</td>
-<td>Initial delay.</td>
-</tr>
-<tr>
 <td><strong>init_addr_sd</strong></td>
-<td>[18, 18]</td>
+<td>[23, 23]</td>
 <td>1</td>
 <td>0</td>
 <td>Is init_addr static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
-<td>[17, 12]</td>
+<td>[22, 17]</td>
 <td>6</td>
 <td>0</td>
 <td>Initial address.</td>
+</tr>
+<tr>
+<td><strong>rw</strong></td>
+<td>[16, 16]</td>
+<td>1</td>
+<td>0</td>
+<td>Read or Write. [0]:r; [1]:w;</td>
+</tr>
+<tr>
+<td><strong>init_delay</strong></td>
+<td>[15, 12]</td>
+<td>4</td>
+<td>0</td>
+<td>Initial delay.</td>
 </tr>
 <tr>
 <td><strong>iter</strong></td>
@@ -1784,32 +1811,32 @@
 <td>Slot number.</td>
 </tr>
 <tr>
-<td><strong>rw</strong></td>
-<td>[23, 23]</td>
-<td>1</td>
-<td>0</td>
-<td>Read or Write. [0]:r; [1]:w;</td>
-</tr>
-<tr>
-<td><strong>init_delay</strong></td>
-<td>[22, 19]</td>
-<td>4</td>
-<td>0</td>
-<td>Initial delay.</td>
-</tr>
-<tr>
 <td><strong>init_addr_sd</strong></td>
-<td>[18, 18]</td>
+<td>[23, 23]</td>
 <td>1</td>
 <td>0</td>
 <td>Is init_addr static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
-<td>[17, 12]</td>
+<td>[22, 17]</td>
 <td>6</td>
 <td>0</td>
 <td>Initial address.</td>
+</tr>
+<tr>
+<td><strong>rw</strong></td>
+<td>[16, 16]</td>
+<td>1</td>
+<td>0</td>
+<td>Read or Write. [0]:r; [1]:w;</td>
+</tr>
+<tr>
+<td><strong>init_delay</strong></td>
+<td>[15, 12]</td>
+<td>4</td>
+<td>0</td>
+<td>Initial delay.</td>
 </tr>
 <tr>
 <td><strong>iter</strong></td>
@@ -2014,7 +2041,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

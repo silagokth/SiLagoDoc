@@ -1,40 +1,223 @@
 {
-  "platform": "SiLago 1",
-  "instr_bitwidth": 27,
+  "platform": "DRRA-2",
+  "instr_bitwidth": 32,
   "instr_code_bitwidth": 4,
   "instruction_templates": [
     {
       "code": 0,
-      "name": "HALT",
+      "name": "RET",
       "phase": 1,
       "max_chunk": 1,
       "segment_templates": []
     },
     {
       "code": 1,
-      "name": "REFI",
-      "phase": 4,
-      "max_chunk": 3,
+      "name": "WAIT",
+      "phase": 2,
+      "max_chunk": 1,
       "segment_templates": [
         {
-          "name": "port_no",
-          "comment": "Selects one of the RFile port.",
-          "bitwidth": 2,
+          "name": "cycle",
+          "comment": "Number of cycles - 1",
+          "bitwidth": 28
+        }
+      ]
+    },
+    {
+      "code": 2,
+      "name": "CALC",
+      "phase": 1,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "mode",
+          "comment": "Calculation mode",
+          "bitwidth": 5,
           "verbo_map": [
-            { "key": 0, "val": "w0" },
-            { "key": 1, "val": "w1" },
-            { "key": 2, "val": "r0" },
-            { "key": 3, "val": "r1" }
+            { "key": 0, "val": "idle" },
+            { "key": 1, "val": "add" },
+            { "key": 2, "val": "sub" },
+            { "key": 3, "val": "shift_r" },
+            { "key": 4, "val": "shift_l" },
+            { "key": 5, "val": "mult" },
+            { "key": 6, "val": "div" },
+            { "key": 7, "val": "mod" }
           ]
         },
         {
-          "name": "extra",
-          "comment": "How many following chunks?",
+          "name": "operand1_sd",
+          "comment": "Is the first operand static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "operand1",
+          "comment": "First operand.",
+          "bitwidth": 9
+        },
+        {
+          "name": "operand2_sd",
+          "comment": "Is the second operand static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "operand2",
+          "comment": "Second operand.",
+          "bitwidth": 9
+        },
+        {
+          "name": "result",
+          "comment": "The RACCU register to store the result.",
+          "bitwidth": 4
+        }
+      ]
+    },
+    {
+      "code": 3,
+      "name": "LOOP",
+      "phase": 1,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "loopid",
+          "comment": "The id of the loop manager slot.",
           "bitwidth": 2
         },
         {
+          "name": "endpc",
+          "comment": "The PC where loop ends.",
+          "bitwidth": 7
+        },
+        {
+          "name": "start_sd",
+          "comment": "Is the start static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "start",
+          "comment": "The start of iterator.",
+          "bitwidth": 6
+        },
+        {
+          "name": "iter",
+          "comment": "The number of iteration.",
+          "bitwidth": 6
+        },
+        {
+          "name": "step",
+          "comment": "The iteration step.",
+          "bitwidth": 6,
+          "default_val": 1
+        }
+      ]
+    },
+    {
+      "code": 4,
+      "name": "BRN",
+      "phase": 1,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "mode",
+          "comment": "The branch mode",
+          "bitwidth": 2,
+          "verbo_map": [
+            { "key": 0, "val": "always" },
+            { "key": 1, "val": "equal" },
+            { "key": 2, "val": "not_equal" },
+            { "key": 3, "val": "greater" },
+            { "key": 4, "val": "less" },
+            { "key": 5, "val": "greater_equal" },
+            { "key": 6, "val": "less_equal" }
+          ]
+        },
+        {
+          "name": "pc",
+          "comment": "The PC to jump to in case the condition is true. The PC is relative to the current PC.",
+          "bitwidth": 7
+        },
+        {
+          "name": "slot",
+          "comment": "The slot that will provide the flags.",
+          "bitwidth": 4
+        }
+      ]
+    },
+    {
+      "code": 5,
+      "name": "SWB",
+      "phase": 3,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "channel",
+          "comment": "Bus channel. Note: if the SWB is implemented by a crossbar, the channel is always equals to the target slot.",
+          "bitwidth": 4
+        },
+        {
+          "name": "source",
+          "comment": "Source slot.",
+          "bitwidth": 4
+        },
+        {
+          "name": "target",
+          "comment": "Target slot.",
+          "bitwidth": 4
+        }
+      ]
+    },
+    {
+      "code": 6,
+      "name": "ROUTE",
+      "phase": 3,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "sr",
+          "comment": "Send or receive.",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "send" },
+            { "key": 1, "val": "receive" }
+          ]
+        },
+        {
+          "name": "direction",
+          "comment": "1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.",
+          "bitwidth": 4
+        },
+        {
+          "name": "slot",
+          "comment": "1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.",
+          "bitwidth": 16
+        }
+      ]
+    },
+    {
+      "code": 8,
+      "name": "REFI",
+      "phase": 4,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
           "name": "init_addr_sd",
-          "comment": "Is init_addr static or dymamic?",
+          "comment": "Is initial address static or dynamic?",
           "bitwidth": 1,
           "verbo_map": [
             { "key": 0, "val": "s" },
@@ -43,193 +226,175 @@
         },
         {
           "name": "init_addr",
-          "comment": "Initial address.",
+          "comment": "Initial address",
           "bitwidth": 6
         },
         {
-          "name": "l1_iter",
-          "comment": "Level-1 iteration - 1.",
-          "bitwidth": 6
+          "name": "rw",
+          "comment": "Read or Write",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "r" },
+            { "key": 1, "val": "w" }
+          ]
         },
         {
           "name": "init_delay",
-          "comment": "Initial delay.",
-          "bitwidth": 6,
+          "comment": "initial delay",
+          "bitwidth": 4,
           "controllable": true
         },
         {
-          "name": "l1_iter_sd",
-          "comment": "Is level-1 iteration static or dymamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
+          "name": "iter",
+          "comment": "level-1 iteration - 1.",
+          "bitwidth": 7
         },
         {
-          "name": "init_delay_sd",
-          "comment": "Is initial delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "unused_0",
-          "comment": "Deprecated.",
-          "bitwidth": 2,
-          "default_val": 2,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "l1_step_sd",
-          "comment": "Is level-1 step static or dynamic?",
-          "bitwidth": 1,
-          "default_val": 0,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_step",
-          "comment": "Level-1 step",
-          "bitwidth": 6,
+          "name": "step",
+          "comment": "level-1 step",
+          "bitwidth": 8,
           "default_val": 1
-        },
-        {
-          "name": "l1_step_sign",
-          "comment": "The sign of level-1 step.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "+" },
-            { "key": 1, "val": "-" }
-          ]
-        },
-        {
-          "name": "l1_delay_sd",
-          "comment": "Is the level-1 delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_delay",
-          "comment": "The level-1 delay, middle delay",
-          "bitwidth": 4,
-          "controllable": true
-        },
-        {
-          "name": "l2_iter_sd",
-          "comment": "Is level-2 iteration static or dymamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_iter",
-          "comment": "The level-2 iteration - 1.",
-          "bitwidth": 5
-        },
-        {
-          "name": "l2_step",
-          "comment": "The level-2 step.",
-          "bitwidth": 4,
-          "default_val": 1
-        },
-        {
-          "name": "unused_1",
-          "comment": "Deprecated.",
-          "bitwidth": 4,
-          "default_val": 3,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "l2_delay_sd",
-          "comment": "Is the level-2 delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_delay",
-          "comment": "The level-2 delay, repetition delay.",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "unused_2",
-          "comment": "Deprecated.",
-          "bitwidth": 6,
-          "default_val": 0,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "l1_delay_ext",
-          "comment": "The extened bits near MSB of l1_delay.",
-          "controllable": true,
-          "bitwidth": 2
-        },
-        {
-          "name": "l2_iter_ext",
-          "comment": "The extened bits near MSB of l2_iter.",
-          "bitwidth": 1
-        },
-        {
-          "name": "l2_step_ext",
-          "comment": "The extened bits near MSB of l2_step.",
-          "bitwidth": 2
-        },
-        {
-          "name": "unused_3",
-          "comment": "Deprecated.",
-          "bitwidth": 3,
-          "default_val": 0,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "dimarch",
-          "comment": "Is reading/writing from/to DiMArch?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "n" },
-            { "key": 1, "val": "y" }
-          ]
-        },
-        {
-          "name": "compress",
-          "comment": "Is the data compressed?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "n" },
-            { "key": 1, "val": "y" }
-          ]
         }
       ]
     },
     {
-      "code": 4,
+      "code": 9,
+      "name": "SRAM",
+      "phase": 4,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "init_addr_sd",
+          "comment": "Is initial address static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "init_addr",
+          "comment": "Initial address",
+          "bitwidth": 6
+        },
+        {
+          "name": "rw",
+          "comment": "Read or Write",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "r" },
+            { "key": 1, "val": "w" }
+          ]
+        },
+        {
+          "name": "init_delay",
+          "comment": "initial delay",
+          "bitwidth": 4,
+          "controllable": true
+        },
+        {
+          "name": "iter",
+          "comment": "level-1 iteration - 1.",
+          "bitwidth": 7
+        },
+        {
+          "name": "step",
+          "comment": "level-1 step",
+          "bitwidth": 8,
+          "default_val": 1
+        }
+      ]
+    },
+
+    {
+      "code": 10,
+      "name": "REP",
+      "phase": 4,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "level",
+          "comment": "The level of the REP instruction. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
+        },
+        {
+          "name": "iter",
+          "comment": "level-1 iteration - 1.",
+          "bitwidth": 6
+        },
+        {
+          "name": "step",
+          "comment": "level-1 step",
+          "bitwidth": 6,
+          "default_val": 1
+        },
+        {
+          "name": "delay",
+          "comment": "delay",
+          "bitwidth": 8,
+          "controllable": true
+        }
+      ]
+    },
+    {
+      "code": 11,
+      "name": "MASK",
+      "phase": 4,
+      "max_chunk": 1,
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "chunk",
+          "comment": "Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.",
+          "bitwidth": 3
+        },
+        {
+          "name": "mask",
+          "comment": "The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.",
+          "bitwidth": 6
+        }
+      ]
+    },
+
+    {
+      "code": 12,
       "name": "DPU",
       "phase": 4,
       "max_chunk": 1,
       "segment_templates": [
         {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "bw",
+          "comment": "The bit-width mode.",
+          "bitwidth": 2,
+          "verbo_map": [
+            { "key": 0, "val": "16-bit" },
+            { "key": 1, "val": "8-bit" },
+            { "key": 2, "val": "4-bit" },
+            { "key": 3, "val": "2-bit" }
+          ]
+        },
+        {
           "name": "mode",
-          "comment": "The DPU mode.",
+          "comment": "The DPU mode. ",
           "bitwidth": 5,
           "verbo_map": [
             { "key": 0, "val": "idle" },
@@ -267,570 +432,9 @@
           ]
         },
         {
-          "name": "control",
-          "comment": "The controll mode: saturation and operator type.",
-          "bitwidth": 2,
-          "default_val": 2,
-          "verbo_map": [
-            { "key": 0, "val": "nosat_int" },
-            { "key": 1, "val": "nosat_fx" },
-            { "key": 2, "val": "sat_int" },
-            { "key": 3, "val": "sat_fx" }
-          ]
-        },
-        {
-          "name": "unused_0",
-          "comment": "Deprecated.",
-          "bitwidth": 6,
-          "default_val": 2,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "acc_clear",
-          "comment": "The accumulator clear signal will be triggered if the accumulation reaches this number. It also serves as immediate value for some DPU mode.",
-          "bitwidth": 8
-        },
-        {
-          "id": 4,
-          "name": "io_change",
-          "comment": "The IO mode: negate input and absolute output.",
-          "bitwidth": 2,
-          "verbo_map": [
-            { "key": 0, "val": "no_change" },
-            { "key": 1, "val": "negate_in0" },
-            { "key": 2, "val": "negate_in1" },
-            { "key": 3, "val": "abs_out" }
-          ]
-        }
-      ]
-    },
-    {
-      "code": 5,
-      "name": "SWB",
-      "phase": 3,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "unused0",
-          "comment": "Deprecated.",
-          "bitwidth": 1,
-          "default_val": 1,
-          "controllable": false,
-          "observable": false
-        },
-        {
-          "name": "src_row",
-          "comment": "Source row.",
-          "bitwidth": 1
-        },
-        {
-          "name": "src_block",
-          "comment": "Source block, RF or DPU.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "rf" },
-            { "key": 1, "val": "dpu" }
-          ]
-        },
-        {
-          "name": "src_port",
-          "comment": "source port.",
-          "bitwidth": 1
-        },
-        {
-          "name": "hb_index",
-          "comment": "Index of horizontal bus. This is the column difference of the src and dest cell shifting by 2. For example if the path is from [0,0] to [1,2], the column difference is -2, so the hb_index = -2+2=0.",
-          "bitwidth": 3
-        },
-        {
-          "name": "send_to_other_row",
-          "comment": "Flag of whether src and dest row are equal.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "n" },
-            { "key": 1, "val": "y" }
-          ]
-        },
-        {
-          "name": "v_index",
-          "comment": "Index of vertical bus. This is the dest port. If destination is RF, the v_index is the port number, if the dest is DPU, the v_index is port number + 2.",
-          "bitwidth": 3
-        }
-      ]
-    },
-    {
-      "code": 6,
-      "name": "JUMP",
-      "phase": 1,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "pc",
-          "comment": "The PC to jump to",
-          "bitwidth": 6
-        }
-      ]
-    },
-    {
-      "code": 7,
-      "name": "WAIT",
-      "phase": 2,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "cycle_sd",
-          "comment": "Is the cycle static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "cycle",
-          "comment": "Number of cycles - 1",
-          "bitwidth": 15
-        }
-      ]
-    },
-    {
-      "code": 8,
-      "name": "LOOP",
-      "phase": 1,
-      "max_chunk": 2,
-      "segment_templates": [
-        {
-          "name": "extra",
-          "comment": "How many following chunks?",
-          "bitwidth": 1
-        },
-        {
-          "name": "loopid",
-          "comment": "The id of the loop manager slot.",
-          "bitwidth": 2
-        },
-        {
-          "name": "endpc",
-          "comment": "The PC where loop ends.",
-          "bitwidth": 6
-        },
-        {
-          "name": "start_sd",
-          "comment": "Is the start static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "start",
-          "comment": "The start of iterator.",
-          "bitwidth": 6
-        },
-        {
-          "name": "iter_sd",
-          "comment": "Is the iteration count static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "iter",
-          "comment": "The number of iteration.",
-          "bitwidth": 6
-        },
-        {
-          "name": "step_sd",
-          "comment": "Is the step static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "step",
-          "comment": "The iteration step.",
-          "bitwidth": 6,
-          "default_val": 1
-        },
-        {
-          "name": "link",
-          "comment": "The loops that have the same endpc will be linked together. This field is 1-hot encoded.",
-          "bitwidth": 4,
-          "controllable": false
-        }
-      ]
-    },
-    {
-      "code": 9,
-      "name": "BW",
-      "phase": 1,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "config",
-          "comment": "Bitwidth configuration for DPU: 4-bit, 8-bit, 16-bit",
-          "bitwidth": 2
-        }
-      ]
-    },
-    {
-      "code": 10,
-      "name": "RACCU",
-      "phase": 2,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "mode",
-          "comment": "RACCU mode",
-          "bitwidth": 3,
-          "verbo_map": [
-            { "key": 0, "val": "idle" },
-            { "key": 1, "val": "add" },
-            { "key": 2, "val": "sub" },
-            { "key": 3, "val": "shift_r" },
-            { "key": 4, "val": "shift_l" },
-            { "key": 5, "val": "mult" },
-            { "key": 6, "val": "mult_add" },
-            { "key": 7, "val": "mult_sub" }
-          ]
-        },
-        {
-          "name": "operand1_sd",
-          "comment": "Is the first operand static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "operand1",
-          "comment": "First operand.",
-          "bitwidth": 7
-        },
-        {
-          "name": "operand2_sd",
-          "comment": "Is the second operand static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "operand2",
-          "comment": "Second operand.",
-          "bitwidth": 7
-        },
-        {
-          "name": "result",
-          "comment": "The RACCU register to store the result.",
-          "bitwidth": 4
-        }
-      ]
-    },
-    {
-      "code": 11,
-      "name": "BRANCH",
-      "phase": 1,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "mode",
-          "comment": "The branch mode",
-          "bitwidth": 2
-        },
-        {
-          "name": "false_pc",
-          "comment": "The PC to jump to in case the condition is false.",
-          "bitwidth": 6
-        }
-      ]
-    },
-    {
-      "code": 12,
-      "name": "ROUTE",
-      "phase": 4,
-      "max_chunk": 1,
-      "segment_templates": [
-        {
-          "name": "horizontal_dir",
-          "comment": "The horizontal direction: West or East.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "w" },
-            { "key": 1, "val": "e" }
-          ]
-        },
-        {
-          "name": "horizontal_hops",
-          "comment": "The horizontal hops.",
-          "bitwidth": 3
-        },
-        {
-          "name": "vertical_dir",
-          "comment": "The vertical direction: South or North.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "n" }
-          ]
-        },
-        {
-          "name": "vertical_hops",
-          "comment": "The vertical hops.",
-          "bitwidth": 3
-        },
-        {
-          "name": "direction",
-          "comment": "The data transfer direction: Read or Write.",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
-          "name": "select_drra_row",
-          "comment": "The drra row that send/recieve the data.",
-          "bitwidth": 1
-        }
-      ]
-    },
-    {
-      "code": 13,
-      "name": "SRAM",
-      "phase": 5,
-      "max_chunk": 3,
-      "segment_templates": [
-        {
-          "name": "rw",
-          "comment": "Read or Write",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
-          "name": "init_addr",
-          "comment": "Initial address",
-          "bitwidth": 7
-        },
-        {
-          "name": "init_delay",
-          "comment": "initial delay",
-          "bitwidth": 4,
-          "controllable": true
-        },
-        {
-          "name": "l1_iter",
-          "comment": "level-1 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "l1_step",
-          "comment": "level-1 step",
-          "bitwidth": 8,
-          "default_val": 1
-        },
-        {
-          "name": "l1_delay",
-          "comment": "level-1 delay",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "l2_iter",
-          "comment": "level-2 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "l2_step",
-          "comment": "level-2 step",
-          "bitwidth": 8,
-          "default_val": 1
-        },
-        {
-          "name": "l2_delay",
-          "comment": "level-2 delay",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "init_addr_sd",
-          "comment": "Is initial address static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_iter_sd",
-          "comment": "Is level-1 iteration static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_iter_sd",
-          "comment": "Is level-2 iteration static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "init_delay_sd",
-          "comment": "Is initial delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_delay_sd",
-          "comment": "Is level-1 delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_delay_sd",
-          "comment": "Is level-2 delay static or dynamic?",
-          "bitwidth": 1,
-          "controllable": true,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_step_sd",
-          "comment": "Is level-1 step static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_step_sd",
-          "comment": "Is level-2 step static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "hops",
-          "comment": "Number of hops to reach the DiMArch cell - 1",
-          "bitwidth": 4
-        }
-      ]
-    },
-    {
-      "code": 14,
-      "name": "IO",
-      "phase": 5,
-      "max_chunk": 3,
-      "segment_templates": [
-        {
-          "name": "rw",
-          "comment": "Read or Write",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
-          "name": "init_addr",
-          "comment": "Initial address",
-          "bitwidth": 25
-        },
-        {
-          "name": "init_delay",
-          "comment": "initial delay",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "l1_iter",
-          "comment": "level-1 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "l1_step",
-          "comment": "level-1 step",
-          "bitwidth": 8,
-          "default_val": 1
-        },
-        {
-          "name": "l1_delay",
-          "comment": "level-1 delay",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "l2_iter",
-          "comment": "level-2 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "l2_step",
-          "comment": "level-2 step",
-          "bitwidth": 8,
-          "default_val": 1
-        },
-        {
-          "name": "l2_delay",
-          "comment": "level-2 delay",
-          "bitwidth": 6,
-          "controllable": true
-        },
-        {
-          "name": "init_addr_sd",
-          "comment": "Is initial address static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l1_step_sd",
-          "comment": "Is level-1 step static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "l2_step_sd",
-          "comment": "Is level-2 step static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
+          "name": "immediate",
+          "comment": "The immediate field used by some DPU modes.",
+          "bitwidth": 16
         }
       ]
     }
