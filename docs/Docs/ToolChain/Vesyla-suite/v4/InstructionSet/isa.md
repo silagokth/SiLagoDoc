@@ -101,10 +101,12 @@ Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 8 | Instruction code for REP
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**level** | [23, 20] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
-**iter** | [19, 14] | 6 | 0 | iteration - 1.
-**step** | [13, 8] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
-**delay** | [7, 0] | 8 | 0 | Repetition delay.
+**port**  | [23, 21]  | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**level** | [20, 17] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
+**iter**  | [16, 11] | 6 | 0 | iteration - 1.
+**step**  | [10, 5] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
+**delay** | [5, 0] | 6 | 0 | Repetition delay.
+
 
 ### 1001 MASK
 
@@ -133,6 +135,5 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
-**rw** | [6, 6] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**port** | [5, 5] | 1 | 0 | The port type. [0]: narrow (SWB); [1]: wide (ROUTE);
+**port** | [6, 5] | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
 **level** | [4, 1] | 4 | 0 | The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.
