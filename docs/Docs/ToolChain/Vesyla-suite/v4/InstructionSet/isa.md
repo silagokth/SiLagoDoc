@@ -95,7 +95,7 @@ SRAM Block | MASK, DSU, REP
 IO Block | MASK, DSU, REP
 DPU | DPU, REP
 
-### 1010 REP
+### 1000 REP
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -106,7 +106,7 @@ instr_code | [31, 28] | 4 | 8 | Instruction code for REP
 **step** | [13, 8] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
 **delay** | [7, 0] | 8 | 0 | Repetition delay.
 
-### 1011 MASK
+### 1001 MASK
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -115,7 +115,7 @@ instr_code | [31, 28] | 4 | 9 | Instruction code for MASK
 **chunk** | [23, 21] | 3 | 0 | Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.
 **mask** | [20, 5] | 16 | 0 | The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.
 
-### 1100 DPU
+### 1010 DPU
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
