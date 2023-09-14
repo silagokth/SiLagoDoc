@@ -206,6 +206,17 @@
           "bitwidth": 4
         },
         {
+          "name": "port",
+          "comment": "The port number",
+          "bitwidth": 2,
+          "verbo_map": [
+            { "key": 0, "val": "read narrow" },
+            { "key": 1, "val": "read wide" },
+            { "key": 2, "val": "write narrow" },
+            { "key": 3, "val": "write wide" }
+          ]
+        },
+        {
           "name": "level",
           "comment": "The level of the REP instruction. [0]: inner most level, [15]: outer most level.",
           "bitwidth": 4
@@ -224,7 +235,7 @@
         {
           "name": "delay",
           "comment": "delay",
-          "bitwidth": 8
+          "bitwidth": 6
         }
       ]
     },
@@ -340,18 +351,15 @@
           "bitwidth": 16
         },
         {
-          "name": "rw",
-          "comment": "Read or Write",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
           "name": "port",
-          "comment": "The port type. [0]: narrow (SWB), [1]: wide (ROUTE)",
-          "bitwidth": 1
+          "comment": "The port number",
+          "bitwidth": 2,
+          "verbo_map": [
+            { "key": 0, "val": "read narrow" },
+            { "key": 1, "val": "read wide" },
+            { "key": 2, "val": "write narrow" },
+            { "key": 3, "val": "write wide" }
+          ]
         },
         {
           "name": "level",

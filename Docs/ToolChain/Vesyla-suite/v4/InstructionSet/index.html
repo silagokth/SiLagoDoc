@@ -1734,30 +1734,37 @@
 <td>Slot number.</td>
 </tr>
 <tr>
+<td><strong>port</strong></td>
+<td>[23, 21]</td>
+<td>2</td>
+<td>0</td>
+<td>The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;</td>
+</tr>
+<tr>
 <td><strong>level</strong></td>
-<td>[23, 20]</td>
+<td>[20, 17]</td>
 <td>4</td>
 <td>0</td>
 <td>The level of the REP instruction. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 <tr>
 <td><strong>iter</strong></td>
-<td>[19, 14]</td>
+<td>[16, 11]</td>
 <td>6</td>
 <td>0</td>
 <td>iteration - 1.</td>
 </tr>
 <tr>
 <td><strong>step</strong></td>
-<td>[13, 8]</td>
+<td>[10, 5]</td>
 <td>6</td>
 <td>0</td>
 <td>iteration step. This field is only useful when paired with REFI/SRAM instructions.</td>
 </tr>
 <tr>
 <td><strong>delay</strong></td>
-<td>[7, 0]</td>
-<td>8</td>
+<td>[5, 0]</td>
+<td>6</td>
 <td>0</td>
 <td>Repetition delay.</td>
 </tr>
@@ -1895,18 +1902,11 @@
 <td>Initial address.</td>
 </tr>
 <tr>
-<td><strong>rw</strong></td>
-<td>[6, 6]</td>
-<td>1</td>
-<td>0</td>
-<td>Read or Write. [0]:r; [1]:w;</td>
-</tr>
-<tr>
 <td><strong>port</strong></td>
-<td>[5, 5]</td>
-<td>1</td>
+<td>[6, 5]</td>
+<td>2</td>
 <td>0</td>
-<td>The port type. [0]: narrow (SWB); [1]: wide (ROUTE);</td>
+<td>The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;</td>
 </tr>
 <tr>
 <td><strong>level</strong></td>
