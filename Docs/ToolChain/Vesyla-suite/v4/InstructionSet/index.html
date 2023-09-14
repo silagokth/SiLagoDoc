@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
     
     
       
@@ -937,15 +937,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0000-haltret" class="md-nav__link">
-    0000 HALT/RET
+  <a href="#0000-wait" class="md-nav__link">
+    0000 WAIT
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0001-wait" class="md-nav__link">
-    0001 WAIT
+  <a href="#0001-act" class="md-nav__link">
+    0001 ACT
   </a>
   
 </li>
@@ -1006,8 +1006,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-sramio" class="md-nav__link">
-    1001 SRAM/IO
+  <a href="#1001-sram" class="md-nav__link">
+    1001 SRAM
   </a>
   
 </li>
@@ -1201,15 +1201,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0000-haltret" class="md-nav__link">
-    0000 HALT/RET
+  <a href="#0000-wait" class="md-nav__link">
+    0000 WAIT
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0001-wait" class="md-nav__link">
-    0001 WAIT
+  <a href="#0001-act" class="md-nav__link">
+    0001 ACT
   </a>
   
 </li>
@@ -1270,8 +1270,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-sramio" class="md-nav__link">
-    1001 SRAM/IO
+  <a href="#1001-sram" class="md-nav__link">
+    1001 SRAM
   </a>
   
 </li>
@@ -1323,10 +1323,6 @@
 <h1 id="instruction-set-v4">Instruction Set V4</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The slot number will decide which data port it configures.</p>
 </div>
 <h2 id="instruction-format">Instruction Format</h2>
@@ -1356,7 +1352,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0000-haltret">0000 HALT/RET</h3>
+<h3 id="0000-wait">0000 WAIT</h3>
 <table>
 <thead>
 <tr>
@@ -1373,11 +1369,18 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>0</td>
-<td>Instruction code for HALT or RET. When this instruction is reached, the PC will not change anymore.</td>
+<td>Instruction code for WAIT</td>
+</tr>
+<tr>
+<td><strong>cycle</strong></td>
+<td>[27, 0]</td>
+<td>28</td>
+<td>0</td>
+<td>Number of cycles. If cycle=0, then the WAIT instruction will wait forever.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="0001-wait">0001 WAIT</h3>
+<h3 id="0001-act">0001 ACT</h3>
 <table>
 <thead>
 <tr>
@@ -1394,14 +1397,14 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>1</td>
-<td>Instruction code for WAIT</td>
+<td>Instruction code for ACT</td>
 </tr>
 <tr>
-<td><strong>cycle</strong></td>
-<td>[27, 0]</td>
-<td>28</td>
+<td><strong>slots</strong></td>
+<td>[27, 12]</td>
+<td>16</td>
 <td>0</td>
-<td>Number of cycles - 1</td>
+<td>1-hot encoded slots that need to be activated.</td>
 </tr>
 </tbody>
 </table>
@@ -1731,7 +1734,7 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>8</td>
-<td>Instruction code for SWB</td>
+<td>Instruction code for REFI</td>
 </tr>
 <tr>
 <td><strong>slot</strong></td>
@@ -1749,42 +1752,28 @@
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
-<td>[22, 17]</td>
-<td>6</td>
+<td>[22, 7]</td>
+<td>16</td>
 <td>0</td>
 <td>Initial address.</td>
 </tr>
 <tr>
 <td><strong>rw</strong></td>
-<td>[16, 16]</td>
+<td>[6, 6]</td>
 <td>1</td>
 <td>0</td>
 <td>Read or Write. [0]:r; [1]:w;</td>
 </tr>
 <tr>
-<td><strong>init_delay</strong></td>
-<td>[15, 12]</td>
+<td><strong>level</strong></td>
+<td>[5, 2]</td>
 <td>4</td>
 <td>0</td>
-<td>Initial delay.</td>
-</tr>
-<tr>
-<td><strong>iter</strong></td>
-<td>[11, 6]</td>
-<td>6</td>
-<td>0</td>
-<td>Level-1 iteration - 1.</td>
-</tr>
-<tr>
-<td><strong>step</strong></td>
-<td>[5, 0]</td>
-<td>6</td>
-<td>0</td>
-<td>Level-1 iteration step.</td>
+<td>The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1001-sramio">1001 SRAM/IO</h3>
+<h3 id="1001-sram">1001 SRAM</h3>
 <table>
 <thead>
 <tr>
@@ -1819,38 +1808,24 @@
 </tr>
 <tr>
 <td><strong>init_addr</strong></td>
-<td>[22, 17]</td>
-<td>6</td>
+<td>[22, 7]</td>
+<td>16</td>
 <td>0</td>
 <td>Initial address.</td>
 </tr>
 <tr>
 <td><strong>rw</strong></td>
-<td>[16, 16]</td>
+<td>[6, 6]</td>
 <td>1</td>
 <td>0</td>
 <td>Read or Write. [0]:r; [1]:w;</td>
 </tr>
 <tr>
-<td><strong>init_delay</strong></td>
-<td>[15, 12]</td>
+<td><strong>level</strong></td>
+<td>[5, 2]</td>
 <td>4</td>
 <td>0</td>
-<td>Initial delay.</td>
-</tr>
-<tr>
-<td><strong>iter</strong></td>
-<td>[11, 6]</td>
-<td>6</td>
-<td>0</td>
-<td>Level-1 iteration - 1.</td>
-</tr>
-<tr>
-<td><strong>step</strong></td>
-<td>[5, 0]</td>
-<td>6</td>
-<td>0</td>
-<td>Level-1 iteration step.</td>
+<td>The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 </tbody>
 </table>
@@ -1888,18 +1863,18 @@
 <td>The level of the REP instruction. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 <tr>
-<td><strong>extra_iter</strong></td>
+<td><strong>iter</strong></td>
 <td>[19, 14]</td>
 <td>6</td>
 <td>0</td>
 <td>iteration - 1.</td>
 </tr>
 <tr>
-<td><strong>extra_step</strong></td>
+<td><strong>step</strong></td>
 <td>[13, 8]</td>
 <td>6</td>
 <td>0</td>
-<td>iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.</td>
+<td>iteration step. This field is only useful when paired with REFI/SRAM instructions.</td>
 </tr>
 <tr>
 <td><strong>delay</strong></td>
