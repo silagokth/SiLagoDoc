@@ -5,29 +5,29 @@
   "instruction_templates": [
     {
       "code": 0,
-      "name": "RET",
-      "phase": 1,
-      "max_chunk": 1,
-      "segment_templates": []
-    },
-    {
-      "code": 1,
-      "name": "WAIT",
-      "phase": 2,
-      "max_chunk": 1,
+      "name": "wait",
       "segment_templates": [
         {
           "name": "cycle",
-          "comment": "Number of cycles - 1",
+          "comment": "Number of cycles, if cycle=0 means infinite loop.",
           "bitwidth": 28
         }
       ]
     },
     {
+      "code": 1,
+      "name": "act",
+      "segment_templates": [
+        {
+          "name": "slots",
+          "comment": "1-hot encoded slots that need to be activated.",
+          "bitwidth": 16
+        }
+      ]
+    },
+    {
       "code": 2,
-      "name": "CALC",
-      "phase": 1,
-      "max_chunk": 1,
+      "name": "calc",
       "segment_templates": [
         {
           "name": "mode",
@@ -81,9 +81,7 @@
     },
     {
       "code": 3,
-      "name": "LOOP",
-      "phase": 1,
-      "max_chunk": 1,
+      "name": "loop",
       "segment_templates": [
         {
           "name": "loopid",
@@ -124,9 +122,7 @@
     },
     {
       "code": 4,
-      "name": "BRN",
-      "phase": 1,
-      "max_chunk": 1,
+      "name": "brn",
       "segment_templates": [
         {
           "name": "mode",
@@ -156,9 +152,7 @@
     },
     {
       "code": 5,
-      "name": "SWB",
-      "phase": 3,
-      "max_chunk": 1,
+      "name": "swb",
       "segment_templates": [
         {
           "name": "channel",
@@ -179,9 +173,7 @@
     },
     {
       "code": 6,
-      "name": "ROUTE",
-      "phase": 3,
-      "max_chunk": 1,
+      "name": "route",
       "segment_templates": [
         {
           "name": "sr",
@@ -206,9 +198,7 @@
     },
     {
       "code": 8,
-      "name": "REFI",
-      "phase": 4,
-      "max_chunk": 1,
+      "name": "refi",
       "segment_templates": [
         {
           "name": "slot",
@@ -227,7 +217,7 @@
         {
           "name": "init_addr",
           "comment": "Initial address",
-          "bitwidth": 6
+          "bitwidth": 16
         },
         {
           "name": "rw",
@@ -239,29 +229,15 @@
           ]
         },
         {
-          "name": "init_delay",
-          "comment": "initial delay",
-          "bitwidth": 4,
-          "controllable": true
-        },
-        {
-          "name": "iter",
-          "comment": "level-1 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "step",
-          "comment": "level-1 step",
-          "bitwidth": 8,
-          "default_val": 1
+          "name": "level",
+          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
         }
       ]
     },
     {
       "code": 9,
-      "name": "SRAM",
-      "phase": 4,
-      "max_chunk": 1,
+      "name": "sram",
       "segment_templates": [
         {
           "name": "slot",
@@ -280,7 +256,7 @@
         {
           "name": "init_addr",
           "comment": "Initial address",
-          "bitwidth": 6
+          "bitwidth": 16
         },
         {
           "name": "rw",
@@ -292,30 +268,16 @@
           ]
         },
         {
-          "name": "init_delay",
-          "comment": "initial delay",
-          "bitwidth": 4,
-          "controllable": true
-        },
-        {
-          "name": "iter",
-          "comment": "level-1 iteration - 1.",
-          "bitwidth": 7
-        },
-        {
-          "name": "step",
-          "comment": "level-1 step",
-          "bitwidth": 8,
-          "default_val": 1
+          "name": "level",
+          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
         }
       ]
     },
 
     {
       "code": 10,
-      "name": "REP",
-      "phase": 4,
-      "max_chunk": 1,
+      "name": "rep",
       "segment_templates": [
         {
           "name": "slot",
@@ -341,16 +303,13 @@
         {
           "name": "delay",
           "comment": "delay",
-          "bitwidth": 8,
-          "controllable": true
+          "bitwidth": 8
         }
       ]
     },
     {
       "code": 11,
-      "name": "MASK",
-      "phase": 4,
-      "max_chunk": 1,
+      "name": "mask",
       "segment_templates": [
         {
           "name": "slot",
@@ -372,9 +331,7 @@
 
     {
       "code": 12,
-      "name": "DPU",
-      "phase": 4,
-      "max_chunk": 1,
+      "name": "dpu",
       "segment_templates": [
         {
           "name": "slot",

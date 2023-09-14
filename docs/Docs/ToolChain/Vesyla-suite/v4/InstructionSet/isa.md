@@ -1,8 +1,5 @@
 
 !!! Note
-    Instruction fields marked by bold font are controllable and observable. Users can modify these fields in Manas input file.
-
-!!! Note
     The slot number will decide which data port it configures.
 
 ## Instruction Format
@@ -15,18 +12,20 @@ Field | Position | Width | Description
 instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
 instr_content | [27, 0] | 27 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
 
-### 0000 HALT/RET
+### 0000 WAIT
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 0 | Instruction code for HALT or RET. When this instruction is reached, the PC will not change anymore.
+instr_code | [31, 28] | 4 | 0 | Instruction code for WAIT
+**cycle** | [27, 0] | 28 | 0 | Number of cycles. If cycle=0, then the WAIT instruction will wait forever.
 
-### 0001 WAIT
+### 0001 ACT
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 1 | Instruction code for WAIT
-**cycle** | [27, 0] | 28 | 0 | Number of cycles - 1
+instr_code | [31, 28] | 4 | 1 | Instruction code for ACT
+**slots** | [27, 12] | 16 | 0 | 1-hot encoded slots that need to be activated.
+
 
 ### 0010 CALC
 
@@ -98,27 +97,23 @@ DPU | DPU, REP
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 8 | Instruction code for SWB
+instr_code | [31, 28] | 4 | 8 | Instruction code for REFI
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
-**init_addr** | [22, 17] | 6 | 0 | Initial address.
-**rw** | [16, 16] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**init_delay** | [15, 12] | 4 | 0 | Initial delay.
-**iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
-**step** | [5, 0] | 6 | 0 | Level-1 iteration step.
+**init_addr** | [22, 7] | 16 | 0 | Initial address.
+**rw** | [6, 6] | 1 | 0 | Read or Write. [0]:r; [1]:w;
+**level** | [5, 2] | 4 | 0 | The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.
 
-### 1001 SRAM/IO
+### 1001 SRAM
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 9 | Instruction code for SRAM
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
-**init_addr** | [22, 17] | 6 | 0 | Initial address.
-**rw** | [16, 16] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**init_delay** | [15, 12] | 4 | 0 | Initial delay.
-**iter** | [11, 6] | 6 | 0 | Level-1 iteration - 1.
-**step** | [5, 0] | 6 | 0 | Level-1 iteration step.
+**init_addr** | [22, 7] | 16 | 0 | Initial address.
+**rw** | [6, 6] | 1 | 0 | Read or Write. [0]:r; [1]:w;
+**level** | [5, 2] | 4 | 0 | The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.
 
 ### 1010 REP
 
@@ -127,8 +122,8 @@ Field | Position | Width | Default Value | Description
 instr_code | [31, 28] | 4 | 11 | Instruction code for REP
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **level** | [23, 20] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
-**extra_iter** | [19, 14] | 6 | 0 | iteration - 1.
-**extra_step** | [13, 8] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM/IO instructions.
+**iter** | [19, 14] | 6 | 0 | iteration - 1.
+**step** | [13, 8] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
 **delay** | [7, 0] | 8 | 0 | Repetition delay.
 
 ### 1011 MASK

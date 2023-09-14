@@ -11,8 +11,6 @@
         "properties": {
           "code": { "type": "integer" },
           "name": { "type": "string" },
-          "phase": { "type": "integer" },
-          "max_chunk": { "type": "integer" },
           "segment_templates": {
             "type": "array",
             "items": {
@@ -21,8 +19,6 @@
                 "name": { "type": "string" },
                 "bitwidth": { "type": "integer" },
                 "default_val": { "type": "integer" },
-                "controllable": { "type": "boolean" },
-                "observable": { "type": "boolean" },
                 "verbo_map": {
                   "type": "array",
                   "items": {
