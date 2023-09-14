@@ -134,5 +134,5 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
 **rw** | [6, 6] | 1 | 0 | Read or Write. [0]:r; [1]:w;
-**rw** | [5, 5] | 1 | 0 | The port type. [0]: narrow (SWB); [1]: wide (ROUTE);
+**port** | [5, 5] | 1 | 0 | The port type. [0]: narrow (SWB); [1]: wide (ROUTE);
 **level** | [4, 1] | 4 | 0 | The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.
