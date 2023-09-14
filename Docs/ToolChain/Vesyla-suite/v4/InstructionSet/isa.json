@@ -198,85 +198,6 @@
     },
     {
       "code": 8,
-      "name": "refi",
-      "segment_templates": [
-        {
-          "name": "slot",
-          "comment": "Slot number",
-          "bitwidth": 4
-        },
-        {
-          "name": "init_addr_sd",
-          "comment": "Is initial address static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "init_addr",
-          "comment": "Initial address",
-          "bitwidth": 16
-        },
-        {
-          "name": "rw",
-          "comment": "Read or Write",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
-          "name": "level",
-          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
-          "bitwidth": 4
-        }
-      ]
-    },
-    {
-      "code": 9,
-      "name": "sram",
-      "segment_templates": [
-        {
-          "name": "slot",
-          "comment": "Slot number",
-          "bitwidth": 4
-        },
-        {
-          "name": "init_addr_sd",
-          "comment": "Is initial address static or dynamic?",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "s" },
-            { "key": 1, "val": "d" }
-          ]
-        },
-        {
-          "name": "init_addr",
-          "comment": "Initial address",
-          "bitwidth": 16
-        },
-        {
-          "name": "rw",
-          "comment": "Read or Write",
-          "bitwidth": 1,
-          "verbo_map": [
-            { "key": 0, "val": "r" },
-            { "key": 1, "val": "w" }
-          ]
-        },
-        {
-          "name": "level",
-          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
-          "bitwidth": 4
-        }
-      ]
-    },
-
-    {
-      "code": 10,
       "name": "rep",
       "segment_templates": [
         {
@@ -308,7 +229,7 @@
       ]
     },
     {
-      "code": 11,
+      "code": 9,
       "name": "mask",
       "segment_templates": [
         {
@@ -330,7 +251,7 @@
     },
 
     {
-      "code": 12,
+      "code": 10,
       "name": "dpu",
       "segment_templates": [
         {
@@ -392,6 +313,50 @@
           "name": "immediate",
           "comment": "The immediate field used by some DPU modes.",
           "bitwidth": 16
+        }
+      ]
+    },
+    {
+      "code": 14,
+      "name": "dsu",
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "init_addr_sd",
+          "comment": "Is initial address static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "init_addr",
+          "comment": "Initial address",
+          "bitwidth": 16
+        },
+        {
+          "name": "rw",
+          "comment": "Read or Write",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "r" },
+            { "key": 1, "val": "w" }
+          ]
+        },
+        {
+          "name": "port",
+          "comment": "The port type. [0]: narrow (SWB), [1]: wide (ROUTE)",
+          "bitwidth": 1
+        },
+        {
+          "name": "level",
+          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
         }
       ]
     }
