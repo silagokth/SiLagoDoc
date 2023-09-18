@@ -1006,15 +1006,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-mask" class="md-nav__link">
-    1001 MASK
+  <a href="#1000-repx" class="md-nav__link">
+    1000 REPX
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1010-dpu" class="md-nav__link">
-    1010 DPU
+  <a href="#1010-mask" class="md-nav__link">
+    1010 MASK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1011-dpu" class="md-nav__link">
+    1011 DPU
   </a>
   
 </li>
@@ -1263,15 +1270,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1001-mask" class="md-nav__link">
-    1001 MASK
+  <a href="#1000-repx" class="md-nav__link">
+    1000 REPX
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1010-dpu" class="md-nav__link">
-    1010 DPU
+  <a href="#1010-mask" class="md-nav__link">
+    1010 MASK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1011-dpu" class="md-nav__link">
+    1011 DPU
   </a>
   
 </li>
@@ -1386,11 +1400,25 @@
 <td>Instruction code for ACT</td>
 </tr>
 <tr>
-<td><strong>slots</strong></td>
+<td><strong>ports</strong></td>
 <td>[27, 12]</td>
 <td>16</td>
 <td>0</td>
-<td>1-hot encoded slots that need to be activated.</td>
+<td>1-hot encoded ports that need to be activated. There are 64 ports in total, but only 16 can be activated at the same time. The ports are filtered by the mode and parameter field.</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>[11, 8]</td>
+<td>4</td>
+<td>0</td>
+<td>Filter mode: [0]: Continues ports start from slot X; [1] All port X in each slot; [2]: the predefined 64-bit activation code in internal activation memory location X.</td>
+</tr>
+<tr>
+<td><strong>param</strong></td>
+<td>[7, 0]</td>
+<td>8</td>
+<td>0</td>
+<td>The parameter for the filter mode.</td>
 </tr>
 </tbody>
 </table>
@@ -1770,7 +1798,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1001-mask">1001 MASK</h3>
+<h3 id="1000-repx">1000 REPX</h3>
 <table>
 <thead>
 <tr>
@@ -1787,6 +1815,69 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>9</td>
+<td>Instruction code for REPX. Configure the higher 6-bit of each field in the REP instruction.</td>
+</tr>
+<tr>
+<td><strong>slot</strong></td>
+<td>[27, 24]</td>
+<td>4</td>
+<td>N/A</td>
+<td>Slot number.</td>
+</tr>
+<tr>
+<td><strong>port</strong></td>
+<td>[23, 21]</td>
+<td>2</td>
+<td>0</td>
+<td>The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;</td>
+</tr>
+<tr>
+<td><strong>level</strong></td>
+<td>[20, 17]</td>
+<td>4</td>
+<td>0</td>
+<td>The level of the REP instruction. [0]: inner most level, [15]: outer most level.</td>
+</tr>
+<tr>
+<td><strong>iter</strong></td>
+<td>[16, 11]</td>
+<td>6</td>
+<td>0</td>
+<td>iteration - 1.</td>
+</tr>
+<tr>
+<td><strong>step</strong></td>
+<td>[10, 5]</td>
+<td>6</td>
+<td>0</td>
+<td>iteration step. This field is only useful when paired with REFI/SRAM instructions.</td>
+</tr>
+<tr>
+<td><strong>delay</strong></td>
+<td>[5, 0]</td>
+<td>6</td>
+<td>0</td>
+<td>Repetition delay.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1010-mask">1010 MASK</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[31, 28]</td>
+<td>4</td>
+<td>10</td>
 <td>Instruction code for MASK</td>
 </tr>
 <tr>
@@ -1812,7 +1903,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1010-dpu">1010 DPU</h3>
+<h3 id="1011-dpu">1011 DPU</h3>
 <table>
 <thead>
 <tr>
@@ -1828,7 +1919,7 @@
 <td>instr_code</td>
 <td>[31, 28]</td>
 <td>4</td>
-<td>10</td>
+<td>11</td>
 <td>Instruction code for DPU</td>
 </tr>
 <tr>
@@ -1907,13 +1998,6 @@
 <td>2</td>
 <td>0</td>
 <td>The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;</td>
-</tr>
-<tr>
-<td><strong>level</strong></td>
-<td>[4, 1]</td>
-<td>4</td>
-<td>0</td>
-<td>The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.</td>
 </tr>
 </tbody>
 </table>

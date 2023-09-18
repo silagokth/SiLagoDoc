@@ -19,9 +19,19 @@
       "name": "act",
       "segment_templates": [
         {
-          "name": "slots",
-          "comment": "1-hot encoded slots that need to be activated.",
+          "name": "ports",
+          "comment": "1-hot encoded ports that need to be activated. There are 64 ports in total, but only 16 can be activated at the same time. The ports are filtered by the mode and parameter field.",
           "bitwidth": 16
+        },
+        {
+          "name": "mode",
+          "comment": "Filter mode: [0]: Continues ports start from slot X; [1] All port X in each slot; [2]: the predefined 64-bit activation code in internal activation memory location X.",
+          "bitwidth": 4
+        },
+        {
+          "name": "param",
+          "comment": "The parameter for the filter mode.",
+          "bitwidth": 8
         }
       ]
     },
@@ -360,11 +370,6 @@
             { "key": 2, "val": "write narrow" },
             { "key": 3, "val": "write wide" }
           ]
-        },
-        {
-          "name": "level",
-          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
-          "bitwidth": 4
         }
       ]
     }
