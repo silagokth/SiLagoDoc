@@ -24,7 +24,9 @@ instr_code | [31, 28] | 4 | 0 | Instruction code for WAIT
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 1 | Instruction code for ACT
-**slots** | [27, 12] | 16 | 0 | 1-hot encoded slots that need to be activated.
+**ports** | [27, 12] | 16 | 0 | 1-hot encoded ports that need to be activated. There are 64 ports in total, but only 16 can be activated at the same time. The ports are filtered by the mode and parameter field.
+**mode** | [11, 8] | 4 | 0 | Filter mode: [0]: Continues ports start from slot X; [1] All port X in each slot; [2]: the predefined 64-bit activation code in internal activation memory location X.
+**param** | [7, 0] | 8 | 0 | The parameter for the filter mode.
 
 ### 0010 CALC
 
@@ -107,21 +109,33 @@ instr_code | [31, 28] | 4 | 8 | Instruction code for REP
 **step**  | [10, 5] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
 **delay** | [5, 0] | 6 | 0 | Repetition delay.
 
-
-### 1001 MASK
+### 1000 REPX
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 9 | Instruction code for MASK
+instr_code | [31, 28] | 4 | 9 | Instruction code for REPX. Configure the higher 6-bit of each field in the REP instruction.
+**slot**  | [27, 24] | 4 | N/A | Slot number.
+**port**  | [23, 21]  | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**level** | [20, 17] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
+**iter**  | [16, 11] | 6 | 0 | iteration - 1.
+**step**  | [10, 5] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
+**delay** | [5, 0] | 6 | 0 | Repetition delay.
+
+
+### 1010 MASK
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 10 | Instruction code for MASK
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **chunk** | [23, 21] | 3 | 0 | Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.
 **mask** | [20, 5] | 16 | 0 | The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.
 
-### 1010 DPU
+### 1011 DPU
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 10 | Instruction code for DPU
+instr_code | [31, 28] | 4 | 11 | Instruction code for DPU
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **bw** | [23, 22] | 2 | 0 | The bit-width mode: [0]: 16-bit; [1]: 8-bit; [2]: 4-bit; [3]: 2-bit;
 **mode** | [21, 17] | 5 | 0 | The DPU mode. [0]:idle; [1]:add; [2]:sum_acc; [3]:add_const; [4]:subt; [5]:subt_abs; [6]:mode_6; [7]:mult; [8]:mult_add; [9]:mult_const; [10]:mac; [11]:ld_ir; [12]:axpy; [13]:max_min_acc; [14]:max_min_const; [15]:mode_15; [16]:max_min; [17]:shift_l; [18]:shift_r; [19]:sigm; [20]:tanhyp; [21]:expon; [22]:lk_relu; [23]:relu; [24]:div; [25]:acc_softmax; [26]:div_softmax; [27]:ld_acc; [28]:scale_dw; [29]:scale_up; [30]:mac_inter; [31]:mode_31;
@@ -136,4 +150,3 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
 **port** | [6, 5] | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
-**level** | [4, 1] | 4 | 0 | The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.
