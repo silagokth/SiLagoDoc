@@ -370,6 +370,11 @@
             { "key": 2, "val": "write narrow" },
             { "key": 3, "val": "write wide" }
           ]
+        },
+        {
+          "name": "level",
+          "comment": "The level of the REP instruction. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
         }
       ]
     }
