@@ -150,3 +150,4 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
 **port** | [6, 5] | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**level** | [4, 1] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
