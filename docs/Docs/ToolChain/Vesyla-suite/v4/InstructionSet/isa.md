@@ -17,7 +17,8 @@ instr_content | [27, 0] | 27 | The content of the instruction. The meaning of th
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 0 | Instruction code for WAIT
-**cycle** | [27, 0] | 28 | 0 | Number of cycles. If cycle=0, then the WAIT instruction will wait forever.
+**mode** | [27, 27] | 1 | 0 | Wait mode: [0]: wait for a number of cycles; [1]: wait for a number of events;
+**cycle** | [26, 0] | 28 | 0 | Number of cycles. If cycle=0, then the WAIT instruction will wait forever.
 
 ### 0001 ACT
 
@@ -61,23 +62,6 @@ instr_code | [31, 28] | 4 | 4 | Instruction code for BRN
 **pc** | [24, 18] | 7 | 0 | The PC to jump to in case the condition is true. The PC is relative to the current PC.
 **slot** | [17, 14] | 4 | 0 | The slot that will provide the flags.
 
-### 0101 SWB
-
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 5 | Instruction code for SWB
-**channel** | [27, 24] | 4 | 0 | Bus channel. Note: if the SWB is implemented by a crossbar, the channel is always equals to the target slot.
-**source** | [23, 20] | 4 | 0 | Source slot.
-**target** | [19, 16] | 4 | 0 | Target slot
-
-### 0110 ROUTE
-
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 5 | Instruction code for SWB
-**sr**     | [27, 27] | 1 | 0 | Send or receive. [0]: send; [1]: receive;
-**direction** | [26, 23] | 4 | 0 | 1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.
-**slot** | [22, 7] | 16 | 0 | 1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.
 
 ## Data Instructions
 
@@ -99,23 +83,39 @@ DPU | DPU, REP
 
 ### 1000 REP
 
+This instruction is accepted by the following slots:
+
+- swb
+- iosram
+- dpu
+- rf
+- sram
+
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 8 | Instruction code for REP
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**port**  | [23, 21]  | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**port**  | [23, 21]  | 2 | 0 | The port number. [0]: write narrow; [1]: read narrow; [2]: write wide; [3]: read wide;
 **level** | [20, 17] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
 **iter**  | [16, 11] | 6 | 0 | iteration - 1.
 **step**  | [10, 5] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
 **delay** | [5, 0] | 6 | 0 | Repetition delay.
 
-### 1000 REPX
+### 1001 REPX
+
+This instruction is accepted by the following slots:
+
+- swb
+- iosram
+- dpu
+- rf
+- sram
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 9 | Instruction code for REPX. Configure the higher 6-bit of each field in the REP instruction.
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**port**  | [23, 21]  | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**port**  | [23, 21]  | 2 | 0 | The port number. [0]: write narrow; [1]: read narrow; [2]: write wide; [3]: read wide;
 **level** | [20, 17] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
 **iter**  | [16, 11] | 6 | 0 | iteration - 1.
 **step**  | [10, 5] | 6 | 0 | iteration step. This field is only useful when paired with REFI/SRAM instructions.
@@ -123,6 +123,11 @@ instr_code | [31, 28] | 4 | 9 | Instruction code for REPX. Configure the higher 
 
 
 ### 1010 MASK
+This instruction is accepted by the following slots:
+
+- iosram
+- rf
+- sram
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -131,17 +136,75 @@ instr_code | [31, 28] | 4 | 10 | Instruction code for MASK
 **chunk** | [23, 21] | 3 | 0 | Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.
 **mask** | [20, 5] | 16 | 0 | The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.
 
+### 1010 FSM
+
+This instruction is accepted by the following slots:
+
+- swb
+- dpu
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 10 | Instruction code for FSM
+**slot**  | [27, 24] | 4 | N/A | Slot number.
+**port**  | [23, 21] | 3 | 0 | The port number. [0]: write narrow; [1]: write narrow; [2]: write wide; [3]: read wide;
+**delay_0** | [20, 14] | 7 | 0 | The delay between state 0 and 1.
+**delay_1** | [13, 7] | 7 | 0 | The delay between state 1 and 2.
+**delay_2** | [6, 0] | 7 | 0 | The delay between state 2 and 3.
+
+
 ### 1011 DPU
+
+This instruction is accepted by the following slots:
+
+- dpu
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 11 | Instruction code for DPU
 **slot**  | [27, 24] | 4 | N/A | Slot number.
-**bw** | [23, 22] | 2 | 0 | The bit-width mode: [0]: 16-bit; [1]: 8-bit; [2]: 4-bit; [3]: 2-bit;
+**option** | [23, 22] | 2 | 0 | Programmable FSM states. Max 4 states.
 **mode** | [21, 17] | 5 | 0 | The DPU mode. [0]:idle; [1]:add; [2]:sum_acc; [3]:add_const; [4]:subt; [5]:subt_abs; [6]:mode_6; [7]:mult; [8]:mult_add; [9]:mult_const; [10]:mac; [11]:ld_ir; [12]:axpy; [13]:max_min_acc; [14]:max_min_const; [15]:mode_15; [16]:max_min; [17]:shift_l; [18]:shift_r; [19]:sigm; [20]:tanhyp; [21]:expon; [22]:lk_relu; [23]:relu; [24]:div; [25]:acc_softmax; [26]:div_softmax; [27]:ld_acc; [28]:scale_dw; [29]:scale_up; [30]:mac_inter; [31]:mode_31;
 **immediate** | [16, 1] | 16 | 0 | The immediate field used by some DPU modes.
 
+### 1100 SWB
+
+This instruction is accepted by the following slots:
+
+- swb
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 12 | Instruction code for SWB
+**slot**  | [27, 24] | 4 | N/A | Slot number.
+**option** | [23, 22] | 2 | 0 | Programmable FSM states. Max 4 states.
+**channel** | [21, 18] | 4 | 0 | Bus channel. Note: if the SWB is implemented by a crossbar, the channel is always equals to the target slot.
+**source** | [17, 14] | 4 | 0 | Source slot.
+**target** | [13, 10] | 4 | 0 | Target slot
+
+### 1101 ROUTE
+
+This instruction is accepted by the following slots:
+
+- swb
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 13 | Instruction code for ROUTE
+**slot**  | [27, 24] | 4 | N/A | Slot number.
+**option** | [23, 22] | 2 | 0 | Programmable FSM states. Max 4 states.
+**sr**     | [21, 21] | 1 | 0 | Send or receive. [0]: send; [1]: receive;
+**source** | [20, 17] | 4 | 0 | 1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.
+**target** | [16, 1] | 16 | 0 | 1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.
+
+
 ### 1110 DSU
+
+This instruction is accepted by the following slots:
+
+- iosram
+- rf
+- sram
 
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
@@ -149,5 +212,20 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
-**port** | [6, 5] | 2 | 0 | The port number. [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide;
+**port** | [6, 5] | 2 | 0 | The port number. [0]: write_narrow; [1]: read_narrow; [2]: write_wide; [3]: read_wide;
 **level** | [4, 1] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
+
+### 1111 IO
+
+This instruction is accepted by the following slots:
+
+- iosram
+
+Field | Position | Width | Default Value | Description
+------|----------|-------|---------------|-------------------------
+instr_code | [31, 28] | 4 | 15 | Instruction code for IO
+**slot**  | [27, 24] | 4 | N/A | Slot number.
+**ext_addr_sd** | [23, 23] | 1 | 0 | Is ext_addr static or dynamic? [0]:s; [1]:d;
+**ext_addr** | [22, 7] | 16 | 0 | External address.
+**int_addr** | [6, 1] | 6 | 0 | Internal address.
+**port** | [0, 0] | 1 | 0 | The port number. [0]: write to SRAM; [1]: read from SRAM;
