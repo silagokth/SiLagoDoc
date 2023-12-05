@@ -6,21 +6,28 @@
     {
       "code": 0,
       "name": "wait",
+      "machines": ["controller"],
       "segment_templates": [
+        {
+          "name": "mode",
+          "comment": "Wait mode, 0 means wait for a number of cycles, 1 means wait for events.",
+          "bitwidth": 1
+        },
         {
           "name": "cycle",
           "comment": "Number of cycles, if cycle=0 means infinite loop.",
-          "bitwidth": 28
+          "bitwidth": 27
         }
       ]
     },
     {
       "code": 1,
       "name": "act",
+      "machines": ["controller"],
       "segment_templates": [
         {
           "name": "ports",
-          "comment": "1-hot encoded ports that need to be activated. There are 64 ports in total, but only 16 can be activated at the same time. The ports are filtered by the mode and parameter field.",
+          "comment": "1-hot encoded slots that need to be activated.",
           "bitwidth": 16
         },
         {
@@ -38,6 +45,7 @@
     {
       "code": 2,
       "name": "calc",
+      "machines": ["controller"],
       "segment_templates": [
         {
           "name": "mode",
@@ -92,6 +100,7 @@
     {
       "code": 3,
       "name": "loop",
+      "machines": ["controller"],
       "segment_templates": [
         {
           "name": "loopid",
@@ -126,13 +135,15 @@
           "name": "step",
           "comment": "The iteration step.",
           "bitwidth": 6,
-          "default_val": 1
+          "default_val": 1,
+          "is_signed": true
         }
       ]
     },
     {
       "code": 4,
       "name": "brn",
+      "machines": ["controller"],
       "segment_templates": [
         {
           "name": "mode",
@@ -161,9 +172,20 @@
       ]
     },
     {
-      "code": 5,
+      "code": 12,
       "name": "swb",
+      "machines": ["swb"],
       "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "option",
+          "comment": "configuration option",
+          "bitwidth": 2
+        },
         {
           "name": "channel",
           "comment": "Bus channel. Note: if the SWB is implemented by a crossbar, the channel is always equals to the target slot.",
@@ -182,25 +204,36 @@
       ]
     },
     {
-      "code": 6,
+      "code": 13,
       "name": "route",
+      "machines": ["swb"],
       "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "option",
+          "comment": "configuration option",
+          "bitwidth": 2
+        },
         {
           "name": "sr",
           "comment": "Send or receive.",
           "bitwidth": 1,
           "verbo_map": [
-            { "key": 0, "val": "send" },
-            { "key": 1, "val": "receive" }
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "r" }
           ]
         },
         {
-          "name": "direction",
+          "name": "source",
           "comment": "1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.",
           "bitwidth": 4
         },
         {
-          "name": "slot",
+          "name": "target",
           "comment": "1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.",
           "bitwidth": 16
         }
@@ -209,6 +242,7 @@
     {
       "code": 8,
       "name": "rep",
+      "machines": ["swb", "iosram", "dpu", "rf", "sram"],
       "segment_templates": [
         {
           "name": "slot",
@@ -240,7 +274,8 @@
           "name": "step",
           "comment": "level-1 step",
           "bitwidth": 6,
-          "default_val": 1
+          "default_val": 1,
+          "is_signed": true
         },
         {
           "name": "delay",
@@ -251,7 +286,53 @@
     },
     {
       "code": 9,
+      "name": "repx",
+      "machines": ["swb", "iosram", "dpu", "rf", "sram"],
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "port",
+          "comment": "The port number",
+          "bitwidth": 2,
+          "verbo_map": [
+            { "key": 0, "val": "read narrow" },
+            { "key": 1, "val": "read wide" },
+            { "key": 2, "val": "write narrow" },
+            { "key": 3, "val": "write wide" }
+          ]
+        },
+        {
+          "name": "level",
+          "comment": "The level of the REP instruction. [0]: inner most level, [15]: outer most level.",
+          "bitwidth": 4
+        },
+        {
+          "name": "iter",
+          "comment": "level-1 iteration - 1.",
+          "bitwidth": 6
+        },
+        {
+          "name": "step",
+          "comment": "level-1 step",
+          "bitwidth": 6,
+          "default_val": 1,
+          "is_signed": true
+        },
+        {
+          "name": "delay",
+          "comment": "delay",
+          "bitwidth": 6
+        }
+      ]
+    },
+    {
+      "code": 10,
       "name": "mask",
+      "machines": ["iosram", "rf", "sram"],
       "segment_templates": [
         {
           "name": "slot",
@@ -272,8 +353,9 @@
     },
 
     {
-      "code": 10,
+      "code": 11,
       "name": "dpu",
+      "machines": ["dpu"],
       "segment_templates": [
         {
           "name": "slot",
@@ -281,15 +363,9 @@
           "bitwidth": 4
         },
         {
-          "name": "bw",
-          "comment": "The bit-width mode.",
-          "bitwidth": 2,
-          "verbo_map": [
-            { "key": 0, "val": "16-bit" },
-            { "key": 1, "val": "8-bit" },
-            { "key": 2, "val": "4-bit" },
-            { "key": 3, "val": "2-bit" }
-          ]
+          "name": "option",
+          "comment": "Configuration option.",
+          "bitwidth": 2
         },
         {
           "name": "mode",
@@ -337,9 +413,43 @@
         }
       ]
     },
+
+    {
+      "code": 10,
+      "name": "fsm",
+      "machines": ["swb", "dpu"],
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "port",
+          "comment": "The port number",
+          "bitwidth": 2
+        },
+        {
+          "name": "delay_0",
+          "comment": "Delay between state 0 and 1.",
+          "bitwidth": 7
+        },
+        {
+          "name": "delay_1",
+          "comment": "Delay between state 1 and 2.",
+          "bitwidth": 7
+        },
+        {
+          "name": "delay_2",
+          "comment": "Delay between state 2 and 3.",
+          "bitwidth": 7
+        }
+      ]
+    },
     {
       "code": 14,
       "name": "dsu",
+      "machines": ["iosram", "rf", "sram"],
       "segment_templates": [
         {
           "name": "slot",
@@ -373,8 +483,48 @@
         },
         {
           "name": "level",
-          "comment": "The level of the REP instruction. [0]: inner most level, [15]: outer most level.",
+          "comment": "The level of that the init address should be applied on. [0]: inner most level, [15]: outer most level.",
           "bitwidth": 4
+        }
+      ]
+    },
+    {
+      "code": 15,
+      "name": "io",
+      "machines": ["iosram"],
+      "segment_templates": [
+        {
+          "name": "slot",
+          "comment": "Slot number",
+          "bitwidth": 4
+        },
+        {
+          "name": "ext_addr_sd",
+          "comment": "Is initial address static or dynamic?",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "s" },
+            { "key": 1, "val": "d" }
+          ]
+        },
+        {
+          "name": "ext_addr",
+          "comment": "External address",
+          "bitwidth": 16
+        },
+        {
+          "name": "int_addr",
+          "comment": "Internal SRAM address",
+          "bitwidth": 6
+        },
+        {
+          "name": "port",
+          "comment": "The port number",
+          "bitwidth": 1,
+          "verbo_map": [
+            { "key": 0, "val": "write to SRAM from input buffer" },
+            { "key": 1, "val": "read from SRAM to output buffer" }
+          ]
         }
       ]
     }
