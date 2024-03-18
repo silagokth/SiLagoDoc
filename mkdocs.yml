@@ -28,11 +28,11 @@ nav:
           - Docs/ToolChain/Overview.md
           - Vesyla-suite:
               - Docs/ToolChain/Vesyla-suite/Overview.md
-              - v2 (old):
+              - v2 (Deprecated):
                   - Docs/ToolChain/Vesyla-suite/v2/Tutorial_DRRA.md
                   - Docs/ToolChain/Vesyla-suite/v2/VesylaProgrammingGuide.md
                   - Docs/ToolChain/Vesyla-suite/v2/InstructionSet.md
-              - v3 (current):
+              - v3 (Deprecated):
                   - Docs/ToolChain/Vesyla-suite/v3/Installation.md
                   - Docs/ToolChain/Vesyla-suite/v3/Tutorial_DRRA.md
                   - Docs/ToolChain/Vesyla-suite/v3/VesylaProgrammingGuide.md
@@ -41,9 +41,12 @@ nav:
                   - Docs/ToolChain/Vesyla-suite/v3/InstructionSet.md
                   - Docs/ToolChain/Vesyla-suite/v3/Tutorial_RISCV.md
                   - Docs/ToolChain/Vesyla-suite/v3/RepoOrganization.md
-              - v4 (future):
+              - v4 (Current):
                   - Docs/ToolChain/Vesyla-suite/v4/Architecture.md
                   - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
+                  - Docs/ToolChain/Vesyla-suite/v4/Installation.md
+                  - Docs/ToolChain/Vesyla-suite/v4/Tutorial_DRRA.md
+                  - Docs/ToolChain/Vesyla-suite/v4/IO.md
 
   #       - Sylva:
   #         - Docs/ToolChain/Sylva/Overview.md

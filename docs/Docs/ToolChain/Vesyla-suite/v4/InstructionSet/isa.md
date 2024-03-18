@@ -17,8 +17,8 @@ instr_content | [27, 0] | 27 | The content of the instruction. The meaning of th
 Field | Position | Width | Default Value | Description
 ------|----------|-------|---------------|-------------------------
 instr_code | [31, 28] | 4 | 0 | Instruction code for WAIT
-**mode** | [27, 27] | 1 | 0 | Wait mode: [0]: wait for a number of cycles; [1]: wait for a number of events;
-**cycle** | [26, 0] | 28 | 0 | Number of cycles. If cycle=0, then the WAIT instruction will wait forever.
+**mode** | [27, 27] | 1 | 0 | Wait mode: [0]: wait for a number of cycles; [1]: wait for the completion of task in slot X, X is defined by the cycle field using 1-hot encoding;
+**cycle** | [26, 0] | 28 | 0 | Number of cycles. If cycle=0, then the WAIT instruction will wait forever. Or the sensitive slots in case the instruction mode is 1.
 
 ### 0001 ACT
 
@@ -212,20 +212,4 @@ instr_code | [31, 28] | 4 | 14 | Instruction code for DSU
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **init_addr_sd** | [23, 23] | 1 | 0 | Is init_addr static or dynamic? [0]:s; [1]:d;
 **init_addr** | [22, 7] | 16 | 0 | Initial address.
-**port** | [6, 5] | 2 | 0 | The port number. [0]: write_narrow; [1]: read_narrow; [2]: write_wide; [3]: read_wide;
-**level** | [4, 1] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level.
-
-### 1111 IO
-
-This instruction is accepted by the following slots:
-
-- iosram
-
-Field | Position | Width | Default Value | Description
-------|----------|-------|---------------|-------------------------
-instr_code | [31, 28] | 4 | 15 | Instruction code for IO
-**slot**  | [27, 24] | 4 | N/A | Slot number.
-**ext_addr_sd** | [23, 23] | 1 | 0 | Is ext_addr static or dynamic? [0]:s; [1]:d;
-**ext_addr** | [22, 7] | 16 | 0 | External address.
-**int_addr** | [6, 1] | 6 | 0 | Internal address.
-**port** | [0, 0] | 1 | 0 | The port number. [0]: write to SRAM; [1]: read from SRAM;
+**port** | [6, 5] | 2 | 0 | The port number. [0]: write_narrow; [1]: read_narrow; [2]: write_wide; [3]: read_wide; If it's applied to IO, then [0]: read from IO to SRAM; [1]: write from SRAM to IO;

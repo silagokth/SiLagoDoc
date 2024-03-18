@@ -1,6 +1,71 @@
 # Vesyla-suite Overview
 
-## Version 2
+## Version 4 (Current)
+
+### Tool collection
+
+* vs-manas
+* vs-alimpsim
+* vs-init
+* vs-testcase
+
+### Installation and Usage
+
+#### Installation on Mozzarella and Cheddar
+
+Vesyla-suite version 4 has already been installed on both Mozzarella and Cheddar.
+
+To access vesyla-suite commands, you need to first load the vesyla-suite module by command:
+
+```tcl
+module load vesyla-suite/4
+```
+
+#### Tutorial
+
+See [DRRA-based AlImp Design Tutorial](../v4/Tutorial_DRRA).
+
+## Version 3 (Deprecated)
+
+### Tool collection
+
+* vs-vesyla
+* vs-manas
+* vs-alimpsim
+* vs-init
+* vs-expand
+* vs-imecc
+* vs-testcase
+
+### Installation and Usage
+
+#### Installation on Mozzarella
+
+Vesyla-suite version 3 has already been installed on Mozzarella.
+
+To access vesyla-suite commands, you need to first load the vesyla-suite module by command:
+
+```tcl
+module load vesyla-suite/3
+```
+
+#### Docker
+
+See [Installation](../v3/Installation#create-and-use-docker-image)
+
+#### Compile from Source
+
+See [Installation](../v3/Installation#compile-and-install-from-source-code)
+
+### Tutorial
+
+See [DRRA-based AlImp Design Tutorial](../v3/Tutorial_DRRA) and [RISCV-based AlImp Design Tutorial](../v3/Tutorial_RISCV).
+
+### Programming Guide
+
+See [Vesyla Programming Guide](../v3/VesylaProgrammingGuide)
+
+## Version 2 (Deprecated)
 
 Vesyla-suite version 2 is used for compiling **Matlab** code to **DRRA and DiMArch** based SiLago fabric. It does not support general input and output buffer for application-level synthesis. This version is deprecated and will be removed soon. You should only use it for old project such as DRRA characterization.
 
@@ -31,41 +96,3 @@ See [Turorial v2](../v2/Tutorial_DRRA) for vesyla and manas version 2.
 
 See [Vesyla Programming Guide v2](../v2/VesylaProgrammingGuide)
 
-## Version 3
-
-### Tool collection
-
-* vs-vesyla
-* vs-manas
-* vs-alimpsim
-* vs-init
-* vs-expand
-* vs-imecc
-
-### Installation and Usage
-
-#### Installation on Mozzarella
-
-Vesyla-suite version 3 has already been installed on Mozzarella.
-
-To access vesyla-suite commands, you need to first load the vesyla-suite module by command:
-
-```tcl
-module load vesyla-suite/3
-```
-
-#### Docker
-
-See [Installation](../v3/Installation#create-and-use-docker-image)
-
-#### Compile from Source
-
-See [Installation](../v3/Installation#compile-and-install-from-source-code)
-
-### Tutorial
-
-See [DRRA-based AlImp Design Tutorial](../v3/Tutorial_DRRA) and [RISCV-based AlImp Design Tutorial](../v3/Tutorial_RISCV).
-
-### Programming Guide
-
-See [Vesyla Programming Guide](../v3/VesylaProgrammingGuide)
