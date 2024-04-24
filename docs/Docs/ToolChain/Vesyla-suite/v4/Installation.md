@@ -18,11 +18,10 @@ Python3 is assential for vesyla-suite. You can install it according to the instr
 sudo dnf install python3-devel python3-pip
 ```
 
-Vesyla-suite uses **nuitka** to compile python3 scripts into native executable programs. You can install it by using pip3.
+Vesyla-suite uses **Pyinstaller** to compile python3 scripts into native executable programs. You can install it by using pip3.
 
 ```tcl
-sudo dnf install patchelf
-pip3 install nuitka
+pip3 install pyinstaller
 ```
 
 ### Compile and install vesyla-suite
