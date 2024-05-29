@@ -15,22 +15,22 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/Installation/">
       
       
-        <link rel="prev" href="../InstructionSet/">
+        <link rel="prev" href="../../v3/RepoOrganization/">
       
       
-        <link rel="next" href="../Tutorial_DRRA/">
+        <link rel="next" href="../Architecture/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Installation - SiLago Documentation</title>
+        <title>Installation and Usage - SiLago Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#installation-and-usage" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Installation and Usage
             
           </span>
         </div>
@@ -879,48 +879,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../Architecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Architecture Description
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../InstructionSet/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Instruction Set V4
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -937,7 +895,7 @@
           
   
   <span class="md-ellipsis">
-    Installation
+    Installation and Usage
   </span>
   
 
@@ -948,7 +906,7 @@
         
   
   <span class="md-ellipsis">
-    Installation
+    Installation and Usage
   </span>
   
 
@@ -970,13 +928,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#compile-and-install-from-source-code" class="md-nav__link">
+  <a href="#cheddar" class="md-nav__link">
     <span class="md-ellipsis">
-      Compile and Install from Source Code
+      Cheddar
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Compile and Install from Source Code">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source Code">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1036,11 +1012,74 @@
   
   
     <li class="md-nav__item">
+      <a href="../Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InstructionSet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instruction Set V4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Tutorial_DRRA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     DRRA-based AlImp Design Tutorial (v4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssemblyProgrammingGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming Guide for Proto-Assembly Language
   </span>
   
 
@@ -1234,13 +1273,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#compile-and-install-from-source-code" class="md-nav__link">
+  <a href="#cheddar" class="md-nav__link">
     <span class="md-ellipsis">
-      Compile and Install from Source Code
+      Cheddar
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Compile and Install from Source Code">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source Code">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1302,18 +1359,46 @@
   
 
 
-<h1 id="installation">Installation</h1>
-<h2 id="compile-and-install-from-source-code">Compile and Install from Source Code</h2>
+<h1 id="installation-and-usage">Installation and Usage</h1>
+<h2 id="cheddar">Cheddar</h2>
+<div class="admonition tip">
+<p class="admonition-title">Recommendation</p>
+<p>The easiest way to use vesyla-suite is to use the pre-installed version on Cheddar.</p>
+</div>
+<p>Vesyla-suite is pre-installed on Cheddar. You can use it directly without any installation. Contact the system administrator if you need an account on Cheddar.</p>
+<p>Before using vesyla-suite, you need to load the environment module.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">module</span><span class="w"> </span>load<span class="w"> </span>vesyla-suite<span class="o">/</span><span class="mi">4</span>
+</code></pre></div>
+<h2 id="docker-image">Docker Image</h2>
+<div class="admonition warning">
+<p class="admonition-title">Irregular Updates</p>
+<p>The docker image is not updated regularly. It may not contain the latest version of vesyla-suite.</p>
+</div>
+<p>Vesyla-suite is available as a docker image. The docker image is stored on SiLago SharePoint. Contact the system administrator if you need access to the docker image.</p>
+<p>Once you have download the docker image, import it to your local docker environment.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>load<span class="w"> </span><span class="o">-</span>i<span class="w"> </span>vesyla-suite-4.tar
+</code></pre></div>
+<p>You can run the docker image and mount the local directory to the docker container as <code>/work</code> directory by the following command.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>run<span class="w"> </span><span class="o">--</span>name<span class="w"> </span>vesyla-suite<span class="w"> </span><span class="o">-</span>dit<span class="w"> </span><span class="o">-</span>v<span class="w"> </span><span class="nv">$PWD:</span><span class="o">/</span>work<span class="w"> </span>vesyla-suite-4
+</code></pre></div>
+<p>Then you can start the docker container and use vesyla-suite.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">docker</span><span class="w"> </span>start<span class="w"> </span><span class="o">-</span>it<span class="w"> </span>vesyla-suite
+</code></pre></div>
+<h2 id="source-code">Source Code</h2>
+<p>If you want to compile and install vesyla-suite from source code, you can follow the instructions below.</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>Vesyla-suite can be compiled and installed on any modern linux distribution. Before compiling vesyla-suite, you need to install compilation tool chain. You need to use the correct package manager of your Linux distribution. The necessary packages include: g++ (version 5 or above), make, cmake, boost liabrires, gecode. Here, we give the example command for Fedora Linux.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>g<span class="o">++</span><span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>boost-devel<span class="w"> </span>perl<span class="w"> </span>autoconf<span class="w"> </span>libgmp-devel<span class="w">  </span>
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>g<span class="o">++</span><span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>boost-devel<span class="w"> </span>protobuf
 </code></pre></div>
 <h3 id="install-python3-and-python3-packages">Install Python3 and Python3 packages</h3>
-<p>Python3 is assential for vesyla-suite. You can install it according to the instruction on the official website: <a href="https://www.python.org/">https://www.python.org/</a>. You also need to install some python3 packages. Here, we give the example command for Fedora Linux.</p>
+<p>Python3 is essential for vesyla-suite. You can install it according to the instruction on the official website: <a href="https://www.python.org/">https://www.python.org/</a>. You also need to install some python3 packages. Here, we give the example command for Fedora Linux.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>python3-pip
 </code></pre></div>
 <p>Vesyla-suite uses <strong>Pyinstaller</strong> to compile python3 scripts into native executable programs. You can install it by using pip3.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">pip3</span><span class="w"> </span>install<span class="w"> </span>pyinstaller
+</code></pre></div>
+<p>Other required python packages can be installed by using pip3.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">pip3</span><span class="w"> </span>install<span class="w"> </span>ortools<span class="w"> </span>protobuf<span class="err">=</span><span class="mf">4.24</span>.2<span class="w"> </span>pyinstaller<span class="w"> </span>verboselogs<span class="w"> </span>coloredlogs<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>binarytree<span class="w"> </span>sympy<span class="w"> </span>regex<span class="w"> </span>lark<span class="w"> </span>uuid
 </code></pre></div>
 <h3 id="compile-and-install-vesyla-suite">Compile and install vesyla-suite</h3>
 <p>You can download the <strong>vesyla-suite</strong> source package and make a build directory.</p>
@@ -1381,7 +1466,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

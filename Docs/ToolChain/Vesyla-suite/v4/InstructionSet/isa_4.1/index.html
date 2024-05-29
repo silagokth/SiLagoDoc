@@ -12,21 +12,21 @@
         <meta name="author" content="SiLago Team">
       
       
-        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/InstructionSet/isa/">
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/InstructionSet/isa_4.1/">
       
       
       
       
       <link rel="icon" href="../../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Isa - SiLago Documentation</title>
+        <title>Isa 4.1 - SiLago Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Isa
+              Isa 4.1
             
           </span>
         </div>
@@ -870,6 +870,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation and Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Architecture/" class="md-nav__link">
         
   
@@ -912,11 +933,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installation/" class="md-nav__link">
+      <a href="../../Tutorial_DRRA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Installation
+    DRRA-based AlImp Design Tutorial (v4)
   </span>
   
 
@@ -933,11 +954,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tutorial_DRRA/" class="md-nav__link">
+      <a href="../../AssemblyProgrammingGuide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DRRA-based AlImp Design Tutorial (v4)
+    Programming Guide for Proto-Assembly Language
   </span>
   
 
@@ -1148,36 +1169,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#0000-wait" class="md-nav__link">
+  <a href="#0000-halt" class="md-nav__link">
     <span class="md-ellipsis">
-      0000 WAIT
+      0000 halt
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0001-act" class="md-nav__link">
+  <a href="#0001-wait" class="md-nav__link">
     <span class="md-ellipsis">
-      0001 ACT
+      0001 wait
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0010-calc" class="md-nav__link">
+  <a href="#0010-act" class="md-nav__link">
     <span class="md-ellipsis">
-      0010 CALC
+      0010 act
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#0011-loop" class="md-nav__link">
+  <a href="#0011-calc" class="md-nav__link">
     <span class="md-ellipsis">
-      0011 LOOP
+      0011 calc
     </span>
   </a>
   
@@ -1186,7 +1207,7 @@
           <li class="md-nav__item">
   <a href="#0100-brn" class="md-nav__link">
     <span class="md-ellipsis">
-      0100 BRN
+      0100 brn
     </span>
   </a>
   
@@ -1210,7 +1231,7 @@
           <li class="md-nav__item">
   <a href="#1000-rep" class="md-nav__link">
     <span class="md-ellipsis">
-      1000 REP
+      1000 rep
     </span>
   </a>
   
@@ -1219,16 +1240,7 @@
           <li class="md-nav__item">
   <a href="#1001-repx" class="md-nav__link">
     <span class="md-ellipsis">
-      1001 REPX
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1010-mask" class="md-nav__link">
-    <span class="md-ellipsis">
-      1010 MASK
+      1001 repx
     </span>
   </a>
   
@@ -1237,7 +1249,7 @@
           <li class="md-nav__item">
   <a href="#1010-fsm" class="md-nav__link">
     <span class="md-ellipsis">
-      1010 FSM
+      1010 fsm
     </span>
   </a>
   
@@ -1246,7 +1258,7 @@
           <li class="md-nav__item">
   <a href="#1011-dpu" class="md-nav__link">
     <span class="md-ellipsis">
-      1011 DPU
+      1011 dpu
     </span>
   </a>
   
@@ -1255,7 +1267,7 @@
           <li class="md-nav__item">
   <a href="#1100-swb" class="md-nav__link">
     <span class="md-ellipsis">
-      1100 SWB
+      1100 swb
     </span>
   </a>
   
@@ -1264,7 +1276,7 @@
           <li class="md-nav__item">
   <a href="#1101-route" class="md-nav__link">
     <span class="md-ellipsis">
-      1101 ROUTE
+      1101 route
     </span>
   </a>
   
@@ -1273,7 +1285,7 @@
           <li class="md-nav__item">
   <a href="#1110-dsu" class="md-nav__link">
     <span class="md-ellipsis">
-      1110 DSU
+      1110 dsu
     </span>
   </a>
   
@@ -1302,15 +1314,11 @@
   
 
 
-  <h1>Isa</h1>
+  <h1>Isa 4.1</h1>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The slot number will decide which data port it configures.</p>
-</div>
-<h2 id="instruction-format">Instruction Format</h2>
-<p>Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data; The rest of the bits are used to encode the instruction content. For data instructions, the first 4 bits in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.</p>
-<h2 id="control-instructions">Control Instructions</h2>
+<h3 id="instruction-format">Instruction Format</h3>
+<p>Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: resource; The first 4-bit (bit 32~28) is the instruction code. The rest of the bits are used to encode the instruction content. For data instructions, bit 27~24 in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.</p>
+<h3 id="control-instructions">Control Instructions</h3>
 <table>
 <thead>
 <tr>
@@ -1335,7 +1343,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0000-wait">0000 WAIT</h3>
+<h4 id="0000-halt">0000 halt</h4>
 <table>
 <thead>
 <tr>
@@ -1352,7 +1360,28 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>0</td>
-<td>Instruction code for WAIT</td>
+<td>Instruction code for halt. The halt instruction will stop the execution of the controller.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="0001-wait">0001 wait</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Position</th>
+<th>Width</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instr_code</td>
+<td>[31, 28]</td>
+<td>4</td>
+<td>1</td>
+<td>Instruction code for wait</td>
 </tr>
 <tr>
 <td><strong>mode</strong></td>
@@ -1366,11 +1395,15 @@
 <td>[26, 0]</td>
 <td>28</td>
 <td>0</td>
-<td>Number of cycles. If cycle=0, then the WAIT instruction will wait forever. Or the sensitive slots in case the instruction mode is 1.</td>
+<td>if mode is 0, the wait instruction waits for <strong>cycle</strong> extra cycles excluding the current cycle used for the wait instruction. If mode is 1, it waits for the sensitive slots defined by 1-hot encoded <strong>cycle</strong>.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="0001-act">0001 ACT</h3>
+<h4 id="0010-act">0010 act</h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mode 2 is not supported for now.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -1386,8 +1419,8 @@
 <td>instr_code</td>
 <td>[31, 28]</td>
 <td>4</td>
-<td>1</td>
-<td>Instruction code for ACT</td>
+<td>2</td>
+<td>Instruction code for act</td>
 </tr>
 <tr>
 <td><strong>ports</strong></td>
@@ -1412,7 +1445,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0010-calc">0010 CALC</h3>
+<h4 id="0011-calc">0011 calc</h4>
 <table>
 <thead>
 <tr>
@@ -1428,7 +1461,7 @@
 <td>instr_code</td>
 <td>[31, 28]</td>
 <td>4</td>
-<td>2</td>
+<td>3</td>
 <td>Instruction code for CALC</td>
 </tr>
 <tr>
@@ -1436,109 +1469,39 @@
 <td>[27, 24]</td>
 <td>4</td>
 <td>0</td>
-<td>Calculation mode [0]:idle; [1]:add; [2]:sub; [3]:shift_r; [4]:shift_l; [5]:mult; [6]:div; [7]:mod;</td>
-</tr>
-<tr>
-<td><strong>operand1_sd</strong></td>
-<td>[23, 23]</td>
-<td>1</td>
-<td>0</td>
-<td>Is the first operand static or dynamic? [0]:s; [1]:d;</td>
+<td>Calculation mode. [0]:idle; [1]:add; [2]:sub; [3]:lls; [4]:lrs; [5]:mul; [6]:div; [7]:mod; [8]:bit-and; [9]:bit-or; [10]:bit-inv; [11]:bit-xor; [17]:eq; [18]:ne; [19]:gt; [20]:ge; [21]:lt; [22]:le; [32]:and; [33]:or; [34]:not;</td>
 </tr>
 <tr>
 <td><strong>operand1</strong></td>
-<td>[22, 14]</td>
-<td>9</td>
+<td>[23, 20]</td>
+<td>4</td>
 <td>0</td>
 <td>First operand.</td>
 </tr>
 <tr>
 <td><strong>operand2_sd</strong></td>
-<td>[13, 13]</td>
+<td>[19, 19]</td>
 <td>1</td>
 <td>0</td>
 <td>Is the second operand static or dynamic? [0]:s; [1]:d;</td>
 </tr>
 <tr>
 <td><strong>operand2</strong></td>
-<td>[12, 4]</td>
-<td>9</td>
+<td>[18, 11]</td>
+<td>8</td>
 <td>0</td>
 <td>Second operand.</td>
 </tr>
 <tr>
 <td><strong>result</strong></td>
-<td>[3, 0]</td>
+<td>[10, 7]</td>
 <td>4</td>
 <td>0</td>
-<td>The RACCU register to store the result.</td>
+<td>The register to store the result. If it's scalar operation, the result is stored in the scalar register. If it's logic operations, the result is stored in the bool register.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="0011-loop">0011 LOOP</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[31, 28]</td>
-<td>4</td>
-<td>3</td>
-<td>Instruction code for LOOP</td>
-</tr>
-<tr>
-<td><strong>loopid</strong></td>
-<td>[27, 26]</td>
-<td>2</td>
-<td>0</td>
-<td>The id of the loop manager slot.</td>
-</tr>
-<tr>
-<td><strong>endpc</strong></td>
-<td>[25, 19]</td>
-<td>7</td>
-<td>0</td>
-<td>The PC where loop ends. It's relative to the current PC.</td>
-</tr>
-<tr>
-<td><strong>start_sd</strong></td>
-<td>[18, 18]</td>
-<td>1</td>
-<td>0</td>
-<td>Is the start static or dynamic? [0]:s; [1]:d;</td>
-</tr>
-<tr>
-<td><strong>start</strong></td>
-<td>[17, 12]</td>
-<td>6</td>
-<td>0</td>
-<td>The start of iterator.</td>
-</tr>
-<tr>
-<td><strong>iter</strong></td>
-<td>[11, 6]</td>
-<td>6</td>
-<td>0</td>
-<td>The number of iteration.</td>
-</tr>
-<tr>
-<td><strong>step</strong></td>
-<td>[5, 0]</td>
-<td>6</td>
-<td>1</td>
-<td>The iteration step.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="0100-brn">0100 BRN</h3>
+<h4 id="0100-brn">0100 brn</h4>
 <table>
 <thead>
 <tr>
@@ -1555,32 +1518,32 @@
 <td>[31, 28]</td>
 <td>4</td>
 <td>4</td>
-<td>Instruction code for BRN</td>
+<td>Instruction code for brn</td>
 </tr>
 <tr>
-<td><strong>mode</strong></td>
-<td>[27, 25]</td>
-<td>3</td>
-<td>0</td>
-<td>The branch mode: [0]: always; [1]: equal; [2]: not_equal; [3]: greater; [4]: less; [5]: greater_equal; [6]: less_equal;</td>
-</tr>
-<tr>
-<td><strong>pc</strong></td>
-<td>[24, 18]</td>
-<td>7</td>
-<td>0</td>
-<td>The PC to jump to in case the condition is true. The PC is relative to the current PC.</td>
-</tr>
-<tr>
-<td><strong>slot</strong></td>
-<td>[17, 14]</td>
+<td><strong>reg</strong></td>
+<td>[27, 24]</td>
 <td>4</td>
 <td>0</td>
-<td>The slot that will provide the flags.</td>
+<td>The bool register to check</td>
+</tr>
+<tr>
+<td><strong>target_true</strong></td>
+<td>[23, 15]</td>
+<td>9</td>
+<td>0</td>
+<td>The relative pc offset if the bool register is true.</td>
+</tr>
+<tr>
+<td><strong>target_false</strong></td>
+<td>[14, 6]</td>
+<td>9</td>
+<td>0</td>
+<td>The relative pc offset if the bool register is false.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="data-instructions">Data Instructions</h2>
+<h3 id="data-instructions">Data Instructions</h3>
 <table>
 <thead>
 <tr>
@@ -1625,23 +1588,23 @@
 <tbody>
 <tr>
 <td>Register File</td>
-<td>MASK DSU, REP</td>
+<td>DSU, REP, REPX</td>
 </tr>
 <tr>
 <td>SRAM Block</td>
-<td>MASK, DSU, REP</td>
+<td>DSU, REP, REPX</td>
 </tr>
 <tr>
 <td>IO Block</td>
-<td>MASK, DSU, REP</td>
+<td>DSU, REP, REPX</td>
 </tr>
 <tr>
 <td>DPU</td>
-<td>DPU, REP</td>
+<td>DPU, REP, REPX, FSM</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1000-rep">1000 REP</h3>
+<h4 id="1000-rep">1000 rep</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>swb</li>
@@ -1712,7 +1675,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1001-repx">1001 REPX</h3>
+<h4 id="1001-repx">1001 repx</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>swb</li>
@@ -1783,55 +1746,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1010-mask">1010 MASK</h3>
-<p>This instruction is accepted by the following slots:</p>
-<ul>
-<li>iosram</li>
-<li>rf</li>
-<li>sram</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Position</th>
-<th>Width</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>instr_code</td>
-<td>[31, 28]</td>
-<td>4</td>
-<td>10</td>
-<td>Instruction code for MASK</td>
-</tr>
-<tr>
-<td><strong>slot</strong></td>
-<td>[27, 24]</td>
-<td>4</td>
-<td>N/A</td>
-<td>Slot number.</td>
-</tr>
-<tr>
-<td><strong>chunk</strong></td>
-<td>[23, 21]</td>
-<td>3</td>
-<td>0</td>
-<td>Mask chunk of 16 elements. If each element is 16-bit, only 1 chunk is needed. If each element is 8-bit, 2 chunks are needed. If each element is 4-bit, 4 chunks are needed. If each element is 2-bit, 8 chunks are needed.</td>
-</tr>
-<tr>
-<td><strong>mask</strong></td>
-<td>[20, 5]</td>
-<td>16</td>
-<td>0</td>
-<td>The mask of 16-elements. If mask-bit is 0, then the corresponding element is useful and will be written to destination memory block. If mask-bit is 1, then the corresponding element is not useful and will be ignored.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1010-fsm">1010 FSM</h3>
+<h4 id="1010-fsm">1010 fsm</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>swb</li>
@@ -1892,7 +1807,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1011-dpu">1011 DPU</h3>
+<h4 id="1011-dpu">1011 dpu</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>dpu</li>
@@ -1945,7 +1860,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1100-swb">1100 SWB</h3>
+<h4 id="1100-swb">1100 swb</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>swb</li>
@@ -2005,7 +1920,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1101-route">1101 ROUTE</h3>
+<h4 id="1101-route">1101 route</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>swb</li>
@@ -2065,7 +1980,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1110-dsu">1110 DSU</h3>
+<h4 id="1110-dsu">1110 dsu</h4>
 <p>This instruction is accepted by the following slots:</p>
 <ul>
 <li>iosram</li>
@@ -2169,7 +2084,7 @@
     <script id="__config" type="application/json">{"base": "../../../../../..", "features": [], "search": "../../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

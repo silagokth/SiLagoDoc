@@ -12,13 +12,13 @@
         <meta name="author" content="SiLago Team">
       
       
-        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/Tutorial_DRRA/">
+        <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/AssemblyProgrammingGuide/">
       
       
-        <link rel="prev" href="../InstructionSet/">
+        <link rel="prev" href="../Tutorial_DRRA/">
       
       
-        <link rel="next" href="../AssemblyProgrammingGuide/">
+        <link rel="next" href="../IO/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>DRRA-based AlImp Design Tutorial (v4) - SiLago Documentation</title>
+        <title>Programming Guide for Proto-Assembly Language - SiLago Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drra-based-alimp-design-tutorial-v4" class="md-skip">
+        <a href="#programming-guide-for-proto-assembly-language" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DRRA-based AlImp Design Tutorial (v4)
+              Programming Guide for Proto-Assembly Language
             
           </span>
         </div>
@@ -942,6 +942,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial_DRRA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DRRA-based AlImp Design Tutorial (v4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -958,7 +979,7 @@
           
   
   <span class="md-ellipsis">
-    DRRA-based AlImp Design Tutorial (v4)
+    Programming Guide for Proto-Assembly Language
   </span>
   
 
@@ -969,7 +990,7 @@
         
   
   <span class="md-ellipsis">
-    DRRA-based AlImp Design Tutorial (v4)
+    Programming Guide for Proto-Assembly Language
   </span>
   
 
@@ -1000,38 +1021,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-model" class="md-nav__link">
+  <a href="#file-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Programming Model
+      File Types
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#initialization" class="md-nav__link">
+  <a href="#syntax-for-proto-assembly-language" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialization
+      Syntax for Proto-Assembly Language
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax for Proto-Assembly Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#syntax-format" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation
+      Syntax Format
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#simulation-and-verification" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      Simulation and Verification
+      Concepts
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax-for-constraint-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax for Constraint Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax for Constraint Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-format_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1039,27 +1135,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AssemblyProgrammingGuide/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming Guide for Proto-Assembly Language
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1258,38 +1333,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#programming-model" class="md-nav__link">
+  <a href="#file-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Programming Model
+      File Types
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#initialization" class="md-nav__link">
+  <a href="#syntax-for-proto-assembly-language" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialization
+      Syntax for Proto-Assembly Language
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax for Proto-Assembly Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#syntax-format" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation
+      Syntax Format
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#simulation-and-verification" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      Simulation and Verification
+      Concepts
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax-for-constraint-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax for Constraint Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax for Constraint Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax-format_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Syntax Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1311,190 +1461,72 @@
   
 
 
-<h1 id="drra-based-alimp-design-tutorial-v4">DRRA-based AlImp Design Tutorial (v4)</h1>
+<h1 id="programming-guide-for-proto-assembly-language">Programming Guide for Proto-Assembly Language</h1>
 <h2 id="introduction">Introduction</h2>
-<p>This tutorial demonstrates how to implement algorithms using vesyla-suite for DRRA-based architecture. We first introduce the programming model, then demonstrate with an example how to implement an algorithm using vesyla-suite.</p>
-<h2 id="programming-model">Programming Model</h2>
-<p>Each algorithm compiled by vesyla-suite will be mapped to a DRRA-2 fabric. The DRRA-2 fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.</p>
-<p><img alt="Programming Model" src="../Tutorial_DRRA/programming_model.png" /></p>
-<p>The input buffer is used to store the input data of the algorithm. The output buffer is used to store the output data of the algorithm. The input buffer and the output buffer are connected to the DRRA fabric through the input and output ports of the fabric. The input and output ports are used to connect the DRRA fabric to the outside world.</p>
-<p>Only the top row of DRRA-2 cells have access to the input buffer and only the bottom row of DRRA-2 cells have access to the output buffer. The input bandwidth and output bandwidth are determined by the number of columns of the DRRA fabric.</p>
-<p>The assumption of giant globally addressable memory buffers is not realistic. However, these buffers will not be implemented as it is. Instead, application-level synthesis (ALS) tool will synthesize the input and output buffers to the actual hardware. The input and output buffers are used to simplify the algorithmic compilation process.</p>
-<p>A typical setup of a DRRA-2 fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down. </p>
-<h2 id="initialization">Initialization</h2>
-<p>In any directory, you can initialize a DRRA style project by using the command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">vs-init</span><span class="w"> </span><span class="o">-</span>s<span class="w"> </span>drra
+<p>The Proto-Assembly Language is a low-level language that is used to write programs for the DRRA-2 architecture. The language is designed to be simple and easy to understand, while still providing the necessary features to write complex programs. The Proto-Assembly Language are structured assembly language whose instructions are not yet been scheduled. It preserves control hierarchy but lack of timing information. This guide will provide an overview of the language and how to write programs in it. In this guide, you will learn about the syntax of the Proto-Assembly Language, and its constraints.</p>
+<h2 id="file-types">File Types</h2>
+<p>The Proto-Assembly Language uses the <code>.pasm</code> file extension for source files. These files contain the source code for a program written in the Proto-Assembly Language.</p>
+<p>To supplement the Proto-Assembly Language, the <code>.cstr</code> file extension is used for constraint files. These files contain the constraints for the program written in the Proto-Assembly Language. The constraints are necessary for the scheduling of the instructions in the Proto-Assembly Language.</p>
+<p>The output of the scheduling and synchronization process is an assembly language file with <code>.asm</code> as suffix. This file contains the scheduled instructions that is ready to processed by the assembler.</p>
+<h2 id="syntax-for-proto-assembly-language">Syntax for Proto-Assembly Language</h2>
+<h3 id="comments">Comments</h3>
+<p>Comments in the Proto-Assembly Language are denoted by the <code>#</code> character. Anything after the <code>#</code> character on a line is considered a comment and is ignored by the compiler.</p>
+<h3 id="syntax-format">Syntax Format</h3>
+<p>All regions, operations, and instructions follow the same syntax format. The syntax format is as follows:</p>
+<p><div class="highlight"><pre><span></span><code>NAME &lt;ID&gt; (PARAM_0=VALUE_0, PARAM_1=VALUE_1, ...) {
+    CONTENT_0
+    CONTENT_1
+    ...
+}
 </code></pre></div>
-<p>If this directory has already been initialized, you can force the re-initialization by using the command:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">vs-init</span><span class="w"> </span><span class="o">-</span>f<span class="w"> </span><span class="o">-</span>s<span class="w"> </span>drra
-</code></pre></div>
-<p>You will notice that several files has been created in this directory. One of the files is <code>arch.json</code>. This file contains the architecture description. You can modify this file to change the resources that are included on the fabric. The configuration file is described in the following section.</p>
-<p>Another file you need to modify is <code>main.cpp</code>. You need to define some of the functions in this file. The functions are described in the following section.</p>
-<p>The third location you need to modify is the <code>pasm</code> folder. This folder contains all the code segments in proto-assembly and constraint format. The name of each code segment should be a unique number. For example <code>0.pasm</code>/<code>0.cstr</code>, <code>1.pasm</code>/<code>1.cstr</code>, and so on.</p>
-<h2 id="implementation">Implementation</h2>
-<p>We use a simple example to demonstrate the implementation of algorithms. The example is a element-wise addition of two vectors. It has two inputs: vector <code>A</code> and vector <code>B</code>. It has one output: vector <code>C</code>. All of them have size equal to 16. The element-wise addition is defined as: <code>C[i] = A[i] + B[i]</code>.</p>
-<p>We first define the hardware architecture in <code>arch.json</code>. It should include three cells: cell [0,0], cell [1,0], and cell [2,0]. Cell [0,0] is used to read data from input buffer, and cell [2,0] is used to write result to output buffer. Cell [1,0] will be the one that does the actual addition.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iosram&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;custom_properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;depth&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;swb&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dpu&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;word_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_input_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;bulk_output_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;custom_properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;depth&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;val&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;controllers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller_io&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;iram_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller_normal&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;iram_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_input&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller_io&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;resource_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;swb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;iosram&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_output&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller_io&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;resource_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;swb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;iosram&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_normal&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller_normal&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;resource_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;swb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;rf&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;dpu&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;fabric&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;cell_lists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;row&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;col&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}],</span>
-<span class="w">        </span><span class="nt">&quot;cell_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_input&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;row&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;col&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}],</span>
-<span class="w">        </span><span class="nt">&quot;cell_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_normal&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">&quot;row&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;col&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}],</span>
-<span class="w">        </span><span class="nt">&quot;cell_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drra_cell_output&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;custom_properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;input_buffer_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;output_buffer_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Before we implement the algorithm in <code>main.cpp</code>, we need to define the input and output data layout in input and output buffer. Both input and output buffer has width that equals to 256 bits. So, each row can be divided by 16 16-bit chunks, each of which stores an element of <code>A</code>, <code>B</code>, or <code>C</code>. The layout is described by the following table.</p>
-<div class="highlight"><pre><span></span><code>Input Buffer:
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-| addr | CHK0| CHK1| CHK2| CHK3| CHK4| CHK5| CHK6| CHK7| CHK8| CHK9|CHK10|CHK11|CHK12|CHK13|CHK14|CHK15|
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-|    0 | A[0]| A[1]| A[2]| A[3]| A[4]| A[5]| A[6]| A[7]| A[8]| A[9]|A[10]|A[11]|A[12]|A[13]|A[14]|A[15]|
-|    1 | B[0]| B[1]| B[2]| B[3]| B[4]| B[5]| B[6]| B[7]| B[8]| B[9]|B[10]|B[11]|B[12]|B[13]|B[14]|B[15]|
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+However, different regions, operations, and instructions requires only some parts of the syntax format. For example, <strong>loop</strong> region usually don't need the <code>ID</code> part; Instructions don't have any contents.</p>
+<p>The following EBNF grammar describes the syntax of the Proto-Assembly Language:</p>
+<div class="highlight"><pre><span></span><code><span class="k">start</span><span class="err">:</span> <span class="err">(</span><span class="k">loop_region </span><span class="err">|</span> <span class="k">cond_region </span><span class="err">|</span> <span class="k">epoch_region</span><span class="err">)*</span>
 
-Output Buffer:
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-| addr | CHK0| CHK1| CHK2| CHK3| CHK4| CHK5| CHK6| CHK7| CHK8| CHK9|CHK10|CHK11|CHK12|CHK13|CHK14|CHK15|
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
-|    0 | C[0]| C[1]| C[2]| C[3]| C[4]| C[5]| C[6]| C[7]| C[8]| C[9]|C[10]|C[11]|C[12]|C[13]|C[14]|C[15]|
-+------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+<span class="k">loop_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">loop</span><span class="err">&quot;</span>   <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)</span> <span class="err">&quot;{&quot;</span> <span class="err">(</span><span class="k">loop_region </span><span class="err">|</span> <span class="k">cond_region </span><span class="err">|</span> <span class="k">epoch_region</span><span class="err">)+</span> <span class="err">&quot;}&quot;</span>
+<span class="k">cond_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">cond</span><span class="err">&quot;</span>   <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)</span> <span class="err">&quot;{&quot;</span> <span class="err">(</span><span class="k">loop_region </span><span class="err">|</span> <span class="k">cond_region </span><span class="err">|</span> <span class="k">epoch_region</span><span class="err">)+</span> <span class="err">&quot;}&quot;</span>
+<span class="k">epoch_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">epoch</span><span class="err">&quot;</span> <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)?</span> <span class="err">&quot;{&quot;</span> <span class="k">cell_region</span><span class="err">+</span> <span class="err">&quot;}&quot;</span>
+<span class="k">cell_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">cell</span><span class="err">&quot;</span>   <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;</span> <span class="err">&quot;{&quot;</span> <span class="err">(</span><span class="k">cop_region </span><span class="err">|</span> <span class="k">rop_region </span><span class="err">|</span> <span class="k">raw_region</span><span class="err">)+</span> <span class="err">&quot;}&quot;</span>
+
+<span class="k">cop_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">cop</span><span class="err">&quot;</span> <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)?</span> <span class="err">&quot;{&quot;</span> <span class="k">instruction</span><span class="err">+</span> <span class="err">&quot;}&quot;</span>
+<span class="k">rop_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">rop</span><span class="err">&quot;</span> <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)?</span> <span class="err">&quot;{&quot;</span> <span class="k">instruction</span><span class="err">+</span> <span class="err">&quot;}&quot;</span>
+<span class="k">raw_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">raw</span><span class="err">&quot;</span> <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">&quot;{&quot;</span> <span class="k">instruction</span><span class="err">+</span> <span class="err">&quot;}&quot;</span>
+
+<span class="k">instruction</span><span class="err">:</span> <span class="k">IDENTIFIER </span><span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)?</span>
+<span class="k">parameter</span><span class="err">:</span> <span class="k">IDENTIFIER </span><span class="err">&quot;</span><span class="o">=</span><span class="err">&quot;</span> <span class="p">(</span><span class="k">IDENTIFIER </span><span class="p">|</span> <span class="k">NUMBER</span><span class="p">)</span>
+
+<span class="k">IDENTIFIER</span><span class="err">:</span> <span class="err">/</span><span class="p">[</span><span class="err">_</span><span class="k">a-zA-Z</span><span class="p">][</span><span class="err">_</span><span class="k">a-zA-z0-9</span><span class="p">]</span><span class="err">*/</span>
+<span class="k">NUMBER</span><span class="err">:</span> <span class="err">/</span><span class="p">[</span><span class="err">+</span><span class="o">-</span><span class="p">]</span><span class="ni">?(0[xdob])?</span><span class="p">[</span><span class="err">0</span><span class="o">-</span><span class="err">9\</span><span class="p">.</span><span class="err">]+/</span>
+
+<span class="err">%</span><span class="k">import common</span><span class="err">.</span><span class="k">WS</span>
+<span class="err">%</span><span class="k">ignore WS</span>
+<span class="k">COMMENTS</span><span class="err">:</span> <span class="err">/#.*/</span>
+<span class="err">%</span><span class="k">ignore COMMENTS</span>
 </code></pre></div>
-<p>In <code>main.cpp</code>, you need to implement the following functions:</p>
+<h3 id="concepts">Concepts</h3>
+<p>Regions and instructions are the basic building blocks of a program written in the Proto-Assembly Language. We introduce the following concepts to help you understand the structure of a program written in the Proto-Assembly Language.</p>
 <ul>
-<li><code>void init()</code>: This function is used to initialize the input buffer.</li>
-<li><code>void model_l0()</code>: This function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm.</li>
-<li><code>void model_l1()</code>: This function is used to implement the algorithm in the level 1 model. It should consists a set of function call of simulation request of the code segments stored in folder <code>pasm</code>.</li>
+<li><strong>start</strong> region represents the whole program. It contains one or more regions among <strong>loop</strong>, <strong>cond</strong>, and <strong>epoch</strong>.</li>
+<li><strong>loop</strong> region is a hierarchical region that contains one or more regions among <strong>loop</strong>, <strong>cond</strong>, and <strong>epoch</strong>.</li>
+<li><strong>cond</strong> region is a hierarchical region that contains one or more regions among <strong>loop</strong>, <strong>cond</strong>, and <strong>epoch</strong>.</li>
+<li><strong>epoch</strong> region is a region that contains one or more <strong>cell</strong> region.</li>
+<li><strong>cell</strong> region is a region that contains one or more operations among <strong>rop</strong>, <strong>cop</strong>, and <strong>raw</strong>.</li>
+<li><strong>rop</strong> or <strong>resource operation</strong> is a region that contains one or more resource instructions.</li>
+<li><strong>cop</strong> or <strong>control operation</strong> is a region that contains one or more control instructions.</li>
+<li><strong>raw</strong> or <strong>raw assembly operation</strong> is a region that contains assembly instruction that do not need to be process by the scheduler.</li>
+<li><strong>control instructions</strong> are instructions that are executed by a sequencer.</li>
+<li><strong>resource instructions</strong> are instructions that are executed by a specific resource.</li>
 </ul>
-<p>We implement these functions one by one.</p>
-<p>The <code>init()</code> function is used to initialize the input buffer. It's a pure software implementation. The following code shows how to initialize the input buffer.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="cp">#define N 16</span>
-<span class="w">  </span><span class="c1">// Set the seed for random number generator</span>
-<span class="w">  </span><span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
-
-<span class="w">  </span><span class="c1">// Generate N random numbers in range [0,100)</span>
-<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// Write the random numbers to the input buffer.</span>
-<span class="w">  </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">write</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The <code>model_l0()</code> function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm. The following code shows how to implement the algorithm in the level 0 model.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l0</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="cp">#define N 16</span>
-<span class="w">  </span><span class="c1">// Read the input buffer to A and B.</span>
-<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
-<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">__input_buffer__</span><span class="p">.</span><span class="n">read</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
-<span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
-<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="c1">// Write A to the output buffer</span>
-<span class="w">  </span><span class="n">__output_buffer__</span><span class="p">.</span><span class="n">write</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Now, it's time to implement the algorithm in the level 1 model. The level 1 model should consists a set of function call of simulation request of the code segments stored in folder <code>pasm</code>. In this example, we only need 1 code segment. Therefore, the level 1 model is very simple.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">model_l1</span><span class="p">(){</span>
-<span class="w">  </span><span class="n">simulate_code_segment</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>The level 1 model is not complete without the proto-assembly code and its constraint file. We need to write the proto-assembly code in <code>pasm/0.pasm</code>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Proto-Assembly Language is case-sensitive. All keywords must be written in lowercase.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>raw</strong> region is not compatible with <strong>cop</strong> and <strong>rop</strong> regions. They are not allowed in the same <strong>epoch</strong> region. This is because the instruction scheduling process works on the entire <strong>epoch</strong>.</p>
+</div>
+<h3 id="example">Example</h3>
+<p>The following is an example of a simple program written in the Proto-Assembly Language:</p>
 <div class="highlight"><pre><span></span><code>epoch &lt;rb0&gt; {
     cell (x=0, y=0) {
         rop &lt;route0r&gt; (slot=0, port=2){
@@ -1586,7 +1618,42 @@ Output Buffer:
     }
 }
 </code></pre></div>
-<p>The constraint file that work with the proto-assembly file is stored in <code>pasm/0.cstr</code>:</p>
+<h2 id="syntax-for-constraint-files">Syntax for Constraint Files</h2>
+<p>The constraint files are used to specify the constraints for the program written in the Proto-Assembly Language. The constraints are necessary for the scheduling of the instructions in the Proto-Assembly Language.</p>
+<p>Constraint is also organized as code region. Only the <code>epoch</code> region is supported in the constraint file because only it requires timing constraints. The <code>ID</code> field of the <code>epoch</code> region should be the same as the <code>epoch</code> region in the proto-assembly file, which is used to match the constraints with the program.</p>
+<h3 id="comments_1">Comments</h3>
+<p>Comments in the constraint file are denoted by the <code>#</code> character. Anything after the <code>#</code> character on a line is considered a comment and is ignored by the compiler.</p>
+<h3 id="syntax-format_1">Syntax Format</h3>
+<p>The syntax format for the constraint file is as follows:</p>
+<div class="highlight"><pre><span></span><code>epoch ID {
+    TYPE CONTENT_0
+    TYPE CONTENT_1
+    ...
+}
+</code></pre></div>
+<p>Currently, we only support <strong>linear</strong> constraint type. The linear constraints support normal equality and inequality.</p>
+<p>The following EBNF grammar describes the syntax of the constraint file:</p>
+<div class="highlight"><pre><span></span><code><span class="k">start</span><span class="err">:</span> <span class="err">(</span><span class="k">epoch_region</span><span class="err">)*</span>
+<span class="k">epoch_region</span><span class="err">:</span> <span class="err">&quot;</span><span class="k">epoch</span><span class="err">&quot;</span> <span class="err">(&quot;&lt;&quot;</span> <span class="k">IDENTIFIER </span><span class="err">&quot;&gt;&quot;)?</span> <span class="err">(&quot;(&quot;</span> <span class="k">parameter </span><span class="err">(&quot;,&quot;</span> <span class="k">parameter</span><span class="err">)*</span> <span class="err">&quot;)&quot;)?</span> <span class="err">&quot;{&quot;</span> <span class="k">constraint</span><span class="err">*</span> <span class="err">&quot;}&quot;</span>
+<span class="k">constraint</span><span class="err">:</span> <span class="k">IDENTIFIER ANY</span>
+<span class="k">parameter</span><span class="err">:</span> <span class="k">IDENTIFIER </span><span class="err">&quot;</span><span class="o">=</span><span class="err">&quot;</span> <span class="p">(</span><span class="k">IDENTIFIER </span><span class="p">|</span> <span class="k">NUMBER</span><span class="p">)</span>
+<span class="k">IDENTIFIER</span><span class="err">:</span> <span class="err">/</span><span class="p">[</span><span class="err">_</span><span class="k">a-zA-Z</span><span class="p">][</span><span class="err">_</span><span class="k">a-zA-z0-9</span><span class="p">]</span><span class="err">*/</span>
+<span class="k">NUMBER</span><span class="err">:</span> <span class="err">/</span><span class="p">[</span><span class="err">+</span><span class="o">-</span><span class="p">]</span><span class="ni">?(0[xdob])?</span><span class="p">[</span><span class="err">0</span><span class="o">-</span><span class="err">9\</span><span class="p">.</span><span class="err">]+/</span>
+<span class="k">ANY</span><span class="err">:</span> <span class="err">/.+/</span>
+<span class="err">%</span><span class="k">import common</span><span class="err">.</span><span class="k">WS</span>
+<span class="err">%</span><span class="k">ignore WS</span>
+<span class="k">COMMENTS</span><span class="err">:</span> <span class="err">/#.*/</span>
+<span class="err">%</span><span class="k">ignore COMMENTS</span>
+</code></pre></div>
+<h3 id="concepts_1">Concepts</h3>
+<ul>
+<li><strong>epoch</strong> region is a region that contains one or more constraints.</li>
+<li><strong>constraint</strong> is single line statement that specifies the constraint type and its content. Each constraint is expressed by a relationship among operations, events, and anchors.</li>
+<li><strong>operation</strong> is the ID of the operation in the proto-assembly file. Each operation, depends on its internal instruction list, can be interpreted as a sequence of events and their transformation. The event name in resource operation is used to represent the specific event for operations using <code>FSM</code> instructions to construct multi-state FSM. For control operations, each instruction will be a new event. The event name always starts with <code>e</code> and followed by a number. They are always numerically ordered. For example, the first, second and third event of operation <code>op0</code> will be <code>op0.e0</code>, <code>op0.e1</code> and <code>op0.e2</code> respectively.</li>
+<li><strong>anchor</strong> is the specific instances of events in different loop iterations implemented by the <code>rep</code> instruction. The anchor name is the event name followed by a sequence of loop iteration number. For example, the first event of operation <code>op0</code> in the second loop iteration will be <code>op0.e0[1]</code>. The left-to-right order of the loop iteration number is from the outermost loop to the innermost loop.</li>
+</ul>
+<h3 id="example_1">Example</h3>
+<p>The following is an example of a constraint file that specifies the constraints for the proto-assembly program written in the previous section:</p>
 <div class="highlight"><pre><span></span><code>epoch &lt;rb0&gt; {
     linear ( input_r == input_w )
     linear ( route0r &lt; read_ab )
@@ -1611,12 +1678,6 @@ Output Buffer:
     linear ( output_r == output_w )
 }
 </code></pre></div>
-<p>Please check the <a href="../AssemblyProgrammingGuide/">programming guide</a> for more information about the proto-assembly and constraint file.</p>
-<h2 id="simulation-and-verification">Simulation and Verification</h2>
-<p>To simulate the algorithm, simply run:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">.</span><span class="o">/</span>run.sh
-</code></pre></div>
-<p>If the output shows the simulation is successful, then the algorithm is correct.</p>
 
 
 
