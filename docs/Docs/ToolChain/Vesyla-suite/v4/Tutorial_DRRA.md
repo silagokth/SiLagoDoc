@@ -1,13 +1,12 @@
 # DRRA-based AlImp Design Tutorial (v4)
 
-!!! note
-    This page is written for vesyla-suite **version 4** and only works for DRRA-2 fabric.
-
 ## Introduction
+
+This tutorial demonstrates how to implement algorithms using vesyla-suite for DRRA-based architecture. We first introduce the programming model, then demonstrate with an example how to implement an algorithm using vesyla-suite.
 
 ## Programming Model
 
-Each algorithm compiled by vesyla-suite will be mapped to a DRRA fabric. The DRRA-2 fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
+Each algorithm compiled by vesyla-suite will be mapped to a DRRA-2 fabric. The DRRA-2 fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
 
 ![Programming Model](../Tutorial_DRRA/programming_model.png)
 
@@ -16,6 +15,8 @@ The input buffer is used to store the input data of the algorithm. The output bu
 Only the top row of DRRA-2 cells have access to the input buffer and only the bottom row of DRRA-2 cells have access to the output buffer. The input bandwidth and output bandwidth are determined by the number of columns of the DRRA fabric.
 
 The assumption of giant globally addressable memory buffers is not realistic. However, these buffers will not be implemented as it is. Instead, application-level synthesis (ALS) tool will synthesize the input and output buffers to the actual hardware. The input and output buffers are used to simplify the algorithmic compilation process.
+
+A typical setup of a DRRA-2 fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down. 
 
 ## Initialization
 
@@ -35,7 +36,7 @@ You will notice that several files has been created in this directory. One of th
 
 Another file you need to modify is ``main.cpp``. You need to define some of the functions in this file. The functions are described in the following section.
 
-The third location you need to modify is the ``asm`` folder. This folder contains all the code segments in assembly format. The name of each code segment should be a unique number. For example ``0.txt``, ``1.txt``.
+The third location you need to modify is the ``pasm`` folder. This folder contains all the code segments in proto-assembly and constraint format. The name of each code segment should be a unique number. For example ``0.pasm``/``0.cstr``, ``1.pasm``/``1.cstr``, and so on.
 
 ## Implementation
 
@@ -122,7 +123,7 @@ We first define the hardware architecture in ``arch.json``. It should include th
     }
   ],
   "fabric": {
-    "height": 2,
+    "height": 3,
     "width": 1,
     "cell_lists": [
       {
@@ -145,6 +146,7 @@ We first define the hardware architecture in ``arch.json``. It should include th
     "output_buffer_depth": 1024
   }
 }
+
 
 ```
 
@@ -171,47 +173,47 @@ In ``main.cpp``, you need to implement the following functions:
 
 * ``void init()``: This function is used to initialize the input buffer.
 * ``void model_l0()``: This function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm.
-* ``void model_l1()``: This function is used to implement the algorithm in the level 1 model. It will be the input of vesyla-suite compiler. It's a software implementation of the algorithm with some hardware primitives. For syntax, plaese refer to [Vesyla Programming Guide](../VesylaProgrammingGuide).
+* ``void model_l1()``: This function is used to implement the algorithm in the level 1 model. It should consists a set of function call of simulation request of the code segments stored in folder ``pasm``.
 
 We implement these functions one by one.
 
 The ``init()`` function is used to initialize the input buffer. It's a pure software implementation. The following code shows how to initialize the input buffer.
 
 ```cpp
-void init(){
+void init() {
+#define N 16
   // Set the seed for random number generator
-  srand((unsigned) time(NULL));
+  srand((unsigned)time(NULL));
 
-  // Generate 32 random numbers in range [0,100) for both vector A and B
-  vector<int16_t> v(32);
-  for(auto i=0; i<32; i++){
-    v[i] = rand()%100;
+  // Generate N random numbers in range [0,100)
+  vector<int16_t> v(2 * N);
+  for (auto i = 0; i < 2 * N; i++) {
+    v[i] = rand() % 100;
   }
 
-  // Write the random numbers to the input buffer at starting address 0, and the number of row to write is 2.
-  __input_buffer__.write<int16_t>(0, 2, v);
+  // Write the random numbers to the input buffer.
+  __input_buffer__.write<int16_t>(0, (2 * N) / 16, v);
 }
 ```
 
 The ``model_l0()`` function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm. The following code shows how to implement the algorithm in the level 0 model.
 
 ```cpp
-void model_l0(){
-  // Read the input buffer to A. The starting address is 0, and the number of row to read is 1. 
-  vector<int16_t> a = __input_buffer__.read<int16_t>(0, 1);
-  // Read the input buffer to B. The starting address is 1, and the number of row to read is 1. 
-  vector<int16_t> b = __input_buffer__.read<int16_t>(1, 1);
-  // Add A and B
-  vector<int16_t> c(16);
-  for(auto i=0; i<16; i++){
-    c[i] = a[i] + b[i];
+void model_l0() {
+#define N 16
+  // Read the input buffer to A and B.
+  vector<int16_t> a = __input_buffer__.read<int16_t>(0, N / 16);
+  vector<int16_t> b = __input_buffer__.read<int16_t>(0, N / 16);
+  vector<int16_t> c(N);
+  for(int i=0; i<N; i++){
+    c[i] = a[i]*b[i];
   }
-  // Write the result C to the output buffer at starting address 0, and the number of row to write is 1.
-  __output_buffer__.write<int16_t>(0, 1, c);
+  // Write A to the output buffer
+  __output_buffer__.write<int16_t>(0, N / 16, c);
 }
 ```
 
-Now, it's time to implement the algorithm in the level 1 model. The level 1 model should consists a set of function call of simulation request of the code segments stored in folder ``asm``. In this example, we only need 1 code segment. Therefore, the level 1 model is very simple.
+Now, it's time to implement the algorithm in the level 1 model. The level 1 model should consists a set of function call of simulation request of the code segments stored in folder ``pasm``. In this example, we only need 1 code segment. Therefore, the level 1 model is very simple.
 
 ```cpp
 void model_l1(){
@@ -219,11 +221,131 @@ void model_l1(){
 }
 ```
 
-The level 1 model is not complete without the assembly code written in code segments. We need to write the assembly code in ``asm/0.txt``. The following code shows the assembly code.
+The level 1 model is not complete without the proto-assembly code and its constraint file. We need to write the proto-assembly code in ``pasm/0.pasm``:
 
-```assembly
+```pasm
+epoch <rb0> {
+    cell (x=0, y=0) {
+        rop <route0r> (slot=0, port=2){
+            route (slot=0, option=0, sr=0, source=2, target= 0b010000000)
+        }
+
+        rop <input_r> (slot=1, port=0){
+            dsu (slot=1, port=0, init_addr=0)
+            rep (slot=1, port=0, level=0, iter=2, step=1, delay=0)
+        }
+
+        rop <input_w> (slot=1, port=2){
+            dsu (slot=1, port=2, init_addr=0)
+            rep (slot=1, port=2, iter=2, step=1, delay=0)
+        }
+
+        rop <read_ab> (slot=2, port=3){
+            dsu (slot=2, port=3, init_addr=0)
+            rep (slot=2, port=3, iter=2, step=1, delay=0)
+        }
+    }
+
+    cell (x=1, y=0) {
+        rop <route1wr> (slot=0, port=2){
+            route (slot=0, option=0, sr=1, source=1, target= 0b0000000000000110)
+            route (slot=0, option=0, sr=0, source=3, target= 0b010000000)
+        }
+
+        rop <write_a> (slot=1, port=2){
+            dsu (slot=1, port=2, init_addr=0)
+            rep (slot=1, port=2, iter=1, step=1, delay=t1)
+        }
+
+        rop <write_b> ( slot=2, port=2){
+            dsu (slot=2, port=2, init_addr=0)
+            rep (slot=2, port=2, iter=1, step=1, delay=t1)
+        }
+
+        rop <swb> ( slot=0, port=0){
+            swb (slot=0, option=0, channel=4, source=1, target=4)
+            swb (slot=0, option=0, channel=5, source=1, target=5)
+            swb (slot=0, option=0, channel=3, source=4, target=3)
+        }
+
+        rop <read_a_seq> ( slot=1, port=1){
+            dsu (slot=1, port=1, init_addr=0)
+            rep (slot=1, port=1, iter=16, step=1, delay=0)
+        }
+
+        rop <read_b_seq> ( slot=2, port=1){
+            dsu (slot=2, port=1, init_addr=0)
+            rep (slot=2, port=1, iter=16, step=1, delay=0)
+        }
+
+        rop <write_c_seq> ( slot=3, port=0){
+            dsu (slot=3, port=0, init_addr=0)
+            rep (slot=3, port=0, iter=16, step=1, delay=0)
+        }
+
+        rop <compute> ( slot=4, port=0){
+            dpu (slot=4, mode=1)
+        }
+
+        rop <read_c> ( slot=3, port=3){
+            dsu (slot=3, port=3, init_addr=0)
+            rep (slot=3, port=3, iter=1, step=1, delay=0)
+        }
+    }
+
+    cell (x=2, y=0) {
+        rop <route2w> ( slot=0, port=2){
+            route (slot=0, option=0, sr=1, source=1, target= 0b0000000000000100)
+        }
+
+        rop <write_c> ( slot=2, port=2){
+            dsu (slot=2, port=2, init_addr=0)
+            rep (slot=2, port=2, iter=1, step=1, delay=0)
+        }
+
+        rop <output_r> (slot=1, port=3){
+            dsu (slot=1, port=3, init_addr=0)
+            rep (slot=1, port=3, iter=1, step=1, delay=0)
+        }
+
+        rop <output_w> (slot=1, port=1){
+            dsu (slot=1, port=1, init_addr=0)
+            rep (slot=1, port=1, iter=1, step=1, delay=0)
+        }
+    }
+}
 
 ```
+
+The constraint file that work with the proto-assembly file is stored in ``pasm/0.cstr``:
+
+```cstr
+epoch <rb0> {
+    linear ( input_r == input_w )
+    linear ( route0r < read_ab )
+    linear ( route1wr < write_a )
+    linear ( route1wr < write_b )
+    linear ( read_ab.e0[0] == write_a.e0[0] - 1 )
+    linear ( read_ab.e0[1] == write_b.e0[0] - 1 )
+    linear ( write_a < read_a_seq )
+    linear ( write_b < read_b_seq )
+    linear ( swb < read_a_seq )
+    linear ( read_a_seq == read_b_seq )
+    linear ( read_a_seq + 1 > compute )
+    linear ( write_c_seq == read_a_seq + 2 )
+
+    linear ( compute != route1wr )
+    linear ( compute != swb )
+
+    linear ( read_c.e0[0] > write_c_seq.e0[15] )
+
+    linear ( write_c == read_c + 1 )
+    linear ( output_r > write_c )
+    linear ( output_r == output_w )
+}
+```
+
+Please check the [programming guide](AssemblyProgrammingGuide.md) for more information about the proto-assembly and constraint file.
 
 ## Simulation and Verification
 

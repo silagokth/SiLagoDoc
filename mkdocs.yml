@@ -42,10 +42,11 @@ nav:
                   - Docs/ToolChain/Vesyla-suite/v3/Tutorial_RISCV.md
                   - Docs/ToolChain/Vesyla-suite/v3/RepoOrganization.md
               - v4 (Current):
+                  - Docs/ToolChain/Vesyla-suite/v4/Installation.md
                   - Docs/ToolChain/Vesyla-suite/v4/Architecture.md
                   - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Installation.md
                   - Docs/ToolChain/Vesyla-suite/v4/Tutorial_DRRA.md
+                  - Docs/ToolChain/Vesyla-suite/v4/AssemblyProgrammingGuide.md
                   - Docs/ToolChain/Vesyla-suite/v4/IO.md
                   - Docs/ToolChain/Vesyla-suite/v4/Scheduling.md
 
