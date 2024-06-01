@@ -223,6 +223,9 @@ void model_l1(){
 
 The level 1 model is not complete without the proto-assembly code and its constraint file. We need to write the proto-assembly code in ``pasm/0.pasm``:
 
+!!! Tip "Syntax Highlighting"
+    We highly recommend to install the vscode extension for syntax highlighting of all languages used by the SiLago project. The extension is not published on vscode marketplace since it's still in alpha quality. However, you can download and install it from VSIX package available on [github](https://github.com/silagokth/vscode-extension-slf.git).
+
 ```pasm
 epoch <rb0> {
     cell (x=0, y=0) {

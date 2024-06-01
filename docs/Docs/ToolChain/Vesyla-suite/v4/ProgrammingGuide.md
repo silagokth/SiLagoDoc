@@ -4,6 +4,9 @@
 
 The Proto-Assembly Language is a low-level language that is used to write programs for the DRRA-2 architecture. The language is designed to be simple and easy to understand, while still providing the necessary features to write complex programs. The Proto-Assembly Language are structured assembly language whose instructions are not yet been scheduled. It preserves control hierarchy but lack of timing information. This guide will provide an overview of the language and how to write programs in it. In this guide, you will learn about the syntax of the Proto-Assembly Language, and its constraints.
 
+!!! Tip "Syntax Highlighting"
+    We highly recommend to install the vscode extension for syntax highlighting of all languages used by the SiLago project. The extension is not published on vscode marketplace since it's still in alpha quality. However, you can download and install it from VSIX package available on [github](https://github.com/silagokth/vscode-extension-slf.git).
+
 ## File Types
 
 The Proto-Assembly Language uses the `.pasm` file extension for source files. These files contain the source code for a program written in the Proto-Assembly Language.
