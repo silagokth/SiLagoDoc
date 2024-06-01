@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://silagokth.github.io/SiLagoDoc/Docs/ToolChain/Vesyla-suite/v4/IO/">
       
       
-        <link rel="prev" href="../AssemblyProgrammingGuide/">
+        <link rel="prev" href="../ProgrammingGuide/">
       
       
         <link rel="next" href="../Scheduling/">
@@ -966,11 +966,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../AssemblyProgrammingGuide/" class="md-nav__link">
+      <a href="../ProgrammingGuide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Programming Guide for Proto-Assembly Language
+    Programming Guide
   </span>
   
 
@@ -1054,15 +1054,6 @@
   <a href="#simplified-deterministic-protocol" class="md-nav__link">
     <span class="md-ellipsis">
       Simplified Deterministic Protocol
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
     </span>
   </a>
   
@@ -1266,15 +1257,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1307,78 +1289,40 @@
 </ul>
 <p>Two DSU instructions need to be issued. The first DSU instruction should be send to the slot 1 port 0. It will configure the FSM in port 0 to read data from the input buffer. The second DSU instruction should be send to the slot 1 port 2. It will configure the FSM in port 2 to put the data into the SRAM. The two instructions can also be wrapped by multiple REP instructions to form loop. The two instructions can be activated at the same time since the second DSU will not take effect immediately.</p>
 <p>For example, if we need to read the data in address 0,1,2,3 from the input buffer to address 3,4,5,6 in IOSRAM, the first DSU instruction and its REP instructions should be:
-<div class="highlight"><pre><span></span><code>DSU slot=1, port=0, addr_sd=0, addr=0
-REP slot=1, port=0, step=1, iter=4
+<div class="highlight"><pre><span></span><code>rop &lt;read_to_input&gt; (slot=1, port=0){
+    dsu (slot=1, port=0, addr_sd=0, addr=0)
+    rep (slot=1, port=0, step=1, iter=4)
+}
 </code></pre></div>
 The second DSU instruction and its REP instructions should be:
-<div class="highlight"><pre><span></span><code>DSU slot=1, port=2, addr_sd=0, addr=3
-REP slot=1, port=2, step=1, iter=4
+<div class="highlight"><pre><span></span><code>rop &lt;write_to_iosram&gt; (slot=1, port=2){
+    dsu (slot=1, port=2, addr_sd=0, addr=3)
+    rep (slot=1, port=2, step=1, iter=4)
+}
 </code></pre></div>
-Notice that, the <code>delay</code> field of <code>REP</code> instruction is ignored since the delay is not static ans should be handled directly by the hardware. Now we activate the two instructions at the same time.
-<div class="highlight"><pre><span></span><code>act mode=0, param=0, ports=0b0000000000000101
+We need to activate the two instructions at the same time. So we need to define the constraint:</p>
+<p><div class="highlight"><pre><span></span><code>linear read_to_input == write_to_iosram
 </code></pre></div>
 Now, the FSM in port 0 should generate the first address (0) and send it out to the <code>addr</code> signal and set the <code>en</code> signal to high. The FSM in port 1 will generate the first address (3), but it will not write anything into SRAM since the data is not ready yet. Once the signal <code>valid</code> and <code>data</code> from the input buffer becomes ready, the FSM in port 1 can then write the data into SRAM. At the same time the FSM in port 0 will generate the next address and repeat the process until everything is done.</p>
-<p>When slot 1 is busy reading data from input buffer, the sequencer is waiting it to end. So we need to issue a <code>WAIT</code> instruction:
-<div class="highlight"><pre><span></span><code>WAIT mode=1, cycles=1
-</code></pre></div></p>
 <p>When slot 1 finishes, it will notify the sequencer that every operation in this slot has finished. The sequencer completes the waiting states and enter the next instruction.</p>
-<p>Usually, we don't do anything after the data loading is done, so we issue a <code>WAIT</code> instruction that waits everything in this cell is completed.
-<div class="highlight"><pre><span></span><code>WAIT mode=0, cycles=0
-</code></pre></div></p>
-<p>Now the global controller -- RISC-V knows this code segment has finished. It can then issue the next code segment to process the data which marks the end of data loading phase.</p>
+<p>Usually, we don't do anything after the data loading is done, a <code>halt</code> instruction is automatically added to the end of the code segment. The <code>halt</code> instruction will notify the global controller that the code segment has finished. The global controller can then issue the next code segment to process the data.</p>
 <h2 id="simplified-deterministic-protocol">Simplified Deterministic Protocol</h2>
 <p>In some situation, the algorithm is completely static. It's more beneficial to assume the data is always ready at the next cycle or the data is always ready after some fixed delay. In this case, the data loading and storing can happen at the same time when computation is happening. We don't have to load data to the SRAM and notify the global controller first then start the computation.</p>
 <p>The assumption of having fixed delay for reading and storing data from/to external buffer has to be guaranteed by the application-level synthesis tool. If all other algorithms in the same application are also static, there will be no problem. However, if there are dynamic algorithms in the same application, special communication barriers has to be inserted between the static and dynamic algorithms to ensure that the static algorithms can still access data whenever they need. That means, we have to insert enough buffers that can hold the complete data token or even use ping-pong buffer to ensure the data is always ready.</p>
 <p>Till now, we are only dealing with static algorithms. therefore, we use the simplified deterministic protocol to communicate with the input/output buffer. When implementing the communication protocol, we can assume the data is always ready at the next cycle. The communication protocol is simplified to the following steps:</p>
-<div class="highlight"><pre><span></span><code>DSU slot=1, port=0, addr_sd=0, addr=0
-REP slot=1, port=0, step=1, iter=4, delay=??
-DSU slot=1, port=2, addr_sd=0, addr=3
-REP slot=1, port=2, step=1, iter=4, delay=??
-# some other code for computation
-act mode=0, param=0, ports=0b0000000000000101
+<p><div class="highlight"><pre><span></span><code>rop &lt;read_to_input&gt; (slot=1, port=0){
+    dsu (slot=1, port=0, addr_sd=0, addr=0)
+    rep (slot=1, port=0, step=1, iter=4, delay=t1)
+}
+rop &lt;write_to_iosram&gt; (slot=1, port=2){
+    dsu (slot=1, port=2, addr_sd=0, addr=3)
+    rep (slot=1, port=2, step=1, iter=4, delay=t1)
+}
 </code></pre></div>
-<h2 id="example">Example</h2>
-<p>The following example code shows the deterministic protocol. It has two DRRA cells: cell [0,0] and cell [1,0]. The cell [0,0] reads data from the input buffer and stores it to the SRAM. It then streams out data and the data is captured by the cell [1,0]. Cell [1,0] then reads data from its SRAM and stores it to the output buffer.</p>
-<div class="highlight"><pre><span></span><code>cell 0_0
-# build route
-route slot=0, option=0, sr=0, source=2, target= 0b010000000
-act mode=0, param=0, ports=0b0100
-
-# load data
-dsu slot=1, port=0, init_addr=0
-rep slot=1, port=0, level=0, iter=8, step=1, delay=0
-dsu slot=1, port=2, init_addr=0
-rep slot=1, port=2, level=0, iter=8, step=1, delay=0
-
-# read data
-dsu slot=2, port=3, init_addr=0
-rep slot=2, port=3, level=0, iter=8, step=1, delay=0
-
-act mode=0, param=1, ports=0b0101
-act mode=0, param=2, ports=0b1000
-wait
-
-
-cell 1_0
-# build route
-route slot=0, option=0, sr=1, source=1, target= 0b0000000000000100
-act mode=0, param=0, ports=0b0100
-
-# write data
-dsu slot=2, port=2, init_addr=0
-rep slot=2, port=2, level=0, iter=8, step=1, delay=0
-
-# store data
-dsu slot=1, port=3, init_addr=0
-rep slot=1, port=3, level=0, iter=8, step=1, delay=0
-dsu slot=1, port=1, init_addr=0
-rep slot=1, port=1, level=0, iter=8, step=1, delay=0
-
-wait cycle=2
-act mode=0, param=2, ports=0b0100
-act mode=0, param=1, ports=0b1010
-wait
+We also need to define the constraint to activate the two instructions at the same time:</p>
+<div class="highlight"><pre><span></span><code>linear read_to_input == write_to_iosram
 </code></pre></div>
+<p>Readers can go to the <a href="../Tutorial_DRRA/">Tutorial DRRA</a> to see how to use the simplified deterministic protocol to communicate with the input/output buffer.</p>
 
 
 

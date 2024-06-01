@@ -966,11 +966,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../AssemblyProgrammingGuide/" class="md-nav__link">
+      <a href="../ProgrammingGuide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Programming Guide for Proto-Assembly Language
+    Programming Guide
   </span>
   
 
@@ -1054,44 +1054,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate" class="md-nav__link">
+  <a href="#timing-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Generate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#proto-instruction-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proto-instruction File
+      Timing Model
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#constraint-file" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#cp-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Constraint File
+      CP Model
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operation-timing-model-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Timing Model File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1246,44 +1222,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate" class="md-nav__link">
+  <a href="#timing-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Generate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#proto-instruction-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proto-instruction File
+      Timing Model
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#constraint-file" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#cp-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Constraint File
+      CP Model
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operation-timing-model-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operation Timing Model File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1310,65 +1262,30 @@
 <p class="admonition-title">Warning</p>
 <p>This document is still under construction. The content is not complete.</p>
 </div>
-<p>The instruction scheduler in Vesyla-suite is a stand-alone program that can generate instruction list for DRRA-2 from a proto instruction list and a constraint file.</p>
-<p>The instruction scheduler contains 3 processes:</p>
-<ul>
-<li><strong>generate</strong>: Generate the operation timing model file from the proto-instruction list and the constraint file.</li>
-<li><strong>schedule</strong>: Use the operation timing model file to schedule the individual operations and their internal delays.</li>
-<li><strong>sync</strong>: Synchronize the scheduled operations by properly inserting WAIT instructions so that the operations starts at the correct cycle.</li>
-</ul>
-<h2 id="generate">Generate</h2>
-<p>The generate process reads the proto-instruction list and the constraint file. It then generates the operation timing model file.</p>
-<h3 id="proto-instruction-file">Proto-instruction File</h3>
-<p>The proto-instruction file contains a list of instructions just like the normal assembly file. However, it defines the operations and the instructions attached to them. See the following example:</p>
+<p>The instruction scheduler in Vesyla-suite is a stand-alone program that can generate assembly instruction list for DRRA-2 from a proto instruction list and a constraint file. The core scheduling process targets a single <code>epoch</code> region. The proto-assembly file and constraint file will be converted to an internal timing model that can work as the intermeditate representation for finally converting to constraint programing (CP) model. We use the <a href="https://developers.google.com/optimization">or-tools (python binding)</a> from Google to finally solve the scheduling problem once the CP model is created.</p>
+<h2 id="timing-model">Timing Model</h2>
+<p>The timing model consists two parts:</p>
+<ol>
+<li>Operation behavior description</li>
+<li>Timing constraints</li>
+</ol>
+<p>Operation behavior description models the timing behavior of every resource operation (rop) and control operation (cop). It uses concepts like <strong>operation</strong>, <strong>event</strong>, and <strong>anchor</strong> similar to the proto-assembly language.</p>
+<p>Each operation will have one or more events, they are named numerically as <code>e0</code>, <code>e1</code>, etc. Among events, it is possible to apply two types of transformation operator: transition (<strong>T</strong> operator) and repetition (<strong>R</strong> operator). The <strong>T</strong> operator describes the timing transition from one event to another event. While the <strong>R</strong> operator describes the repetition of a single event or a group of events. Those operator can be applied recursively to form very complex timing behavior.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>cell 0_0
-# load data
-operation iodsu_0_0_snd slot=1, port=0
-dsu slot=1, port=0, init_addr=0
-rep slot=1, port=0, level=0, iter=8, step=1, delay=t1
-operation iodsu_0_0_rcv slot=1, port=2
-dsu slot=1, port=2, init_addr=0
-rep slot=1, port=2, level=0, iter=8, step=1, delay=t1
-
-
-cell 1_0
-operation route_1_0 slot=0, port=2
-route slot=0, option=0, sr=1, source=1, target= 0b0000000000000100
+<p><div class="highlight"><pre><span></span><code>operation a T&lt;6&gt;(R&lt;2,3&gt;(T&lt;4&gt;(e0, e1)), e2) 
 </code></pre></div>
+The above expression describe an operation <em>a</em>, it has three events: <em>e0</em>, <em>e1</em>, and <em>e2</em>.</p>
+<p>The expression <code>T&lt;4&gt;(e0, e1)</code> means that four cycles after the event <em>e0</em>, <em>e1</em> happens.</p>
+<p>The expression <code>R&lt;2,3&gt;(T&lt;4&gt;(e0, e1))</code> means that the above transition is repeated twice and the repetitions are separated by 3 cycles.</p>
+<p>Finally, the whole expression <code>T&lt;6&gt;(R&lt;2,3&gt;(T&lt;4&gt;(e0, e1)), e2)</code> means that after the above repetition and further delay of 6 cycles, the event <em>e2</em> will happen.</p>
 </div>
-<p>The above example defines two instruction lists, each of which is assigned to a cell: cell[0,0] and cell[1,0].In cell[0,0], there are two operations called <em>iodsu_0_0_snd</em> and <em>iodsu_0_0_rcv</em>. You can use any normal identifier as operation name. You also need to specify the slot and port of that operation when define an operation. There can be one or more instructions attached to each operation. These instructions could be normal configuration instructions like <strong>DSU</strong> or <strong>ROUTE</strong>, or repeat instruction <strong>REP</strong>, or state transition instruction <strong>FSM</strong>. </p>
-<p>You should not write any <strong>WAIT</strong> or <strong>ACT</strong> instruction in the proto-instruction list. They will be automatically inserted by the scheduler during the <em>sync</em> process.</p>
-<p>Notice that, you can also use variables to represent delay time. These variables will automatically be registered and figured out by the scheduler based on the constraint file.</p>
-<h3 id="constraint-file">Constraint File</h3>
-<p>Constraint file records one constraint in each line. You can use any normal operators such as <code>+</code>, <code>-</code>, <code>*</code>, <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&amp;&amp;</code>, <code>||</code>, <code>!</code>, <code>()</code>, etc. You can also use variables that refer to operation event slices in the constraint file. The format of variable consists of three parts: <code>operation_name</code>, <code>event_name</code>, and <code>slices</code>. For example, <code>iodsu_0_0_snd</code> is an operation name, </p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>If we have the following proto-instruction file:
-<div class="highlight"><pre><span></span><code>cell 0_0
-operation dsu_0_0 slot=0, port=0
-dsu slot=0, port=0, init_addr=0
-rep slot=0, port=0, level=0, iter=8, step=1, delay=t1
-operation dpu_0_0 slot=1, port=0
-fsm slot=1, port=0, delay_0=t1, delay_1=t2, delay_2=t3
-rep slot=1, port=0, level=0, iter=2, step=1, delay=t4
-rep slot=1, port=0, level=1, iter=4, step=1, delay=t5
-</code></pre></div></p>
-<p>Then, we can use constraints such as:
-<div class="highlight"><pre><span></span><code>dsu_0_0 == dpu_0_0 + 1
-dsu_0_0.e0 == dpu_0_0.e0 + 1
-dsu_0_0.e0[0][1] &gt;= dpu_0_0.e0[0][1] - 1
-</code></pre></div></p>
-<p>Each constraint must be a comparison expression. Each variable in the expression must be pre-existed. They are usually a slice of a specific event. For example, <code>dsu_0_0.e1[0][0]</code> means the 0<sup>th</sup> iteration of level-1 loop and the 1th iteration of the level-0 loop of the event e0 in the operation dsu_0_0. The event name are implied when you write the instructions of each operation. By default, there is only 1 event: e0. With <strong>FSM</strong> instruction, you can create more events: e1, e2, or even e3. The <strong>REP</strong> instruction will not create new events, but it will affects how many level of slice you should use. If the event name is omitted, we assume it's e0. If the slice is omitted, we assume they are all 0s.</p>
-</div>
-<h3 id="operation-timing-model-file">Operation Timing Model File</h3>
-<p>The timing model file is the output of the generate process. It contains three parts:</p>
-<ul>
-<li><strong>Operation List</strong>: The operation definition list. Each operation has a unique name and a construction of transition and repetition operators. The events for the operation is also generated there.</li>
-<li><strong>Anchor List</strong>: Anchors are the event slice used in the constraint file. Since event slice name is not a valid identifier, we need to define it as a anchor to make it a valid identifier. Then it can be used to define the actual constraints which can be directly processed by the CP solver.</li>
-<li><strong>Constraint List</strong>: The constraints are generated from the constraint file. The event slice name has been substituted. The constraints are processed by the CP solver to figure out the delay time for each operation.</li>
-</ul>
+<p>The timing constraint used by the is the model is the same as the constraint file. It's a direction translation.</p>
+<h2 id="cp-model">CP Model</h2>
+<p>For each operation, event, and anchor, we create a variable in the CP model.</p>
+<p>The event and anchor variables are restricted by the corresponding operation variables according to the operation timing model. Those restrictions are translated to the CP model as constraints.</p>
+<p>Custom constraints are automatically added to the CP model according to the constraint file.</p>
+<p>The objective function is to minimize the total time of the epoch.</p>
 
 
 
