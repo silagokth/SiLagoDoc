@@ -1,4 +1,4 @@
-# Programming Guide for Proto-Assembly Language
+# Programming Guide
 
 ## Introduction
 
