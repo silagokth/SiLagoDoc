@@ -1,12 +1,12 @@
 
 ### Instruction Format
-Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: resource; The first 4-bit (bit 32~28) is the instruction code. The rest of the bits are used to encode the instruction content. For data instructions, bit 27~24 in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.
+Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: resource; The first 4-bit (bit 32~28) is the instruction code. The rest of the bits are used to encode the instruction content. For resource instructions, bit 27~24 in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.
 
 ### Control Instructions
 
 Field | Position | Width | Description
 ------|----------|-------|-------------------------
-instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
+instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: data;
 instr_content | [27, 0] | 27 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
 
 #### 0000 halt
@@ -54,11 +54,11 @@ instr_code | [31, 28] | 4 | 4 | Instruction code for brn
 **target_false** | [14, 6] | 9 | 0 | The relative pc offset if the bool register is false.
 
 
-### Data Instructions
+### Resource Instructions
 
 Field | Position | Width | Description
 ------|----------|-------|-------------------------
-instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;
+instr_code | [31, 28] | 4 | Instruction code. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: data;
 slot | [27, 24] | 4 | The slot number.
 instr_content | [23, 0] | 24 | The content of the instruction. The meaning of this field depends on the instruction type and instruction code.
 
