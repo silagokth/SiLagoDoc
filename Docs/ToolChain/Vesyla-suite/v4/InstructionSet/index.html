@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -149,7 +149,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -1049,13 +1049,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-instructions" class="md-nav__link">
+  <a href="#resource-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Instructions
+      Resource Instructions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data Instructions">
+    <nav class="md-nav" aria-label="Resource Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1211,7 +1211,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-instructions_1" class="md-nav__link">
+  <a href="#data-instructions" class="md-nav__link">
     <span class="md-ellipsis">
       Data Instructions
     </span>
@@ -1616,13 +1616,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-instructions" class="md-nav__link">
+  <a href="#resource-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Instructions
+      Resource Instructions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Data Instructions">
+    <nav class="md-nav" aria-label="Resource Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1778,7 +1778,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-instructions_1" class="md-nav__link">
+  <a href="#data-instructions" class="md-nav__link">
     <span class="md-ellipsis">
       Data Instructions
     </span>
@@ -1890,7 +1890,7 @@
 <h1 id="instruction-set-v4">Instruction Set V4</h1>
 <h2 id="v41-current">v4.1 (Current)</h2>
 <h3 id="instruction-format">Instruction Format</h3>
-<p>Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: resource; The first 4-bit (bit 32~28) is the instruction code. The rest of the bits are used to encode the instruction content. For data instructions, bit 27~24 in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.</p>
+<p>Instructions are 32-bit wide. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: resource; The first 4-bit (bit 32~28) is the instruction code. The rest of the bits are used to encode the instruction content. For resource instructions, bit 27~24 in the instruction content are used to indicate the slot number. The rest of the bits are used to encode the instruction content.</p>
 <h3 id="control-instructions">Control Instructions</h3>
 <table>
 <thead>
@@ -1906,7 +1906,7 @@
 <td>instr_code</td>
 <td>[31, 28]</td>
 <td>4</td>
-<td>Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;</td>
+<td>Instruction code. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: data;</td>
 </tr>
 <tr>
 <td>instr_content</td>
@@ -2116,7 +2116,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="data-instructions">Data Instructions</h3>
+<h3 id="resource-instructions">Resource Instructions</h3>
 <table>
 <thead>
 <tr>
@@ -2131,7 +2131,7 @@
 <td>instr_code</td>
 <td>[31, 28]</td>
 <td>4</td>
-<td>Instruction code. The MSB indicates whether it's a control instruction or a data instruction. [0]: control; [1]: data;</td>
+<td>Instruction code. The MSB indicates whether it's a control instruction or a resource instruction. [0]: control; [1]: data;</td>
 </tr>
 <tr>
 <td>slot</td>
@@ -2885,7 +2885,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="data-instructions_1">Data Instructions</h3>
+<h3 id="data-instructions">Data Instructions</h3>
 <table>
 <thead>
 <tr>
@@ -3474,7 +3474,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
