@@ -277,4 +277,4 @@ endmodule;
 ```
 
 This code will generate the following documentation:
-![Documentation example](../img/documentation_example.png)
+![Documentation example](Style-guide-Verilog/documentation_example.png)
