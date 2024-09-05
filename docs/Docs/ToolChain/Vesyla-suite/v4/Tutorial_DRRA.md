@@ -23,13 +23,13 @@ A typical setup of a DRRA-2 fabric consists of a input row on the top, an output
 In any directory, you can initialize a DRRA style project by using the command:
 
 ```tcl
-vs-init -s drra
+vesyla-suite testcase init -s drra
 ```
 
 If this directory has already been initialized, you can force the re-initialization by using the command:
 
 ```tcl
-vs-init -f -s drra
+vesyla-suite testcase init -f -s drra
 ```
 
 You will notice that several files has been created in this directory. One of the files is ``arch.json``. This file contains the architecture description. You can modify this file to change the resources that are included on the fabric. The configuration file is described in the following section.
