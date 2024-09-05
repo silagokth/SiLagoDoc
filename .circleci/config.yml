@@ -8,10 +8,10 @@ jobs:
       TZ: '/usr/share/zoneinfo/Etc/UTC'
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     docker:
-      - image: cimg/python:latest
+      - image: cimg/python:3.12.5
     steps:
       - checkout
-      - run: sudo apt-get install graphviz
+      - run: sudo apt-get update && sudo apt-get install -y graphviz
       - run:
           name: update pip
           command: sudo pip install --upgrade pip
