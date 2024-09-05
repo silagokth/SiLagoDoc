@@ -8,7 +8,7 @@ jobs:
       TZ: '/usr/share/zoneinfo/Etc/UTC'
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     docker:
-      - image: circleci/python:latest
+      - image: cimg/python:latest
     steps:
       - checkout
       - run: sudo apt-get install graphviz
