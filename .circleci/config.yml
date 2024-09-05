@@ -8,14 +8,12 @@ jobs:
       TZ: '/usr/share/zoneinfo/Etc/UTC'
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     docker:
-      - image: circleci/python:latest
+      - image: cimg/python:3.12.5
     steps:
       - checkout
-      - run: sudo apt-get install graphviz
-      - run:
-          name: update pip
-          command: sudo pip install --upgrade pip
-      - run: sudo pip install -q mkdocs mkdocs-material pygments graphviz markdown-inline-graphviz-extension
+      - run: sudo apt-get update && sudo apt-get install -y graphviz
+      - run: pyenv local 3.12.5
+      - run: pip install -q mkdocs mkdocs-material pygments graphviz markdown-inline-graphviz-extension
       - run:
           name: Build Docs Site
           command: mkdocs build --clean
