@@ -1512,32 +1512,36 @@
 <h3 id="pragma">Pragma</h3>
 <p>Pragma is the notation that guides Vesyla during synthesis process. Vesyla recognize pragma starting with symbols <code>#pragma</code>. The main function of pragmas is specify allocation and binding information since Vesyla can't perform automatic allocation and binding. Section <a href="#variable-declaration">Variable Declaration</a>, <a href="#arithmetic-operation">Arithmetic Operation</a>, <a href="#address-constraint">Address Constraint</a> <a href="#dpu_chain">DPU Chain</a> and <a href="#dpu-internal-scalar-register">DPU Internal Scalar Register</a> describe how to use pragmas to allocate and bind resources. Some other usage of pragma also exist, check section <a href="#resource-sharing-region">Resource Sharing Region</a> for more detail.</p>
 <p>There are two types of pragmas: single-line pragma and block pragma. Single-line pragma only affects the statement immediately following it. Block pragma affects all statements within the block. Block pragma is started with <code>#pragma start</code> and ended with <code>#pragma end</code>. The following example shows how to use pragmas to allocate and bind resources.</p>
-<p>For example:</p>
-<p>Explicit single-line pragma that binds the variable a to register file [0,0]</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Explicit single-line pragma that binds the variable a to register file [0,0]
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma bind rf_0_0</span>
 <span class="n">RF</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</code></pre></div>
-<p>Implicit binding without pragma that binds the variable rf_0_1 to register file [0,1]</p>
+</code></pre></div></p>
+<p>Implicit binding without pragma that binds the variable rf_0_1 to register file [0,1]
 <div class="highlight"><pre><span></span><code><span class="n">RF</span><span class="w"> </span><span class="n">rf_0_1</span><span class="p">;</span>
-</code></pre></div>
-<p>Block pragma that makes declare a conflict-free zone.</p>
+</code></pre></div></p>
+<p>Block pragma that makes declare a conflict-free zone.
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma start conflict_free_zone</span>
 <span class="p">...</span>
 <span class="p">...</span>
 <span class="cp">#pragma end conflict_free_zone</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <h3 id="variable-declaration">Variable Declaration</h3>
 <h4 id="storage-variable">Storage Variable</h4>
 <p>There is three type of vector storage variables: Register file variable, SRAM variable and I/O variable. Register file variable is used to model register file. SRAM variable is used to model SRAM scratch-pad memory. I/O variable is used to model input and output buffer.</p>
-<p>For example:</p>
-<p>Declare a register file variable.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Declare a register file variable.
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma bind rf_0_0</span>
 <span class="n">RF</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</code></pre></div>
-<p>Declare a SRAM variable.</p>
+</code></pre></div></p>
+<p>Declare a SRAM variable.
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma bind sram_0_0</span>
 <span class="n">SRAM</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <p>You should not declare any I/O variables. They are defined as global varialbes in the generated header file. You can use them as normal variables. The input buffer is named <code>__input_buffer__</code> and the output buffer is named <code>__output_buffer__</code>. You can only read from input buffer and write to output buffer. Writing to input buffer and reading from output buffer are not allowed.</p>
 <h4 id="transient-variable">Transient Variable</h4>
 <p>Transient variables are not tight to any hardware resource. It describes the unorganized stream of data after reading from the source storage variables and before writing to the destination storage variables.</p>
@@ -1550,39 +1554,48 @@
 </ul>
 <h4 id="scalar-auxiliary-variable">Scalar Auxiliary Variable</h4>
 <p>Auxiliary variables are usually used for address calculation. They are not tight to any hardware resource. They can only be declared as <code>int</code> type at the moment.</p>
-<p>For example:</p>
-<p>Declare and use scalar auxiliary variables.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Declare and use scalar auxiliary variables.
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">){</span>
 <span class="w">    </span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <h3 id="primitive-function-for-address-generation">Primitive Function for Address Generation</h3>
 <p>Vesyla has certain reading or writing primitive functions to interact with storage variables. These primitive functions usually require address stream to specify which chunk of data is affected. To generate such address stream, you need to use primitive functions designed for address generation. Currently, three primitive functions are supported. The following example shows how to use these primitive functions to generate address stream.</p>
-<p>For example:</p>
-<p>Generate an address stream that contains only one address.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Generate an address stream that contains only one address.
 <div class="highlight"><pre><span></span><code><span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_constant</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</code></pre></div>
-<p>Generate a 1-d affine address stream that start from 0, increment by 1, and has 10 elements.</p>
+</code></pre></div></p>
+<p>Generate a 1-d affine address stream that start from 0, increment by 1, and has 10 elements.
 <div class="highlight"><pre><span></span><code><span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
-</code></pre></div>
-<p>Generate a 2-d affine address stream that start from 0, increment by 1, and has 10 elements as level 1 and increment by 2 and has 20 elements as level 2.</p>
+</code></pre></div></p>
+<p>Generate a 2-d affine address stream that start from 0, increment by 1, and has 10 elements as level 1 and increment by 2 and has 20 elements as level 2.
 <div class="highlight"><pre><span></span><code><span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_affine_2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <h3 id="primitive-function-for-arithmetic-operation">Primitive Function for Arithmetic Operation</h3>
 <p>Certain type of arithmetic operations are supported by Vesyla. They are addition, subtraction, dot multiplication, etc. Other arithmetic operations need to be mapped to special DPU mode by primitive function call. We recommend to always use primitive function call to perform arithmetic operation. The following example shows how to use these primitive functions to perform arithmetic operation.</p>
-<p>For example, to perform operation: <code>c = a + b</code>:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Perform operation: <code>c = a + b</code>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma bind dpu_0_0</span>
 <span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_dpu_add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <p>Note that, you should always specify the binding information for arithmetic operations mapped to DPU. Otherwise, Vesyla will not be able to perform allocation and binding.</p>
 <p>If a primitive function has multiple outputs, you can use the <code>tie()</code> function to bundle them to a tuple. For example:</p>
-<p>For example:</p>
-<p>Perform operation: <code>e = a + b</code> and <code>f = c + d</code></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Perform operation: <code>e = a + b</code> and <code>f = c + d</code>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma bind dpu_0_0</span>
 <span class="n">tie</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_dpu_add_2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></p>
+</div>
 <h3 id="loop">Loop</h3>
 <p>Vesyla accept very restrict loop syntax to simplify the parsing process. A static loop should have constant start point, static increment as well as static iteration. If an expression that can be simplified to a constant number, it also considered as constant, hence can be used in static loop. Example below shows how to use a static loop.</p>
 <div class="admonition example">
