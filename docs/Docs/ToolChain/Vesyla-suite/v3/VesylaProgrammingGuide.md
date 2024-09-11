@@ -175,7 +175,7 @@ Example of such dynamic loop is shown below:
 	```
 
 !!! warning
-		Vesyla does not support while-loop style dynamic loop with dynamic iteration number. Free style for-loop that implements a dynamic loop is not supported as well.
+	Vesyla does not support while-loop style dynamic loop with dynamic iteration number. Free style for-loop that implements a dynamic loop is not supported as well.
 
 ## Advanced Features
 
