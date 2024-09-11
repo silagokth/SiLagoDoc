@@ -26,17 +26,20 @@ There are two types of pragmas: single-line pragma and block pragma. Single-line
 !!! Example
 		
 		Explicit single-line pragma that binds the variable a to register file [0,0]
+
 		```c++
 		#pragma bind rf_0_0
 		RF a;
 		```
 		
 		Implicit binding without pragma that binds the variable rf_0_1 to register file [0,1]
+
 		```c++
 		RF rf_0_1;
 		```
 
 		Block pragma that makes declare a conflict-free zone.
+
 		```c++
 		#pragma start conflict_free_zone
 		...
@@ -53,12 +56,14 @@ There is three type of vector storage variables: Register file variable, SRAM va
 
 !!! example
 		Declare a register file variable.
+
 		```c++
 		#pragma bind rf_0_0
 		RF a;
 		```
 
 		Declare a SRAM variable.
+
 		```c++
 		#pragma bind sram_0_0
 		SRAM b;
@@ -84,6 +89,7 @@ Auxiliary variables are usually used for address calculation. They are not tight
 
 !!! example
 		Declare and use scalar auxiliary variables.
+
 		```c++
 		int i, j;
 		for (i=0; i<10; i=i+1){
@@ -98,16 +104,19 @@ Vesyla has certain reading or writing primitive functions to interact with stora
 
 !!! example
 		Generate an address stream that contains only one address.
+
 		```c++
 		STREAM_ADDR addr = silago_agu_constant(1);
 		```
 
 		Generate a 1-d affine address stream that start from 0, increment by 1, and has 10 elements.
+
 		```c++
 		STREAM_ADDR addr = silago_agu_affine_1(0, 1, 10);
 		```
 
 		Generate a 2-d affine address stream that start from 0, increment by 1, and has 10 elements as level 1 and increment by 2 and has 20 elements as level 2.
+
 		```c++
 		STREAM_ADDR addr = silago_agu_affine_2(0, 1, 10, 2, 20);
 		```
@@ -118,6 +127,7 @@ Certain type of arithmetic operations are supported by Vesyla. They are addition
 
 !!! example
 		Perform operation: ``c = a + b``
+
 		```c++
 		#pragma bind dpu_0_0
 		c = silago_dpu_add(a, b);
@@ -129,6 +139,7 @@ If a primitive function has multiple outputs, you can use the ``tie()`` function
 
 !!! example
 		Perform operation: ``e = a + b`` and ``f = c + d``
+
 		```c++
 		#pragma bind dpu_0_0
 		tie(e, f) = silago_dpu_add_2(a, b, c, d);
@@ -139,6 +150,7 @@ If a primitive function has multiple outputs, you can use the ``tie()`` function
 Vesyla accept very restrict loop syntax to simplify the parsing process. A static loop should have constant start point, static increment as well as static iteration. If an expression that can be simplified to a constant number, it also considered as constant, hence can be used in static loop. Example below shows how to use a static loop.
 
 !!! Example
+
 	```c++ hl_lines="2 3"
 	int n;
 	n = 3;
