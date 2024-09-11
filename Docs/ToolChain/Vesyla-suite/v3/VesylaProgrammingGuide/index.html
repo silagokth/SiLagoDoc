@@ -1531,18 +1531,24 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Explicit</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="n">line</span><span class="w"> </span><span class="n">pragma</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">binds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Explicit</span><span class="w"> </span><span class="n">single</span><span class="o">-</span><span class="n">line</span><span class="w"> </span><span class="n">pragma</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">binds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="c1">#pragma bind rf_0_0</span>
 <span class="n">RF</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="err">```</span>
 
 <span class="n">Implicit</span><span class="w"> </span><span class="n">binding</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">pragma</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">binds</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">rf_0_1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="n">RF</span><span class="w"> </span><span class="n">rf_0_1</span><span class="p">;</span>
 <span class="err">```</span>
 
 <span class="n">Block</span><span class="w"> </span><span class="n">pragma</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">conflict</span><span class="o">-</span><span class="n">free</span><span class="w"> </span><span class="n">zone</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="c1">#pragma start conflict_free_zone</span>
 <span class="o">...</span>
@@ -1567,13 +1573,17 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">register</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="c1">#pragma bind rf_0_0</span>
 <span class="n">RF</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="err">```</span>
 
 <span class="n">Declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">SRAM</span><span class="w"> </span><span class="n">variable</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="c1">#pragma bind sram_0_0</span>
 <span class="n">SRAM</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
@@ -1602,7 +1612,9 @@
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Declare</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">scalar</span><span class="w"> </span><span class="n">auxiliary</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Declare</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">scalar</span><span class="w"> </span><span class="n">auxiliary</span><span class="w"> </span><span class="n">variables</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">){</span>
@@ -1630,17 +1642,23 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Generate</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">address</span><span class="o">.</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Generate</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">contains</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">address</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_constant</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="err">```</span>
 
 <span class="n">Generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">affine</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">elements</span><span class="o">.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_affine_1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
 <span class="err">```</span>
 
 <span class="n">Generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="mi">2</span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">affine</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="mf">2.</span>
+
 <span class="err">```</span><span class="n">c</span><span class="o">++</span>
 <span class="n">STREAM_ADDR</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">silago_agu_affine_2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
 <span class="err">```</span>
@@ -1655,7 +1673,9 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">Perform</span><span class="w"> </span><span class="nt">operation</span><span class="o">:</span><span class="w"> </span><span class="err">``</span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span><span class="err">``</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">Perform</span><span class="w"> </span><span class="nt">operation</span><span class="o">:</span><span class="w"> </span><span class="err">``</span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span><span class="err">``</span>
+
 <span class="err">```</span><span class="nt">c</span><span class="o">++</span>
 <span class="p">#</span><span class="nn">pragma</span><span class="w"> </span><span class="nt">bind</span><span class="w"> </span><span class="nt">dpu_0_0</span>
 <span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">silago_dpu_add</span><span class="o">(</span><span class="nt">a</span><span class="o">,</span><span class="w"> </span><span class="nt">b</span><span class="o">);</span>
@@ -1671,7 +1691,9 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">Perform</span><span class="w"> </span><span class="nt">operation</span><span class="o">:</span><span class="w"> </span><span class="err">``</span><span class="nt">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span><span class="err">``</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="err">``</span><span class="nt">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">d</span><span class="err">``</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">Perform</span><span class="w"> </span><span class="nt">operation</span><span class="o">:</span><span class="w"> </span><span class="err">``</span><span class="nt">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span><span class="err">``</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="err">``</span><span class="nt">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">d</span><span class="err">``</span>
+
 <span class="err">```</span><span class="nt">c</span><span class="o">++</span>
 <span class="p">#</span><span class="nn">pragma</span><span class="w"> </span><span class="nt">bind</span><span class="w"> </span><span class="nt">dpu_0_0</span>
 <span class="nt">tie</span><span class="o">(</span><span class="nt">e</span><span class="o">,</span><span class="w"> </span><span class="nt">f</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">silago_dpu_add_2</span><span class="o">(</span><span class="nt">a</span><span class="o">,</span><span class="w"> </span><span class="nt">b</span><span class="o">,</span><span class="w"> </span><span class="nt">c</span><span class="o">,</span><span class="w"> </span><span class="nt">d</span><span class="o">);</span>
