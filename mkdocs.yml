@@ -17,13 +17,13 @@ nav:
       - Guideline/Style-guide-Verilog.md
 
   - Docs:
-      # - Fabric:
-      #     - Docs/Fabric/Overview.md
-      #     - Docs/Fabric/Style-guide.md
-      #       - DRRA:
-      #         - Docs/Fabric/DRRA/RACCU.md
-      #       - RISC V:
-      #         - Docs/Fabric/RISCV/Overview.md
+      - Fabric:
+          - Docs/Fabric/Overview.md
+          - DRRA:
+              - v1:
+                  - Docs/Fabric/DRRA/v1/Overview.md
+              - v2:
+                  - Docs/Fabric/DRRA/v2/Overview.md
       - Tool Chain:
           - Docs/ToolChain/Overview.md
           - Vesyla-suite:
