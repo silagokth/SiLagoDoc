@@ -229,12 +229,12 @@
         },
         {
           "name": "source",
-          "comment": "1-hot encoded direction: NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8. If it's a receive instruction, the direction can only have 1 bit set to 1.",
+          "comment": "Data source. Binary encoded. Slot number if it's a send instruction. Cell source if it's a receive instruction (NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8).",
           "bitwidth": 4
         },
         {
           "name": "target",
-          "comment": "1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.",
+          "comment": "Data destination. 1-hot encoded cell destination or slot number. Cell destination if it's a send instruction (NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8), Slot number if it's a receive instruction",
           "bitwidth": 16
         }
       ]
