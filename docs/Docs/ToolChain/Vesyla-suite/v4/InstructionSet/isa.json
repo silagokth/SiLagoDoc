@@ -229,7 +229,7 @@
         },
         {
           "name": "source",
-          "comment": "1-hot encoded direction: E/N/W/S. If it's a receive instruction, the direction can only have 1 bit set to 1.",
+          "comment": "1-hot encoded direction: NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8. If it's a receive instruction, the direction can only have 1 bit set to 1.",
           "bitwidth": 4
         },
         {
