@@ -170,8 +170,8 @@ instr_code | [31, 28] | 4 | 13 | Instruction code for ROUTE
 **slot**  | [27, 24] | 4 | N/A | Slot number.
 **option** | [23, 22] | 2 | 0 | Programmable FSM states. Max 4 states.
 **sr**     | [21, 21] | 1 | 0 | Send or receive. [0]: send; [1]: receive;
-**source** | [20, 17] | 4 | 0 | 1-hot encoded direction: NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8. If it's a receive instruction, the direction can only have 1 bit set to 1.
-**target** | [16, 1] | 16 | 0 | 1-hot encoded slot number. If it's a send instruction, the slot can only have 1 bit set to 1.
+**source** | [20, 17] | 4 | 0 | Data source. Binary encoded. Slot number if it's a send instruction. Cell source if it's a receive instruction (NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8).
+**target** | [16, 1] | 16 | 0 | Data destination. 1-hot encoded cell destination or slot number. Cell destination if it's a send instruction (NW=0/N=1/NE=2/W=3/C=4/E=5/SW=6/S=7/SE=8), Slot number if it's a receive instruction
 
 
 #### 1110 dsu
