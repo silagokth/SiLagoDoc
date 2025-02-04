@@ -1,7 +1,7 @@
 # DRRA-based AlImp Design Tutorial (v3)
 
 !!! note
-    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [ DRRA-based AlImp Design Tutorial v3](../Tutorial_DRRA_v2).
+    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [ DRRA-based AlImp Design Tutorial v3](../../v2/Tutorial_DRRA).
 
 ## Introduction
 

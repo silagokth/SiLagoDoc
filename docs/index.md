@@ -5,10 +5,10 @@
 
 ## Repos
 !!! warning
-	The repos are private for now!
+	Some repos are private for now!
 
 - [Fabric Repo](https://github.com/silagokth/SiLagoNN)
-- [Vesyla-suite Repo](https://github.com/silagokth/vesyla-suite)
+- [Vesyla-suite Repo](https://github.com/silagokth/vesyla-suite-4)
 
 ## Quick Start Tutorials
 - [MkDoc Tutorial](Guideline/Mkdocs-tutorial)

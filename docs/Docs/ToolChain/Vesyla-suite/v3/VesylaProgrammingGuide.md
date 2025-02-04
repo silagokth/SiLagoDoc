@@ -1,7 +1,7 @@
 # Vesyla Programming Guide (v3)
 
 !!! note
-    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [Vesyla Programming Guide v2](../VesylaProgrammingGuide_v2/).
+    This page is written for vesyla-suite **version 3**. For vesyla-suite version 2, please see [Vesyla Programming Guide v2](../../v2/VesylaProgrammingGuide/).
 
 !!! note
     Vesyla-suite version 3 is under active development. Some of the features that exists on version 2 may not be available on version 3. We will update this page actively to reflect the changes.
@@ -25,24 +25,24 @@ There are two types of pragmas: single-line pragma and block pragma. Single-line
 
 !!! Example
 		
-		Explicit single-line pragma that binds the variable a to register file [0,0]
-		```c++
-		#pragma bind rf_0_0
-		RF a;
-		```
+	Explicit single-line pragma that binds the variable a to register file [0,0]
+	```c++
+	#pragma bind rf_0_0
+	RF a;
+	```
 		
-		Implicit binding without pragma that binds the variable rf_0_1 to register file [0,1]
-		```c++
-		RF rf_0_1;
-		```
+	Implicit binding without pragma that binds the variable rf_0_1 to register file [0,1]
+	```c++
+	RF rf_0_1;
+	```
 
-		Block pragma that makes declare a conflict-free zone.
-		```c++
-		#pragma start conflict_free_zone
-		...
-		...
-		#pragma end conflict_free_zone
-		```
+	Block pragma that makes declare a conflict-free zone.
+	```c++
+	#pragma start conflict_free_zone
+	...
+	...
+	#pragma end conflict_free_zone
+	```
 
 
 ### Variable Declaration
@@ -52,17 +52,17 @@ There are two types of pragmas: single-line pragma and block pragma. Single-line
 There is three type of vector storage variables: Register file variable, SRAM variable and I/O variable. Register file variable is used to model register file. SRAM variable is used to model SRAM scratch-pad memory. I/O variable is used to model input and output buffer.
 
 !!! example
-		Declare a register file variable.
-		```c++
-		#pragma bind rf_0_0
-		RF a;
-		```
+	Declare a register file variable.
+	```c++
+	#pragma bind rf_0_0
+	RF a;
+	```
 
-		Declare a SRAM variable.
-		```c++
-		#pragma bind sram_0_0
-		SRAM b;
-		```
+	Declare a SRAM variable.
+	```c++
+	#pragma bind sram_0_0
+	SRAM b;
+	```
 
 You should not declare any I/O variables. They are defined as global varialbes in the generated header file. You can use them as normal variables. The input buffer is named ```__input_buffer__``` and the output buffer is named ```__output_buffer__```. You can only read from input buffer and write to output buffer. Writing to input buffer and reading from output buffer are not allowed.
 
@@ -83,56 +83,56 @@ The type of transient variables depend on the supported data transfer mode on DR
 Auxiliary variables are usually used for address calculation. They are not tight to any hardware resource. They can only be declared as ```int``` type at the moment.
 
 !!! example
-		Declare and use scalar auxiliary variables.
-		```c++
-		int i, j;
-		for (i=0; i<10; i=i+1){
-			j=i+1;
-			...
-		}
-		```
+	Declare and use scalar auxiliary variables.
+	```c++
+	int i, j;
+	for (i=0; i<10; i=i+1){
+		j=i+1;
+		...
+	}
+	```
 
 ### Primitive Function for Address Generation
 
 Vesyla has certain reading or writing primitive functions to interact with storage variables. These primitive functions usually require address stream to specify which chunk of data is affected. To generate such address stream, you need to use primitive functions designed for address generation. Currently, three primitive functions are supported. The following example shows how to use these primitive functions to generate address stream.
 
 !!! example
-		Generate an address stream that contains only one address.
-		```c++
-		STREAM_ADDR addr = silago_agu_constant(1);
-		```
+	Generate an address stream that contains only one address.
+	```c++
+	STREAM_ADDR addr = silago_agu_constant(1);
+	```
 
-		Generate a 1-d affine address stream that start from 0, increment by 1, and has 10 elements.
-		```c++
-		STREAM_ADDR addr = silago_agu_affine_1(0, 1, 10);
-		```
+	Generate a 1-d affine address stream that start from 0, increment by 1, and has 10 elements.
+	```c++
+	STREAM_ADDR addr = silago_agu_affine_1(0, 1, 10);
+	```
 
-		Generate a 2-d affine address stream that start from 0, increment by 1, and has 10 elements as level 1 and increment by 2 and has 20 elements as level 2.
-		```c++
-		STREAM_ADDR addr = silago_agu_affine_2(0, 1, 10, 2, 20);
-		```
+	Generate a 2-d affine address stream that start from 0, increment by 1, and has 10 elements as level 1 and increment by 2 and has 20 elements as level 2.
+	```c++
+	STREAM_ADDR addr = silago_agu_affine_2(0, 1, 10, 2, 20);
+	```
 
 ### Primitive Function for Arithmetic Operation
 
 Certain type of arithmetic operations are supported by Vesyla. They are addition, subtraction, dot multiplication, etc. Other arithmetic operations need to be mapped to special DPU mode by primitive function call. We recommend to always use primitive function call to perform arithmetic operation. The following example shows how to use these primitive functions to perform arithmetic operation.
 
 !!! example
-		Perform operation: ``c = a + b``
-		```c++
-		#pragma bind dpu_0_0
-		c = silago_dpu_add(a, b);
-		```
+	Perform operation: ``c = a + b``
+	```c++
+	#pragma bind dpu_0_0
+	c = silago_dpu_add(a, b);
+	```
 
 Note that, you should always specify the binding information for arithmetic operations mapped to DPU. Otherwise, Vesyla will not be able to perform allocation and binding.
 
 If a primitive function has multiple outputs, you can use the ``tie()`` function to bundle them to a tuple. For example:
 
 !!! example
-		Perform operation: ``e = a + b`` and ``f = c + d``
-		```c++
-		#pragma bind dpu_0_0
-		tie(e, f) = silago_dpu_add_2(a, b, c, d);
-		```
+	Perform operation: ``e = a + b`` and ``f = c + d``
+	```c++
+	#pragma bind dpu_0_0
+	tie(e, f) = silago_dpu_add_2(a, b, c, d);
+	```
 
 ### Loop
 
@@ -161,7 +161,7 @@ Example of such dynamic loop is shown below:
 	```
 
 !!! warning
-		Vesyla does not support while-loop style dynamic loop with dynamic iteration number. Free style for-loop that implements a dynamic loop is not supported as well.
+	Vesyla does not support while-loop style dynamic loop with dynamic iteration number. Free style for-loop that implements a dynamic loop is not supported as well.
 
 ## Advanced Features
 
