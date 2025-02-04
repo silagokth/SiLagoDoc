@@ -23,15 +23,12 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material 
       - run: mkdocs build
-      - run: echo "ssh auth $SSH_AUTH_SOCK"
-      - name: Add SSH key
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p /home/runner/.ssh
-          ssh-keyscan cheddar.ict.kth.se >> /home/runner/.ssh/known_hosts
-          echo "${{ secrets.CHEDDAR_WWW_KEY }}" > /home/runner/.ssh/github_actions
-          chmod 600 /home/runner/.ssh/github_actions
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
-          ssh-add /home/runner/.ssh/github_actions
-      - run: scp -r -i /home/runner/.ssh/github_actions site/* doc-generator@cheddar.ict.kth.se:/var/www/cheddar.ict.kth.se/silago-doc/:w
+      - name: Deploy to cheddar
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: cheddar.ict.kth.se
+          username: doc-generator
+          key: ${{ secrets.CHEDDAR_WWW_KEY }}
+          source: "_site/*"
+          target: /var/www/cheddar.ict.kth.se/silago-doc
+
