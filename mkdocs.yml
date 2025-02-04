@@ -17,13 +17,16 @@ nav:
       - Guideline/Style-guide-Verilog.md
 
   - Docs:
-      # - Fabric:
+      - Fabric:
       #     - Docs/Fabric/Overview.md
       #     - Docs/Fabric/Style-guide.md
       #       - DRRA:
       #         - Docs/Fabric/DRRA/RACCU.md
       #       - RISC V:
       #         - Docs/Fabric/RISCV/Overview.md
+          - DRRA2: 
+            - Docs/Fabric/DRRA2/Overview.md
+            - Docs/Fabric/DRRA2/Control.md
       - Tool Chain:
           - Docs/ToolChain/Overview.md
           - Vesyla-suite:
@@ -71,15 +74,11 @@ theme:
     primary: "light green"
     accent: "orange"
 
+plugins:
+  # - with-pdf
 # Extensions
 markdown_extensions:
-  # - tables
-  # - def_list
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
   - footnotes
-  - attr_list
-  - md_in_html
   - admonition
   - codehilite:
       linenums: true
@@ -95,11 +94,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist
   - pymdownx.tilde
-#  - pymdownx.snippets:
-#      base_path: 'docs/'
-#      check_paths: true
-#  - pymdownx.highlight:
-#      anchor_linenums: true
+  - pymdownx.snippets:
+      base_path: 'docs/'
+      check_paths: true
 
 extra_javascript:
   - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"

@@ -146,17 +146,22 @@ assign result2  = (a + b) * (c + d);
 assign result10 = (a + b) * (c + d);
 ```
 
-For module declarations, each port should be in a new line and aligned. The following example shows how to align module ports:
+For module declarations, each port should be in a new line and aligned. This includes both the ports and the parameters. The following example shows how to align module ports:
+
 ```sv
 // Bad
-module my_module (input clk, input rst, input [7:0] data, output reg [7:0] result);
+module my_module #(parameter WIDTH = 4, parameter DEPTH = 5) (
+    input logic clk, input logic rst, input logic [3:0] data, output logic [3:0] result );
 
 // Good
-module my_module (
-    input       clk,
-    input       rst,
-    input [7:0] data,
-    output reg  [7:0] result
+module my_module #(
+    parameter WIDTH = 4,
+    parameter DEPTH = 5
+) (
+    input logic clk,
+    input logic rst,
+    input logic [3:0] data,
+    output logic [3:0] result
 );
 ```
 
@@ -196,6 +201,27 @@ The inline comments can then be used to automatically generate documentation for
 
 To add documentation to a design use `//!` as the comment character. Comments that start with `//!` will be parsed by the documentation generator. Comments with `//` can be used for "local" explanations that should not be reflected in the global documentation.
 
+### Module documentation
+The module documentation should be added at the begining of the module, before the ports and parameters. A decription of the module should be priovided before the module starts. Additional information can be included in the module description, such as fsm or timing diagrams with wavedrom, etc. Before each port the comment describing that port should be inserted. Same applies for parameters.  If the comment is long it can be split in multiple lines. The following example shows how to document a module:
+```sv
+module my_module #(
+    //! Width of the data bus
+    parameter WIDTH = 4,
+    //! Depth of the memory
+    parameter DEPTH = 5
+) (
+    //! Clock input
+    input logic clk,
+    //! Asynchronous active high reset
+    input logic rst,
+    //! Data input
+    input logic [3:0] data,
+    //! Result output
+    output logic [3:0] result
+);      
+```sv
+
+### Example 
 Comments should be added at the begining of the module, before the ports and parameters. A decription of the module should be priovided before the module starts. Additional information can be included in the module description, such as fsm or timing diagrams with wavedrom, etc. The following example shows how to document a module:
 ```sv
 //! Implements the storage section of the register file
