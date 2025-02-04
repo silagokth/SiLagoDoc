@@ -29,6 +29,7 @@ jobs:
           host: cheddar.ict.kth.se
           username: doc-generator
           key: ${{ secrets.CHEDDAR_WWW_KEY }}
+          strip_components: 1
           source: "site/*"
           target: /var/www/cheddar.ict.kth.se/silago-doc
 
