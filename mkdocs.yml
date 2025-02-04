@@ -2,7 +2,8 @@
 site_name: "SiLago Documentation"
 site_description: "Documentation of SiLago project"
 site_author: "SiLago Team"
-site_url: "https://silagokth.github.io/SiLagoDoc/"
+# site_url: "https://silagokth.github.io/SiLagoDoc/"
+site_url: "https://silago.eecs.kth.se/silago-doc/"
 
 # Repository
 repo_name: "silagokth/SiLagoDoc"
