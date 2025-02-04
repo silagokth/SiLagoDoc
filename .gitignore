@@ -1,1 +1,5 @@
 site/
+.vscode/
+.directory
+*.code-workspace
+
