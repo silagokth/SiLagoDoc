@@ -34,4 +34,4 @@ jobs:
           chmod 600 /home/runner/.ssh/github_actions
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
           ssh-add /home/runner/.ssh/github_actions
-      - run: scp -r -i /home/runner/.ssh/github_actions site/* doc-generator@cheddar.ict.kth.se:/var/www/html/silago-doc/
+      - run: scp -r -i /home/runner/.ssh/github_actions site/* doc-generator@cheddar.ict.kth.se:/var/www/cheddar.ict.kth.se/silago-doc/:w
