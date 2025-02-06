@@ -3,7 +3,7 @@ site_name: "SiLago Documentation"
 site_description: "Documentation of SiLago project"
 site_author: "SiLago Team"
 # site_url: "https://silagokth.github.io/SiLagoDoc/"
-site_url: "https://silago.eecs.kth.se/silago-doc/"
+site_url: "https://silago.eecs.kth.se/docs"
 
 # Repository
 repo_name: "silagokth/SiLagoDoc"
@@ -75,14 +75,21 @@ nav:
 
 theme:
   name: "material"
+  # font:
+  #   text: "Lato"
+  #   code: "Roboto Mono"
   font:
     text: "Lato"
     code: "Roboto Mono"
-  feature:
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
     tabs: true
-  palette:
-    primary: "light green"
-    accent: "orange"
+  # palette:
+  #   primary: "light green"
+  #   accent: "orange"
 
 plugins:
   # - with-pdf
