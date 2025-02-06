@@ -1,19 +1,10 @@
 # Installation and Usage
 
-## Cheddar
-
-!!! tip "Recommendation"
-    The easiest way to use vesyla-suite is to use the pre-installed version on Cheddar.
-
-Vesyla-suite is pre-installed on Cheddar. You can use it directly without any installation. Contact the system administrator if you need an account on Cheddar. Use the following command to check the version of vesyla-suite.
-
-```tcl
-vesyla-suite --version
-```
-
 ## AppImage
 
-Vesyla-suite is also available as an AppImage. You can download the AppImage file from the <a href="https://kth-my.sharepoint.com/:u:/g/personal/yuyang2_ug_kth_se/EaQngYNaRslDlQsTL3-AkDIB64rXut2W5TtgFem5ULA5oA" target="_blank">here</a>. You should put the AppImage file in a directory in your PATH. For example, you can put the AppImage file in the */usr/bin* directory.
+!!! tip "Recommendation"
+
+Vesyla-suite is also available as an AppImage. You can download the AppImage file of a specific release from the [github page](https://github.com/silagokth/vesyla-suite-4/releases). You should put the AppImage file in a directory in your PATH. For example, you can put the AppImage file in the */usr/bin* directory.
 
 ```tcl
 sudo mv vesyla-suite /usr/bin/vesyla-suite

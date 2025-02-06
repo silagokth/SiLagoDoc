@@ -48,27 +48,11 @@ nav:
                   - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
                   - Docs/ToolChain/Vesyla-suite/v4/Tutorial_DRRA.md
                   - Docs/ToolChain/Vesyla-suite/v4/ProgrammingGuide.md
+                  - Docs/ToolChain/Vesyla-suite/v4/Assembly.md
+                  - Docs/ToolChain/Vesyla-suite/v4/Visualization.md
+                  - Docs/ToolChain/Vesyla-suite/v4/Extension.md
                   - Docs/ToolChain/Vesyla-suite/v4/IO.md
                   - Docs/ToolChain/Vesyla-suite/v4/Scheduling.md
-
-  #       - Sylva:
-  #         - Docs/ToolChain/Sylva/Overview.md
-  #     - Library:
-  #       - Docs/Library/Overview.md
-  #       - BLAS:
-  #         - Docs/Library/BLAS/Overview.md
-  #         - L3:
-  #           - Docs/Library/BLAS/L3/gemm.md
-  #       - NN:
-  #         - Docs/Library/NN/Overview.md
-  #       - Interleaver:
-  #         - Docs/Library/Interleaver/Overview.md
-  #       - FFT:
-  #         - Docs/Library/FFT/Overview.md
-  #     - Appliction:
-  #       - Docs/Application/Overview.md
-  #       - SiLagoDSP:
-  #         - Docs/Application/SiLagoDSP/Fast-Fourier-Projection.md
   - About:
       - About/About.md
       - About/License.md
