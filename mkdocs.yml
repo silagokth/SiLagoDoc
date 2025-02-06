@@ -70,7 +70,6 @@ theme:
     - navigation.sections
     - navigation.path
     - navigation.indexes
-    - navigation.tabs
   # palette:
   #   primary: "light green"
   #   accent: "orange"
