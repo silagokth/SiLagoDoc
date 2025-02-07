@@ -4,7 +4,7 @@ The DRRA-2 is a template system. Each fabric instance is assembled from componen
 
 ## DRRA Component Library
 
-The DRRA component library is currently hosted on github at [drra-component-lib](https://github.com/silagokth/drra-component-lib). In the *lib* folder, you can find the components for fabric, cells, controllers as well as resources.
+The DRRA component library is currently hosted on github at [drra-component-lib](https://github.com/silagokth/drra-component-lib). In the _lib_ folder, you can find the components for fabric, cells, controllers as well as resources.
 
 To set up the component library, you can clone the repository, compile it and set up the environment variable `VESYLA_SUITE_PATH_COMPONENTS` to point to the compiled library folder.
 
@@ -31,9 +31,10 @@ The assembly process consists of the following steps:
 To assemble the fabric, you can use the following command:
 
 ```bash
-vesyla-suite component assembly -a user_defined_arch.json -o output_dir
+vesyla-suite component assemble -a user_defined_arch.json -o output_dir
 ```
-After the command is executed, the output directory will contain three folders: *arch*, *isa*, and *rtl*. The *arch* folder contains the elaborated architectural description file. The *isa* folder contains the ISA description file. The *rtl* folder contains the RTL description file.
+
+After the command is executed, the output directory will contain three folders: _arch_, _isa_, and _rtl_. The _arch_ folder contains the elaborated architectural description file. The _isa_ folder contains the ISA description file. The _rtl_ folder contains the RTL description file.
 
 ### Architecture Description Assembly
 
