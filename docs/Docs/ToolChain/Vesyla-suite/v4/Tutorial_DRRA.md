@@ -16,7 +16,7 @@ Only the top row of DRRA-2 cells have access to the input buffer and only the bo
 
 The assumption of giant globally addressable memory buffers is not realistic. However, these buffers will not be implemented as it is. Instead, application-level synthesis (ALS) tool will synthesize the input and output buffers to the actual hardware. The input and output buffers are used to simplify the algorithmic compilation process.
 
-A typical setup of a DRRA-2 fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down. 
+A typical setup of a DRRA-2 fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down.
 
 ## Initialization
 
@@ -32,17 +32,17 @@ If this directory has already been initialized, you can force the re-initializat
 vesyla-suite testcase init -f -s drra
 ```
 
-You will notice that several files has been created in this directory. One of the files is ``arch.json``. This file contains the architecture description. You can modify this file to change the resources that are included on the fabric. The configuration file is described in the following section.
+You will notice that several files has been created in this directory. One of the files is `arch.json`. This file contains the architecture description. You can modify this file to change the resources that are included on the fabric. The configuration file is described in the following section.
 
-Another file you need to modify is ``main.cpp``. You need to define some of the functions in this file. The functions are described in the following section.
+Another file you need to modify is `main.cpp`. You need to define some of the functions in this file. The functions are described in the following section.
 
-The third location you need to modify is the ``pasm`` folder. This folder contains all the code segments in proto-assembly and constraint format. The name of each code segment should be a unique number. For example ``0.pasm``/``0.cstr``, ``1.pasm``/``1.cstr``, and so on.
+The third location you need to modify is the `pasm` folder. This folder contains all the code segments in proto-assembly and constraint format. The name of each code segment should be a unique number. For example `0.pasm`/`0.cstr`, `1.pasm`/`1.cstr`, and so on.
 
 ## Implementation
 
-We use a simple example to demonstrate the implementation of algorithms. The example is a element-wise addition of two vectors. It has two inputs: vector ``A`` and vector ``B``. It has one output: vector ``C``. All of them have size equal to 16. The element-wise addition is defined as: ``C[i] = A[i] + B[i]``.
+We use a simple example to demonstrate the implementation of algorithms. The example is a element-wise addition of two vectors. It has two inputs: vector `A` and vector `B`. It has one output: vector `C`. All of them have size equal to 16. The element-wise addition is defined as: `C[i] = A[i] + B[i]`.
 
-We first define the hardware architecture in ``arch.json``. It should include three cells: cell [0,0], cell [1,0], and cell [2,0]. Cell [0,0] is used to read data from input buffer, and cell [2,0] is used to write result to output buffer. Cell [1,0] will be the one that does the actual addition.
+We first define the hardware architecture in `arch.json`. It should include three cells: cell [0,0], cell [1,0], and cell [2,0]. Cell [0,0] is used to read data from input buffer, and cell [2,0] is used to write result to output buffer. Cell [1,0] will be the one that does the actual addition.
 
 ```json
 {
@@ -146,11 +146,9 @@ We first define the hardware architecture in ``arch.json``. It should include th
     "output_buffer_depth": 1024
   }
 }
-
-
 ```
 
-Before we implement the algorithm in ``main.cpp``, we need to define the input and output data layout in input and output buffer. Both input and output buffer has width that equals to 256 bits. So, each row can be divided by 16 16-bit chunks, each of which stores an element of ``A``, ``B``, or ``C``. The layout is described by the following table.
+Before we implement the algorithm in `main.cpp`, we need to define the input and output data layout in input and output buffer. Both input and output buffer has width that equals to 256 bits. So, each row can be divided by 16 16-bit chunks, each of which stores an element of `A`, `B`, or `C`. The layout is described by the following table.
 
 ```
 Input Buffer:
@@ -169,15 +167,15 @@ Output Buffer:
 +------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
 ```
 
-In ``main.cpp``, you need to implement the following functions:
+In `main.cpp`, you need to implement the following functions:
 
-* ``void init()``: This function is used to initialize the input buffer.
-* ``void model_l0()``: This function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm.
-* ``void model_l1()``: This function is used to implement the algorithm in the level 1 model. It should consists a set of function call of simulation request of the code segments stored in folder ``pasm``.
+- `void init()`: This function is used to initialize the input buffer.
+- `void model_l0()`: This function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm.
+- `void model_l1()`: This function is used to implement the algorithm in the level 1 model. It should consists a set of function call of simulation request of the code segments stored in folder `pasm`.
 
 We implement these functions one by one.
 
-The ``init()`` function is used to initialize the input buffer. It's a pure software implementation. The following code shows how to initialize the input buffer.
+The `init()` function is used to initialize the input buffer. It's a pure software implementation. The following code shows how to initialize the input buffer.
 
 ```cpp
 void init() {
@@ -196,7 +194,7 @@ void init() {
 }
 ```
 
-The ``model_l0()`` function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm. The following code shows how to implement the algorithm in the level 0 model.
+The `model_l0()` function is used to implement the algorithm in the level 0 model. It's a pure software implementation of the algorithm. It's used to verify the correctness of the algorithm. The following code shows how to implement the algorithm in the level 0 model.
 
 ```cpp
 void model_l0() {
@@ -213,7 +211,7 @@ void model_l0() {
 }
 ```
 
-Now, it's time to implement the algorithm in the level 1 model. The level 1 model should consists a set of function call of simulation request of the code segments stored in folder ``pasm``. In this example, we only need 1 code segment. Therefore, the level 1 model is very simple.
+Now, it's time to implement the algorithm in the level 1 model. The level 1 model should consists a set of function call of simulation request of the code segments stored in folder `pasm`. In this example, we only need 1 code segment. Therefore, the level 1 model is very simple.
 
 ```cpp
 void model_l1(){
@@ -221,10 +219,10 @@ void model_l1(){
 }
 ```
 
-The level 1 model is not complete without the proto-assembly code and its constraint file. We need to write the proto-assembly code in ``pasm/0.pasm``:
+The level 1 model is not complete without the proto-assembly code and its constraint file. We need to write the proto-assembly code in `pasm/0.pasm`:
 
 !!! Tip "Syntax Highlighting"
-    We highly recommend to install the vscode extension for syntax highlighting of all languages used by the SiLago project. The extension is not published on vscode marketplace since it's still in alpha quality. However, you can download and install it from VSIX package available on [github](https://github.com/silagokth/vscode-extension-slf.git).
+We highly recommend to install the vscode extension for syntax highlighting of all languages used by the SiLago project. The extension is not published on vscode marketplace since it's still in alpha quality. However, you can download and install it from VSIX package available on [github](https://github.com/silagokth/vscode-extension-slf.git).
 
 ```pasm
 epoch <rb0> {
@@ -320,7 +318,7 @@ epoch <rb0> {
 
 ```
 
-The constraint file that work with the proto-assembly file is stored in ``pasm/0.cstr``:
+The constraint file that work with the proto-assembly file is stored in `pasm/0.cstr`:
 
 ```cstr
 epoch <rb0> {

@@ -24,10 +24,11 @@ The fabric is the collection of cells. The cells are connected together using bu
 
 ## JSON Schema
 
+<!-- prettier-ignore -->
 !!! tip "Validation"
     You can validate a architecture description json file using this schema on [Json Schema Validator](https://www.jsonschemavalidator.net/).
 
-The architecture description file uses *json* format and validated by the following json schema:
+The architecture description file uses _json_ format and validated by the following json schema:
 
 ```json
 --8<-- "Docs/ToolChain/Vesyla-suite/v4/Architecture/arch_schema.json"

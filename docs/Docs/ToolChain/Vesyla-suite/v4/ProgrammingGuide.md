@@ -4,6 +4,7 @@
 
 The Proto-Assembly Language is a low-level language that is used to write programs for the DRRA-2 architecture. The language is designed to be simple and easy to understand, while still providing the necessary features to write complex programs. The Proto-Assembly Language are structured assembly language whose instructions are not yet been scheduled. It preserves control hierarchy but lack of timing information. This guide will provide an overview of the language and how to write programs in it. In this guide, you will learn about the syntax of the Proto-Assembly Language, and its constraints.
 
+<!-- prettier-ignore -->
 !!! Tip "Syntax Highlighting"
     We highly recommend to install the vscode extension for syntax highlighting of all languages used by the SiLago project. The extension is not published on vscode marketplace since it's still in alpha quality. However, you can download and install it from VSIX package available on [github](https://github.com/silagokth/vscode-extension-slf.git).
 
@@ -32,6 +33,7 @@ NAME <ID> (PARAM_0=VALUE_0, PARAM_1=VALUE_1, ...) {
     ...
 }
 ```
+
 However, different regions, operations, and instructions requires only some parts of the syntax format. For example, **loop** region usually don't need the `ID` part; Instructions don't have any contents.
 
 The following EBNF grammar describes the syntax of the Proto-Assembly Language:
@@ -75,12 +77,13 @@ Regions and instructions are the basic building blocks of a program written in t
 - **control instructions** are instructions that are executed by a sequencer.
 - **resource instructions** are instructions that are executed by a specific resource.
 
+<!-- prettier-ignore -->
 !!! note
     The Proto-Assembly Language is case-sensitive. All keywords must be written in lowercase.
 
+<!-- prettier-ignore -->
 !!! note
     The **raw** region is not compatible with **cop** and **rop** regions. They are not allowed in the same **epoch** region. This is because the instruction scheduling process works on the entire **epoch**.
-
 
 ### Example
 
@@ -223,7 +226,7 @@ COMMENTS: /#.*/
 
 - **epoch** region is a region that contains one or more constraints.
 - **constraint** is single line statement that specifies the constraint type and its content. Each constraint is expressed by a relationship among operations, events, and anchors.
-- **operation** is the ID of the operation in the proto-assembly file. Each operation, depends on its internal instruction list, can be interpreted as a sequence of events and their transformation. The event name in resource operation is used to represent the specific event for operations using ``FSM`` instructions to construct multi-state FSM. For control operations, each instruction will be a new event. The event name always starts with `e` and followed by a number. They are always numerically ordered. For example, the first, second and third event of operation `op0` will be `op0.e0`, `op0.e1` and `op0.e2` respectively.
+- **operation** is the ID of the operation in the proto-assembly file. Each operation, depends on its internal instruction list, can be interpreted as a sequence of events and their transformation. The event name in resource operation is used to represent the specific event for operations using `FSM` instructions to construct multi-state FSM. For control operations, each instruction will be a new event. The event name always starts with `e` and followed by a number. They are always numerically ordered. For example, the first, second and third event of operation `op0` will be `op0.e0`, `op0.e1` and `op0.e2` respectively.
 - **anchor** is the specific instances of events in different loop iterations implemented by the `rep` instruction. The anchor name is the event name followed by a sequence of loop iteration number. For example, the first event of operation `op0` in the second loop iteration will be `op0.e0[1]`. The left-to-right order of the loop iteration number is from the outermost loop to the innermost loop.
 
 ### Example

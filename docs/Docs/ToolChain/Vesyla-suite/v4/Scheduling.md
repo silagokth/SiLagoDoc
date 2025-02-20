@@ -1,5 +1,6 @@
 # Instruction Scheduling
 
+<!-- prettier-ignore -->
 !!! Warning
     This document is still under construction. The content is not complete.
 
@@ -16,6 +17,7 @@ Operation behavior description models the timing behavior of every resource oper
 
 Each operation will have one or more events, they are named numerically as `e0`, `e1`, etc. Among events, it is possible to apply two types of transformation operator: transition (**T** operator) and repetition (**R** operator). The **T** operator describes the timing transition from one event to another event. While the **R** operator describes the repetition of a single event or a group of events. Those operator can be applied recursively to form very complex timing behavior.
 
+<!-- prettier-ignore -->
 !!! example
     ```
     operation a T<6>(R<2,3>(T<4>(e0, e1)), e2) 
