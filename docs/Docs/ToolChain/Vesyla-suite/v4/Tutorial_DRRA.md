@@ -49,97 +49,120 @@ We first define the hardware architecture in `arch.json`. It should include thre
   "platform": "drra",
   "resources": [
     {
-      "name": "iosram",
-      "size": 4,
-      "word_input_port": 0,
-      "word_output_port": 0,
-      "bulk_input_port": 2,
-      "bulk_output_port": 2,
-      "custom_properties": [
-        {
-          "key": "depth",
-          "val": 64
-        }
-      ]
+      "name": "swb_impl",
+      "kind": "swb"
     },
     {
-      "name": "swb",
-      "size": 1,
-      "word_input_port": 0,
-      "word_output_port": 0,
-      "bulk_input_port": 0,
-      "bulk_output_port": 0
+      "name": "iosram_top_impl",
+      "kind": "iosram_top"
     },
     {
-      "name": "dpu",
-      "size": 2,
-      "word_input_port": 2,
-      "word_output_port": 1,
-      "bulk_input_port": 0,
-      "bulk_output_port": 0
+      "name": "iosram_btm_impl",
+      "kind": "iosram_btm"
     },
     {
-      "name": "rf",
-      "size": 1,
-      "word_input_port": 1,
-      "word_output_port": 1,
-      "bulk_input_port": 1,
-      "bulk_output_port": 1,
-      "custom_properties": [
-        {
-          "key": "depth",
-          "val": 64
-        }
-      ]
+      "name": "rf_impl",
+      "kind": "rf"
+    },
+    {
+      "name": "dpu_impl",
+      "kind": "dpu"
     }
   ],
   "controllers": [
     {
-      "name": "controller_io",
-      "size": 8,
-      "iram_size": 64
-    },
-    {
-      "name": "controller_normal",
-      "size": 16,
-      "iram_size": 64
+      "name": "sequencer_impl",
+      "kind": "sequencer"
     }
   ],
   "cells": [
     {
-      "name": "drra_cell_input",
-      "controller": "controller_io",
-      "resource_list": ["swb", "iosram"]
+      "name": "cell_top_impl",
+      "kind": "cell_top"
     },
     {
-      "name": "drra_cell_output",
-      "controller": "controller_io",
-      "resource_list": ["swb", "iosram"]
+      "name": "cell_mid_impl",
+      "kind": "cell_mid"
     },
     {
-      "name": "drra_cell_normal",
-      "controller": "controller_normal",
-      "resource_list": ["swb", "rf", "rf", "rf", "dpu"]
+      "name": "cell_btm_impl",
+      "kind": "cell_btm"
     }
   ],
   "fabric": {
     "height": 3,
     "width": 1,
-    "cell_lists": [
+    "cells_list": [
       {
-        "coordinates": [{ "row": 0, "col": 0 }],
-        "cell_name": "drra_cell_input"
+        "coordinates": [
+          {
+            "row": 0,
+            "col": 0
+          }
+        ],
+        "cell_name": "cell_top_impl"
       },
       {
-        "coordinates": [{ "row": 1, "col": 0 }],
-        "cell_name": "drra_cell_normal"
+        "coordinates": [
+          {
+            "row": 1,
+            "col": 0
+          }
+        ],
+        "cell_name": "cell_mid_impl"
       },
       {
-        "coordinates": [{ "row": 2, "col": 0 }],
-        "cell_name": "drra_cell_output"
+        "coordinates": [
+          {
+            "row": 2,
+            "col": 0
+          }
+        ],
+        "cell_name": "cell_btm_impl"
       }
     ],
-    "custom_properties": []
+    "custom_properties": [
+      {
+        "name": "IO_DATA_WIDTH",
+        "value": 256
+      },
+      {
+        "name": "IO_ADDR_WIDTH",
+        "value": 16
+      },
+      {
+        "name": "RESOURCE_INSTR_WIDTH",
+        "value": 27
+      },
+      {
+        "name": "ROWS",
+        "value": 3
+      },
+      {
+        "name": "COLS",
+        "value": 1
+      },
+      {
+        "name": "INSTR_DATA_WIDTH",
+        "value": 32
+      },
+      {
+        "name": "INSTR_ADDR_WIDTH",
+        "value": 6
+      },
+      {
+        "name": "INSTR_HOPS_WIDTH",
+        "value": 4
+      },
+      {
+        "name": "INSTR_OPCODE_BITWIDTH",
+        "value": 3
+      },
+      {
+        "name": "BULK_WIDTH",
+        "value": 256
+      }
+    ]
   },
   "interface": {
     "input_buffer_depth": 1024,
@@ -233,17 +256,17 @@ epoch <rb0> {
 
         rop <input_r> (slot=1, port=0){
             dsu (slot=1, port=0, init_addr=0)
-            rep (slot=1, port=0, level=0, iter=2, step=1, delay=0)
+            rep (slot=1, port=0, level=0, iter=1, step=2, delay=0)
         }
 
         rop <input_w> (slot=1, port=2){
             dsu (slot=1, port=2, init_addr=0)
-            rep (slot=1, port=2, iter=2, step=1, delay=0)
+            rep (slot=1, port=2, iter=1, step=1, delay=0)
         }
 
         rop <read_ab> (slot=2, port=3){
             dsu (slot=2, port=3, init_addr=0)
-            rep (slot=2, port=3, iter=2, step=1, delay=0)
+            rep (slot=2, port=3, iter=1, step=1, delay=0)
         }
     }
 
@@ -255,42 +278,39 @@ epoch <rb0> {
 
         rop <write_a> (slot=1, port=2){
             dsu (slot=1, port=2, init_addr=0)
-            rep (slot=1, port=2, iter=1, step=1, delay=t1)
         }
 
         rop <write_b> ( slot=2, port=2){
             dsu (slot=2, port=2, init_addr=0)
-            rep (slot=2, port=2, iter=1, step=1, delay=t1)
         }
 
         rop <swb> ( slot=0, port=0){
             swb (slot=0, option=0, channel=4, source=1, target=4)
-            swb (slot=0, option=0, channel=5, source=1, target=5)
+            swb (slot=0, option=0, channel=5, source=2, target=5)
             swb (slot=0, option=0, channel=3, source=4, target=3)
         }
 
         rop <read_a_seq> ( slot=1, port=1){
             dsu (slot=1, port=1, init_addr=0)
-            rep (slot=1, port=1, iter=16, step=1, delay=0)
+            rep (slot=1, port=1, iter=15, step=1, delay=0)
         }
 
         rop <read_b_seq> ( slot=2, port=1){
             dsu (slot=2, port=1, init_addr=0)
-            rep (slot=2, port=1, iter=16, step=1, delay=0)
+            rep (slot=2, port=1, iter=15, step=1, delay=0)
         }
 
         rop <write_c_seq> ( slot=3, port=0){
             dsu (slot=3, port=0, init_addr=0)
-            rep (slot=3, port=0, iter=16, step=1, delay=0)
+            rep (slot=3, port=0, iter=15, step=1, delay=0)
         }
 
         rop <compute> ( slot=4, port=0){
-            dpu (slot=4, mode=1)
+            dpu (slot=4, mode=7)
         }
 
         rop <read_c> ( slot=3, port=3){
             dsu (slot=3, port=3, init_addr=0)
-            rep (slot=3, port=3, iter=1, step=1, delay=0)
         }
     }
 
@@ -301,21 +321,17 @@ epoch <rb0> {
 
         rop <write_c> ( slot=2, port=2){
             dsu (slot=2, port=2, init_addr=0)
-            rep (slot=2, port=2, iter=1, step=1, delay=0)
         }
 
         rop <output_r> (slot=1, port=3){
             dsu (slot=1, port=3, init_addr=0)
-            rep (slot=1, port=3, iter=1, step=1, delay=0)
         }
 
         rop <output_w> (slot=1, port=1){
             dsu (slot=1, port=1, init_addr=0)
-            rep (slot=1, port=1, iter=1, step=1, delay=0)
         }
     }
 }
-
 ```
 
 The constraint file that work with the proto-assembly file is stored in `pasm/0.cstr`:
@@ -323,24 +339,20 @@ The constraint file that work with the proto-assembly file is stored in `pasm/0.
 ```cstr
 epoch <rb0> {
     linear ( input_r == input_w )
+    linear ( input_w < read_ab )
     linear ( route0r < read_ab )
     linear ( route1wr < write_a )
     linear ( route1wr < write_b )
-    linear ( read_ab.e0[0] == write_a.e0[0] - 1 )
-    linear ( read_ab.e0[1] == write_b.e0[0] - 1 )
+    linear ( read_ab.e0[0] == write_a )
+    linear ( read_ab.e0[1] == write_b )
     linear ( write_a < read_a_seq )
     linear ( write_b < read_b_seq )
     linear ( swb < read_a_seq )
     linear ( read_a_seq == read_b_seq )
     linear ( read_a_seq + 1 > compute )
-    linear ( write_c_seq == read_a_seq + 2 )
-
-    linear ( compute != route1wr )
-    linear ( compute != swb )
-
-    linear ( read_c.e0[0] > write_c_seq.e0[15] )
-
-    linear ( write_c == read_c + 1 )
+    linear ( write_c_seq == read_a_seq + 1 )
+    linear ( read_c > write_c_seq.e0[15] )
+    linear ( write_c == read_c )
     linear ( output_r > write_c )
     linear ( output_r == output_w )
 }
