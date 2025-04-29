@@ -52,6 +52,11 @@ nav:
                   - Docs/ToolChain/Vesyla-suite/v4/Extension.md
                   - Docs/ToolChain/Vesyla-suite/v4/IO.md
                   - Docs/ToolChain/Vesyla-suite/v4/Scheduling.md
+          - Sylva:
+              - Docs/ToolChain/Sylva/Overview.md
+              - Docs/ToolChain/Sylva/Input.md
+              - Docs/ToolChain/Sylva/Bind.md
+              - Docs/ToolChain/Sylva/Place.md
   - About:
       - About/About.md
       - About/License.md
