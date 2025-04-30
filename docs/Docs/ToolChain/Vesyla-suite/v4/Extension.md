@@ -18,7 +18,7 @@ The component package is a folder that contains the component files. The compone
 
 - `arch.json`: The architectural description file of the component. This file is the foundation of the component.
 - `isa.json`: The ISA description file of the component. This only applies to controllers and resources.
-- `rtl.sv`: The _template_ of RTL description file of the component.
+- `rtl.sv.j2`: The jinja _template_ of RTL description file of the component.
 - `timing_model`: The directory that contains the source code to generate the executable file that can compute the timing model from the input instructions. This is used by instruction scheduler and instruction-level simulator.
 - `behavioral_model`: The directory contains the source code that will be compiled into the instruction-level simulator of the fabric instance.
 - `CMakeLists.txt`: The CMake file which directs the compilation and installation of the component package.
