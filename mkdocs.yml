@@ -57,6 +57,8 @@ nav:
               - Docs/ToolChain/Sylva/Input.md
               - Docs/ToolChain/Sylva/Bind.md
               - Docs/ToolChain/Sylva/Place.md
+              - Docs/ToolChain/Sylva/Route.md
+              - Docs/ToolChain/Sylva/Noc.md
   - About:
       - About/About.md
       - About/License.md
