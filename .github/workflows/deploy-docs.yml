@@ -21,7 +21,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - run: pip install -r requirements.txt
       - run: mkdocs build
       - name: Deploy to cheddar
         uses: appleboy/scp-action@v0.1.7
