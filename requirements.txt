@@ -1,0 +1,6 @@
+mkdocs
+mkdocs-graphviz
+mkdocs-glightbox
+mkdocs-material
+mkdocs-video
+mdx_truly_sane_lists

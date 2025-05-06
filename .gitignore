@@ -1,5 +1,8 @@
 site/
-.vscode/
 .directory
-*.code-workspace
 
+.venv/
+__pycache__/
+
+.vscode/
+*.code-workspace

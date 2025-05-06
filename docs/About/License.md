@@ -4,7 +4,7 @@ This documentation is licensed under [GNU Free Documentation License](https://ww
 
 A full legal document is listed below. You can also check the license contents from the official website: [https://www.gnu.org/licenses/fdl.html](https://www.gnu.org/licenses/fdl.html)
 
-```
+```text
 
                 GNU Free Documentation License
                  Version 1.3, 3 November 2008

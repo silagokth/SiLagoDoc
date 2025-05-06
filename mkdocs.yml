@@ -1,108 +1,182 @@
-# Project information
+# Documentation configuration file for SiLago project
+# This file is used by MkDocs to generate the documentation site.
+# For more information on MkDocs, see: https://www.mkdocs.org/
+# For more information on Material for MkDocs,
+#   see: https://squidfunk.github.io/mkdocs-material/
+
 site_name: "SiLago Documentation"
 site_description: "Documentation of SiLago project"
 site_author: "SiLago Team"
-# site_url: "https://silagokth.github.io/SiLagoDoc/"
 site_url: "https://silago.eecs.kth.se/docs"
 
-# Repository
+theme:
+  logo: "docs/logo.png"
+
 repo_name: "silagokth/SiLagoDoc"
 repo_url: "https://github.com/silagokth/SiLagoDoc"
 
 nav:
   - Home: index.md
-  - Guidelines:
-      - Guideline/Mkdocs-tutorial.md
-      - Guideline/Style-guide-cpp.md
-      - Guideline/Style-guide-VHDL.md
-      - Guideline/Style-guide-Verilog.md
 
-  - Docs:
-      - Fabric:
-          - Docs/Fabric/Overview.md
-          - DRRA:
-              - v1:
-                  - Docs/Fabric/DRRA/v1/Overview.md
-              - v2:
-                  - Docs/Fabric/DRRA/v2/Overview.md
-      - Tool Chain:
-          - Docs/ToolChain/Overview.md
-          - Vesyla-suite:
-              - Docs/ToolChain/Vesyla-suite/Overview.md
-              - v2 (Deprecated):
-                  - Docs/ToolChain/Vesyla-suite/v2/Tutorial_DRRA.md
-                  - Docs/ToolChain/Vesyla-suite/v2/VesylaProgrammingGuide.md
-                  - Docs/ToolChain/Vesyla-suite/v2/InstructionSet.md
-              - v3 (Deprecated):
-                  - Docs/ToolChain/Vesyla-suite/v3/Installation.md
-                  - Docs/ToolChain/Vesyla-suite/v3/Tutorial_DRRA.md
-                  - Docs/ToolChain/Vesyla-suite/v3/VesylaProgrammingGuide.md
-                  - Docs/ToolChain/Vesyla-suite/v3/ManasProgrammingGuide.md
-                  - Docs/ToolChain/Vesyla-suite/v3/InstructionPhase.md
-                  - Docs/ToolChain/Vesyla-suite/v3/InstructionSet.md
-                  - Docs/ToolChain/Vesyla-suite/v3/Tutorial_RISCV.md
-                  - Docs/ToolChain/Vesyla-suite/v3/RepoOrganization.md
-              - v4 (Current):
-                  - Docs/ToolChain/Vesyla-suite/v4/Installation.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Architecture.md
-                  - Docs/ToolChain/Vesyla-suite/v4/InstructionSet.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Tutorial_DRRA.md
-                  - Docs/ToolChain/Vesyla-suite/v4/ProgrammingGuide.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Assembly.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Extension.md
-                  - Docs/ToolChain/Vesyla-suite/v4/IO.md
-                  - Docs/ToolChain/Vesyla-suite/v4/Scheduling.md
-          - Sylva:
-              - Docs/ToolChain/Sylva/Overview.md
-              - Docs/ToolChain/Sylva/Input.md
-              - Docs/ToolChain/Sylva/Bind.md
-              - Docs/ToolChain/Sylva/Place.md
-              - Docs/ToolChain/Sylva/Route.md
-              - Docs/ToolChain/Sylva/Noc.md
+  - Software:
+    - ToolChain/index.md
+    - Vesyla HLS: 
+      - ToolChain/Vesyla/index.md
+      - Tutorials:
+        - ToolChain/Vesyla/Tutorials/index.md
+        - Getting Started: ToolChain/Vesyla/Tutorials/GettingStarted.md
+        - Install Vesyla: ToolChain/Vesyla/Tutorials/Installation.md
+        - Run an example: ToolChain/Vesyla/Tutorials/Tutorial_DRRA.md
+      - How-to guides: 
+        - ToolChain/Vesyla/HowToGuides/index.md
+        - Assemble a fabric: ToolChain/Vesyla/HowToGuides/Assembly.md
+        - Create a new component: ToolChain/Vesyla/HowToGuides/Extension.md
+      - Explanations: 
+        - ToolChain/Vesyla/Explanations/index.md
+        - Architecture Overview: ToolChain/Vesyla/Explanations/Architecture.md
+        - CADFG: ToolChain/Vesyla/Explanations/Cadfg.md
+        - Dependency Analysis: ToolChain/Vesyla/Explanations/DependencyAnalysis.md
+        - Hazzard: ToolChain/Vesyla/Explanations/Hazzard.md
+        - Scheduling: ToolChain/Vesyla/Explanations/Scheduling.md
+        - IO: ToolChain/Vesyla/Explanations/IO.md
+      - Reference: 
+        - ToolChain/Vesyla/Reference/index.md
+        - Instruction Set: ToolChain/Vesyla/Reference/InstructionSet.md
+        - Programming Guide: ToolChain/Vesyla/Reference/ProgrammingGuide.md
+        - Scheduling Guide: ToolChain/Vesyla/Reference/Scheduling.md
+
+    - Sylva ALS:
+      - ToolChain/Sylva/index.md
+      - Tutorials:
+        - ToolChain/Sylva/Tutorials/index.md
+        - Getting Started: ToolChain/Sylva/Tutorials/GettingStarted.md
+      - How-to guides: 
+        - ToolChain/Sylva/HowToGuides/index.md
+      - Explanations: 
+        - ToolChain/Sylva/Explanations/index.md
+        - Overview: ToolChain/Sylva/Explanations/Sylva/Overview.md
+        - Binding: ToolChain/Sylva/Explanations/Sylva/Bind.md
+        - Placing: ToolChain/Sylva/Explanations/Sylva/Place.md
+        - Routing: ToolChain/Sylva/Explanations/Sylva/Route.md
+        - NoC Synthesis: ToolChain/Sylva/Explanations/Sylva/Noc.md
+        - GLIC Synthesis: ToolChain/Sylva/Explanations/Sylva/Glic.md
+      - Reference: 
+        - ToolChain/Sylva/Reference/index.md
+        - Sylva Input Format: ToolChain/Sylva/Reference/Input.md
+
+  - Hardware:
+    - Fabric/index.md
+    - Tutorials:
+      - Fabric/Tutorials/index.md
+      - Getting Started: Fabric/Tutorials/GettingStarted.md
+    - How-to guides: 
+      - Fabric/HowToGuides/index.md
+    - Explanations: 
+      - Fabric/Explanations/index.md
+      - Architecture Overview: Fabric/Explanations/DRRA/Overview.md
+    - Reference: 
+      - Fabric/Reference/index.md
+
+  - Contributing:
+    - Guideline/index.md
+    - Contribute to documentation:
+      - Guideline/Docs/index.md
+      - SiLago Docs Styleguide: Guideline/Docs/Style-guide-docs.md
+      - MkDocs Usage: Guideline/Docs/Mkdocs-tutorial.md
+    - Contribute to SiLago toolchain:
+      - Guideline/Software/index.md
+      - CPP Styleguide: Guideline/Software/Style-guide-cpp.md
+    - Contribute to SiLago hardware:
+      - Guideline/Hardware/index.md
+      - VHDL Styleguide: Guideline/Hardware/Style-guide-VHDL.md
+      - SystemVerilog Styleguide: Guideline/Hardware/Style-guide-Verilog.md
+
   - About:
-      - About/About.md
-      - About/License.md
+    - About/About.md
+    - About/License.md
  
 theme:
   name: "material"
-  # font:
-  #   text: "Lato"
-  #   code: "Roboto Mono"
-  font:
-    text: "Lato"
-    code: "Roboto Mono"
+  logo: "logo.png"
   features:
-    - navigation.instant
-    - navigation.sections
-    - navigation.path
-    - navigation.indexes
-  # palette:
-  #   primary: "light green"
-  #   accent: "orange"
+    - navigation.instant # for instant loading of pages
+    - navigation.tabs # for showing top sections as tabs (e.g., SW / HW)
+    - navigation.sections # for creating sections in the navigation
+    # - navigation.prune # for removing unused pages
+    - navigation.indexes # for creating index pages for sections (section/index.md)
+    - navigation.expand # for expanding all sections
+    - navigation.top # back to top button
+    - navigation.hide
+    - content.tooltips # for showing tooltips on hover
+    - navigation.tracking
+  palette:
+    - media: "(prefers-color-scheme)" # toggle for automatic mode
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)" # toggle for light mode
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" # toggle for dark mode
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
 plugins:
-  # - with-pdf
-# Extensions
+  - glightbox
+  - mkdocs-video
+  - search
+
 markdown_extensions:
-  - footnotes
   - admonition
+  - attr_list
   - codehilite:
       linenums: true
-  - toc
+  - footnotes
+  - md_in_html
+  - mdx_truly_sane_lists
+  - mkdocs_graphviz:        
+      light_theme: 000000      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      dark_theme: FFFFFF       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      color: 789ABC            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      bgcolor: none            # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      graph_color: 789ABC      # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      graph_fontcolor: 789ABC  # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      node_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      node_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      edge_color: 789ABC       # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      edge_fontcolor: 789ABC   # Any HTML Color Name or any HTML Hexadecimal color code WITHOUT the `#` sign
+      priority: 75             # The priority for this Markdown Extension (DEFAULT : 75)
   - pymdownx.arithmatex
   - pymdownx.betterem
+  - pymdownx.blocks.caption
   - pymdownx.caret
   - pymdownx.critic
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  # - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      # clickable_checkbox: true
   - pymdownx.tilde
   - pymdownx.snippets:
       base_path: 'docs/'
       check_paths: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc
 
 extra_javascript:
   - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
+  - "https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"
+
+extra_css:
+  - stylesheets/extra.css
