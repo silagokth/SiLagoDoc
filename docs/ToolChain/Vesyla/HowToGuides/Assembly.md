@@ -2,7 +2,7 @@
 
 The DRRA-2 is a template system. Each fabric instance is assembled from components in a library according to an architecture description.
 
-Make sure you have installed the DRRA component library. Check the [installation guide](./Installation.md) for more information.
+Make sure you have installed the DRRA component library. Check the [installation guide](../Tutorials/Installation.md) for more information.
 
 The fabric assembly is the process of generating the fabric instance from a user-defined architectural description file. The fabric instance is a collection of components from the component library. The assembly process will generate the fabric instance in the output directory.
 
