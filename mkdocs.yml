@@ -20,7 +20,6 @@ nav:
 
   - Software:
     - ToolChain/index.md
-
     - Vesyla HLS: 
       - ToolChain/Vesyla/index.md
       - Tutorials:
@@ -40,7 +39,6 @@ nav:
         - Hazzard: ToolChain/Vesyla/Explanations/Hazzard.md
         - Scheduling: ToolChain/Vesyla/Explanations/Scheduling.md
         - IO: ToolChain/Vesyla/Explanations/IO.md
-
       - Reference: 
         - ToolChain/Vesyla/Reference/index.md
         - Instruction Set: ToolChain/Vesyla/Reference/InstructionSet.md
