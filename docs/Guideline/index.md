@@ -1,5 +1,15 @@
 # Contributing to SiLago
 
-- [Contributing to documentation](./Docs/index.md)
-- [Contribute to SiLago toolchain](./Software/index.md)
-- [Contribute to SiLago Hardware](./Hardware/index.md)
+<div class="grid cards" markdown>
+
+- [__Contribute to documentation__](./Docs/index.md)
+
+</div>
+
+<div class="grid cards" markdown>
+
+- [__Contribute to SiLago software__](./Software/index.md)
+
+- [__Contribute to SiLago hardware__](./Hardware/index.md)
+
+</div>

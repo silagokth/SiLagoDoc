@@ -4,7 +4,7 @@ Sylva is a tool for application-level synthesis (ALS). It accept a synchronous d
 
 ## Input Files and Data Structures
 
-See [Input Files](Input.md) for the input files and data structures used in Sylva.
+See [Sylva Input Format](../../Reference/Input.md) for the input files and data structures used in Sylva.
 
 ## DSE Process
 

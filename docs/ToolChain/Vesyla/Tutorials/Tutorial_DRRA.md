@@ -1,4 +1,4 @@
-# DRRA-based AlImp Design Tutorial (v4)
+# Run an example program
 
 ## Introduction
 
@@ -6,17 +6,17 @@ This tutorial demonstrates how to implement algorithms using vesyla-suite for DR
 
 ## Programming Model
 
-Each algorithm compiled by vesyla-suite will be mapped to a DRRA-2 fabric. The DRRA-2 fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
+Each algorithm compiled by vesyla-suite will be mapped to a DRRA fabric. The DRRA fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
 
 ![Programming Model](./Tutorial_DRRA/programming_model.png)
 
 The input buffer is used to store the input data of the algorithm. The output buffer is used to store the output data of the algorithm. The input buffer and the output buffer are connected to the DRRA fabric through the input and output ports of the fabric. The input and output ports are used to connect the DRRA fabric to the outside world.
 
-Only the top row of DRRA-2 cells have access to the input buffer and only the bottom row of DRRA-2 cells have access to the output buffer. The input bandwidth and output bandwidth are determined by the number of columns of the DRRA fabric.
+Only the top row of DRRA cells have access to the input buffer and only the bottom row of DRRA cells have access to the output buffer. The input bandwidth and output bandwidth are determined by the number of columns of the DRRA fabric.
 
 The assumption of giant globally addressable memory buffers is not realistic. However, these buffers will not be implemented as it is. Instead, application-level synthesis (ALS) tool will synthesize the input and output buffers to the actual hardware. The input and output buffers are used to simplify the algorithmic compilation process.
 
-A typical setup of a DRRA-2 fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down.
+A typical setup of a DRRA fabric consists of a input row on the top, an output row on the bottom, and a number of computation rows in the middle. The input row is used to read data from the input buffer. The output row is used to write data to the output buffer. The computation rows are used to perform the actual computation. The data flow direction is in general top-down.
 
 ## Initialization
 

@@ -1,4 +1,4 @@
-# Assembly of the Fabric
+# Assemble a DRRA fabric
 
 The DRRA-2 is a template system. Each fabric instance is assembled from components in a library according to an architecture description.
 

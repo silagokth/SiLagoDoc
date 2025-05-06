@@ -13,6 +13,7 @@ This documentation includes tutorials, how-to guides, explanations and reference
 ??? youtube "__Learn more on the SiLago design approach__"
 
     ![type:video](https://www.youtube.com/embed/98gw7hpRLCU?si=Id9wHuabyyim6dkA)
+    
 <div class="grid cards" markdown>
 
 - :material-code-block-braces:{ .lg .middle } __Software__
