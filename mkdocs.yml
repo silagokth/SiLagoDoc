@@ -41,10 +41,11 @@ nav:
         - IO: ToolChain/Vesyla/Explanations/IO.md
       - Reference: 
         - ToolChain/Vesyla/Reference/index.md
-        - Instruction Set: ToolChain/Vesyla/Reference/InstructionSet.md
         - Programming Guide: ToolChain/Vesyla/Reference/ProgrammingGuide.md
         - Scheduling Guide: ToolChain/Vesyla/Reference/Scheduling.md
-
+        - DRRA Components:
+          - Instruction Set: ToolChain/Vesyla/Reference/DRRAComponents/InstructionSet.md
+          - CMake Build System: ToolChain/Vesyla/Reference/DRRAComponents/CMakeBuildSystem.md
     - Sylva ALS:
       - ToolChain/Sylva/index.md
       - Tutorials:

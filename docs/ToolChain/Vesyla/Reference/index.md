@@ -1,6 +1,6 @@
 # Vesyla Reference
 
-- [Instruction Set](./InstructionSet.md)
+- [Instruction Set](./DRRAComponents/InstructionSet.md)
 - [Programming Guide](./ProgrammingGuide.md)
 - [Scheduling Guide](./Scheduling.md)
 
