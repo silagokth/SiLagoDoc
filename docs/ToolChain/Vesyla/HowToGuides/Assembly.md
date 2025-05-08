@@ -15,7 +15,7 @@ The assembly process consists of the following steps:
 To assemble the fabric, you can use the following command:
 
 ```bash
-vesyla-suite component assemble -a user_defined_arch.json -o output_dir
+vesyla component assemble -a user_defined_arch.json -o output_dir
 ```
 
 After the command is executed, the output directory will contain three folders: _arch_, _isa_, and _rtl_. The _arch_ folder contains the elaborated architectural description file. The _isa_ folder contains the ISA description file. The _rtl_ folder contains the RTL description file.

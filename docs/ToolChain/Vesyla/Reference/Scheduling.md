@@ -4,7 +4,7 @@
 !!! Warning
     This document is still under construction. The content is not complete.
 
-The instruction scheduler in Vesyla-suite is a stand-alone program that can generate assembly instruction list for DRRA-2 from a proto instruction list and a constraint file. The core scheduling process targets a single `epoch` region. The proto-assembly file and constraint file will be converted to an internal timing model that can work as the intermeditate representation for finally converting to constraint programing (CP) model. We use the [or-tools (python binding)](https://developers.google.com/optimization) from Google to finally solve the scheduling problem once the CP model is created.
+The instruction scheduler in Vesyla is a stand-alone program that can generate assembly instruction list for DRRA-2 from a proto instruction list and a constraint file. The core scheduling process targets a single `epoch` region. The proto-assembly file and constraint file will be converted to an internal timing model that can work as the intermeditate representation for finally converting to constraint programing (CP) model. We use the [or-tools (python binding)](https://developers.google.com/optimization) from Google to finally solve the scheduling problem once the CP model is created.
 
 ## Timing Model
 
@@ -20,7 +20,7 @@ Each operation will have one or more events, they are named numerically as `e0`,
 <!-- prettier-ignore -->
 !!! example
     ```
-    operation a T<6>(R<2,3>(T<4>(e0, e1)), e2) 
+    operation a T<6>(R<2,3>(T<4>(e0, e1)), e2)
     ```
     The above expression describe an operation *a*, it has three events: *e0*, *e1*, and *e2*.
 

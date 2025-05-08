@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This tutorial demonstrates how to implement algorithms using vesyla-suite for DRRA-based architecture. We first introduce the programming model, then demonstrate with an example how to implement an algorithm using vesyla-suite.
+This tutorial demonstrates how to implement algorithms using vesyla for DRRA-based architecture. We first introduce the programming model, then demonstrate with an example how to implement an algorithm using vesyla.
 
 ## Programming Model
 
-Each algorithm compiled by vesyla-suite will be mapped to a DRRA fabric. The DRRA fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
+Each algorithm compiled by vesyla will be mapped to a DRRA fabric. The DRRA fabric has a globally addressable input buffer and a globally addressable output buffer, as shown in the following figure.
 
 ![Programming Model](./Tutorial_DRRA/programming_model.png)
 
@@ -23,13 +23,13 @@ A typical setup of a DRRA fabric consists of a input row on the top, an output r
 In any directory, you can initialize a DRRA style project by using the command:
 
 ```tcl
-vesyla-suite testcase init -s drra
+vesyla testcase init -s drra
 ```
 
 If this directory has already been initialized, you can force the re-initialization by using the command:
 
 ```tcl
-vesyla-suite testcase init -f -s drra
+vesyla testcase init -f -s drra
 ```
 
 You will notice that several files has been created in this directory. One of the files is `arch.json`. This file contains the architecture description. You can modify this file to change the resources that are included on the fabric. The configuration file is described in the following section.

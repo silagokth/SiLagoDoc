@@ -14,19 +14,19 @@ SiLagoDoc uses [mkdocs](https://www.mkdocs.org/) with [Material theme](https://s
 
 1. Create a Python venv
 
-    ```bash
-    python -m venv .venv
-    source .venv/bin/activate
-    ```
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
 
 2. Install dependencies
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 3. Compile the docs
 
-    ```bash
-    mkdocs serve
-    ```
+   ```bash
+   mkdocs serve
+   ```

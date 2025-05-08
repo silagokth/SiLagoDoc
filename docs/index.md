@@ -44,20 +44,3 @@ If you want to contribute to SiLago, please read our [Contributing Guidelines](.
 Learn more about [SiLago Team](./About/About.md)
 
 [GNU Free Documentation License](./About/License.md)
-
-<!-- 
-## Repos
-
-!!! warning
-    Some repos are private for now!
-
-- [Fabric Repo](https://github.com/silagokth/SiLagoNN)
-- [vesyla-suite](https://github.com/silagokth/vesyla-suite-4)
-- [drra-component-lib](https://github.com/silagokth/drra-component-lib)
-- [drra-testcase](https://github.com/silagokth/drra-testcase)
-
-## Quick Start Tutorials
-
-- [MkDoc Tutorial](Guideline/Mkdocs-tutorial)
-- [Vesyla Tutorial for DRRA](ToolChain/Vesyla-suite/v4/Tutorial_DRRA)
- -->
