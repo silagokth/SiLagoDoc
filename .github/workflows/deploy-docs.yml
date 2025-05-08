@@ -21,6 +21,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - run: sudo apt install -y graphviz
       - run: pip install -r requirements.txt
       - run: mkdocs build
       - name: Deploy to cheddar
