@@ -86,7 +86,13 @@ nav:
       - MkDocs Usage: Guideline/Docs/Mkdocs-tutorial.md
     - Contribute to SiLago toolchain:
       - Guideline/Software/index.md
-      - CPP Styleguide: Guideline/Software/Style-guide-cpp.md
+      - GitHub Contribution:
+        - Vesyla: Guideline/Software/Vesyla/CONTRIBUTING.md
+        # - Sylva: Guideline/Software/Sylva/CONTRIBUTING.md
+        # - DRRA Components: Guideline/Software/DRRAComponents/CONTRIBUTING.md
+      - Code Styleguides:
+        - Guideline/Software/Styleguides/index.md
+        - C++ Styleguide: Guideline/Software/Styleguides/Style-guide-cpp.md
     - Contribute to SiLago hardware:
       - Guideline/Hardware/index.md
       - VHDL Styleguide: Guideline/Hardware/Style-guide-VHDL.md
