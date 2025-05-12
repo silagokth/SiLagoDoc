@@ -14,6 +14,7 @@ The tasks of the build system include:
     description file (`isa.json`) of each component to the build directory
   - Copying the technology description file (e.g., `tech:gf22.json`)
     of each component to the build directory
+  - Copying the common Jinja2 templates to the build directory
   - Copying `rtl` folders of each component to the build directory
   - Copying `Bender.yml` of each component to the build directory
   - Copying fabric source rtl (`lib/fabric/rtl`), Bender file
@@ -67,8 +68,9 @@ drra-components/
 │   ├── cells/                  # Cells
 │   ├── CMakeLists.txt          # Library-level CMakeLists
 │   ├── common/                 # Common components and models
-│   │   ├── io_buffer/
-│   │   └── sst/
+│   │   ├── io_buffer/            # IO buffer SST model
+│   │   ├── jinja/                # Jinja2 templates
+│   │   └── sst/                  # SST include files
 │   ├── controllers/            # Controllers
 │   │   └── sequencer/
 │   ├── fabric/                 # Fabric
