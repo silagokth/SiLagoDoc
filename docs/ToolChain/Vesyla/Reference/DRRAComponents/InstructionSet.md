@@ -136,84 +136,6 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
 | delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
 
-### dpu_3d (resource)
-
-#### dpu [opcode=3]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | Configuration option. |
-| mode | [22, 18] | 5 | 0 | The DPU mode.   [0]: idle; [1]: eclidian_distance; |
-| immediate | [17, 2] | 16 | 0 | The immediate field used by some DPU modes. |
-
-#### rep [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### repx [opcode=1]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### fsm [opcode=2]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between state 0 and 1. |
-| delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
-| delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
-
-### dpu_fft (resource)
-
-#### dpu [opcode=3]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | Configuration option. |
-| mode | [22, 18] | 5 | 0 | The DPU mode.   [0]: idle; [1]: butterfly; |
-| immediate | [17, 2] | 16 | 0 | The immediate field used by some DPU modes. |
-
-#### rep [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### repx [opcode=1]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### fsm [opcode=2]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between state 0 and 1. |
-| delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
-| delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
-
 ### iosram_both (resource)
 
 #### dsu [opcode=6]
@@ -305,36 +227,6 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | delay | [6, 1] | 6 | 0 | delay |
 
 ### rf (resource)
-
-#### dsu [opcode=6]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address |
-| port | [7, 6] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
-
-#### rep [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### repx [opcode=1]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-### rf_3d (resource)
 
 #### dsu [opcode=6]
 
