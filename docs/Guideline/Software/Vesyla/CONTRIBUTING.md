@@ -36,3 +36,5 @@ When writing commit messages, try to follow the [conventional commit](https://ww
 
 When you are ready to submit your changes, please create a pull request (PR) against the `master` branch of the [Vesyla repository](https://github.com/silagokth/vesyla).
 Please respect the PR template and provide a clear description of the changes you made, including any relevant issue numbers.
+Label your PR with the appropriate labels, such as `bug`, `feature`, or `enhancement`.
+Please only use one `changelog:*` label per PR to avoid duplicating changelog entries.
