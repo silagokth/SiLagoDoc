@@ -93,6 +93,7 @@ nav:
       - Code Styleguides:
         - Guideline/Software/Styleguides/index.md
         - C++ Styleguide: Guideline/Software/Styleguides/Style-guide-cpp.md
+        - Rust Styleguide: Guideline/Software/Styleguides/Style-guide-rust.md
     - Contribute to SiLago hardware:
       - Guideline/Hardware/index.md
       - VHDL Styleguide: Guideline/Hardware/Style-guide-VHDL.md
