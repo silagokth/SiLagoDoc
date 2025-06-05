@@ -31,6 +31,7 @@ nav:
         - ToolChain/Vesyla/HowToGuides/index.md
         - Assemble a fabric: ToolChain/Vesyla/HowToGuides/Assembly.md
         - Create a new component: ToolChain/Vesyla/HowToGuides/Extension.md
+        - SST Guide: ToolChain/Vesyla/HowToGuides/SST_Guide.md
       - Explanations: 
         - ToolChain/Vesyla/Explanations/index.md
         - Architecture Overview: ToolChain/Vesyla/Explanations/Architecture.md
