@@ -1,0 +1,76 @@
+<svg height="1400" viewBox="0 0 400 1400" width="400" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#B2E0E0" height="90" stroke="#1C434C" stroke-width="2" width="390" x="5" y="5"/>
+<text fill="#1C434C" font-size="20" text-anchor="middle" x="200" y="50">
+Input Buffer
+</text>
+<rect fill="#B2E0E0" height="90" stroke="#1C434C" stroke-width="2" width="390" x="5" y="1305"/>
+<text fill="#1C434C" font-size="20" text-anchor="middle" x="200" y="1355">
+Output Buffer
+</text>
+<g>
+<rect fill="#E6E6E6" height="390" stroke="#A5A5A5" stroke-width="2" width="390" x="5" y="105"/>
+<text fill="#323232" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" x="200" y="140">
+[0,0]
+</text>
+<rect fill="#FFF0B0" height="318" stroke="#A65900" stroke-width="2" width="78" x="26" y="166"/>
+<text fill="#A65900" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" transform="rotate(90, 51, 271)" x="51" y="271">
+sequencer_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="456"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="470">
+swb_impl
+</text>
+<rect fill="#C7EBBA" height="78" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="376"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="420">
+iosram_top_impl
+</text>
+</g>
+<g>
+<rect fill="#E6E6E6" height="390" stroke="#A5A5A5" stroke-width="2" width="390" x="5" y="505"/>
+<text fill="#323232" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" x="200" y="540">
+[1,0]
+</text>
+<rect fill="#FFF0B0" height="318" stroke="#A65900" stroke-width="2" width="78" x="26" y="566"/>
+<text fill="#A65900" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" transform="rotate(90, 51, 671)" x="51" y="671">
+sequencer_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="856"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="870">
+swb_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="836"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="850">
+rf_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="816"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="830">
+rf_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="796"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="810">
+rf_impl
+</text>
+<rect fill="#C7EBBA" height="38" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="756"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="780">
+dpu_impl
+</text>
+</g>
+<g>
+<rect fill="#E6E6E6" height="390" stroke="#A5A5A5" stroke-width="2" width="390" x="5" y="905"/>
+<text fill="#323232" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" x="200" y="940">
+[2,0]
+</text>
+<rect fill="#FFF0B0" height="318" stroke="#A65900" stroke-width="2" width="78" x="26" y="966"/>
+<text fill="#A65900" font-size="20" font-style="normal" font-weight="bold" text-anchor="middle" transform="rotate(90, 51, 1071)" x="51" y="1071">
+sequencer_impl
+</text>
+<rect fill="#C7EBBA" height="18" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="1256"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="1270">
+swb_impl
+</text>
+<rect fill="#C7EBBA" height="78" stroke="#0D4A21" stroke-width="2" width="248" x="126" y="1176"/>
+<text fill="#0D4A21" font-size="16" font-style="normal" font-weight="bold" text-anchor="middle" x="256" y="1220">
+iosram_btm_impl
+</text>
+</g>
+</svg>

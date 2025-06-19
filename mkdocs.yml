@@ -31,6 +31,7 @@ nav:
         - ToolChain/Vesyla/HowToGuides/index.md
         - Assemble a fabric: ToolChain/Vesyla/HowToGuides/Assembly.md
         - Create a new component: ToolChain/Vesyla/HowToGuides/Extension.md
+        - Write PASM Program: ToolChain/Vesyla/HowToGuides/PASMProgrammingGuide.md
       - Explanations: 
         - ToolChain/Vesyla/Explanations/index.md
         - Architecture Overview: ToolChain/Vesyla/Explanations/Architecture.md
@@ -41,7 +42,6 @@ nav:
         - IO: ToolChain/Vesyla/Explanations/IO.md
       - Reference: 
         - ToolChain/Vesyla/Reference/index.md
-        - Programming Guide: ToolChain/Vesyla/Reference/ProgrammingGuide.md
         - Scheduling Guide: ToolChain/Vesyla/Reference/Scheduling.md
         - DRRA Components:
           - Instruction Set: ToolChain/Vesyla/Reference/DRRAComponents/InstructionSet.md
