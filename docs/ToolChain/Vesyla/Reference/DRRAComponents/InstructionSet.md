@@ -305,12 +305,3 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
 | delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
 
-### vec_add (resource)
-
-#### add [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| en | [24, 24] | 1 | 0 | Enable addition |
-| addr | [23, 8] | 16 | 0 | Address of the vector |
-
