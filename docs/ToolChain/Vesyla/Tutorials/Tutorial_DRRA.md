@@ -358,7 +358,7 @@ epoch <rb0> {
 }
 ```
 
-Please check the [programming guide](../Reference/ProgrammingGuide.md) for more information about the proto-assembly and constraint file.
+Please check the [PASM Language Programming Guide](../HowToGuides/PASMProgrammingGuide.md) for more information about the proto-assembly and constraint file.
 
 ## Simulation and Verification
 
