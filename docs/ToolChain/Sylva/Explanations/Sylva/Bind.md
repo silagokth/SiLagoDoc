@@ -1,23 +1,23 @@
 # Binding Process
 
-The binding process select the one of the alimp from the alimp library for each nodes in the app graph. The binding process has to consider all the global constraints. Since at this stage, there is little detail that has been synthesized, the approximation of the solution cost will be crude when evaluate the design point. Therefore, the binding process actually try to keep several good candidates instead of a single one.
+The binding process select the one of the alimp from the alimp library for each node in the app graph. The binding process has to consider all the global constraints. Since at this stage, there is little detail that has been synthesized, the approximation of the solution cost will be crude when evaluate the design point. Therefore, the binding process actually try to keep several good candidates instead of a single one.
 
 The binding process will be done in two steps -- optimal binding and approximate optimal binding.
 
 ## Optimal Binding
 
-This process formulate the binding problem and minimize the total cost function. It return a single solution with the minimal cost.
+This process formulates the binding problem and minimizes the total cost function. It returns a single solution with the minimal cost.
 
 ### Original Decision Variables
 
-`BINDING_VARS` is a list of variables that determine which alimp (in term of index in the library) is selected for each node in the app graph. The size of the list is equal to the number of nodes in the app graph. Each variable is a integer variable with a range from 0 to the number of alimp in the library minus 1.
+`BINDING_VARS` is a list of variables that determines which alimp (in term of index in the library) is selected for each node in the app graph. The size of the list is equal to the number of nodes in the app graph. Each variable is an integer variable with a range from 0 to the number of alimp in the library minus 1.
 
 ### Derived Decision Variables and constraints
 
 `BINDING_VECS` is a binary expand version of `BINDING_VARS`. If there is a node `i` in the app graph, and the selected alimp is `j`, then `BINDING_VECS[i][j]` is 1, and all other `BINDING_VECS[i][k]` are 0. To achieve this, we need to post the following constraints:
 
 - The universe of all variable in `BINDING_VECS` is {0, 1}.
-- The sum of `BINDING_VECS[i][k]` for any `k` is 1.
+- The sum of `BINDING_VECS[i][k]` for all `k` is 1.
 - `BINDING_VARS[i]==x` is enforced only if `BINDING_VECS[i][x]=1`.
 
 `ALIMP_AREA` is a list of area of node in the app graph. To calculate the area for each node, we post the following constraints:
@@ -39,9 +39,9 @@ We also need to post the following constraints to ensure that the binding alimp 
 
 The above constraints deal with the geometry and energy consumption. Next, we need to deal with the latency and sampling frequency. First, we need to create some variables to represent the execution timing points.
 
-`START_TIME` is a list of start time of each node in the app graph. The start time of a node is the time when the node starts to execute.
-`END_TIME` is a list of end time of each node in the app graph. The end time of a node is the time when the node ends to execute.
-`LATENCY` is a list of execution time of each node in the app graph. We get this value by linking the chosen alimp latency field to it:
+`START_TIME` is a list of start times of every node in the app graph. The start time of a node is the time when the node starts to execute.
+`END_TIME` is a list of end times of every node in the app graph. The end time of a node is the time when the node ends to execute.
+`LATENCY` is a list of execution times of every node in the app graph. We get this value by linking the chosen alimp latency field to it:
 
 - `LATENCY[i] = ALIMP_LIBRARY[i][x].latency` is enforced only if `BINDING_VARS[i]==x`.
 
@@ -71,7 +71,7 @@ Now, considering the sampling period. We need to make sure that no alimp has a b
 
 ### Cost Function
 
-We convert multi-objective problem to single objective by transform it to a linear combination of the area and energy. The cost function is defined as follows:
+We convert a multi-objective problem to a single objective by transforming it to a linear combination of the area and energy. The cost function is defined as follows:
 
 ```
 obj == HYPER_PARAM.area_weight * sum(ALIMP_AREA) + HYPER_PARAM.energy_weight * sum(ALIMP_ENERGY)
@@ -85,4 +85,4 @@ The approximate optimal binding process is exactly the same as the optimal bindi
 obj <= HYPER_PARAM.bind_relaxation_factor * obj_min
 ```
 
-We also make the problem a satisfaction problem instead of minimization problem. It means that we will obtain a list of solutions that satisfy the above constraint. The solutions are not guaranteed to be optimal, but they are guaranteed to be within a certain range of the optimal solution. We then order the solutions by the cost function and return the top N solutions. The N is also a hyper parameter that can be set by the user.
+We also make the problem a satisfaction problem instead of minimization problem. It means that we will obtain a list of solutions that satisfy the above constraints. The solutions are not guaranteed to be optimal, but they are guaranteed to be within a certain range of the optimal solution. We then order the solutions by the cost function and return the top N solutions. The N is also a hyper parameter that can be set by the user.
