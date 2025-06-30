@@ -54,7 +54,7 @@ The application consists of 10 SDF nodes where the first and the last one are lo
 
 ### Main Compilation
 
-The input constraints will go through stages of selection and optimisations as we have binding, placing, routing, noc synthesis, and glic synthesis. Normally, after each step is done, we will be able to vitualise its result in ``bin\``. A NoC synthesis result, for exmaple, is available in ``bin\noc\layout_graph.pdf``. Since the example is not small, you are expecte to run this process about half an hour up to two hours, depending on your specifications.
+The input constraints will go through stages of selection and optimisations as we have binding, placing, routing, noc synthesis, and glic synthesis. Normally, after each step is done, we will be able to vitualise its result in ``bin\``. A NoC synthesis result, for exmaple, is available in ``bin\noc\layout_graph.pdf``. Since the example is not small, you are expected to run this process about half an hour up to two hours, depending on your specifications.
 
 After this process is done, it writes a binary file called ``db.bin`` as a result database file.
 
@@ -62,7 +62,7 @@ After this process is done, it writes a binary file called ``db.bin`` as a resul
 
 This part will be immediately invorked by the program after the main compilation. It uses the executables located at ``examples/lenet5/model/`` and also some additional data in ``examples/lenet5/data/``. Since lenet is a simple graph that has no splits or merges, we can see here in below log that it starts from the entry node, its corresponding transporter, conv1 node, and so on uptil the exit node.
 
-Because we provide two memory images for simulation: one is the initial image and the other is supposed to be the correct image after running the simulation. It will compare the two images at the end and shows ``Fail to verify the design by simulation`` after this line ``INFO: Finish: ideal simulation`` if the images do not match. Otherwise, it will not disply the line as you can see in the log.
+Because we provide two memory images for simulation: one is the initial image and the other is supposed to be the correct image after running the simulation. It will compare the two images at the end and shows ``Fail to verify the design by simulation`` after this line ``INFO: Finish: ideal simulation`` if the images do not match. Otherwise, it will not display the line as you can see in the log.
 
 ```
 INFO: Start: ideal simulation
