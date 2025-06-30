@@ -16,7 +16,7 @@ The NoC wire synthesis can be done without constraint programming because the ob
 
 The direction to which the path goes and the interference from nearby nodes and other wires are not taken into account for inserting wire-like components, only the length of wire is. To decide which positions buffers and registers are placed, we pass the length of a routing path and the technology constraint to the algorithm.
 
-### Path Satification
+### Path Satisfaction
 
 Before we look at how we put registers and buffers, we need to be able to tell if a routing path satisfies the constraints or not. This process  checks if a pure wire or wire with buffers meets the requirements.
 

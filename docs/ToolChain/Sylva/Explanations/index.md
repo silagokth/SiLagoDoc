@@ -6,3 +6,4 @@
 - [Routing](./Sylva/Route.md)
 - [NoC Synthesis](./Sylva/Noc.md)
 - [GLIC Synthesis](./Sylva/Glic.md)
+- [Simulation](./Sylva/Sim.md)
