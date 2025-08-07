@@ -4,86 +4,98 @@ The placement process takes one of the binding solution and try to place the ali
 
 ## Preprocessing
 
-Before starting the placement, we artificially enlarge the alimp area by a factor of `enlarge_factor` to reserve some area for routing. Currently, the factor is 1 unit for width and 1 unit for height.
+Before starting the placement, we artificially enlarge the alimp area by a factor of `enlarge_factor` to reserve some area for routing. Currently, the factor is 1 unit for width and 1 unit for height, and these numbers grow when there exists more than one input and output port.
 
 ## Optimal Placement
 
 ### Original Decision Variables
 
-`x_start` and `y_start` are the original decision variables that contain the starting coordinates of the alimps.
+`x` and `y` are the original decision variables that contain the starting coordinates of the alimps. Each node has its own `x` and `y` positions. Additionally, we have a variable named `N` to represent the total number of nodes in this application.
 
 ### Derived Decision Variables and Constraints
 
-`x_end` and `y_end` are the derived decision variables that contain the ending coordinates of the alimps. We enforce the constraints to link the `x_start` and `y_start` to the `x_end` and `y_end` decision variables.
-
-We create interval variables `x_intervals` and `y_intervals` to package the start, end, and size of the alimps into a single variable that can be used in `NoOverlap2D` constraints:
+First we set the maximum width and height, and we create a set of constraints to make sure that 1) each node fits inside the allowed area, and 2) there is no overlapping between any two nodes.
 
 ```
-NoOverlap2D(x_intervals, y_intervals)
+MAX_WIDTH = global_constraint.max_width;
+MAX_HEIGHT = global_constraint.max_height;
+
+constraint forall(i in 1..N)(
+    x[i] + widths[i] <= MAX_WIDTH /\
+    y[i] + heights[i] <= MAX_HEIGHT
+);
+
+constraint forall(i, j in 1..N where i < j)(
+  (x[i] + widths[i] <= x[j] \/ x[j] + widths[j] <= x[i]) \/
+  (y[i] + heights[i] <= y[j] \/ y[j] + heights[j] <= y[i])
+);
 ```
+
+Where widths and heights are lists of selected alimp for each node with respect to index i/j.
 
 Then, we define the `max_x_position` and `max_y_position` decision variables to represent the maximum x and y coordinates of the alimps by posting the following constraints:
 
 ```
-max_x_position = max(x_end)
-max_y_position = max(y_end)
+constraint forall(i in 1..N)(
+  x[i] + widths[i] <= max_x_position /\
+  y[i] + heights[i] <= max_y_position
+);
 ```
 
 We also force the floor plan after placement to be a more square-like shape. We require that the width cannot be larger than twice the height and vice versa. This is done by posting the following constraints:
 
 ```
-max_x_position <= 2 * max_y_position
-max_y_position <= 2 * max_x_position
+constraint max_x_position * 2 >= max_y_position;
+constraint max_x_position <= max_y_position * 2;
+```
+
+We would like also to fix the first node to be placed at the bottom-left corner. This requires the following constraints:
+
+```
+constraint x[1] < ((MAX_WIDTH + 1) div 2);
+constraint y[1] < ((MAX_HEIGHT + 1) div 2);
 ```
 
 The total area should be less than the max_area specified by the global constraints. This is done by posting the following constraint:
 
 ```
-total_area == max_x_position * max_y_position
-total_area <= max_area
+constraint max_x_position * max_y_position <= MAX_WIDTH * MAX_HEIGHT;
 ```
 
 ### Objective Function
 
-The objective function is to minimize the `total_area` of the floor plan. This is done by posting the following constraint:
+The objective function is to minimize the total area of the floor plan. This is done by posting the following constraint:
 
 ```
-minimize total_area
+solve minimize (max_x_position * max_y_position);
 ```
 
 ## Approximate Optimal Placement
 
-The approximate optimal placement takes the `max_x_position` and `max_y_position` decision variables from the optimal placement and relax the constraints by multiplying the `max_x_position` and `max_y_position` decision variables by a relaxation factor:
+The approximate optimal placement takes the `max_x_position` and `max_y_position` decision variables from the optimal placement and relax the constraints by changing the maximum width and height variables as follows
 
 ```
-max_x_position <= old_max_x_position * relaxation_factor
-max_y_position <= old_max_y_position * relaxation_factor
+MAX_WIDTH <= old_max_x_position * relaxation_factor
+MAX_HEIGHT <= old_max_y_position * relaxation_factor
 ```
 
 We then post all the constraints similar to the optimal placement process with some additional constraints described below.
 
-First, we compute the distance matrix between all the connected alimps by computing their manhattan distance of their input/output port position.
+First, we calculate x and y positions for each edge source and target. We then compute the distance matrix between all the connected alimps by computing their manhattan distance of their input/output port position. Lastly, we compute the weighted distance matrix by multiplying the distance matrix with the connectivity factor of each connection.
 
 ```
-d_i_j == abs(x_i_out_port - x_j_in_port) + abs(y_i_out_port - y_j_in_port)
-```
-
-Then we compute the weighted distance matrix by multiplying the distance matrix with the connectivity factor of each connection.
-
-```
-w_d_i_j == d_i_j * connectivity_factor
-```
-
-Then, we define the `total_weighted_distance` decision variable to represent the total weighted distance of all the connections by posting the following constraint:
-
-```
-total_weighted_distance = sum(w_d_i_j)
+constraint forall(i in 1..E)(
+  dx[i] = abs(source_x[i] - target_x[i]) /\
+  dy[i] = abs(source_y[i] - target_y[i]) /\
+  distance_matrix[i] = dx[i] + dy[i] /\
+  weighted_distance[i] = edge_conns[i] * distance_matrix[i]
+);
 ```
 
 ### Objective Function
 
-The objective function is to minimize the `total_weighted_distance` of the floor plan. This is done by posting the following constraint:
+Then, we minimize the total weighted distance of all the connections and also the total area by posting the following constraint:
 
 ```
-minimize total_weighted_distance
+solve minimize (2 * sum(weighted_distance) + (max_x_position * max_y_position));
 ```
