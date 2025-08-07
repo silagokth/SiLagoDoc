@@ -1,4 +1,4 @@
-#Installation and Usage
+# Installation and Usage
 
 Sylva and its dependency packages have to be installed on your system to use the tool chain. The following sections describe how to install Vesyla and its dependency packages.
 
