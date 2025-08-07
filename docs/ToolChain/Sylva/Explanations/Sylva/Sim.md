@@ -96,7 +96,6 @@ Similar to the first part, the simulator also uses JSON files as communication o
 Note: the source code of this simulator can be found at ``modules/sv-sim/``, and we use the same library and base modules in ``modules/sv-lib/`` as we do with sylva application.
 
 ### Directory and Files
-s
 #### Directory Structure
 
 The source directory __modules/sv-sim/src__ contains the implementations for
