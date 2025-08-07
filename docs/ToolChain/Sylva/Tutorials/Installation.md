@@ -12,7 +12,7 @@ Sylva code is written and managed by Rust programming language. During runtime, 
 
 ## Sylva Installation
 
-Sylva is currently hosted on GitHub at [silagokth/sylva](https://github.com/silagokth/sylva). The tool chain is mainly written in Rust. To build binaries for the tool chain, it can be simply done by executing the below script in the main directory.
+Sylva is currently hosted on GitHub at [silagokth/sylva-suite](https://github.com/silagokth/sylva-suite). The tool chain is mainly written in Rust. To build binaries for the tool chain, it can be simply done by executing the below script in the main directory.
 
 ```bash
 ./setup.sh
