@@ -4,17 +4,17 @@ In this simulation, there is a need for two main components: the Scheduling Info
 
 The Scheduling Information Generator is a process run after the GLIC Synthesis. This is because it produces scheduling information of all nodes in the graph. This information includes when a node or a transporter is fired, how many tokens does a node consume and produce, what is the functionality of each node, how nodes are connected, and address translation tables. All of these are written down as JSON files in a specific directory in this project. The simulator will later read these files and run the actual simulation.
 
-The simulator is a simulation of **Global Interconnect** (GLIC) which has a sequential flow of control. This work is originally from [GLICsim](https://github.com/drakeKG/GLICsim) by __. It uses those generated files and runs the ideal simulation. To put it simple, it starts executing the nodes according to their fire times, moves the data those nodes generated, and runs all the other nodes until there is node left to run. The simlator handles the flow of data by writing and reading JSON files (despite the fact that the simulator accepts both JSON and binary files). The contents of the files are standardised using Google's Protocol Buffers v3 (ProtoBuf).
+The simulator is a simulation of **Global Interconnect** (GLIC) which has a sequential flow of control. This work is originally from [GLICsim](https://github.com/drakeKG/GLICsim) by Kushagr Gautam. It uses those generated files and runs the ideal simulation. To put it simple, it starts executing the nodes according to their fire times, moves the data those nodes generated, and runs all the other nodes until there is node left to run. The simlator handles the flow of data by writing and reading JSON files (despite the fact that the simulator accepts both JSON and binary files). The contents of the files are standardised using Google's Protocol Buffers v3 (ProtoBuf).
 
 
 ## Scheduling Information Generator
 
 Why do we need this process since we already know everything required for the simulation in the program already? It is because we want the simulation part to be as independent to the main compilation as possible. That is why we standardised information needed for the simulation in JSON format and stored it in files.
 
-This process is handled by ``src/ideal_sim.py``. It creates 5 types of file in this specific directory ``bin/ideal_sim``, the actual number of files generated could be many more. Additionally, it copies two memory files: the global memory image and global memory reference to ``bin/ideal_sim/mem``. It is worth mentioning it again that all of them are JSON files. If you want to know more about the data structure of each type of files, please find them in ``lib/glic_sim/proto/``. We will go through each type in this section.
+This process is handled by ``modules/src/sim/mod.rs``. It creates 5 types of file in this specific directory ``{output}/sim``, the actual number of files generated could be many more. Additionally, it copies two memory files: the global memory image and global memory reference to ``{output}/sim/mem``. It is worth mentioning it again that all of them are JSON files. If you want to know more about the data structure of each type of files, please find them in ``modules/sv-lib/src/sim.rs``. We will go through each type in this section.
 
 
-This is a template file structure in ``bin/ideal_sim/`` directory. For config_map.json, time_table.json, and two memory files, there is only each one of them, but for others there can be more depending on how many nodes and transporters we have in the application.
+This is a template file structure in ``{output}/sim/`` directory. For config_map.json, time_table.json, and two memory files, there is only each one of them, but for others there can be more depending on how many nodes and transporters we have in the application.
 ```
 ├── config_map.json
 ├── time_table.json
@@ -27,6 +27,8 @@ This is a template file structure in ``bin/ideal_sim/`` directory. For config_ma
     ├── global_mem_image.json
     └── global_mem_reference.json
 ```
+
+Note: {output} is a directory where you specify in running sylva application, specifically in ``--output`` argument.
 
 ### Configuration file
 
@@ -75,13 +77,13 @@ For a transporter to be able to transfer data in a correct order, it requires to
 
 ### Global Memory Image
 
-This file is provided by user as an initial memory image to be used by the simulation. This process just copies the file to this location ``bin/ideal_sim/mem/global_mem_image.json``.
+This file is provided by user as an initial memory image to be used by the simulation. This process just copies the file to this location ``{output}/sim/mem/global_mem_image.json``.
 
 The file will be used by the simulation. Nodes that interact with the global memory will read or modify this file.
 
 ### Global Memory Reference
 
-This file is provided by user as a correct final result of the memory image after running the simulation. This process just copies the file to this location ``bin/ideal_sim/mem/global_mem_reference.json``.
+This file is provided by user as a correct final result of the memory image after running the simulation. This process just copies the file to this location ``{output}/sim/mem/global_mem_reference.json``.
 
 After the simulation, this file is compared with the global memory image to verify that the simulated application procedues results correctly.
 
@@ -91,24 +93,23 @@ The simulator works on two simplified concepts: the transporters have only one i
 
 Similar to the first part, the simulator also uses JSON files as communication objects between nodes and transporters. We first introduced directory structure and what types of file we use in the simulation, and then describe components required to simulate a node and transporter and how are they connected.
 
-Note: the source code of this simulator can be found at ``src/glic_sim/``, and ``lib/glic_sim/`` contains the common and base modules.
+Note: the source code of this simulator can be found at ``modules/sv-sim/``, and we use the same library and base modules in ``modules/sv-lib/`` as we do with sylva application.
 
 ### Directory and Files
-
+s
 #### Directory Structure
 
-The source directory __src/glic_sim/__ contains the implementations for
+The source directory __modules/sv-sim/src__ contains the implementations for
 
 ```
-├── input_addr_translator.py
-├── node.py
-├── output_addr_translator.py
-├── process_module.py
-├── sim.py _(TOP MODULE)_
-└── transporter_module.py
+├── command_runner.rs
+├── main.rs
+├── node.rs
+├── process_module.rs
+└── transporter_module.rs
 ```
 
-The working directory __bin/ideal_sim/__ has a structure as shown below. Other files except inBuf, inMem, outBuf, and outMem are already mentioned in the first part of this document. For those four types of file, we will go into details  in the next section.
+The working directory __{output}/sim/__ has a structure as shown below. Other files except inBuf, inMem, outBuf, and outMem are already mentioned in the first part of this document. For those four types of file, we will go into details  in the next section.
 
 ```
 ├── config_map.json
@@ -159,9 +160,9 @@ Usually the entry nodes (node A in [Figure 2](#figure-2)) on a flow graph will n
 
 The process module reads the input image (or the global memory image), runs its functionality, and writes the output image. In the configuration file, there exists a string command that describes the process functionality by calling the executable with parameters. The process module will put two or three mandatory parameters to this command:
 
-- --global-image bin/ideal_sim/mem/global_mem_image.json
-- --in-mem bin/ideal_sim/mem/{node}_inMem.json
-- --out-mem bin/ideal_sim/mem/{node}_outMem.json
+- --global-image {output}/sim/mem/global_mem_image.json
+- --in-mem {output}/sim/mem/{node}_inMem.json
+- --out-mem {output}/sim/mem/{node}_outMem.json
 
 Of course if a node does not have an output (an exit node), ``--out-mem`` is omitted, and the for ``--in-mem`` if it does not have an input (an entry node).
 
