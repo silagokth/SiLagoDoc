@@ -40,6 +40,7 @@ nav:
         - Hazzard: ToolChain/Vesyla/Explanations/Hazzard.md
         - Scheduling: ToolChain/Vesyla/Explanations/Scheduling.md
         - IO: ToolChain/Vesyla/Explanations/IO.md
+        - Full System View: ToolChain/Vesyla/Explanations/FullSystemView.md
       - Reference: 
         - ToolChain/Vesyla/Reference/index.md
         - Scheduling Guide: ToolChain/Vesyla/Reference/Scheduling.md
