@@ -36,15 +36,15 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| ports | [28, 13] | 16 | 0 | 1-hot encoded ports that need to be activated. |
-| mode | [12, 9] | 4 | 0 | Filter mode: [0]: Continues ports start from slot X; [1] All port X in each slot; [2]: the predefined 64-bit activation code in internal activation memory location X. (X is the filter parameter) |
-| param | [8, 1] | 8 | 0 | The parameter for the filter mode. |
+| ports | [28, 13] | 16 | 0 | 1-hot encoded mask of ports (or slots if `mode=1`) |
+| mode | [12, 9] | 4 | 0 | Activation mode. `0`: activates `ports` starting from slot `param`; `1`: activates ports `param` in each slot that is enabled in `ports`; `2`: activates the predefined 64-bit map of ports stored in the sequencer's scalar register number `param` |
+| param | [8, 1] | 8 | 0 | Parameter used for the different activation modes |
 
 #### calc [opcode=3]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| mode | [28, 23] | 6 | 0 | Calculation mode  [0]: idle; [1]: add; [2]: sub; [3]: lls; [4]: lrs; [5]: mul; [6]: div; [7]: mod; [8]: bitand; [9]: bitor; [10]: bitinv; [11]: bitxor; [17]: eq; [18]: ne; [19]: gt; [20]: ge; [21]: lt; [22]: le; [32]: and; [33]: or; [34]: not; |
+| mode | [28, 23] | 6 | 0 | Calculation mode  [0]: idle; [1]: add; [2]: sub; [3]: lls; [4]: lrs; [5]: mul; [6]: div; [7]: mod; [8]: bitand; [9]: bitor; [10]: bitinv; [11]: bitxor; [17]: eq; [18]: ne; [19]: gt; [20]: ge; [21]: lt; [22]: le; [23]: addh; [32]: and; [33]: or; [34]: not; |
 | operand1 | [22, 19] | 4 | 0 | First operand. |
 | operand2_sd | [18, 18] | 1 | 0 | Is the second operand static or dynamic?  [0]: s; [1]: d; |
 | operand2 | [17, 10] | 8 | 0 | Second operand. |
@@ -64,9 +64,9 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | Configuration option. |
-| mode | [22, 18] | 5 | 0 | The DPU mode.   [0]: idle; [1]: add; [2]: sum_acc; [3]: add_const; [4]: subt; [5]: subt_abs; [6]: mode_6; [7]: mult; [8]: mult_add; [9]: mult_const; [10]: mac; [11]: ld_ir; [12]: axpy; [13]: max_min_acc; [14]: max_min_const; [15]: mode_15; [16]: max_min; [17]: shift_l; [18]: shift_r; [19]: sigm; [20]: tanhyp; [21]: expon; [22]: lk_relu; [23]: relu; [24]: div; [25]: acc_softmax; [26]: div_softmax; [27]: ld_acc; [28]: scale_dw; [29]: scale_up; [30]: mac_inter; [31]: mode_31; |
-| immediate | [17, 2] | 16 | 0 | The immediate field used by some DPU modes. |
+| option | [24, 23] | 2 | 0 | Configuration option where the current route will be stored |
+| mode | [22, 18] | 5 | 0 | DPU mode  [0]: idle; [1]: add; [2]: sum_acc; [3]: add_const; [4]: subt; [5]: subt_abs; [6]: mode_6; [7]: mult; [8]: mult_add; [9]: mult_const; [10]: mac; [11]: ld_ir; [12]: axpy; [13]: max_min_acc; [14]: max_min_const; [15]: mode_15; [16]: max_min; [17]: shift_l; [18]: shift_r; [19]: sigm; [20]: tanhyp; [21]: expon; [22]: lk_relu; [23]: relu; [24]: div; [25]: acc_softmax; [26]: div_softmax; [27]: ld_acc; [28]: scale_dw; [29]: scale_up; [30]: mac_inter; [31]: mode_31; |
+| immediate | [17, 2] | 16 | 0 | Immediate value (used by some DPU modes) |
 
 #### rep [opcode=0]
 
@@ -92,10 +92,10 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between state 0 and 1. |
-| delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
-| delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
+| port | [24, 23] | 2 | 0 | Port number |
+| delay_0 | [22, 16] | 7 | 0 | Delay between configuration options 0 and 1 |
+| delay_1 | [15, 9] | 7 | 0 | Delay between configuration options 1 and 2 |
+| delay_2 | [8, 2] | 7 | 0 | Delay between configuration options 2 and 3 |
 
 ### dpu_2cycle_mac (resource)
 
@@ -202,9 +202,9 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address |
-| port | [7, 6] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
+| init_addr_sd | [24, 24] | 1 | 0 | Static (`0`) or dynamic (`1`) initial address  [0]: s; [1]: d; |
+| init_addr | [23, 8] | 16 | 0 | Initial address value |
+| port | [7, 6] | 2 | 0 | Port number  [0]: Address generation for reading from input buffer; [1]: Address generation for writing to output buffer; [2]: Address generation for writing to SRAM; [3]: Address generation for reading from SRAM; |
 
 #### rep [opcode=0]
 
@@ -262,8 +262,8 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | configuration option |
-| channel | [22, 19] | 4 | 0 | Bus channel. Note: if the SWB is implemented by a crossbar, the channel is always equals to the target slot. |
+| option | [24, 23] | 2 | 0 | Configuration option where the current route will be stored |
+| channel | [22, 19] | 4 | 0 | Bus channel. Note: as the SWB is currently implemented by a crossbar, the channel is always equals to the target slot. |
 | source | [18, 15] | 4 | 0 | Source slot. |
 | target | [14, 11] | 4 | 0 | Target slot. |
 
@@ -271,10 +271,10 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | configuration option |
-| sr | [22, 22] | 1 | 0 | Send or receive.  [0]: s; [1]: r; |
-| source | [21, 18] | 4 | 0 | If it's on sending side, it indicates the slot number; if it's on receiving side, it's encoded direction NW/N/NE/W/C/E/SW/S/SE. (Binary encoded) |
-| target | [17, 2] | 16 | 0 | If it's on sending side, it's encoded direction NW/N/NE/W/C/E/SW/S/SE; if it's on receiving side, it indicates the slot number. (1-hot encoded) |
+| option | [24, 23] | 2 | 0 | Configuration option where the current route will be stored |
+| sr | [22, 22] | 1 | 0 | Sending route (`0`) or a receiving route (`1`)  [0]: s; [1]: r; |
+| source | [21, 18] | 4 | 0 | If `sr=0`, indicates source slot number; if `sr=1`, indicates source direction (0:NW/1:N/2:NE/3:W/4:C/5:E/6:SW/7:S/8:SE). |
+| target | [17, 2] | 16 | 0 | If `sr=0`, indicates source direction (bits 0 to 8: NW/N/NE/W/C/E/SW/S/SE); if `sr=1`, indicates source slot number. (1-hot encoded) |
 
 #### rep [opcode=0]
 
