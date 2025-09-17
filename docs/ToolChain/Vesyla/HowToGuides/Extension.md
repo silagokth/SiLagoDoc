@@ -22,3 +22,5 @@ The component package is a folder that contains the component files. The compone
 - `timing_model`: The directory that contains the source code to generate the executable file that can compute the timing model from the input instructions. This is used by instruction scheduler and instruction-level simulator.
 - `behavioral_model`: The directory contains the source code that will be compiled into the instruction-level simulator of the fabric instance.
 - `CMakeLists.txt`: The CMake file which directs the compilation and installation of the component package.
+
+![Simplified overview of the VS-Component RTL generation tool](https://github.com/user-attachments/assets/b84fc75f-9b29-4cf8-9c78-9b41133d6ee1)
