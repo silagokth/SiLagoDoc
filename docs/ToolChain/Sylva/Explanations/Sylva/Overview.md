@@ -1,5 +1,6 @@
 # Sylva Overview
 
+
 Sylva is a tool for application-level synthesis (ALS). It accept a synchronous dataflow (SDF) graph as input and generates a solution after the DSE process. Currently, Sylva generate a solution based on idealized hardware. Further assembly process need to be implemented to automatically finalize the solution.
 
 ## Input Files and Data Structures
@@ -13,7 +14,7 @@ See [Sylva Input Format](../../Reference/Input.md) for the input files and data 
 3. [**Routing**](Route.md)
 4. [**NoC Wire Synthesis**](Noc.md)
 5. [**GLIC Synthesis**](Glic.md)
-6. **Full System Functional Simulation**
+6. [**Full System Functional Simulation**](Sim.md)
 
 ## Assembly Process
 
