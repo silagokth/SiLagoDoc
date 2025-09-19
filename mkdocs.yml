@@ -29,6 +29,7 @@ nav:
         - Run an example: ToolChain/Vesyla/Tutorials/Tutorial_DRRA.md
       - How-to guides: 
         - ToolChain/Vesyla/HowToGuides/index.md
+        - How to map an application to SiLago: ToolChain/Vesyla/HowToGuides/MapApplication.md
         - Assemble a fabric: ToolChain/Vesyla/HowToGuides/Assembly.md
         - Create a new component: ToolChain/Vesyla/HowToGuides/Extension.md
         - Write PASM Program: ToolChain/Vesyla/HowToGuides/PASMProgrammingGuide.md
