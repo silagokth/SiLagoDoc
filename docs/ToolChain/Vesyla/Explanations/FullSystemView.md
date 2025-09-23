@@ -30,51 +30,43 @@ This mode is the most used mode since it mainly targets vector computation workl
 
 ## Processor Control Unit (PCU)
 
+### EXTIF
+
+The EXTIF is the external interface that connects the PCU to the AXI bus. It is a simple AXI slave interface that maps the internal BUS to the AXI bus. The AXI bus is usually connected to a host CPU that controls the PCU through memory-mapped IO.
+
+The EXTIF handles all AXI transactions and translates them to simple read/write requests to the peripherals connected on the external side: BOOT, CORE, as well as RAM.
+
+### BOOT
+
+The BOOT is a simple model that accept a `start_in` signal and produce a `start_out` signal after a fixed number of clock cycle delay. The delay can be configured through the AXI bus. The `start_out` signal triggers the CORE to start executing the program from the address 0x0000_0000 in the RAM and it also goes out the Alimp to trigger downstream modules.
+
+The BOOT module is mapped to address 0X000C_0000 ~ 0x000C_FFFF on the AXI bus.
+
 ### CORE
 
-The CORE is a RISC-V CPU core implemented using [picorv32i](https://github.com/YosysHQ/picorv32)
+The CORE is a RISC-V CPU core implemented using [picorv32i](https://github.com/YosysHQ/picorv32).
+
+The CORE is mapped to address 0x000D_0000 ~ 0x000D_FFFF on the AXI bus.
 
 ### RAM
 
-The RAM is a working memory for the CORE. It contains the program code, data section, and stack. The memory space is from 0x0000_0000 to 0x0000_BFFF.
+The RAM is a working memory for the CORE. It contains the program code, data section, and stack. The memory space is from 0x0000_0000 to 0x000B_FFFF. The RAM is connected to both the external bus and the internal bus. Both buses use the same address space to access the RAM.
 
-### BUS
-
-The bus connects the RISC-V core and peripherals. It is a [AMBA APB bus](https://developer.arm.com/documentation/ihi0024/latest/). All peripherals are memory-mapped in the address space from 0x0000_C000 to 0x0000_FFFF.
+The RAM only has one set of read and write ports that are shared by the CORE and the EXTIF. A simple arbiter is implemented to handle the access contention. Basically, if the CORE is busy, it's not allowed to write to the RAM via external bus.
 
 ### Scalar Scratch-pad Memory (SSM)
 
-![SSM Block Diagram](./FullSystemView/ssm.png)
+The SSM unit load data from the input buffer (IB) to the internal buffer (BUF) and store data from the BUF to the output buffer (OB). It is mainly used as a scratch-pad memory for the CORE to handle scalar data. The address space of the SSM is from 0x000C_0000 to 0x000C_FFFF on the internal bus.
 
-#### Load Unit (LD)
-
-The Load Unit (LD) handles data loading from the Input Buffer (IB) to the SSM internal buffer. It loads continuous 256-bit chunk of data.
-
-#### Store Unit (ST)
-
-The Store Unit (ST) handles data storing from the SSM internal buffer to the Output Buffer (OB). It stores continuous 256-bit chunk of data.
-
-#### Internal Buffer (BUF)
-
-The Internal Buffer (BUF) is a 1kB scratch-pad memory. It is organized as 32 rows of 256-bit data divided into 8 banks of 32-bit data. The BUF has two set of interfaces: one 256-bit interface to the LD and ST units, and one 32-bit interface to the BUS. The BUF is completely memory-mapped to the BUS address space.
+The internal BUF has a single input port and a single output port. Writing/Reading BUF from/to IO buffers and the CORE have to share the same port. The I/O buffers have higher priority than the CORE. If the BUF is busy handling IO requests, the CORE has to wait.
 
 ### Vector Processing Interface (VPI)
 
-![VPU Block Diagram](./FullSystemView/vpi.png)
-
-#### Instruction Loading Unit (IL)
-
-The Instruction Loading Unit (IL) handles instruction loading to the DRRA cells. It just forwards the instructions from the CORE to the DRRA cells.
-
-#### Call Return Unit (CR)
-
-The Call Return Unit (CR) can call a specific kernel whose instructions has already been loaded to the DRRA cells. After the call, it waits for the DRRA fabric to finish the execution and set a return flag to be true to indicate the end of execution. The CORE can periodically poll the return flag to check if the execution is done.
-
-#### Scalar Register Exchange Unit (SRX)
-
-The Scalar Register Exchange Unit (SRX) handles scalar register exchange between the CORE and the DRRA cells. It can set or get the value of a specific scalar register in any of the DRRA cells.
+The VPI is the interface between the CORE and the DRRA fabric. It includes three sub-modules: It handles the instruction loading, kernel calling, and scalar register exchange between the CORE and the DRRA cells.
 
 ## Dynamic Reconfigurable Register Array (DRRA)
+
+The DRRA is a 2D array of cells that can be dynamically reconfigured to form different data paths for various applications.
 
 ## IO
 
