@@ -2,7 +2,7 @@
 
 ## Overview
 
-The full AlImp system is a accelerator peripheral that is attached to a AMBA AXI bus (see [AXI protocol](https://developer.arm.com/documentation/ihi0024/latest/)) and controlled by a single host CPU through the AXI bus.
+The full AlImp system is a accelerator peripheral that is attached to a AMBA AXI bus (see [AXI protocol](https://developer.arm.com/documentation/dui0534/b)) and controlled by a single host CPU through the AXI bus.
 
 An AlImp can be configured in three different modes to accommodate various computational needs. Each configuration must contain a CORE, a RAM, and a BUS. Depending on the application, the system can include either the Scalar Scratch-pad Memory (SSM), the Vector Processing Interface (VPI), or both.
 
