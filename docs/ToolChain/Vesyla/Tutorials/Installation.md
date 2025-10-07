@@ -5,43 +5,75 @@ The following sections describe how to install Vesyla and its dependency package
 
 ## Vesyla Installation
 
-Vesyla is currently hosted on GitHub at [silagokth/vesyla](https://github.com/silagokth/vesyla).
+### Requirements
 
-### Installing
+- [minizinc](https://www.minizinc.org/) (used by `vesyla compile`)
+- `g++` (used by `vesyla testcase`)
 
-Vesyla is available as an AppImage release that can be downloaded from the [Github Releases](https://github.com/silagokth/vesyla/releases).
-The AppImage file should be placed in PATH.
-For example, in the _/usr/bin_ directory.
+### Download
 
-```bash
-sudo mv vesyla /usr/bin/vesyla
-```
+Built packages are available for download in the [releases](https://github.com/silagokth/vesyla/releases).
 
-### Building from source
+### Install
 
-Vesyla can be compiled and installed on any modern linux distribution.
-Scripts are tested on Ubuntu 22.04 but should be compatible with recent versions of Ubuntu, Debian, Fedora and Arch.
+- For AppImage or generic tar.gz package,
+extract and copy to a location in your PATH.
+Make sure to give execution permissions to the binary.
 
-#### 1. Prerequisites
+- For Debian-based systems:
 
-```bash
-sh ./scripts/install_dependencies.sh
-```
+   ```bash
+   sudo dpkg -i pkg/vesyla-*.deb
+   ```
 
-#### 2. Compile Vesyla AppImage
+- For RedHat-based systems:
 
-```bash
-sh ./scripts/make_appimage.sh
-```
+   ```bash
+   sudo rpm -i pkg/vesyla-*.rpm
+   ```
 
-#### 3. Place AppImage in PATH
+## Compilation
 
-After you make the AppImage file, you should put the AppImage file in a directory in your PATH. For example, you can put the AppImage file in the _/usr/bin_ directory.
+### Dependencies
 
-```bash
-chmod +x ./vesyla
-sudo mv vesyla /usr/bin/vesyla
-```
+- CMake >= 3.22.1
+- Clang >= 5 or GCC >= 9.0 (C++17 support)
+- Flex and Bison (tested on 2.6.4 and 3.8.2, respectively)
+
+### Build
+
+   ```bash
+   mkdir build
+   cd build
+   cmake ..
+   cmake --build . -- -j$(nproc)
+   ```
+
+### Create and install package
+
+Packages will be generated in the `build/pkg` directory.
+
+- For Debian-based systems:
+
+   ```bash
+   cpack -G DEB
+   sudo dpkg -i pkg/vesyla-*.deb
+   ```
+
+- For RedHat-based systems:
+
+   ```bash
+   cpack -G RPM
+   sudo rpm -i pkg/vesyla-*.rpm
+   ```
+
+- For generic tar.gz package:
+
+   ```bash
+   cpack -G TGZ
+   ```
+
+   To install, extract the tarball and copy to a location in your PATH.
 
 ## DRRA Components Library Installation
 
