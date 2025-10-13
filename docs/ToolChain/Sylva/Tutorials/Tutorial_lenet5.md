@@ -4,7 +4,6 @@
 
 To create input files necessary to run lenet5 example, you simply need to run execute the following command in the main directory, where `lenet5` is the name of our wanted application in the testcase program.
 
-
 ```
 ./bin/config --name lenet5 --output config
 ```
@@ -263,6 +262,3 @@ Because we provide two memory images for simulation: one is the initial image an
 [2025-08-07T13:49:32Z INFO  sylva::sim] Finish: simulation
 [2025-08-07T13:49:32Z INFO  sylva] Sylva finished successfully!
 ```
-
-
-

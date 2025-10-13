@@ -98,9 +98,9 @@ Each component follows a standard structure.
 
 ## CMake Modules
 
-Two helper functions are provided in CMake modules to help build software for components: [Rust/Cargo build](./CMakeBuildSystem.md#rust--cargo-build) and [SST build](./CMakeBuildSystem.md#sst-build).
+Two helper functions are provided in CMake modules to help build software for components: [Rust/Cargo build](./CMakeBuildSystem.md#cargo-build) and [SST build](./CMakeBuildSystem.md#sst-build).
 
-### Rust / Cargo build
+### Cargo build
 
 A `cargo_build()` function is provided to build Rust code.
 For example, timing models of components can be implemented in Rust.

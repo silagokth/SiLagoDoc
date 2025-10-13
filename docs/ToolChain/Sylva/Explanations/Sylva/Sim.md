@@ -6,15 +6,14 @@ The Scheduling Information Generator is a process run after the GLIC Synthesis. 
 
 The simulator is a simulation of **Global Interconnect** (GLIC) which has a sequential flow of control. This work is originally from [GLICsim](https://github.com/drakeKG/GLICsim) by Kushagr Gautam. It uses those generated files and runs the ideal simulation. To put it simple, it starts executing the nodes according to their fire times, moves the data those nodes generated, and runs all the other nodes until there is node left to run. The simlator handles the flow of data by writing and reading JSON files (despite the fact that the simulator accepts both JSON and binary files). The contents of the files are standardised using Google's Protocol Buffers v3 (ProtoBuf).
 
-
 ## Scheduling Information Generator
 
 Why do we need this process since we already know everything required for the simulation in the program already? It is because we want the simulation part to be as independent to the main compilation as possible. That is why we standardised information needed for the simulation in JSON format and stored it in files.
 
 This process is handled by ``modules/src/sim/mod.rs``. It creates 5 types of file in this specific directory ``{output}/sim``, the actual number of files generated could be many more. Additionally, it copies two memory files: the global memory image and global memory reference to ``{output}/sim/mem``. It is worth mentioning it again that all of them are JSON files. If you want to know more about the data structure of each type of files, please find them in ``modules/sv-lib/src/sim.rs``. We will go through each type in this section.
 
-
 This is a template file structure in ``{output}/sim/`` directory. For config_map.json, time_table.json, and two memory files, there is only each one of them, but for others there can be more depending on how many nodes and transporters we have in the application.
+
 ```
 ├── config_map.json
 ├── time_table.json
@@ -48,13 +47,13 @@ This file tells the simulator which exact cycle it has to schedule the node or t
 These files describes the input and output behaviour of a node. Each node has two files describing input address patterns and output address patterns, except some nodes that have only input or output patterns if those nodes are end nodes or start nodes, respectively. For input address patterns, we named those file in this convention: `{node_id}_inAP.json` where `node_id` is the node name. Similarly for output address patterns, they have the name convention like this: `{node_id}_outAP.json`.
 
 In a file, it contains a long list of address patterns where each element has two fields:
+
 1. ``address``: address to the node memory.
 2. ``cycle``: the time at which the data to this address has to be sent out or written depending on the direction.
 
 In general, the list starts with address 0, followed by 1, 2, 3 up to the last address. To depict what does an input address pattern do, for example if we have en element containing address 4 at cycle 10, this node gets the input data to address 4 after the node fires 10 cycles.
 
 It is important to note that the synthesis tool does not randomly generate this information. It simply forwards the data from the Alimp information provided by the user.
-
 
 ### Translation Table files
 
@@ -96,9 +95,10 @@ Similar to the first part, the simulator also uses JSON files as communication o
 Note: the source code of this simulator can be found at ``modules/sv-sim/``, and we use the same library and base modules in ``modules/sv-lib/`` as we do with sylva application.
 
 ### Directory and Files
+
 #### Directory Structure
 
-The source directory __modules/sv-sim/src__ contains the implementations for
+The source directory **modules/sv-sim/src** contains the implementations for
 
 ```
 ├── command_runner.rs
@@ -108,7 +108,7 @@ The source directory __modules/sv-sim/src__ contains the implementations for
 └── transporter_module.rs
 ```
 
-The working directory __{output}/sim/__ has a structure as shown below. Other files except inBuf, inMem, outBuf, and outMem are already mentioned in the first part of this document. For those four types of file, we will go into details  in the next section.
+The working directory **{output}/sim/** has a structure as shown below. Other files except inBuf, inMem, outBuf, and outMem are already mentioned in the first part of this document. For those four types of file, we will go into details  in the next section.
 
 ```
 ├── config_map.json
@@ -142,18 +142,18 @@ Memory image files and memory buffer files are used to communicate between diffe
 
 ### GLIC Components and Connection
 
-The Parent module in this simulator is called a __node__ [Implemented in node.py]. A _node_ can be configured to be a __function node__ or a __transporter__. Nodes are identified using _node names_ (string type). Name is used as key in the __time-table__ [structure defined in _glic_config.proto_] to trigger the operation of the node.
+The Parent module in this simulator is called a **node** [Implemented in node.py]. A _node_ can be configured to be a **function node** or a **transporter**. Nodes are identified using _node names_ (string type). Name is used as key in the **time-table** [structure defined in _glic_config.proto_] to trigger the operation of the node.
 
 ![Figure 1](./Sim/NodeTypes.png "Types of Nodes")
 
-A function node contains a _process module_, and may contain one or two __address translators (AT)__, namely:
+A function node contains a _process module_, and may contain one or two **address translators (AT)**, namely:
 
 - input address translator
 - output address translator
 
 Usually the entry nodes (node A in [Figure 2](#figure-2)) on a flow graph will not have an input AT whereas, the exit nodes (node D in [Figure 2](#figure-2)) will not have an output AT.
 
-![Figure 2](./Sim/FlowGraph.png "Simple flow graph")
+![Figure 2](./Sim/FlowGraph.png "Simple flow graph"){#figure-2}
 
 #### Process module
 
@@ -173,11 +173,8 @@ For the output buffer, it is the other way around. We use the output memory imag
 
 Please refer to the first part for more information about the translation tables and address patterns.
 
-
 #### Transporter Node
 
-A Transporter node uses the transport instruction table ``_TransInst.json`` and the configured __delay__ from the main configuration file to create the output memory buffer from the provided input memory buffer.
+A Transporter node uses the transport instruction table ``_TransInst.json`` and the configured **delay** from the main configuration file to create the output memory buffer from the provided input memory buffer.
 
 A Transporter must have one and only one input node and only one output node. That also means that a transport node cannot be an end node for the flow graph.
-
-
