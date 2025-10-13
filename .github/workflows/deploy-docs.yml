@@ -2,28 +2,58 @@ name: deploy-docs
 on:
   push:
     branches:
-      - master 
+      - master
       - main
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+          python-version: '3.x'
+
+      # Cache MkDocs build cache
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: sudo apt install -y graphviz
-      - run: pip install -r requirements.txt
-      - run: mkdocs build
+
+      # Cache the Python virtual environment
+      - name: Cache Python venv
+        id: cache-venv
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            venv-${{ runner.os }}-
+
+      # Create and activate the venv if it doesn't exist
+      - name: Set up Python virtual environment
+        run: |
+          if [ ! -d ".venv" ]; then
+            python -m venv .venv
+          fi
+          source .venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Use the venv to build the docs
+      - name: Build documentation
+        run: |
+          source .venv/bin/activate
+          sudo apt install -y graphviz
+          mkdocs build
+
       - name: Deploy to cheddar
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -33,4 +63,3 @@ jobs:
           strip_components: 1
           source: "site/*"
           target: /var/www/cheddar.ict.kth.se/docs
-
