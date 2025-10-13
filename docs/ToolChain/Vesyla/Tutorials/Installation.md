@@ -32,6 +32,14 @@ Make sure to give execution permissions to the binary.
    sudo rpm -i pkg/vesyla-*.rpm
    ```
 
+### Check
+
+Check the installation by running:
+
+```bash
+vesyla --version
+```
+
 ## Compilation
 
 ### Dependencies
@@ -105,15 +113,21 @@ export VESYLA_SUITE_PATH_COMPONENTS=$(pwd)/library
 
 ## Testing Installation (Optional)
 
-Testcases are currently hosted on GitHub at [silagokth/drra-testcase](https://github.com/silagokth/drra-testcase).
+Testcases are currently hosted on GitHub at [silagokth/drra-tests](https://github.com/silagokth/drra-tests).
 
-You can clone the repository and run the testcases to verify the installation.
+### Requirements
+
+To install the requirements for running the testcases, you can use the provided script:
 
 ```bash
-git clone git@github.com:silagokth/drra-testcase.git
-cd drra-testcase
-./run.sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-The execution results will be in the _output_ folder.
-You can check the results to verify the installation.
+### Run
+
+```bash
+vesyla testcase generate -d testcases
+./run.sh
+```
