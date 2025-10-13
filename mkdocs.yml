@@ -54,14 +54,13 @@ nav:
               - ToolChain/Sylva/HowToGuides/index.md
           - Explanations:
               - ToolChain/Sylva/Explanations/index.md
-              - Overview: ToolChain/Sylva/Explanations/Sylva/Overview.md
               - DSE:
-                  - Binding: ToolChain/Sylva/Explanations/Sylva/Bind.md
-                  - Placing: ToolChain/Sylva/Explanations/Sylva/Place.md
-                  - Routing: ToolChain/Sylva/Explanations/Sylva/Route.md
-                  - NoC Synthesis: ToolChain/Sylva/Explanations/Sylva/Noc.md
-                  - GLIC Synthesis: ToolChain/Sylva/Explanations/Sylva/Glic.md
-                  - Simulation: ToolChain/Sylva/Explanations/Sylva/Sim.md
+                  - Binding: ToolChain/Sylva/Explanations/Bind.md
+                  - Placing: ToolChain/Sylva/Explanations/Place.md
+                  - Routing: ToolChain/Sylva/Explanations/Route.md
+                  - NoC Synthesis: ToolChain/Sylva/Explanations/Noc.md
+                  - GLIC Synthesis: ToolChain/Sylva/Explanations/Glic.md
+                  - Simulation: ToolChain/Sylva/Explanations/Sim.md
           - Reference:
               - ToolChain/Sylva/Reference/index.md
               - Sylva Input Format: ToolChain/Sylva/Reference/Input.md
@@ -105,7 +104,7 @@ nav:
       - About/License.md
 
 theme:
-  logo: "docs/logo.png"
+  logo: "logo.png"
   name: "material"
   features:
     - navigation.instant # for instant loading of pages
