@@ -22,7 +22,7 @@ The tasks of the build system include:
 
 - At build time
   - Building SST simulation models of each component
-  - Building `timing_model` executables of each component
+  - Building `compile_util` executables of each component
     (e.g., using Corrosion for Rust)
 
 - Post build
@@ -34,12 +34,11 @@ The tasks of the build system include:
 | Dependency                        | Purpose                  |
 | --------------------------------- | ------------------------ |
 | CMake (≥ 3.14)                    | Build system             |
+| Rust/Cargo                        | Some compilation functions |
 | *IF `USE_SST=ON` (default)*       |
 | C++ Compiler                      | Component compilation    |
 | SST Framework                     | Simulation support       |
 | GTest                             | Unit testing             |
-| *IF using Rust for timing models* |
-| Rust/Cargo                        | Timing model compilation |
 
 ### Configuration Options
 
@@ -91,7 +90,7 @@ Each component follows a standard structure.
 ├── CMakeLists.txt                  # Component-level CMakeLists
 ├── sst/                            # SST integration (optional)
 │   └── CMakeLists.txt                # SST-level CMa
-└── timing_model/                   # Rust timing model (optional)
+└── compile_util/                   # Rust timing model (optional)
     ├── Cargo.toml
     └── src/
         └── main.rs
@@ -109,7 +108,7 @@ The project uses Corrosion to integrate Rust code with CMake.
 
 !!! warning
     At the time of writing, Corrosion does not support building multiple targets
-    with the same name. As our components all have `timing_model` Rust targets,
+    with the same name. As our components all have `compile_util` Rust targets,
     we solve this issue by creating unique target identifiers.
     This could be changed in the future.
     Check [corrosion-rs/corrosion#394](https://github.com/corrosion-rs/corrosion/pull/394).
@@ -118,7 +117,7 @@ The project uses Corrosion to integrate Rust code with CMake.
 
 ```cmake
 find_package(DRRAUtils REQUIRED)
-cargo_build(${CMAKE_CURRENT_SOURCE_DIR}/timing_model)
+cargo_build(${CMAKE_CURRENT_SOURCE_DIR}/compile_util)
 ```
 
 ### SST build
