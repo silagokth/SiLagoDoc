@@ -4,6 +4,8 @@ on:
     branches:
       - master
       - main
+  schedule:
+    - cron: '0 3 * * 1' # every monday at 3am
 
 permissions:
   contents: write
@@ -36,6 +38,29 @@ jobs:
           key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             venv-${{ runner.os }}-
+            # Cache Graphviz binaries
+
+      # Cache Graphviz binaries
+      - name: Cache Graphviz
+        uses: actions/cache@v3
+        with:
+          path: .graphviz
+          key: graphviz-${{ runner.os }}-14.0.1
+
+      # Download and extract Graphviz if not cached
+      - name: Download Graphviz
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p .graphviz
+          curl -L -o graphviz.tar.gz https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.0.1/graphviz-14.0.1.tar.gz
+          expected_sha256="647e7d6aa60158347d3537aef16415a07b71be86c80df84a49dcafd398f54e76"
+          actual_sha256=$(sha256sum graphviz.tar.gz | awk '{print $1}')
+          if [ "$actual_sha256" != "$expected_sha256" ]; then
+            echo "SHA256 mismatch! Expected $expected_sha256 but got $actual_sha256"
+            exit 1
+          fi
+          tar -xzf graphviz.tar.gz -C .graphviz --strip-components=1
+          rm graphviz.tar.gz
 
       # Create and activate the venv if it doesn't exist
       - name: Set up Python virtual environment
@@ -51,7 +76,7 @@ jobs:
       - name: Build documentation
         run: |
           source .venv/bin/activate
-          sudo apt install -y graphviz
+          echo "${GITHUB_WORKSPACE}/.graphviz/bin" >> $GITHUB_PATH
           mkdocs build
 
       - name: Deploy to cheddar
