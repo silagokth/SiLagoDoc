@@ -42,7 +42,7 @@ The address pattern is the pattern of the data chunks that are produced and cons
 
 ## NoC Channel Model
 
-![NoC Channel Model](Glic/noc_model.png).
+![NoC Channel Model](DSE-Glic/noc_model.png).
 
 ## Objectives
 

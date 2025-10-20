@@ -14,7 +14,7 @@ A routing graph is built by following the steps below:
 
 An example routing graph is shown below:
 
-![Routing Graph](Route/routing_graph.png)
+![Routing Graph](DSE-Route/routing_graph.png)
 
 ## Path Finding Algorithm
 

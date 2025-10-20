@@ -43,4 +43,4 @@ If the register insertion still cannot fix the timing constraint, this means tha
 
 ## Example
 
-![Example](Noc/example.png)
+![Example](DSE-Noc/example.png)
