@@ -77,6 +77,7 @@ nav:
           - Architecture Overview: Fabric/Explanations/DRRA/Overview.md
       - Reference:
           - Fabric/Reference/index.md
+          - Schematics: Fabric/Reference/DRRA/Schematics.md
 
   - Contributing:
       - Guideline/index.md

@@ -1,3 +1,5 @@
 # Fabric reference
 
-- [DRRA components GitHub](https://github.com/silagokth/drra-components)
+- [DRRA schematics](./DRRA/Schematics.md)
+
+[DRRA components GitHub](https://github.com/silagokth/drra-components)
