@@ -11,7 +11,7 @@ The following schematic represent a generic fabric top level interconnections.
 The example is given for a generic 2×2 fabric.
 Checked on DRRA_component v2.9.1.
 
-![DRRA Fabric](./Schematics/schema_fabric.svg)
+![DRRA Fabric Schematic](./Schematics/schema_fabric.svg)
 
 Instruction ports (call, ret, and instruction data, addr, hops, and en) spread horizontally on each row.
 IO data ports are only present at the top and bottom of the fabric.
@@ -27,7 +27,7 @@ The *bulk_intercell* network is represented by blue arrows and is only accessibl
 The following schematic represents a generic cell inside a fabric.
 Checked on DRRA_component v2.9.1.
 
-![DRRA Fabric](./Schematics/schema_cell.svg)
+![DRRA Cell Schematic](./Schematics/schema_cell.svg)
 
 The cell instantiation name is cell_[row_number]_[column_number], starting from (0,0) at the top left of the fabric.
 The signal *instr_nets* is the previous compaction of data, addr, hops and en.
@@ -37,3 +37,12 @@ Indices [r][c] of bulk nets are determined by the cell controlling them, i.e. co
 
 
 
+## DPU schematic
+The following schematic gives a simplified representation of the DRRA2 DPU on v2.9.1.
+![DRRA DPU Schematic](./Schematics/schema_dpu.svg)
+
+The DPU occupies 2 resource slots. The red ports correspond to the generic resource slots not used on the DPU.
+
+As data input, the ALU may use internal registers instead of the registered word input (e.g. for MAC function). Those internal registers are not represented here.
+
+The control logic consists mostly of the fsm, memory for the mode, and logic to decode input instructions and program the DPU.
