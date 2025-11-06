@@ -4,7 +4,7 @@
 
 A routing graph is a representation graph of all possible routing path for a given design. each cell could have 4 possible routing terminals. They are east, west, north and south. Every terminal could be connected to every other terminals. To simplify the problem we consider all paths inside one cell have the same cost. See the followin figure:
 
-![Routing Path in a cell](Route/routing_path.png)
+![Routing Path in a cell](DSE-Route/routing_path.png)
 
 A routing graph is built by following the steps below:
 
@@ -30,4 +30,4 @@ Once a path is routed, we remove the path segments occupied by the routed path f
 
 The following figure shows the routing graph after routing the connections:
 
-![Example](Route/example.png)
+![Example](DSE-Route/example.png)

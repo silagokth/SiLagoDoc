@@ -10,7 +10,7 @@ The GLIC synthesis is the process to dimension the GLIC components and schedule 
 
 ### Data Chunk
 
-A data chunk is a subunit of data token. In SDF graphs, data tokens are the standard way to model the data that is been produced and consumed. But the data tokens are pure mathematical objects without any physical size limit. It could be as small as 1-bit or as large as 1TB. It does not make sense to directly map the data tokens to the physical system. We thus define the data chunk as the unit of data that need to be transported in the physical system.
+A data chunk is a sub-unit of data token. In SDF graphs, data tokens are the standard way to model the data that has been produced and consumed. But the data tokens are pure mathematical objects without any physical size limit. It could be as small as 1-bit or as large as 1TB. It does not make sense to directly map the data tokens to the physical system. We thus define the data chunk as the unit of data that need to be transported in the physical system.
 
 Currently, we define a data chunk to be a **256-bit** packet. Any token has to be one or multiple of such data chunks. A property field `size` is attached to each token to indicate how many chunks it has.
 

@@ -1,6 +1,6 @@
 # Placement Process
 
-The placement process takes one of the binding solution and try to place the alimps in a 2D grid. The placement process has to consider all the global constraints, try to reserve some area for routing and try to minimize the communication cost. Similar to the binding process, the placement process is done in two steps -- optimal placement and approximate optimal placement.
+The placement process takes one of the binding solution and try to place the alimps in a 2D grid. It has to consider all the global constraints, try to reserve some area for routing, and try to minimize the communication cost. Similar to the binding process, the placement process is done in two steps -- optimal placement and approximate optimal placement.
 
 ## Preprocessing
 
@@ -14,7 +14,7 @@ Before starting the placement, we artificially enlarge the alimp area by a facto
 
 ### Derived Decision Variables and Constraints
 
-First we set the maximum width and height, and we create a set of constraints to make sure that 1) each node fits inside the allowed area, and 2) there is no overlapping between any two nodes.
+First we set the maximum width and height, and we create a set of constraints to make sure that 1) each node fits inside the allowed area, and 2) there is no overlapping between any two nodes, which form an optimization problem of bin-packing.
 
 ```
 MAX_WIDTH = global_constraint.max_width;
@@ -72,16 +72,16 @@ solve minimize (max_x_position * max_y_position);
 
 ## Approximate Optimal Placement
 
-The approximate optimal placement takes the `max_x_position` and `max_y_position` decision variables from the optimal placement and relax the constraints by changing the maximum width and height variables as follows
+The approximate optimal placement takes the `max_x_position` and `max_y_position` decision variables from the optimal placement and relaxes the constraints by extending the maximum width and height variables as follows
 
 ```
 MAX_WIDTH <= old_max_x_position * relaxation_factor
 MAX_HEIGHT <= old_max_y_position * relaxation_factor
 ```
 
-We then post all the constraints similar to the optimal placement process with some additional constraints described below.
+We then post all the constraints similar to the optimal placement process with some additional constraints described below, but there is an additional consideration point that we need to evaluate to be able to factor in the cost of wire length.
 
-First, we calculate x and y positions for each edge source and target. We then compute the distance matrix between all the connected alimps by computing their manhattan distance of their input/output port position. Lastly, we compute the weighted distance matrix by multiplying the distance matrix with the connectivity factor of each connection.
+First, we calculate x and y positions for each edge source and target. We then compute the distance matrix between all the connected alimps by computing their manhattan distances of their input/output port positions. Lastly, we compute the weighted distance matrix by multiplying the distance matrix with the connectivity factor of each connection.
 
 ```
 constraint forall(i in 1..E)(
