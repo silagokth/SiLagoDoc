@@ -15,9 +15,10 @@ In this example, the one-bank solution uses one giant memory for both input and 
 Next, we would like to tell what we exactly know and what needs to be determined in this step. In the GLIC synthesis, a set of information about the patterns and memory has been pre-determined because in that step, we assumed that the memory for both sides is one big register file with infinite number of input and output ports, similar to the one-bank solution above. This is however unrealistic because such imaginary register file is unimplementable, or is but with great cost. So, the following are fixed/estimated information that we obtained from GLIC synthesis.
 
 1. Start times (fire times) of every node - These variables are fixed.
-2. Output and Input patterns of each edge - since the fire times are known and patterns are defined by an HLS library, the output and input patterns (address, time, and channel) can be calculated as fixed integers. In the example below, these patterns are $\Patterns_{A}$ and $\Patterns_{B}$ 
-3. The estimated number of communication channels for connecting A and B.
-4. The esttimated buffer sizes of the input and output buffers.
+2. Output and Input patterns of each edge - since the fire times are known and patterns are defined by an HLS library, the output and input patterns (address, time, and channel) can be calculated as fixed integers. In the example below, these patterns are $Patterns_{A}$ and $Patterns_{B}$.
+3. The fixed delay for transporting data from A to B.
+4. The estimated number of communication channels for connecting A and B.
+5. The esttimated buffer sizes of the input and output buffers.
 
 The following are the questions that need to be answered using the above information as hard and soft constraints - hard constraints are the patterns and soft constraints being the estimated buffer sizes, etc.
 
@@ -90,3 +91,247 @@ After getting the result, we can easily work out which partition setting and mem
 ### Scheduling problem
 
 This section deals with, given the settings and hard constraints, how do we come up with the answers to the transport patterns, memory sizes, and exact locations. 
+
+The model is similar to what we did with GLIC synthesis. The crucial timing patterns are $T_{0}$, $T_{1}$, $T_{2}$, and $T_{3}$. For $T_{0}$ and $T_{3}$, they are the output and input time patterns and hence are fixed integers. What we need to solve for is $T_{1}$ and $T_{2}$, which is the time the transporters send a read to each token in OBs, and the time a data token arrives at IBs, respectively. The relation between $T_{1}$ and $T_{2}$ is quite simple - we need to just determine $T_{1}$, and $T_{2}$ is said to be "$T_{1} + communication\_fixed\_delay$".
+ 
+![scheduling](ASM-MemSyn/scheduling.png)
+
+However, we write those timing patterns in matrix. For example, 
+
+$$
+\text{T}_{0} = \begin{bmatrix}
+1 & 2 & -1 & -1 & -1 & -1 & ... & 100 & -1\\
+-1 & -1 & 3 & 4 & -1 & -1 & ... & -1 & 101\\
+. & . & . & . & .  & . & ... & . & . \\
+. & . & . & . & .  & . & ... & . & . \\
+-1 & -1 & -1 & -1 & 5 & 6 & ... & -1 & -1
+\end{bmatrix}
+$$
+
+- $T_{0}$ has $TOKEN\_SIZE$ columns and $M$ rows (number of output channels).
+- $T_{1}$ has $TOKEN\_SIZE$ columns and $K$ rows (maximum number of communication channels).
+- $T_{2}$ has the dimension as $T_{1}$.
+- $T_{3}$ has $TOKEN\_SIZE$ columns and $N$ rows (number of input channels).
+
+Explaination on how this matrix works
+
+1. Each column represents an address of a data token.
+2. Each non-zero number represents the absolute time that the token takes an action.
+3. Each column must have only one non-zero integer.
+4. A row must contain at least one non-zero integer to indicate that the channel (row index) is used at some time, except for $T_{1}$ and $T_{2}$ that the tool may want to empty some rows to lower the cost function by using less communication channels.  
+
+For example, $T_{0}[1][2] = 3$ means the token of address 2 is sent from channel 1 at time 3. 
+
+#### Cost function 
+
+Here, the solver tries to minimise the cost of implementing buffers both input and output, and the cost of having communication wires. For the memory cost, it needs to get the $memory\_cost$, which varies from type to type, take the memory size into account, and factor in the number of ports used.
+
+```
+% objective
+% define costs of memory
+var int: cost_output_buffers =
+    memory_cost[1] * ob_cap * (ob_in_ports + ob_out_ports);
+
+var int: cost_input_buffers =
+    memory_cost[2] * ib_cap * (ib_in_ports + ib_out_ports);
+
+var int: cost_wire = comm_width_cost * comm_cap;
+
+var int: cost_function = cost_output_buffers + cost_input_buffers + cost_wire;
+solve minimize cost_function;
+
+```
+
+
+#### Formulate the constraints
+
+Add constraints to limit what numbers inside $T_{1}$ can be according to the matrix rules.
+
+```
+% Each column has one non -1 value
+constraint forall(j in 1..WINDOW_SIZE)(
+    sum(i in 1..MAX_K)(bool2int(T1[i,j] != -1)) = 1
+);
+    
+% Each row has unique non -1 value
+constraint forall(i in 1..MAX_K, j1, j2 in 1..WINDOW_SIZE where j1 < j2)(
+    (T1[i,j1] != -1 /\ T1[i,j2] != -1) -> T1[i,j1] != T1[i,j2]
+);
+```
+
+Bind $T_{1}$ to $T_{2}$
+
+```
+constraint forall(i in 1..MAX_K, j in 1..WINDOW_SIZE)(
+    if T1[i,j] != -1 then
+        T2[i,j] = T1[i,j] + comm_delay
+    else
+        T2[i,j] = -1
+    endif
+); 
+```
+
+
+Add new variables such as D01, D01_START, D01_END, D23, D23_START, and D23_END, by flattening into vectors to represent the selection of connecting $T_{0}$ to $T_{1}$ and also $T_{2}$ to $T_{3}$. This can be done by the following constrinats. (We do the same for $T_{2}$ and $T_{3}$)
+
+```
+constraint forall(j in 1..WINDOW_SIZE)(
+    let {
+        % i1 is a valid input channel and i2 is an output channel
+        var int: selected_i1 = sum(i1 in 1..M, i2 in 1..MAX_K)(
+            i1 * bool2int(T0[i1,j] != -1 /\ T1[i2,j] != -1)
+        );
+        var int: selected_i2 = sum(i1 in 1..M, i2 in 1..MAX_K)(
+            i2 * bool2int(T0[i1,j] != -1 /\ T1[i2,j] != -1)
+        );
+    } in 
+    if (selected_i1 != 0 /\ selected_i2 != 0) then
+        D01[j] = T1[selected_i2, j] - T0[selected_i1, j] /\
+        D01[j] >= 1 /\
+        D01_START[j] = T0[selected_i1, j] /\
+        D01_END[j] = T1[selected_i2, j] 
+    else 
+        D01[j] = 0 /\
+        D01_START[j] = 0 /\
+        D01_END[j] = 0 
+    endif
+);
+
+constraint forall(j in 1..WINDOW_SIZE)(D01[j] != 0);
+```
+
+Add constraints to force the buffer sizes to be a multiple of two. 
+```
+var 1..16: ob_cap_power;
+var 1..16: ib_cap_power;
+constraint (ob_cap = 2 ^ ob_cap_power);
+constraint (ib_cap = 2 ^ ib_cap_power);
+```
+
+
+Determine how many communication channels are allocated. 
+```
+% bind the variable to minimize the channel size 
+constraint forall(i in 1..MAX_K)(
+    comm_used[i] <-> exists(j in 1..WINDOW_SIZE)(T1[i,j] != -1) 
+);
+
+% geometry constraints - start placing transporters from position 0..K
+constraint forall(i in 2..MAX_K)(
+    comm_used[i-1] >= comm_used[i]
+);
+
+% get communication capacity
+constraint comm_cap = sum(i in 1..MAX_K)(bool2int(comm_used[i]));
+
+% map to input/output ports
+constraint (
+    ob_out_ports = comm_cap /\
+    ib_in_ports = comm_cap
+);
+```
+
+
+Apply NDF ordering to pressure the OB (use less memory in IB)
+```
+constraint forall(k in 1..WINDOW_SIZE-1)(
+    D01_END[SORTED_T3[k]] <= D01_END[SORTED_T3[k + 1]]
+);
+```
+
+
+Add constraints for limiting the buffer size for both memories.
+```
+constraint cumulative(
+    [D01_START[i]| i in 1..WINDOW_SIZE],
+    [D01[i]| i in 1..WINDOW_SIZE],
+    [1 | i in 1..WINDOW_SIZE],
+    ob_cap
+);
+
+constraint cumulative(
+    [D23_START[i]| i in 1..WINDOW_SIZE],
+    [D23[i]| i in 1..WINDOW_SIZE],
+    [1 | i in 1..WINDOW_SIZE],
+    ib_cap
+);
+
+```
+
+Model the fifo if the hardware configuration requests
+```
+% output fifo
+constraint forall(j in 1..WINDOW_SIZE-1)(
+    D01_END[SORTED_T0[j]] < D01_END[SORTED_T0[j + 1]]
+);
+
+% input fifo
+constraint forall(j in 1..WINDOW_SIZE-1)(
+    D23_START[SORTED_T3[j]] < D23_START[SORTED_T3[j + 1]] 
+);
+```
+
+
+#### Window sliding 
+
+As you can see, the problem grows rapidly when the number of tokens increases. So, we set a threshould to a certain number that slices the problem into many windows. This of course sacrifices the global view and the chance of getting to the optimal solution, but it guarantees to find a solution locally and combines the solutions to answer that big problem.  
+
+For the first chunk of the small problems, it can use the same model as described above, but for the later small problems, we need to use information about $T_{0}$, $T_{1}$, $T_{2}$, and $T_{3}$ from previously solved problems to constraint the current problem in a way that it does not break the hard constraints.
+
+We add to the following hard constraints for getting the number of communication channels, limiting buffer sizes, and modeling fifo.
+
+```
+% preserve the constraint where each channel can be used to send only one token at a time
+constraint if PREVIOUS_SIZE != 0 then 
+    forall(i in 1..MAX_K, j1 in 1..WINDOW_SIZE, j2 in 1..PREVIOUS_SIZE)(
+        (T1[i,j1] != -1 /\ PREV_T1[i,j2] != -1) -> T1[i,j1] != PREV_T1[i,j2]
+    )
+endif;
+
+% bind the variable to minimize the channel size 
+constraint forall(i in 1..MAX_K)(
+    comm_used[i] <-> (
+        exists(j in 1..WINDOW_SIZE)(T1[i,j] != -1) \/
+        exists(j in 1..PREVIOUS_SIZE)(PREV_T1[i,j] != -1) 
+    )
+);
+
+% constraints for limiting buffer size for OB
+constraint cumulative(
+    [
+        if i <= PREVIOUS_SIZE then 
+            PREV_D01_START[i] 
+        else 
+            D01_START[i - PREVIOUS_SIZE] 
+        endif 
+        | i in 1..PREVIOUS_SIZE + WINDOW_SIZE
+    ],
+    [
+        if i <= PREVIOUS_SIZE then 
+            PREV_D01[i]  
+        else 
+            D01[i - PREVIOUS_SIZE]  
+        endif
+        | i in 1..PREVIOUS_SIZE + WINDOW_SIZE
+    ],
+    [
+        1 | i in 1..PREVIOUS_SIZE + WINDOW_SIZE
+    ],
+    ob_cap
+);
+
+% modeling output fifo
+constraint forall(j in 1..WINDOW_SIZE-1)(
+    D01_END[SORTED_T0[j]] < D01_END[SORTED_T0[j + 1]]
+);
+
+% 1) constraint that previous final write time < current first wirte time 
+constraint if PREVIOUS_SIZE != 0 then
+    PREV_D01_START_LAST < D01_START[SORTED_T0[1]]
+endif;
+
+% 2) constraint that previous final read time < current first read time 
+constraint if PREVIOUS_SIZE != 0 then
+    PREV_D01_END_LAST < D01_END[SORTED_T0[1]]
+endif;
+```
