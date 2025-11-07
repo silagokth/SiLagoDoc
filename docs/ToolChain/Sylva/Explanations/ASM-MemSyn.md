@@ -41,7 +41,7 @@ Now, we have three memory models to mimic the digital hardware, each has its own
 
 We assume that there's no upper limit of how large a memory could become, but it must has the size of a multiple of two. Of course, this does not sound realistic. We'll add limitations later. 
 
-### Paritition
+### Partition
 
 To find out the smallest partitions, a parition has to satisfy these rules - 1) all data tokens from all input channels of a partition can be transported to the input channels inside this partition only, 2) input/output channels cannot overlap between partitions, e.g., partitioning a list of output channels as [0, 1, 3], [2, 4, 5] would be incorrect because output channel 2 overlaps the first partition, so they need to merge into one parition. 
 
