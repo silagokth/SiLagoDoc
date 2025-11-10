@@ -8,7 +8,7 @@ In this step, the input is a fully wired component with exact lengths. The NoC R
 
 Gor more details on path satisfaction and buffer insertion, see the "Wire Synthesis" section in [NoC Wire Synthesis](DSE-Noc.md). 
 
-An example of NoC Resynthesis is shown below.
+## Example
 
 ![NoC ReSynthesis Example](ASM-ReNoc/layout_graph.png) 
 

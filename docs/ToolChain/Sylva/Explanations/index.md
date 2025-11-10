@@ -1,9 +1,8 @@
 # Sylva Overview
 
-Sylva is a tool for application-level synthesis (ALS). It accepts a synchronous dataflow (SDF) graph as input and generates a solution after the DSE process. Currently, Sylva generate a solution based on idealized hardware. Further assembly process needs to be implemented to automatically finalize the solution.
+Sylva is a tool for application-level synthesis (ALS). It accepts a synchronous dataflow (SDF) graph as input and generates a solution after going processes of Design Space Exploration and Assembly. Currently, Sylva generate a solution based on idealized hardware. Further assembly process needs to be implemented to automatically finalize the solution.
 
-One of the essential inputs of Sylva is an HLS library from Vesyla tool, as it provides information about the dimensions, estimated energy consumption, and data transfer patterns of each algorithm used in the target application. Sylva uses this information to explore the design space of the target application and produces the final design through the assembly process. For this task, the ALS tool can be divided into two parts: Design Space Exploration (DSE) and Assembly (ASE).
-
+One of the essential inputs of Sylva is an HLS library from Vesyla tool, as it provides information about the dimensions, estimated power and energy consumption, and data transfer patterns of each algorithm used in the target application. Sylva uses this information to explore the design space of the target application and produces the final design through the assembly process. For this task, the ALS tool can be divided into two parts: Design Space Exploration (DSE) and Assembly (ASE).
 
 ## Input Files and Data Structures
 
@@ -24,10 +23,10 @@ The first step of the DSE process is to select instances of a set of target algo
 
 Given the binary output from the DSE phase, the ASE phase begins by synthesizing actual hardware memories for data communication. It then reruns the routing algorithms with a legalization method to ensure that the lengths after rerouting remain approximately the same as before. It then resynthesize the NoC with the fixed delay method. After that, it compiles the instructions needed for the hardware modules that move data between locations. The other steps are on-going processes with an objective to finalize the output format in aspect of hardware. There is also a need for the full system simulation and validation in the RTL-level.
 
-1. [**Memory Synthesis**](ASM-Mem.md)
+1. [**Memory Synthesis**](ASM-MemSyn.md)
 2. [**Re-routing**](ASM-Route.md)
-3. [**NoC Resynthesis**](ASM-Noc.md)
-2. [**Transporter Instruction Generation**](ASM-Transp.md)
+3. [**NoC Resynthesis**](ASM-ReNoc.md)
+2. **Transporter Instruction Generation**
 4. **GRLS Protocol Synthesis**
 5. **Control Synthesis**
 6. **DRAM Interface**

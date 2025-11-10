@@ -2,7 +2,7 @@
 
 The binding process selects the one of the alimp from the alimp library for each node in the app graph. This library contains a large pool of alimps targeting the algorithms used in the application via Vesyla Toolchain. The binding process has to consider all the global constraints. Since at this stage, there is little detail that has been synthesized, the approximation of the solution cost will be crude when evaluating the design point. Therefore, the binding process actually try to keep several good combinations of alimps instead of a single one. At the moment, the binding process forwards only the best candidate set to the rest of the processes. Certain optimization steps are needed to evaluate many combination in the Design Space Exploration.  
 
-![NoC Channel Model](DSE-Bind/binding.png).
+![NoC Channel Model](DSE-Bind/binding.png)
 
 The binding process will be done in two steps -- optimal binding and approximate optimal binding.
 
@@ -12,7 +12,7 @@ This process formulates the binding problem and minimizes the total cost functio
 
 ### Original Decision Variables
 
-`select_alimp_{NODE_ID}` is an integer variable that determines which alimp (in term of index in the library) is selected for each node in the app graph. The number of this type of variable is equal to the number of nodes in the app graph. Each variable is an integer variable with a range from 1 to the number of alimp in the library.
+`select_alimp_{NODE_ID}` is an integer variable that determines which alimp (in term of index in the library) is selected for each node in the app graph. The number of this type of variable is equal to the number of nodes in the app graph. Each variable is an integer variable with a range from 1 to the number of alimps in the library.
 
 ### Derived Decision Variables and constraints
 
@@ -34,8 +34,8 @@ Where i is an index associated with the `NODE_ID`.
 
 Now we can post the global constraints for geometric and energy constraints:
 
-- sum(`area_nodes) <= global_constraint.max_width * global_constraint.max_height`
-- sum(`energy_nodes) <= global_constraint.max_energy`
+- `sum(area_nodes) <= global_constraint.max_width * global_constraint.max_height`
+- `sum(energy_nodes) <= global_constraint.max_energy`
 
 
 The above constraints deal with the geometry and energy consumption. Next, we need to deal with the latency and sampling frequency. First, we need to create some variables to represent the execution timing points.
@@ -45,9 +45,11 @@ The above constraints deal with the geometry and energy consumption. Next, we ne
 `end_time_nodes` is a list of end times of every node in the app graph. The end time of a node is the time when the node ends its execution.
 
 First, we link the selected alimp latency to `latency_nodes`:
+
 - `latency_{NODE_ID}[selected_alimp_{NODE_ID}] == latency_nodes[i]`
 
 Naturally, we have the following constraints:
+
 - `start_time_nodes[i] + latency_nodes[i] == end_time_nodes[i]` for all nodes in the app graph.
 
 We also introduce a half-latency concept to set the minimal starting point of the successor nodes assuming the maximum overlapping period is 50% of the latency. The half-latency constraint is calculated as follows:
