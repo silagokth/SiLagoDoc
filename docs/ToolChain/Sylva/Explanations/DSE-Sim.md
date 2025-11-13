@@ -1,4 +1,4 @@
-# Simulation
+# DSE Simulation
 
 In this simulation, there is a need for two main components: the Scheduling Information Generator and the GLIC Simulator. Although the two are parts of the compilation process, both of them are not directly connected. They share information through JSON files.
 

@@ -2,11 +2,11 @@
 
 The GLIC synthesis is the process to dimension the GLIC components and schedule the SDF graph. There are three tasks in this process:
 
-1. **Buffer Dimensioning**: This task is to size the buffers in the GLIC components. The buffers implement the input and output buffers of the AlImps.
+1. **Buffer Dimensioning**: This task is to identify the buffer sizes in the GLIC components. The buffers implement the input and output buffers of the AlImps.
 2. **Channel Dimensioning**: This task is to dimension the NoC channels. We should synthesize low bandwidth channels for connecting channels as much as possible unless there is a need for high bandwidth channels.
 3. **Scheduling**: This task is to schedule the SDF graph in data chunk level. This task should guarantee that each data chunk is produced before its consumption and the total latency and throughput are within the limits.
 
-## Basic Concept
+## Main Concept
 
 ### Data Chunk
 
@@ -22,7 +22,7 @@ In SDF graphs, there is no concept of port. However, we need to add the concept 
 
 Buffers in GLIC are idealized memory elements. It could have any number of read and write ports and each port can access any chunk stored in the buffer. The buffer size is also not limited.
 
-Normally the SDF use FIFOs as memory elements and to resolve data dependencies. However, here we analyze the SDF in chunk level and we do not want to enforce the producer and consumer nodes to have exactly the same chunk address pattern. Therefore, a FIFO modelled data transfer channel is not always the best choice. The idealized memory model as buffers becomes easier to analyze and synthesize.
+Normally the SDF use FIFOs as memory elements and to resolve data dependencies. However, here we analyse the SDF in chunk level and we do not want to enforce the producer and consumer nodes to have exactly the same chunk address pattern. Therefore, a FIFO modelled data transfer channel is not always the best choice. The idealized memory model as buffers becomes easier to analyze and synthesize.
 
 In later stages, the buffers will be synthesized to actual memory elements. However, depending on the specification of each buffer, the synthesis process may create FIFOs, Register Files or other types of memory elements.
 
@@ -38,9 +38,9 @@ The NoC channel is the physical bandwidth of a connection between two AlImps. Th
 
 ### Address Pattern
 
-The address pattern is the pattern of the data chunks that are produced and consumed by the AlImps. The address pattern is a list of integers pairs that indicates the address of the data chunk and the cycle when the data chunk is produced or consumed. The address pattern is used to determine the data dependency between the AlImps and to schedule the SDF graph.
+The address pattern is the pattern of the data chunks that are produced and consumed by the AlImps. The address pattern is a list of three integers that indicates the address of the data chunk, the cycle at which the data chunk is produced or consumed, and the channel from/to which the data chuck is sent or received. The address pattern is used to determine the data dependency between the AlImps and to schedule the SDF graph. In this step, the concept of channel is ignored because the buffers are ideal, but it will come up in later stages.
 
-## NoC Channel Model
+## Model
 
 ![NoC Channel Model](DSE-Glic/noc_model.png).
 
@@ -53,7 +53,7 @@ The address pattern is the pattern of the data chunks that are produced and cons
 
 ## Channel Dimensioning Process
 
-`F` is the fire vector of the SDF graph. `F[i][j]` means the fire time of node `i` in the `j`-th repetition.
+`fire_time` is the fire vector of the SDF graph. `F[i][j]` means the fire time of node `i` in the `j`-th repetition.
 
 `END_TIME` marks the end of the execution of each node. So, we post the following constraints:
 
