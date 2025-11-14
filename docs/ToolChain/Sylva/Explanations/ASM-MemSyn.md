@@ -113,7 +113,7 @@ $$
 - $T_{2}$ has the dimension as $T_{1}$.
 - $T_{3}$ has $TOKEN\_SIZE$ columns and $N$ rows (number of input channels).
 
-Explaination on how this matrix works
+Explanation on how this matrix works
 
 1. Each column represents an address of a data token.
 2. Each non-zero number represents the absolute time that the token takes an action.
