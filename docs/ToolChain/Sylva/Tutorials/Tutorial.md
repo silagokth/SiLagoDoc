@@ -72,9 +72,14 @@ To execute the Assembly part of Sylva, run the following command to take the out
 
 The application consists of 10 SDF nodes where the first and the last one are loading the data and storing the result, respectively. Other nodes perform their functionalities as described in ``examples/lenet5/`` (You will have to install the tool chain first if you do not see this). While running the tool chain both DSE and ASM parts, you can expect to see a lot of messages popping in the terminal and some parts of the process may take a while longer than the others.
 
+<p align="center">
+    <img src="./Tutorial/lenet_input.png" />
+</p>
+
+
 ### DSE Synthesis
 
-The input configurations will go through stages of selection and optimisations as we have binding, placing, routing, noc synthesis, and glic synthesis in DSE. Normally, after each step is done, we will be able to vitualise its result in ```{output}\```. A NoC synthesis result, for exmaple, is available in ```{output}\noc\layout_graph.pdf```. 
+The input configurations will go through stages of selection and optimisations as we have binding, placing, routing, noc synthesis, and glic synthesis in DSE. Normally, after each step is done, we will be able to vitualise its result in ```{output}/```. A NoC synthesis result, for exmaple, is available in ```{output}/noc/layout_graph.pdf```. 
 
 After this process is done, it writes a binary file called ``{output}/db.bin`` as a result database file. Note that ```{output}``` is a directory set by sylva executable. It is set to ```out/``` by defualt when you run the provided ```./run.sh``` script.
 
