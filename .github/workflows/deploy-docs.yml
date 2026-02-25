@@ -38,7 +38,6 @@ jobs:
           key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             venv-${{ runner.os }}-
-            # Cache Graphviz binaries
 
       # Cache Graphviz binaries
       - name: Cache Graphviz
@@ -65,9 +64,8 @@ jobs:
       # Create and activate the venv if it doesn't exist
       - name: Set up Python virtual environment
         run: |
-          if [ ! -d ".venv" ]; then
-            python -m venv .venv
-          fi
+          rm -rf .venv
+          python -m venv .venv
           source .venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r requirements.txt
