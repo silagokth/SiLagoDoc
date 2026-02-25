@@ -9,8 +9,8 @@ site_description: "Documentation of SiLago project"
 site_author: "SiLago Team"
 site_url: "https://silago.eecs.kth.se/docs"
 
-repo_name: "silagokth/SiLagoDoc"
-repo_url: "https://github.com/silagokth/SiLagoDoc"
+repo_name: "silagokth"
+repo_url: "https://github.com/silagokth"
 
 nav:
   - Home: index.md
