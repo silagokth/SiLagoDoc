@@ -5,7 +5,7 @@ on:
       - master
       - main
   schedule:
-    - cron: '0 3 * * 1' # every monday at 3am
+    - cron: "0 3 * * 1" # every monday at 3am
 
 permissions:
   contents: write
@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       # Cache MkDocs build cache
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
@@ -77,7 +77,7 @@ jobs:
         run: |
           source .venv/bin/activate
           echo "${GITHUB_WORKSPACE}/.graphviz/bin" >> $GITHUB_PATH
-          mkdocs build
+          zensical build
 
       - name: Deploy to cheddar
         uses: appleboy/scp-action@v0.1.7

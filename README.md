@@ -8,7 +8,9 @@ Documentation for SiLago Platform
 
 ## Guide
 
-SiLagoDoc uses [mkdocs](https://www.mkdocs.org/) with [Material theme](https://squidfunk.github.io/mkdocs-material/) as the framework. Makedocs is a python-based static site generator for markdown style files. You can read more about markdown grammar from [here](https://www.mkdocs.org/user-guide/writing-your-docs/#writing-with-markdown)
+SiLagoDoc uses [zensical](zensical.org).
+Zensical is a static site generator for markdown style files.
+[Read more about markdown grammar](<https://www.mkdocs.org/user-guide/writing-your-docs/#writing-with-markdown>).
 
 ## Building
 
@@ -28,5 +30,5 @@ SiLagoDoc uses [mkdocs](https://www.mkdocs.org/) with [Material theme](https://s
 3. Compile the docs
 
    ```bash
-   mkdocs serve
+   zensical serve
    ```
