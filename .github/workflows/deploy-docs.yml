@@ -80,7 +80,7 @@ jobs:
       - name: Deploy to cheddar
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: cheddar.ict.kth.se
+          host: cheddar.eecs.kth.se
           username: doc-generator
           key: ${{ secrets.CHEDDAR_WWW_KEY }}
           strip_components: 1
