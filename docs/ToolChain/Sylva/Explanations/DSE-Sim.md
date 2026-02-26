@@ -1,4 +1,4 @@
-# Simulation
+# DSE Simulation
 
 In this simulation, there is a need for two main components: the Scheduling Information Generator and the GLIC Simulator. Although the two are parts of the compilation process, both of them are not directly connected. They share information through JSON files.
 
@@ -23,8 +23,8 @@ This is a template file structure in ``{output}/sim/`` directory. For config_map
 ├── {node_id}_outTT.json
 ├── {transporter_id}_TransInst.json
 └── mem
-    ├── global_mem_image.json
-    └── global_mem_reference.json
+    ├── global_mem_image.json
+    └── global_mem_reference.json
 ```
 
 Note: {output} is a directory where you specify in running sylva application, specifically in ``--output`` argument.
@@ -144,7 +144,7 @@ Memory image files and memory buffer files are used to communicate between diffe
 
 The Parent module in this simulator is called a **node** [Implemented in node.py]. A _node_ can be configured to be a **function node** or a **transporter**. Nodes are identified using _node names_ (string type). Name is used as key in the **time-table** [structure defined in _glic_config.proto_] to trigger the operation of the node.
 
-![Figure 1](./Sim/NodeTypes.png "Types of Nodes")
+![Figure 1](./DSE-Sim/NodeTypes.png "Types of Nodes")
 
 A function node contains a _process module_, and may contain one or two **address translators (AT)**, namely:
 
@@ -153,7 +153,7 @@ A function node contains a _process module_, and may contain one or two **addres
 
 Usually the entry nodes (node A in [Figure 2](#figure-2)) on a flow graph will not have an input AT whereas, the exit nodes (node D in [Figure 2](#figure-2)) will not have an output AT.
 
-![Figure 2](./Sim/FlowGraph.png "Simple flow graph"){#figure-2}
+![Figure 2](./DSE-Sim/FlowGraph.png "Simple flow graph"){#figure-2}
 
 #### Process module
 
