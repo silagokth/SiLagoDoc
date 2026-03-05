@@ -37,7 +37,7 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
 | ports | [28, 13] | 16 | 0 | 1-hot encoded mask of ports (or slots if `mode=1`) |
-| mode | [12, 9] | 4 | 0 | Activation mode. `0`: activates `ports` starting from slot `param`; `1`: activates ports `param` in each slot that is enabled in `ports`; `2`: activates the predefined 64-bit map of ports stored in the sequencer's scalar register number `param` |
+| mode | [12, 9] | 4 | 0 | Activation mode. `0`: activates `ports` starting from slot `param`; `1`: activates ports `param` in each slot that is enabled in `ports`; `2`: activates the predefined 64-bit map of ports stored in the sequencer's scalar register number `param`  [0]: contiguous; [1]: port_index; [2]: map; |
 | param | [8, 1] | 8 | 0 | Parameter used for the different activation modes |
 
 #### calc [opcode=3]
@@ -60,81 +60,44 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 ### dpu (resource)
 
-#### dpu [opcode=3]
+#### dpu [opcode=4]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | Configuration option where the current route will be stored |
+| config | [24, 23] | 2 | 0 | Configuration register where the DPU mode will be stored. |
 | mode | [22, 18] | 5 | 0 | DPU mode  [0]: idle; [1]: add; [2]: sum_acc; [3]: add_const; [4]: subt; [5]: subt_abs; [6]: mode_6; [7]: mult; [8]: mult_add; [9]: mult_const; [10]: mac; [11]: ld_ir; [12]: axpy; [13]: max_min_acc; [14]: max_min_const; [15]: mode_15; [16]: max_min; [17]: shift_l; [18]: shift_r; [19]: sigm; [20]: tanhyp; [21]: expon; [22]: lk_relu; [23]: relu; [24]: div; [25]: acc_softmax; [26]: div_softmax; [27]: ld_acc; [28]: scale_dw; [29]: scale_up; [30]: mac_inter; [31]: mode_31; |
 | immediate | [17, 2] | 16 | 0 | Immediate value (used by some DPU modes) |
 
-#### rep [opcode=0]
+#### evt [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 24] | 1 | 0 | Configure the base event for the timing pattern of either the DPU operation (0) or the RST operation (1).  [0]: dpu; [1]: rst; |
 
-#### repx [opcode=1]
+#### rep [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 24] | 1 | 0 | Configure the repetition operator to target either the DPU operation (0) or the RST operation (1).  [0]: dpu; [1]: rst; |
+| iter | [23, 16] | 8 | 0 | Number of iterations. |
+| step | [15, 9] | 7 | 1 | Step size between the addresses generated for each iteration. |
+| delay | [8, 1] | 8 | 0 | Delay between iterations. |
 
-#### fsm [opcode=2]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | Port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between configuration options 0 and 1 |
-| delay_1 | [15, 9] | 7 | 0 | Delay between configuration options 1 and 2 |
-| delay_2 | [8, 2] | 7 | 0 | Delay between configuration options 2 and 3 |
-
-### dpu_2cycle_mac (resource)
-
-#### dpu [opcode=3]
+#### repx [opcode=2]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| option | [24, 23] | 2 | 0 | Configuration option. |
-| mode | [22, 18] | 5 | 0 | The DPU mode.   [0]: idle; [1]: add; [2]: sum_acc; [3]: add_const; [4]: subt; [5]: subt_abs; [6]: mode_6; [7]: mult; [8]: mult_add; [9]: mult_const; [10]: mac; [11]: ld_ir; [12]: axpy; [13]: max_min_acc; [14]: max_min_const; [15]: mode_15; [16]: max_min; [17]: shift_l; [18]: shift_r; [19]: sigm; [20]: tanhyp; [21]: expon; [22]: lk_relu; [23]: relu; [24]: div; [25]: acc_softmax; [26]: div_softmax; [27]: ld_acc; [28]: scale_dw; [29]: scale_up; [30]: mac_inter; [31]: mode_31; |
-| immediate | [17, 2] | 16 | 0 | The immediate field used by some DPU modes. |
+| port | [24, 24] | 1 | 0 | Configure the repetition extension to target either the DPU operation (0) or the RST operation (1).  [0]: dpu; [1]: rst; |
+| iter | [23, 16] | 8 | 0 | Most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [15, 9] | 7 | 1 | Most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [8, 1] | 8 | 0 | Most significant bits to apply to the `delay` value of the repetition operator. |
 
-#### rep [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### repx [opcode=1]
+#### trans [opcode=3]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### fsm [opcode=2]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between state 0 and 1. |
-| delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
-| delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
+| port | [24, 24] | 1 | 0 | Configure the transition operator to target either the DPU operation (0) or the RST operation (1).  [0]: dpu; [1]: rst; |
+| delay | [23, 1] | 23 | 0 | Delay before the transition occurs. |
 
 ### iosram_both (resource)
 
@@ -142,29 +105,35 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address |
-| port | [7, 6] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
+| option | [24, 23] | 2 | 0 | Configuration option where the DSU mode will be stored. There are 4 options per port. |
+| port | [22, 21] | 2 | 0 | The port number  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| init_addr_sd | [20, 20] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
+| init_addr | [19, 4] | 16 | 0 | Initial address |
 
 #### rep [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | Number of iterations. |
+| step | [14, 8] | 7 | 1 | Step size between iterations. |
+| delay | [7, 1] | 7 | 0 | Delay between iterations. |
 
 #### repx [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition extension applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [14, 8] | 7 | 1 | most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [7, 1] | 7 | 0 | most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 23] | 2 | 0 | select which port the transition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| delay | [22, 1] | 22 | 0 | Delay before the transition occurs. |
 
 ### iosram_btm (resource)
 
@@ -172,29 +141,35 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address |
-| port | [7, 6] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
+| option | [24, 23] | 2 | 0 | Configuration option where the DSU mode will be stored. There are 4 options per port. |
+| port | [22, 21] | 2 | 0 | The port number  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| init_addr_sd | [20, 20] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
+| init_addr | [19, 4] | 16 | 0 | Initial address |
 
 #### rep [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | Number of iterations. |
+| step | [14, 8] | 7 | 1 | Step size between iterations. |
+| delay | [7, 1] | 7 | 0 | Delay between iterations. |
 
 #### repx [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition extension applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [14, 8] | 7 | 1 | most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [7, 1] | 7 | 0 | most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 23] | 2 | 0 | select which port the transition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| delay | [22, 1] | 22 | 0 | Delay before the transition occurs. |
 
 ### iosram_top (resource)
 
@@ -202,29 +177,35 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Static (`0`) or dynamic (`1`) initial address  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address value |
-| port | [7, 6] | 2 | 0 | Port number  [0]: Address generation for reading from input buffer; [1]: Address generation for writing to output buffer; [2]: Address generation for writing to SRAM; [3]: Address generation for reading from SRAM; |
+| option | [24, 23] | 2 | 0 | Configuration option where the DSU mode will be stored. There are 4 options per port. |
+| port | [22, 21] | 2 | 0 | The port number  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| init_addr_sd | [20, 20] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
+| init_addr | [19, 4] | 16 | 0 | Initial address |
 
 #### rep [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | Number of iterations. |
+| step | [14, 8] | 7 | 1 | Step size between iterations. |
+| delay | [7, 1] | 7 | 0 | Delay between iterations. |
 
 #### repx [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: address generation for input buffer; [1]: address generation for output buffer; [2]: if in first slot, address generation for writing to SRAM from input buffer; if in second slot, address generation for writing to SRAM (BULK); [3]: if in first slot, address generation for read from SRAM to output buffer; if in second slot, address generation for reading from SRAM (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition extension applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| iter | [22, 15] | 8 | 0 | most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [14, 8] | 7 | 1 | most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [7, 1] | 7 | 0 | most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 23] | 2 | 0 | select which port the transition applies to.  [0]: input_buffer; [1]: output_buffer; [2]: sram_write; [3]: sram_read; |
+| delay | [22, 1] | 22 | 0 | Delay before the transition occurs. |
 
 ### rf (resource)
 
@@ -232,29 +213,35 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| init_addr_sd | [24, 24] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
-| init_addr | [23, 8] | 16 | 0 | Initial address |
-| port | [7, 6] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
+| option | [24, 23] | 2 | 0 | Configuration option where the DSU mode will be stored. There are 4 options per port. |
+| port | [22, 21] | 2 | 0 | The port number  [0]: word_write; [1]: word_read; [2]: bulk_write; [3]: bulk_read; |
+| init_addr_sd | [20, 20] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
+| init_addr | [19, 4] | 16 | 0 | Initial address |
 
 #### rep [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition applies to.  [0]: word_write; [1]: word_read; [2]: bulk_write; [3]: bulk_read; |
+| iter | [22, 15] | 8 | 0 | Number of iterations. |
+| step | [14, 8] | 7 | 1 | Step size between iterations. |
+| delay | [7, 1] | 7 | 0 | Delay between iterations. |
 
 #### repx [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: Write to RF (WORD); [1]: Read from RF (WORD); [2]: Write to RF (BULK); [3]: Read from RF (BULK); |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 23] | 2 | 0 | Select which port the repetition extension applies to.  [0]: word_write; [1]: word_read; [2]: bulk_write; [3]: bulk_read; |
+| iter | [22, 15] | 8 | 0 | most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [14, 8] | 7 | 1 | most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [7, 1] | 7 | 0 | most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 23] | 2 | 0 | select which port the transition applies to.  [0]: word_write; [1]: word_read; [2]: bulk_write; [3]: bulk_read; |
+| delay | [22, 1] | 22 | 0 | Delay before the transition occurs. |
 
 ### swb (resource)
 
@@ -272,36 +259,38 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
 | option | [24, 23] | 2 | 0 | Configuration option where the current route will be stored |
-| sr | [22, 22] | 1 | 0 | Sending route (`0`) or a receiving route (`1`)  [0]: s; [1]: r; |
-| source | [21, 18] | 4 | 0 | If `sr=0`, indicates source slot number; if `sr=1`, indicates source direction (0:NW/1:N/2:NE/3:W/4:C/5:E/6:SW/7:S/8:SE). |
-| target | [17, 2] | 16 | 0 | If `sr=0`, indicates source direction (bits 0 to 8: NW/N/NE/W/C/E/SW/S/SE); if `sr=1`, indicates source slot number. (1-hot encoded) |
+| sr | [22, 22] | 1 | 0 | Sending route (`0`) or a receiving route (`1`)  [0]: send; [1]: receive; |
+| source | [21, 18] | 4 | 0 | If `sr=0`, indicates source slot number; if `sr=1`, indicates receiving direction (0:NW/1:N/2:NE/3:W/4:C/5:E/6:SW/7:S/8:SE). |
+| target | [17, 2] | 16 | 0 | If `sr=0`, indicates sending direction (bits 0 to 8: NW/N/NE/W/C/E/SW/S/SE); if `sr=1`, indicates destination slot(s) (1-hot encoded) |
 
-#### rep [opcode=0]
-
-| Field | Position | Width | Default Value | Description |
-| ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
-
-#### repx [opcode=1]
+#### evt [opcode=0]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number  [0]: read narrow; [1]: read wide; [2]: write narrow; [3]: write wide; |
-| level | [22, 19] | 4 | 0 | The level of the REP instruction. [0]: inner most level, [15]: outer most level. |
-| iter | [18, 13] | 6 | 0 | level-1 iteration - 1. |
-| step | [12, 7] | 6 | 1 | level-1 step |
-| delay | [6, 1] | 6 | 0 | delay |
+| port | [24, 24] | 1 | 0 | Selects whether the event is applied intracell (0) or intercell (1).  [0]: intracell; [1]: intercell; |
 
-#### fsm [opcode=2]
+#### rep [opcode=1]
 
 | Field | Position | Width | Default Value | Description |
 | ----- | -------- | ----- | ------------- | ----------- |
-| port | [24, 23] | 2 | 0 | The port number |
-| delay_0 | [22, 16] | 7 | 0 | Delay between state 0 and 1. |
-| delay_1 | [15, 9] | 7 | 0 | Delay between state 1 and 2. |
-| delay_2 | [8, 2] | 7 | 0 | Delay between state 2 and 3. |
+| port | [24, 24] | 1 | 0 | Selects whether the repetition is applied intracell (0) or intercell (1).  [0]: intracell; [1]: intercell; |
+| iter | [23, 16] | 8 | 0 | Number of iterations. |
+| step | [15, 9] | 7 | 1 | Step size between iterations. |
+| delay | [8, 1] | 8 | 0 | Delay between iterations. |
+
+#### repx [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 24] | 1 | 0 | Selects whether the repetition extension is applied intracell (0) or intercell (1).  [0]: intracell; [1]: intercell; |
+| iter | [23, 16] | 8 | 0 | Most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [15, 9] | 7 | 1 | Most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [8, 1] | 8 | 0 | Most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=3]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 24] | 1 | 0 | Selects whether the transition is applied intracell (0) or intercell (2).  [0]: intracell; [1]: intercell; |
+| delay | [23, 1] | 23 | 0 | Delay before the transition occurs. |
 
