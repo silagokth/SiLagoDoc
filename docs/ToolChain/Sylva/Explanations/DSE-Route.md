@@ -4,17 +4,19 @@
 
 A routing graph is a representation graph of all possible routing path for a given design. each cell could have 4 possible routing terminals. They are east, west, north and south. Every terminal could be connected to every other terminals. To simplify the problem we consider all paths inside one cell have the same cost. See the followin figure:
 
-![Routing Path in a cell](Route/routing_path.png)
+![Routing Path in a cell](DSE-Route/routing_path.png)
 
 A routing graph is built by following the steps below:
 
 1. Create a fully connected routing graph according to the width and height of the design.
 2. For each placed alimp, remove the routing path that is inside the alimp area. This is equivalent to adding an alimp-shaped obstacle to the routing graph.
-3. For each placed alimp peripheral, remove the routing path that is not used as input/output ports.
+3. For each placed alimp peripheral, remove the routing paths that are not used as input or output ports. To locate these positions, we go through each edge connection of an alimp and identify which output or input channels are used to transfer data for that edge. We then pick the leftmost channel as the reference input or output port for that edge connection. This is, of course, not realistic, since the actual port usage is information we cannot obtain at this stage. In below example, we use position 0 as the output port of the first edge connection and position 4 as the output port of the second one.
+
+![Routing Graph](DSE-Route/ports.png)
 
 An example routing graph is shown below:
 
-![Routing Graph](Route/routing_graph.png)
+![Routing Graph](DSE-Route/available_routing_graph.png)
 
 ## Path Finding Algorithm
 
@@ -22,12 +24,10 @@ We use the A* algorithm to find the shortest path between two terminals. The A* 
 
 ## Routing Order
 
-We use a greedy algorithm to find the best routing path for each connection, however, we order the routing path according to the traffic (workload) of the connections. The heaviest traffic connection is routed first. The traffic of a connection is defined as token size.
-
-Once a path is routed, we remove the path segments occupied by the routed path from the routing graph.
+We use a greedy algorithm to find the best routing path for each connection, however, we order the routing path according to the traffic (workload) of the connections. The heaviest traffic connection is routed first. The traffic of a connection is defined as token size. Once a path is routed, we remove the path segments occupied by the routed path from the routing graph.
 
 ## Example
 
 The following figure shows the routing graph after routing the connections:
 
-![Example](Route/example.png)
+![Example](DSE-Route/routing_graph.png)
