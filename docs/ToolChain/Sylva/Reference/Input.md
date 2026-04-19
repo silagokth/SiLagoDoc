@@ -330,6 +330,7 @@ The input to Sylva is a SDF graph. The SDF graph is a directed graph where each 
 }
 ```
 
+
 ## Alimp Lirary
 
 The Alimp library is a collection of functions that can implement the functionality of the nodes in the SDF graph. Each function in the Alimp library is represented as a JSON object. The following json snippet is an example of Alimp library that represent the _lenet5_ application.
@@ -353,260 +354,324 @@ The Alimp library is a collection of functions that can implement the functional
           "inputAddrTimePatterns": [],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 3
+              "address": 0,
+              "channel": 3,
+              "time": 3
             },
             {
-              "key": 1,
-              "value": 3
+              "address": 1,
+              "channel": 1,
+              "time": 3
             },
             {
-              "key": 2,
-              "value": 1
+              "address": 2,
+              "channel": 4,
+              "time": 1
             },
             {
-              "key": 3,
-              "value": 6
+              "address": 3,
+              "channel": 2,
+              "time": 6
             },
             {
-              "key": 4,
-              "value": 5
+              "address": 4,
+              "channel": 1,
+              "time": 5
             },
             {
-              "key": 5,
-              "value": 15
+              "address": 5,
+              "channel": 2,
+              "time": 15
             },
             {
-              "key": 6,
-              "value": 25
+              "address": 6,
+              "channel": 0,
+              "time": 25
             },
             {
-              "key": 7,
-              "value": 27
+              "address": 7,
+              "channel": 3,
+              "time": 27
             },
             {
-              "key": 8,
-              "value": 25
+              "address": 8,
+              "channel": 2,
+              "time": 25
             },
             {
-              "key": 9,
-              "value": 23
+              "address": 9,
+              "channel": 0,
+              "time": 23
             },
             {
-              "key": 10,
-              "value": 23
+              "address": 10,
+              "channel": 1,
+              "time": 23
             },
             {
-              "key": 11,
-              "value": 28
+              "address": 11,
+              "channel": 0,
+              "time": 28
             },
             {
-              "key": 12,
-              "value": 28
+              "address": 12,
+              "channel": 4,
+              "time": 28
             },
             {
-              "key": 13,
-              "value": 28
+              "address": 13,
+              "channel": 1,
+              "time": 28
             },
             {
-              "key": 14,
-              "value": 33
+              "address": 14,
+              "channel": 0,
+              "time": 33
             },
             {
-              "key": 15,
-              "value": 37
+              "address": 15,
+              "channel": 3,
+              "time": 37
             },
             {
-              "key": 16,
-              "value": 38
+              "address": 16,
+              "channel": 0,
+              "time": 38
             },
             {
-              "key": 17,
-              "value": 37
+              "address": 17,
+              "channel": 1,
+              "time": 37
             },
             {
-              "key": 18,
-              "value": 39
+              "address": 18,
+              "channel": 2,
+              "time": 39
             },
             {
-              "key": 19,
-              "value": 44
+              "address": 19,
+              "channel": 4,
+              "time": 44
             },
             {
-              "key": 20,
-              "value": 45
+              "address": 20,
+              "channel": 4,
+              "time": 45
             },
             {
-              "key": 21,
-              "value": 49
+              "address": 21,
+              "channel": 3,
+              "time": 49
             },
             {
-              "key": 22,
-              "value": 53
+              "address": 22,
+              "channel": 3,
+              "time": 53
             },
             {
-              "key": 23,
-              "value": 58
+              "address": 23,
+              "channel": 2,
+              "time": 58
             },
             {
-              "key": 24,
-              "value": 62
+              "address": 24,
+              "channel": 3,
+              "time": 62
             },
             {
-              "key": 25,
-              "value": 69
+              "address": 25,
+              "channel": 4,
+              "time": 69
             },
             {
-              "key": 26,
-              "value": 73
+              "address": 26,
+              "channel": 2,
+              "time": 73
             },
             {
-              "key": 27,
-              "value": 82
+              "address": 27,
+              "channel": 3,
+              "time": 82
             },
             {
-              "key": 28,
-              "value": 87
+              "address": 28,
+              "channel": 3,
+              "time": 87
             },
             {
-              "key": 29,
-              "value": 92
+              "address": 29,
+              "channel": 3,
+              "time": 92
             },
             {
-              "key": 30,
-              "value": 94
+              "address": 30,
+              "channel": 1,
+              "time": 94
             },
             {
-              "key": 31,
-              "value": 94
+              "address": 31,
+              "channel": 0,
+              "time": 94
             },
             {
-              "key": 32,
-              "value": 101
+              "address": 32,
+              "channel": 3,
+              "time": 101
             },
             {
-              "key": 33,
-              "value": 103
+              "address": 33,
+              "channel": 1,
+              "time": 103
             },
             {
-              "key": 34,
-              "value": 107
+              "address": 34,
+              "channel": 2,
+              "time": 107
             },
             {
-              "key": 35,
-              "value": 110
+              "address": 35,
+              "channel": 3,
+              "time": 110
             },
             {
-              "key": 36,
-              "value": 110
+              "address": 36,
+              "channel": 4,
+              "time": 110
             },
             {
-              "key": 37,
-              "value": 111
+              "address": 37,
+              "channel": 0,
+              "time": 111
             },
             {
-              "key": 38,
-              "value": 117
+              "address": 38,
+              "channel": 3,
+              "time": 117
             },
             {
-              "key": 39,
-              "value": 115
+              "address": 39,
+              "channel": 0,
+              "time": 115
             },
             {
-              "key": 40,
-              "value": 125
+              "address": 40,
+              "channel": 2,
+              "time": 125
             },
             {
-              "key": 41,
-              "value": 123
+              "address": 41,
+              "channel": 0,
+              "time": 123
             },
             {
-              "key": 42,
-              "value": 121
+              "address": 42,
+              "channel": 2,
+              "time": 121
             },
             {
-              "key": 43,
-              "value": 119
+              "address": 43,
+              "channel": 0,
+              "time": 119
             },
             {
-              "key": 44,
-              "value": 129
+              "address": 44,
+              "channel": 2,
+              "time": 129
             },
             {
-              "key": 45,
-              "value": 135
+              "address": 45,
+              "channel": 3,
+              "time": 135
             },
             {
-              "key": 46,
-              "value": 136
+              "address": 46,
+              "channel": 0,
+              "time": 136
             },
             {
-              "key": 47,
-              "value": 144
+              "address": 47,
+              "channel": 1,
+              "time": 144
             },
             {
-              "key": 48,
-              "value": 147
+              "address": 48,
+              "channel": 3,
+              "time": 147
             },
             {
-              "key": 49,
-              "value": 154
+              "address": 49,
+              "channel": 3,
+              "time": 154
             },
             {
-              "key": 50,
-              "value": 159
+              "address": 50,
+              "channel": 4,
+              "time": 159
             },
             {
-              "key": 51,
-              "value": 168
+              "address": 51,
+              "channel": 4,
+              "time": 168
             },
             {
-              "key": 52,
-              "value": 172
+              "address": 52,
+              "channel": 2,
+              "time": 172
             },
             {
-              "key": 53,
-              "value": 173
+              "address": 53,
+              "channel": 2,
+              "time": 173
             },
             {
-              "key": 54,
-              "value": 176
+              "address": 54,
+              "channel": 1,
+              "time": 176
             },
             {
-              "key": 55,
-              "value": 185
+              "address": 55,
+              "channel": 1,
+              "time": 185
             },
             {
-              "key": 56,
-              "value": 195
+              "address": 56,
+              "channel": 2,
+              "time": 195
             },
             {
-              "key": 57,
-              "value": 199
+              "address": 57,
+              "channel": 0,
+              "time": 199
             },
             {
-              "key": 58,
-              "value": 200
+              "address": 58,
+              "channel": 3,
+              "time": 200
             },
             {
-              "key": 59,
-              "value": 210
+              "address": 59,
+              "channel": 1,
+              "time": 210
             },
             {
-              "key": 60,
-              "value": 219
+              "address": 60,
+              "channel": 4,
+              "time": 219
             },
             {
-              "key": 61,
-              "value": 224
+              "address": 61,
+              "channel": 1,
+              "time": 224
             },
             {
-              "key": 62,
-              "value": 233
+              "address": 62,
+              "channel": 1,
+              "time": 233
             },
             {
-              "key": 63,
-              "value": 237
+              "address": 63,
+              "channel": 3,
+              "time": 237
             }
           ]
         }
@@ -617,7 +682,7 @@ The Alimp library is a collection of functions that can implement the functional
       "instances": [
         {
           "id": "",
-          "width": 2,
+          "width": 4,
           "height": 2,
           "inputPortPositions": [],
           "outputPortPositions": [],
@@ -627,1606 +692,2006 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 6
+              "address": 0,
+              "channel": 3,
+              "time": 6
             },
             {
-              "key": 1,
-              "value": 15
+              "address": 1,
+              "channel": 3,
+              "time": 15
             },
             {
-              "key": 2,
-              "value": 15
+              "address": 2,
+              "channel": 1,
+              "time": 15
             },
             {
-              "key": 3,
-              "value": 21
+              "address": 3,
+              "channel": 3,
+              "time": 21
             },
             {
-              "key": 4,
-              "value": 23
+              "address": 4,
+              "channel": 0,
+              "time": 23
             },
             {
-              "key": 5,
-              "value": 24
+              "address": 5,
+              "channel": 2,
+              "time": 24
             },
             {
-              "key": 6,
-              "value": 30
+              "address": 6,
+              "channel": 2,
+              "time": 30
             },
             {
-              "key": 7,
-              "value": 39
+              "address": 7,
+              "channel": 2,
+              "time": 39
             },
             {
-              "key": 8,
-              "value": 39
+              "address": 8,
+              "channel": 1,
+              "time": 39
             },
             {
-              "key": 9,
-              "value": 47
+              "address": 9,
+              "channel": 3,
+              "time": 47
             },
             {
-              "key": 10,
-              "value": 47
+              "address": 10,
+              "channel": 2,
+              "time": 47
             },
             {
-              "key": 11,
-              "value": 53
+              "address": 11,
+              "channel": 0,
+              "time": 53
             },
             {
-              "key": 12,
-              "value": 55
+              "address": 12,
+              "channel": 3,
+              "time": 55
             },
             {
-              "key": 13,
-              "value": 59
+              "address": 13,
+              "channel": 1,
+              "time": 59
             },
             {
-              "key": 14,
-              "value": 68
+              "address": 14,
+              "channel": 1,
+              "time": 68
             },
             {
-              "key": 15,
-              "value": 73
+              "address": 15,
+              "channel": 3,
+              "time": 73
             },
             {
-              "key": 16,
-              "value": 73
+              "address": 16,
+              "channel": 2,
+              "time": 73
             },
             {
-              "key": 17,
-              "value": 80
+              "address": 17,
+              "channel": 0,
+              "time": 80
             },
             {
-              "key": 18,
-              "value": 82
+              "address": 18,
+              "channel": 2,
+              "time": 82
             },
             {
-              "key": 19,
-              "value": 85
+              "address": 19,
+              "channel": 0,
+              "time": 85
             },
             {
-              "key": 20,
-              "value": 85
+              "address": 20,
+              "channel": 3,
+              "time": 85
             },
             {
-              "key": 21,
-              "value": 84
+              "address": 21,
+              "channel": 2,
+              "time": 84
             },
             {
-              "key": 22,
-              "value": 92
+              "address": 22,
+              "channel": 2,
+              "time": 92
             },
             {
-              "key": 23,
-              "value": 97
+              "address": 23,
+              "channel": 3,
+              "time": 97
             },
             {
-              "key": 24,
-              "value": 107
+              "address": 24,
+              "channel": 0,
+              "time": 107
             },
             {
-              "key": 25,
-              "value": 106
+              "address": 25,
+              "channel": 1,
+              "time": 106
             },
             {
-              "key": 26,
-              "value": 108
+              "address": 26,
+              "channel": 2,
+              "time": 108
             },
             {
-              "key": 27,
-              "value": 108
+              "address": 27,
+              "channel": 0,
+              "time": 108
             },
             {
-              "key": 28,
-              "value": 107
+              "address": 28,
+              "channel": 2,
+              "time": 107
             },
             {
-              "key": 29,
-              "value": 106
+              "address": 29,
+              "channel": 3,
+              "time": 106
             },
             {
-              "key": 30,
-              "value": 106
+              "address": 30,
+              "channel": 2,
+              "time": 106
             },
             {
-              "key": 31,
-              "value": 105
+              "address": 31,
+              "channel": 3,
+              "time": 105
             },
             {
-              "key": 32,
-              "value": 107
+              "address": 32,
+              "channel": 3,
+              "time": 107
             },
             {
-              "key": 33,
-              "value": 109
+              "address": 33,
+              "channel": 3,
+              "time": 109
             },
             {
-              "key": 34,
-              "value": 115
+              "address": 34,
+              "channel": 0,
+              "time": 115
             },
             {
-              "key": 35,
-              "value": 116
+              "address": 35,
+              "channel": 3,
+              "time": 116
             },
             {
-              "key": 36,
-              "value": 119
+              "address": 36,
+              "channel": 2,
+              "time": 119
             },
             {
-              "key": 37,
-              "value": 117
+              "address": 37,
+              "channel": 1,
+              "time": 117
             },
             {
-              "key": 38,
-              "value": 117
+              "address": 38,
+              "channel": 2,
+              "time": 117
             },
             {
-              "key": 39,
-              "value": 121
+              "address": 39,
+              "channel": 1,
+              "time": 121
             },
             {
-              "key": 40,
-              "value": 121
+              "address": 40,
+              "channel": 2,
+              "time": 121
             },
             {
-              "key": 41,
-              "value": 120
+              "address": 41,
+              "channel": 1,
+              "time": 120
             },
             {
-              "key": 42,
-              "value": 119
+              "address": 42,
+              "channel": 0,
+              "time": 119
             },
             {
-              "key": 43,
-              "value": 122
+              "address": 43,
+              "channel": 3,
+              "time": 122
             },
             {
-              "key": 44,
-              "value": 130
+              "address": 44,
+              "channel": 1,
+              "time": 130
             },
             {
-              "key": 45,
-              "value": 128
+              "address": 45,
+              "channel": 2,
+              "time": 128
             },
             {
-              "key": 46,
-              "value": 127
+              "address": 46,
+              "channel": 1,
+              "time": 127
             },
             {
-              "key": 47,
-              "value": 132
+              "address": 47,
+              "channel": 1,
+              "time": 132
             },
             {
-              "key": 48,
-              "value": 136
+              "address": 48,
+              "channel": 3,
+              "time": 136
             },
             {
-              "key": 49,
-              "value": 142
+              "address": 49,
+              "channel": 1,
+              "time": 142
             },
             {
-              "key": 50,
-              "value": 151
+              "address": 50,
+              "channel": 1,
+              "time": 151
             },
             {
-              "key": 51,
-              "value": 153
+              "address": 51,
+              "channel": 0,
+              "time": 153
             },
             {
-              "key": 52,
-              "value": 154
+              "address": 52,
+              "channel": 2,
+              "time": 154
             },
             {
-              "key": 53,
-              "value": 157
+              "address": 53,
+              "channel": 2,
+              "time": 157
             },
             {
-              "key": 54,
-              "value": 155
+              "address": 54,
+              "channel": 2,
+              "time": 155
             },
             {
-              "key": 55,
-              "value": 164
+              "address": 55,
+              "channel": 1,
+              "time": 164
             },
             {
-              "key": 56,
-              "value": 170
+              "address": 56,
+              "channel": 3,
+              "time": 170
             },
             {
-              "key": 57,
-              "value": 169
+              "address": 57,
+              "channel": 1,
+              "time": 169
             },
             {
-              "key": 58,
-              "value": 171
+              "address": 58,
+              "channel": 1,
+              "time": 171
             },
             {
-              "key": 59,
-              "value": 169
+              "address": 59,
+              "channel": 0,
+              "time": 169
             },
             {
-              "key": 60,
-              "value": 175
+              "address": 60,
+              "channel": 3,
+              "time": 175
             },
             {
-              "key": 61,
-              "value": 179
+              "address": 61,
+              "channel": 0,
+              "time": 179
             },
             {
-              "key": 62,
-              "value": 180
+              "address": 62,
+              "channel": 2,
+              "time": 180
             },
             {
-              "key": 63,
-              "value": 178
+              "address": 63,
+              "channel": 1,
+              "time": 178
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 0
+              "address": 0,
+              "channel": 1,
+              "time": 0
             },
             {
-              "key": 1,
-              "value": 1
+              "address": 1,
+              "channel": 1,
+              "time": 1
             },
             {
-              "key": 2,
-              "value": 1
+              "address": 2,
+              "channel": 0,
+              "time": 1
             },
             {
-              "key": 3,
-              "value": 10
+              "address": 3,
+              "channel": 1,
+              "time": 10
             },
             {
-              "key": 4,
-              "value": 16
+              "address": 4,
+              "channel": 0,
+              "time": 16
             },
             {
-              "key": 5,
-              "value": 19
+              "address": 5,
+              "channel": 1,
+              "time": 19
             },
             {
-              "key": 6,
-              "value": 26
+              "address": 6,
+              "channel": 0,
+              "time": 26
             },
             {
-              "key": 7,
-              "value": 27
+              "address": 7,
+              "channel": 0,
+              "time": 27
             },
             {
-              "key": 8,
-              "value": 37
+              "address": 8,
+              "channel": 2,
+              "time": 37
             },
             {
-              "key": 9,
-              "value": 36
+              "address": 9,
+              "channel": 0,
+              "time": 36
             },
             {
-              "key": 10,
-              "value": 37
+              "address": 10,
+              "channel": 3,
+              "time": 37
             },
             {
-              "key": 11,
-              "value": 40
+              "address": 11,
+              "channel": 3,
+              "time": 40
             },
             {
-              "key": 12,
-              "value": 49
+              "address": 12,
+              "channel": 2,
+              "time": 49
             },
             {
-              "key": 13,
-              "value": 59
+              "address": 13,
+              "channel": 0,
+              "time": 59
             },
             {
-              "key": 14,
-              "value": 65
+              "address": 14,
+              "channel": 0,
+              "time": 65
             },
             {
-              "key": 15,
-              "value": 66
+              "address": 15,
+              "channel": 3,
+              "time": 66
             },
             {
-              "key": 16,
-              "value": 64
+              "address": 16,
+              "channel": 0,
+              "time": 64
             },
             {
-              "key": 17,
-              "value": 65
+              "address": 17,
+              "channel": 3,
+              "time": 65
             },
             {
-              "key": 18,
-              "value": 63
+              "address": 18,
+              "channel": 1,
+              "time": 63
             },
             {
-              "key": 19,
-              "value": 73
+              "address": 19,
+              "channel": 0,
+              "time": 73
             },
             {
-              "key": 20,
-              "value": 83
+              "address": 20,
+              "channel": 3,
+              "time": 83
             },
             {
-              "key": 21,
-              "value": 86
+              "address": 21,
+              "channel": 3,
+              "time": 86
             },
             {
-              "key": 22,
-              "value": 88
+              "address": 22,
+              "channel": 0,
+              "time": 88
             },
             {
-              "key": 23,
-              "value": 89
+              "address": 23,
+              "channel": 0,
+              "time": 89
             },
             {
-              "key": 24,
-              "value": 95
+              "address": 24,
+              "channel": 2,
+              "time": 95
             },
             {
-              "key": 25,
-              "value": 98
+              "address": 25,
+              "channel": 3,
+              "time": 98
             },
             {
-              "key": 26,
-              "value": 105
+              "address": 26,
+              "channel": 3,
+              "time": 105
             },
             {
-              "key": 27,
-              "value": 105
+              "address": 27,
+              "channel": 0,
+              "time": 105
             },
             {
-              "key": 28,
-              "value": 103
+              "address": 28,
+              "channel": 1,
+              "time": 103
             },
             {
-              "key": 29,
-              "value": 102
+              "address": 29,
+              "channel": 1,
+              "time": 102
             },
             {
-              "key": 30,
-              "value": 104
+              "address": 30,
+              "channel": 1,
+              "time": 104
             },
             {
-              "key": 31,
-              "value": 109
+              "address": 31,
+              "channel": 0,
+              "time": 109
             },
             {
-              "key": 32,
-              "value": 114
+              "address": 32,
+              "channel": 0,
+              "time": 114
             },
             {
-              "key": 33,
-              "value": 113
+              "address": 33,
+              "channel": 1,
+              "time": 113
             },
             {
-              "key": 34,
-              "value": 118
+              "address": 34,
+              "channel": 1,
+              "time": 118
             },
             {
-              "key": 35,
-              "value": 124
+              "address": 35,
+              "channel": 0,
+              "time": 124
             },
             {
-              "key": 36,
-              "value": 123
+              "address": 36,
+              "channel": 2,
+              "time": 123
             },
             {
-              "key": 37,
-              "value": 130
+              "address": 37,
+              "channel": 2,
+              "time": 130
             },
             {
-              "key": 38,
-              "value": 135
+              "address": 38,
+              "channel": 0,
+              "time": 135
             },
             {
-              "key": 39,
-              "value": 140
+              "address": 39,
+              "channel": 2,
+              "time": 140
             },
             {
-              "key": 40,
-              "value": 142
+              "address": 40,
+              "channel": 0,
+              "time": 142
             },
             {
-              "key": 41,
-              "value": 140
+              "address": 41,
+              "channel": 3,
+              "time": 140
             },
             {
-              "key": 42,
-              "value": 143
+              "address": 42,
+              "channel": 0,
+              "time": 143
             },
             {
-              "key": 43,
-              "value": 146
+              "address": 43,
+              "channel": 3,
+              "time": 146
             },
             {
-              "key": 44,
-              "value": 154
+              "address": 44,
+              "channel": 1,
+              "time": 154
             },
             {
-              "key": 45,
-              "value": 159
+              "address": 45,
+              "channel": 0,
+              "time": 159
             },
             {
-              "key": 46,
-              "value": 166
+              "address": 46,
+              "channel": 1,
+              "time": 166
             },
             {
-              "key": 47,
-              "value": 168
+              "address": 47,
+              "channel": 0,
+              "time": 168
             },
             {
-              "key": 48,
-              "value": 172
+              "address": 48,
+              "channel": 3,
+              "time": 172
             },
             {
-              "key": 49,
-              "value": 175
+              "address": 49,
+              "channel": 2,
+              "time": 175
             },
             {
-              "key": 50,
-              "value": 178
+              "address": 50,
+              "channel": 2,
+              "time": 178
             },
             {
-              "key": 51,
-              "value": 179
+              "address": 51,
+              "channel": 2,
+              "time": 179
             },
             {
-              "key": 52,
-              "value": 187
+              "address": 52,
+              "channel": 2,
+              "time": 187
             },
             {
-              "key": 53,
-              "value": 194
+              "address": 53,
+              "channel": 1,
+              "time": 194
             },
             {
-              "key": 54,
-              "value": 195
+              "address": 54,
+              "channel": 1,
+              "time": 195
             },
             {
-              "key": 55,
-              "value": 198
+              "address": 55,
+              "channel": 2,
+              "time": 198
             },
             {
-              "key": 56,
-              "value": 203
+              "address": 56,
+              "channel": 2,
+              "time": 203
             },
             {
-              "key": 57,
-              "value": 210
+              "address": 57,
+              "channel": 1,
+              "time": 210
             },
             {
-              "key": 58,
-              "value": 212
+              "address": 58,
+              "channel": 1,
+              "time": 212
             },
             {
-              "key": 59,
-              "value": 219
+              "address": 59,
+              "channel": 3,
+              "time": 219
             },
             {
-              "key": 60,
-              "value": 219
+              "address": 60,
+              "channel": 2,
+              "time": 219
             },
             {
-              "key": 61,
-              "value": 228
+              "address": 61,
+              "channel": 3,
+              "time": 228
             },
             {
-              "key": 62,
-              "value": 237
+              "address": 62,
+              "channel": 0,
+              "time": 237
             },
             {
-              "key": 63,
-              "value": 247
+              "address": 63,
+              "channel": 2,
+              "time": 247
             },
             {
-              "key": 64,
-              "value": 255
+              "address": 64,
+              "channel": 3,
+              "time": 255
             },
             {
-              "key": 65,
-              "value": 261
+              "address": 65,
+              "channel": 0,
+              "time": 261
             },
             {
-              "key": 66,
-              "value": 263
+              "address": 66,
+              "channel": 3,
+              "time": 263
             },
             {
-              "key": 67,
-              "value": 262
+              "address": 67,
+              "channel": 2,
+              "time": 262
             },
             {
-              "key": 68,
-              "value": 269
+              "address": 68,
+              "channel": 0,
+              "time": 269
             },
             {
-              "key": 69,
-              "value": 270
+              "address": 69,
+              "channel": 2,
+              "time": 270
             },
             {
-              "key": 70,
-              "value": 270
+              "address": 70,
+              "channel": 0,
+              "time": 270
             },
             {
-              "key": 71,
-              "value": 280
+              "address": 71,
+              "channel": 0,
+              "time": 280
             },
             {
-              "key": 72,
-              "value": 281
+              "address": 72,
+              "channel": 0,
+              "time": 281
             },
             {
-              "key": 73,
-              "value": 291
+              "address": 73,
+              "channel": 0,
+              "time": 291
             },
             {
-              "key": 74,
-              "value": 295
+              "address": 74,
+              "channel": 2,
+              "time": 295
             },
             {
-              "key": 75,
-              "value": 302
+              "address": 75,
+              "channel": 3,
+              "time": 302
             },
             {
-              "key": 76,
-              "value": 304
+              "address": 76,
+              "channel": 1,
+              "time": 304
             },
             {
-              "key": 77,
-              "value": 310
+              "address": 77,
+              "channel": 1,
+              "time": 310
             },
             {
-              "key": 78,
-              "value": 316
+              "address": 78,
+              "channel": 0,
+              "time": 316
             },
             {
-              "key": 79,
-              "value": 326
+              "address": 79,
+              "channel": 3,
+              "time": 326
             },
             {
-              "key": 80,
-              "value": 329
+              "address": 80,
+              "channel": 1,
+              "time": 329
             },
             {
-              "key": 81,
-              "value": 328
+              "address": 81,
+              "channel": 2,
+              "time": 328
             },
             {
-              "key": 82,
-              "value": 330
+              "address": 82,
+              "channel": 2,
+              "time": 330
             },
             {
-              "key": 83,
-              "value": 332
+              "address": 83,
+              "channel": 0,
+              "time": 332
             },
             {
-              "key": 84,
-              "value": 333
+              "address": 84,
+              "channel": 3,
+              "time": 333
             },
             {
-              "key": 85,
-              "value": 333
+              "address": 85,
+              "channel": 2,
+              "time": 333
             },
             {
-              "key": 86,
-              "value": 334
+              "address": 86,
+              "channel": 0,
+              "time": 334
             },
             {
-              "key": 87,
-              "value": 338
+              "address": 87,
+              "channel": 1,
+              "time": 338
             },
             {
-              "key": 88,
-              "value": 337
+              "address": 88,
+              "channel": 1,
+              "time": 337
             },
             {
-              "key": 89,
-              "value": 335
+              "address": 89,
+              "channel": 1,
+              "time": 335
             },
             {
-              "key": 90,
-              "value": 336
+              "address": 90,
+              "channel": 2,
+              "time": 336
             },
             {
-              "key": 91,
-              "value": 336
+              "address": 91,
+              "channel": 1,
+              "time": 336
             },
             {
-              "key": 92,
-              "value": 345
+              "address": 92,
+              "channel": 3,
+              "time": 345
             },
             {
-              "key": 93,
-              "value": 353
+              "address": 93,
+              "channel": 3,
+              "time": 353
             },
             {
-              "key": 94,
-              "value": 351
+              "address": 94,
+              "channel": 3,
+              "time": 351
             },
             {
-              "key": 95,
-              "value": 357
+              "address": 95,
+              "channel": 3,
+              "time": 357
             },
             {
-              "key": 96,
-              "value": 366
+              "address": 96,
+              "channel": 0,
+              "time": 366
             },
             {
-              "key": 97,
-              "value": 373
+              "address": 97,
+              "channel": 3,
+              "time": 373
             },
             {
-              "key": 98,
-              "value": 381
+              "address": 98,
+              "channel": 2,
+              "time": 381
             },
             {
-              "key": 99,
-              "value": 386
+              "address": 99,
+              "channel": 1,
+              "time": 386
             },
             {
-              "key": 100,
-              "value": 395
+              "address": 100,
+              "channel": 3,
+              "time": 395
             },
             {
-              "key": 101,
-              "value": 401
+              "address": 101,
+              "channel": 1,
+              "time": 401
             },
             {
-              "key": 102,
-              "value": 410
+              "address": 102,
+              "channel": 3,
+              "time": 410
             },
             {
-              "key": 103,
-              "value": 418
+              "address": 103,
+              "channel": 3,
+              "time": 418
             },
             {
-              "key": 104,
-              "value": 424
+              "address": 104,
+              "channel": 0,
+              "time": 424
             },
             {
-              "key": 105,
-              "value": 422
+              "address": 105,
+              "channel": 0,
+              "time": 422
             },
             {
-              "key": 106,
-              "value": 432
+              "address": 106,
+              "channel": 3,
+              "time": 432
             },
             {
-              "key": 107,
-              "value": 442
+              "address": 107,
+              "channel": 1,
+              "time": 442
             },
             {
-              "key": 108,
-              "value": 447
+              "address": 108,
+              "channel": 0,
+              "time": 447
             },
             {
-              "key": 109,
-              "value": 451
+              "address": 109,
+              "channel": 1,
+              "time": 451
             },
             {
-              "key": 110,
-              "value": 456
+              "address": 110,
+              "channel": 0,
+              "time": 456
             },
             {
-              "key": 111,
-              "value": 462
+              "address": 111,
+              "channel": 1,
+              "time": 462
             },
             {
-              "key": 112,
-              "value": 470
+              "address": 112,
+              "channel": 1,
+              "time": 470
             },
             {
-              "key": 113,
-              "value": 471
+              "address": 113,
+              "channel": 2,
+              "time": 471
             },
             {
-              "key": 114,
-              "value": 479
+              "address": 114,
+              "channel": 2,
+              "time": 479
             },
             {
-              "key": 115,
-              "value": 483
+              "address": 115,
+              "channel": 0,
+              "time": 483
             },
             {
-              "key": 116,
-              "value": 481
+              "address": 116,
+              "channel": 2,
+              "time": 481
             },
             {
-              "key": 117,
-              "value": 483
+              "address": 117,
+              "channel": 2,
+              "time": 483
             },
             {
-              "key": 118,
-              "value": 488
+              "address": 118,
+              "channel": 1,
+              "time": 488
             },
             {
-              "key": 119,
-              "value": 487
+              "address": 119,
+              "channel": 3,
+              "time": 487
             },
             {
-              "key": 120,
-              "value": 493
+              "address": 120,
+              "channel": 2,
+              "time": 493
             },
             {
-              "key": 121,
-              "value": 503
+              "address": 121,
+              "channel": 2,
+              "time": 503
             },
             {
-              "key": 122,
-              "value": 502
+              "address": 122,
+              "channel": 3,
+              "time": 502
             },
             {
-              "key": 123,
-              "value": 512
+              "address": 123,
+              "channel": 1,
+              "time": 512
             },
             {
-              "key": 124,
-              "value": 519
+              "address": 124,
+              "channel": 3,
+              "time": 519
             },
             {
-              "key": 125,
-              "value": 523
+              "address": 125,
+              "channel": 0,
+              "time": 523
             },
             {
-              "key": 126,
-              "value": 521
+              "address": 126,
+              "channel": 0,
+              "time": 521
             },
             {
-              "key": 127,
-              "value": 522
+              "address": 127,
+              "channel": 2,
+              "time": 522
             },
             {
-              "key": 128,
-              "value": 523
+              "address": 128,
+              "channel": 2,
+              "time": 523
             },
             {
-              "key": 129,
-              "value": 533
+              "address": 129,
+              "channel": 1,
+              "time": 533
             },
             {
-              "key": 130,
-              "value": 532
+              "address": 130,
+              "channel": 1,
+              "time": 532
             },
             {
-              "key": 131,
-              "value": 530
+              "address": 131,
+              "channel": 0,
+              "time": 530
             },
             {
-              "key": 132,
-              "value": 533
+              "address": 132,
+              "channel": 2,
+              "time": 533
             },
             {
-              "key": 133,
-              "value": 533
+              "address": 133,
+              "channel": 0,
+              "time": 533
             },
             {
-              "key": 134,
-              "value": 538
+              "address": 134,
+              "channel": 3,
+              "time": 538
             },
             {
-              "key": 135,
-              "value": 543
+              "address": 135,
+              "channel": 1,
+              "time": 543
             },
             {
-              "key": 136,
-              "value": 550
+              "address": 136,
+              "channel": 3,
+              "time": 550
             },
             {
-              "key": 137,
-              "value": 559
+              "address": 137,
+              "channel": 1,
+              "time": 559
             },
             {
-              "key": 138,
-              "value": 565
+              "address": 138,
+              "channel": 0,
+              "time": 565
             },
             {
-              "key": 139,
-              "value": 573
+              "address": 139,
+              "channel": 2,
+              "time": 573
             },
             {
-              "key": 140,
-              "value": 571
+              "address": 140,
+              "channel": 3,
+              "time": 571
             },
             {
-              "key": 141,
-              "value": 573
+              "address": 141,
+              "channel": 3,
+              "time": 573
             },
             {
-              "key": 142,
-              "value": 574
+              "address": 142,
+              "channel": 1,
+              "time": 574
             },
             {
-              "key": 143,
-              "value": 584
+              "address": 143,
+              "channel": 1,
+              "time": 584
             },
             {
-              "key": 144,
-              "value": 587
+              "address": 144,
+              "channel": 2,
+              "time": 587
             },
             {
-              "key": 145,
-              "value": 595
+              "address": 145,
+              "channel": 3,
+              "time": 595
             },
             {
-              "key": 146,
-              "value": 602
+              "address": 146,
+              "channel": 0,
+              "time": 602
             },
             {
-              "key": 147,
-              "value": 606
+              "address": 147,
+              "channel": 3,
+              "time": 606
             },
             {
-              "key": 148,
-              "value": 609
+              "address": 148,
+              "channel": 1,
+              "time": 609
             },
             {
-              "key": 149,
-              "value": 616
+              "address": 149,
+              "channel": 1,
+              "time": 616
             },
             {
-              "key": 150,
-              "value": 624
+              "address": 150,
+              "channel": 3,
+              "time": 624
             },
             {
-              "key": 151,
-              "value": 628
+              "address": 151,
+              "channel": 1,
+              "time": 628
             },
             {
-              "key": 152,
-              "value": 634
+              "address": 152,
+              "channel": 3,
+              "time": 634
             },
             {
-              "key": 153,
-              "value": 638
+              "address": 153,
+              "channel": 1,
+              "time": 638
             },
             {
-              "key": 154,
-              "value": 640
+              "address": 154,
+              "channel": 1,
+              "time": 640
             },
             {
-              "key": 155,
-              "value": 641
+              "address": 155,
+              "channel": 3,
+              "time": 641
             },
             {
-              "key": 156,
-              "value": 643
+              "address": 156,
+              "channel": 3,
+              "time": 643
             },
             {
-              "key": 157,
-              "value": 642
+              "address": 157,
+              "channel": 0,
+              "time": 642
             },
             {
-              "key": 158,
-              "value": 644
+              "address": 158,
+              "channel": 3,
+              "time": 644
             },
             {
-              "key": 159,
-              "value": 649
+              "address": 159,
+              "channel": 0,
+              "time": 649
             },
             {
-              "key": 160,
-              "value": 658
+              "address": 160,
+              "channel": 3,
+              "time": 658
             },
             {
-              "key": 161,
-              "value": 666
+              "address": 161,
+              "channel": 3,
+              "time": 666
             },
             {
-              "key": 162,
-              "value": 671
+              "address": 162,
+              "channel": 0,
+              "time": 671
             },
             {
-              "key": 163,
-              "value": 676
+              "address": 163,
+              "channel": 1,
+              "time": 676
             },
             {
-              "key": 164,
-              "value": 684
+              "address": 164,
+              "channel": 0,
+              "time": 684
             },
             {
-              "key": 165,
-              "value": 692
+              "address": 165,
+              "channel": 0,
+              "time": 692
             },
             {
-              "key": 166,
-              "value": 695
+              "address": 166,
+              "channel": 3,
+              "time": 695
             },
             {
-              "key": 167,
-              "value": 704
+              "address": 167,
+              "channel": 0,
+              "time": 704
             },
             {
-              "key": 168,
-              "value": 711
+              "address": 168,
+              "channel": 1,
+              "time": 711
             },
             {
-              "key": 169,
-              "value": 719
+              "address": 169,
+              "channel": 1,
+              "time": 719
             },
             {
-              "key": 170,
-              "value": 720
+              "address": 170,
+              "channel": 3,
+              "time": 720
             },
             {
-              "key": 171,
-              "value": 720
+              "address": 171,
+              "channel": 0,
+              "time": 720
             },
             {
-              "key": 172,
-              "value": 722
+              "address": 172,
+              "channel": 3,
+              "time": 722
             },
             {
-              "key": 173,
-              "value": 731
+              "address": 173,
+              "channel": 0,
+              "time": 731
             },
             {
-              "key": 174,
-              "value": 736
+              "address": 174,
+              "channel": 2,
+              "time": 736
             },
             {
-              "key": 175,
-              "value": 745
+              "address": 175,
+              "channel": 0,
+              "time": 745
             },
             {
-              "key": 176,
-              "value": 751
+              "address": 176,
+              "channel": 2,
+              "time": 751
             },
             {
-              "key": 177,
-              "value": 761
+              "address": 177,
+              "channel": 2,
+              "time": 761
             },
             {
-              "key": 178,
-              "value": 764
+              "address": 178,
+              "channel": 3,
+              "time": 764
             },
             {
-              "key": 179,
-              "value": 770
+              "address": 179,
+              "channel": 3,
+              "time": 770
             },
             {
-              "key": 180,
-              "value": 771
+              "address": 180,
+              "channel": 0,
+              "time": 771
             },
             {
-              "key": 181,
-              "value": 779
+              "address": 181,
+              "channel": 1,
+              "time": 779
             },
             {
-              "key": 182,
-              "value": 786
+              "address": 182,
+              "channel": 1,
+              "time": 786
             },
             {
-              "key": 183,
-              "value": 790
+              "address": 183,
+              "channel": 2,
+              "time": 790
             },
             {
-              "key": 184,
-              "value": 800
+              "address": 184,
+              "channel": 2,
+              "time": 800
             },
             {
-              "key": 185,
-              "value": 806
+              "address": 185,
+              "channel": 2,
+              "time": 806
             },
             {
-              "key": 186,
-              "value": 814
+              "address": 186,
+              "channel": 0,
+              "time": 814
             },
             {
-              "key": 187,
-              "value": 814
+              "address": 187,
+              "channel": 1,
+              "time": 814
             },
             {
-              "key": 188,
-              "value": 821
+              "address": 188,
+              "channel": 3,
+              "time": 821
             },
             {
-              "key": 189,
-              "value": 820
+              "address": 189,
+              "channel": 2,
+              "time": 820
             },
             {
-              "key": 190,
-              "value": 820
+              "address": 190,
+              "channel": 1,
+              "time": 820
             },
             {
-              "key": 191,
-              "value": 819
+              "address": 191,
+              "channel": 2,
+              "time": 819
             },
             {
-              "key": 192,
-              "value": 820
+              "address": 192,
+              "channel": 3,
+              "time": 820
             },
             {
-              "key": 193,
-              "value": 821
+              "address": 193,
+              "channel": 0,
+              "time": 821
             },
             {
-              "key": 194,
-              "value": 827
+              "address": 194,
+              "channel": 2,
+              "time": 827
             },
             {
-              "key": 195,
-              "value": 837
+              "address": 195,
+              "channel": 2,
+              "time": 837
             },
             {
-              "key": 196,
-              "value": 837
+              "address": 196,
+              "channel": 1,
+              "time": 837
             },
             {
-              "key": 197,
-              "value": 845
+              "address": 197,
+              "channel": 0,
+              "time": 845
             },
             {
-              "key": 198,
-              "value": 844
+              "address": 198,
+              "channel": 1,
+              "time": 844
             },
             {
-              "key": 199,
-              "value": 845
+              "address": 199,
+              "channel": 1,
+              "time": 845
             },
             {
-              "key": 200,
-              "value": 846
+              "address": 200,
+              "channel": 1,
+              "time": 846
             },
             {
-              "key": 201,
-              "value": 848
+              "address": 201,
+              "channel": 0,
+              "time": 848
             },
             {
-              "key": 202,
-              "value": 856
+              "address": 202,
+              "channel": 0,
+              "time": 856
             },
             {
-              "key": 203,
-              "value": 858
+              "address": 203,
+              "channel": 3,
+              "time": 858
             },
             {
-              "key": 204,
-              "value": 858
+              "address": 204,
+              "channel": 1,
+              "time": 858
             },
             {
-              "key": 205,
-              "value": 858
+              "address": 205,
+              "channel": 0,
+              "time": 858
             },
             {
-              "key": 206,
-              "value": 858
+              "address": 206,
+              "channel": 2,
+              "time": 858
             },
             {
-              "key": 207,
-              "value": 860
+              "address": 207,
+              "channel": 2,
+              "time": 860
             },
             {
-              "key": 208,
-              "value": 864
+              "address": 208,
+              "channel": 2,
+              "time": 864
             },
             {
-              "key": 209,
-              "value": 866
+              "address": 209,
+              "channel": 3,
+              "time": 866
             },
             {
-              "key": 210,
-              "value": 874
+              "address": 210,
+              "channel": 1,
+              "time": 874
             },
             {
-              "key": 211,
-              "value": 873
+              "address": 211,
+              "channel": 2,
+              "time": 873
             },
             {
-              "key": 212,
-              "value": 873
+              "address": 212,
+              "channel": 3,
+              "time": 873
             },
             {
-              "key": 213,
-              "value": 882
+              "address": 213,
+              "channel": 1,
+              "time": 882
             },
             {
-              "key": 214,
-              "value": 890
+              "address": 214,
+              "channel": 2,
+              "time": 890
             },
             {
-              "key": 215,
-              "value": 889
+              "address": 215,
+              "channel": 0,
+              "time": 889
             },
             {
-              "key": 216,
-              "value": 897
+              "address": 216,
+              "channel": 1,
+              "time": 897
             },
             {
-              "key": 217,
-              "value": 899
+              "address": 217,
+              "channel": 2,
+              "time": 899
             },
             {
-              "key": 218,
-              "value": 905
+              "address": 218,
+              "channel": 0,
+              "time": 905
             },
             {
-              "key": 219,
-              "value": 906
+              "address": 219,
+              "channel": 2,
+              "time": 906
             },
             {
-              "key": 220,
-              "value": 916
+              "address": 220,
+              "channel": 3,
+              "time": 916
             },
             {
-              "key": 221,
-              "value": 916
+              "address": 221,
+              "channel": 0,
+              "time": 916
             },
             {
-              "key": 222,
-              "value": 924
+              "address": 222,
+              "channel": 2,
+              "time": 924
             },
             {
-              "key": 223,
-              "value": 928
+              "address": 223,
+              "channel": 1,
+              "time": 928
             },
             {
-              "key": 224,
-              "value": 929
+              "address": 224,
+              "channel": 1,
+              "time": 929
             },
             {
-              "key": 225,
-              "value": 928
+              "address": 225,
+              "channel": 2,
+              "time": 928
             },
             {
-              "key": 226,
-              "value": 937
+              "address": 226,
+              "channel": 3,
+              "time": 937
             },
             {
-              "key": 227,
-              "value": 943
+              "address": 227,
+              "channel": 2,
+              "time": 943
             },
             {
-              "key": 228,
-              "value": 947
+              "address": 228,
+              "channel": 3,
+              "time": 947
             },
             {
-              "key": 229,
-              "value": 950
+              "address": 229,
+              "channel": 3,
+              "time": 950
             },
             {
-              "key": 230,
-              "value": 948
+              "address": 230,
+              "channel": 1,
+              "time": 948
             },
             {
-              "key": 231,
-              "value": 948
+              "address": 231,
+              "channel": 3,
+              "time": 948
             },
             {
-              "key": 232,
-              "value": 956
+              "address": 232,
+              "channel": 3,
+              "time": 956
             },
             {
-              "key": 233,
-              "value": 957
+              "address": 233,
+              "channel": 0,
+              "time": 957
             },
             {
-              "key": 234,
-              "value": 960
+              "address": 234,
+              "channel": 3,
+              "time": 960
             },
             {
-              "key": 235,
-              "value": 959
+              "address": 235,
+              "channel": 1,
+              "time": 959
             },
             {
-              "key": 236,
-              "value": 957
+              "address": 236,
+              "channel": 2,
+              "time": 957
             },
             {
-              "key": 237,
-              "value": 964
+              "address": 237,
+              "channel": 0,
+              "time": 964
             },
             {
-              "key": 238,
-              "value": 970
+              "address": 238,
+              "channel": 0,
+              "time": 970
             },
             {
-              "key": 239,
-              "value": 980
+              "address": 239,
+              "channel": 1,
+              "time": 980
             },
             {
-              "key": 240,
-              "value": 984
+              "address": 240,
+              "channel": 3,
+              "time": 984
             },
             {
-              "key": 241,
-              "value": 993
+              "address": 241,
+              "channel": 3,
+              "time": 993
             },
             {
-              "key": 242,
-              "value": 1000
+              "address": 242,
+              "channel": 1,
+              "time": 1000
             },
             {
-              "key": 243,
-              "value": 1008
+              "address": 243,
+              "channel": 2,
+              "time": 1008
             },
             {
-              "key": 244,
-              "value": 1013
+              "address": 244,
+              "channel": 2,
+              "time": 1013
             },
             {
-              "key": 245,
-              "value": 1016
+              "address": 245,
+              "channel": 0,
+              "time": 1016
             },
             {
-              "key": 246,
-              "value": 1025
+              "address": 246,
+              "channel": 2,
+              "time": 1025
             },
             {
-              "key": 247,
-              "value": 1025
+              "address": 247,
+              "channel": 3,
+              "time": 1025
             },
             {
-              "key": 248,
-              "value": 1032
+              "address": 248,
+              "channel": 3,
+              "time": 1032
             },
             {
-              "key": 249,
-              "value": 1038
+              "address": 249,
+              "channel": 1,
+              "time": 1038
             },
             {
-              "key": 250,
-              "value": 1036
+              "address": 250,
+              "channel": 3,
+              "time": 1036
             },
             {
-              "key": 251,
-              "value": 1042
+              "address": 251,
+              "channel": 0,
+              "time": 1042
             },
             {
-              "key": 252,
-              "value": 1046
+              "address": 252,
+              "channel": 1,
+              "time": 1046
             },
             {
-              "key": 253,
-              "value": 1045
+              "address": 253,
+              "channel": 1,
+              "time": 1045
             },
             {
-              "key": 254,
-              "value": 1054
+              "address": 254,
+              "channel": 1,
+              "time": 1054
             },
             {
-              "key": 255,
-              "value": 1052
+              "address": 255,
+              "channel": 0,
+              "time": 1052
             },
             {
-              "key": 256,
-              "value": 1052
+              "address": 256,
+              "channel": 1,
+              "time": 1052
             },
             {
-              "key": 257,
-              "value": 1058
+              "address": 257,
+              "channel": 2,
+              "time": 1058
             },
             {
-              "key": 258,
-              "value": 1061
+              "address": 258,
+              "channel": 0,
+              "time": 1061
             },
             {
-              "key": 259,
-              "value": 1063
+              "address": 259,
+              "channel": 2,
+              "time": 1063
             },
             {
-              "key": 260,
-              "value": 1063
+              "address": 260,
+              "channel": 1,
+              "time": 1063
             },
             {
-              "key": 261,
-              "value": 1068
+              "address": 261,
+              "channel": 0,
+              "time": 1068
             },
             {
-              "key": 262,
-              "value": 1071
+              "address": 262,
+              "channel": 0,
+              "time": 1071
             },
             {
-              "key": 263,
-              "value": 1073
+              "address": 263,
+              "channel": 2,
+              "time": 1073
             },
             {
-              "key": 264,
-              "value": 1083
+              "address": 264,
+              "channel": 1,
+              "time": 1083
             },
             {
-              "key": 265,
-              "value": 1088
+              "address": 265,
+              "channel": 2,
+              "time": 1088
             },
             {
-              "key": 266,
-              "value": 1097
+              "address": 266,
+              "channel": 2,
+              "time": 1097
             },
             {
-              "key": 267,
-              "value": 1105
+              "address": 267,
+              "channel": 1,
+              "time": 1105
             },
             {
-              "key": 268,
-              "value": 1105
+              "address": 268,
+              "channel": 3,
+              "time": 1105
             },
             {
-              "key": 269,
-              "value": 1112
+              "address": 269,
+              "channel": 3,
+              "time": 1112
             },
             {
-              "key": 270,
-              "value": 1115
+              "address": 270,
+              "channel": 3,
+              "time": 1115
             },
             {
-              "key": 271,
-              "value": 1118
+              "address": 271,
+              "channel": 0,
+              "time": 1118
             },
             {
-              "key": 272,
-              "value": 1128
+              "address": 272,
+              "channel": 2,
+              "time": 1128
             },
             {
-              "key": 273,
-              "value": 1131
+              "address": 273,
+              "channel": 0,
+              "time": 1131
             },
             {
-              "key": 274,
-              "value": 1130
+              "address": 274,
+              "channel": 3,
+              "time": 1130
             },
             {
-              "key": 275,
-              "value": 1140
+              "address": 275,
+              "channel": 1,
+              "time": 1140
             },
             {
-              "key": 276,
-              "value": 1141
+              "address": 276,
+              "channel": 2,
+              "time": 1141
             },
             {
-              "key": 277,
-              "value": 1148
+              "address": 277,
+              "channel": 3,
+              "time": 1148
             },
             {
-              "key": 278,
-              "value": 1151
+              "address": 278,
+              "channel": 0,
+              "time": 1151
             },
             {
-              "key": 279,
-              "value": 1149
+              "address": 279,
+              "channel": 1,
+              "time": 1149
             },
             {
-              "key": 280,
-              "value": 1154
+              "address": 280,
+              "channel": 1,
+              "time": 1154
             },
             {
-              "key": 281,
-              "value": 1156
+              "address": 281,
+              "channel": 1,
+              "time": 1156
             },
             {
-              "key": 282,
-              "value": 1166
+              "address": 282,
+              "channel": 2,
+              "time": 1166
             },
             {
-              "key": 283,
-              "value": 1171
+              "address": 283,
+              "channel": 0,
+              "time": 1171
             },
             {
-              "key": 284,
-              "value": 1171
+              "address": 284,
+              "channel": 2,
+              "time": 1171
             },
             {
-              "key": 285,
-              "value": 1177
+              "address": 285,
+              "channel": 2,
+              "time": 1177
             },
             {
-              "key": 286,
-              "value": 1185
+              "address": 286,
+              "channel": 3,
+              "time": 1185
             },
             {
-              "key": 287,
-              "value": 1185
+              "address": 287,
+              "channel": 1,
+              "time": 1185
             },
             {
-              "key": 288,
-              "value": 1190
+              "address": 288,
+              "channel": 3,
+              "time": 1190
             },
             {
-              "key": 289,
-              "value": 1188
+              "address": 289,
+              "channel": 3,
+              "time": 1188
             },
             {
-              "key": 290,
-              "value": 1196
+              "address": 290,
+              "channel": 0,
+              "time": 1196
             },
             {
-              "key": 291,
-              "value": 1203
+              "address": 291,
+              "channel": 0,
+              "time": 1203
             },
             {
-              "key": 292,
-              "value": 1201
+              "address": 292,
+              "channel": 0,
+              "time": 1201
             },
             {
-              "key": 293,
-              "value": 1211
+              "address": 293,
+              "channel": 1,
+              "time": 1211
             },
             {
-              "key": 294,
-              "value": 1218
+              "address": 294,
+              "channel": 1,
+              "time": 1218
             },
             {
-              "key": 295,
-              "value": 1218
+              "address": 295,
+              "channel": 0,
+              "time": 1218
             },
             {
-              "key": 296,
-              "value": 1223
+              "address": 296,
+              "channel": 2,
+              "time": 1223
             },
             {
-              "key": 297,
-              "value": 1232
+              "address": 297,
+              "channel": 0,
+              "time": 1232
             },
             {
-              "key": 298,
-              "value": 1233
+              "address": 298,
+              "channel": 2,
+              "time": 1233
             },
             {
-              "key": 299,
-              "value": 1233
+              "address": 299,
+              "channel": 0,
+              "time": 1233
             },
             {
-              "key": 300,
-              "value": 1231
+              "address": 300,
+              "channel": 3,
+              "time": 1231
             },
             {
-              "key": 301,
-              "value": 1229
+              "address": 301,
+              "channel": 2,
+              "time": 1229
             },
             {
-              "key": 302,
-              "value": 1232
+              "address": 302,
+              "channel": 3,
+              "time": 1232
             },
             {
-              "key": 303,
-              "value": 1234
+              "address": 303,
+              "channel": 3,
+              "time": 1234
             },
             {
-              "key": 304,
-              "value": 1232
+              "address": 304,
+              "channel": 1,
+              "time": 1232
             },
             {
-              "key": 305,
-              "value": 1232
+              "address": 305,
+              "channel": 2,
+              "time": 1232
             },
             {
-              "key": 306,
-              "value": 1234
+              "address": 306,
+              "channel": 0,
+              "time": 1234
             },
             {
-              "key": 307,
-              "value": 1244
+              "address": 307,
+              "channel": 2,
+              "time": 1244
             },
             {
-              "key": 308,
-              "value": 1242
+              "address": 308,
+              "channel": 3,
+              "time": 1242
             },
             {
-              "key": 309,
-              "value": 1244
+              "address": 309,
+              "channel": 1,
+              "time": 1244
             },
             {
-              "key": 310,
-              "value": 1243
+              "address": 310,
+              "channel": 0,
+              "time": 1243
             },
             {
-              "key": 311,
-              "value": 1243
+              "address": 311,
+              "channel": 2,
+              "time": 1243
             },
             {
-              "key": 312,
-              "value": 1245
+              "address": 312,
+              "channel": 3,
+              "time": 1245
             },
             {
-              "key": 313,
-              "value": 1246
+              "address": 313,
+              "channel": 0,
+              "time": 1246
             },
             {
-              "key": 314,
-              "value": 1256
+              "address": 314,
+              "channel": 0,
+              "time": 1256
             },
             {
-              "key": 315,
-              "value": 1265
+              "address": 315,
+              "channel": 1,
+              "time": 1265
             },
             {
-              "key": 316,
-              "value": 1272
+              "address": 316,
+              "channel": 1,
+              "time": 1272
             },
             {
-              "key": 317,
-              "value": 1280
+              "address": 317,
+              "channel": 3,
+              "time": 1280
             },
             {
-              "key": 318,
-              "value": 1289
+              "address": 318,
+              "channel": 2,
+              "time": 1289
             },
             {
-              "key": 319,
-              "value": 1294
+              "address": 319,
+              "channel": 0,
+              "time": 1294
             },
             {
-              "key": 320,
-              "value": 1302
+              "address": 320,
+              "channel": 2,
+              "time": 1302
             },
             {
-              "key": 321,
-              "value": 1306
+              "address": 321,
+              "channel": 3,
+              "time": 1306
             },
             {
-              "key": 322,
-              "value": 1311
+              "address": 322,
+              "channel": 1,
+              "time": 1311
             },
             {
-              "key": 323,
-              "value": 1314
+              "address": 323,
+              "channel": 1,
+              "time": 1314
             },
             {
-              "key": 324,
-              "value": 1323
+              "address": 324,
+              "channel": 0,
+              "time": 1323
             },
             {
-              "key": 325,
-              "value": 1328
+              "address": 325,
+              "channel": 0,
+              "time": 1328
             },
             {
-              "key": 326,
-              "value": 1338
+              "address": 326,
+              "channel": 0,
+              "time": 1338
             },
             {
-              "key": 327,
-              "value": 1347
+              "address": 327,
+              "channel": 2,
+              "time": 1347
             },
             {
-              "key": 328,
-              "value": 1357
+              "address": 328,
+              "channel": 2,
+              "time": 1357
             },
             {
-              "key": 329,
-              "value": 1363
+              "address": 329,
+              "channel": 0,
+              "time": 1363
             },
             {
-              "key": 330,
-              "value": 1363
+              "address": 330,
+              "channel": 3,
+              "time": 1363
             },
             {
-              "key": 331,
-              "value": 1368
+              "address": 331,
+              "channel": 0,
+              "time": 1368
             },
             {
-              "key": 332,
-              "value": 1378
+              "address": 332,
+              "channel": 0,
+              "time": 1378
             },
             {
-              "key": 333,
-              "value": 1385
+              "address": 333,
+              "channel": 3,
+              "time": 1385
             },
             {
-              "key": 334,
-              "value": 1384
+              "address": 334,
+              "channel": 2,
+              "time": 1384
             },
             {
-              "key": 335,
-              "value": 1392
+              "address": 335,
+              "channel": 2,
+              "time": 1392
             }
           ]
         }
@@ -2247,1686 +2712,2106 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 0
+              "address": 0,
+              "channel": 4,
+              "time": 0
             },
             {
-              "key": 1,
-              "value": 7
+              "address": 1,
+              "channel": 8,
+              "time": 7
             },
             {
-              "key": 2,
-              "value": 17
+              "address": 2,
+              "channel": 0,
+              "time": 17
             },
             {
-              "key": 3,
-              "value": 16
+              "address": 3,
+              "channel": 5,
+              "time": 16
             },
             {
-              "key": 4,
-              "value": 21
+              "address": 4,
+              "channel": 6,
+              "time": 21
             },
             {
-              "key": 5,
-              "value": 24
+              "address": 5,
+              "channel": 5,
+              "time": 24
             },
             {
-              "key": 6,
-              "value": 33
+              "address": 6,
+              "channel": 5,
+              "time": 33
             },
             {
-              "key": 7,
-              "value": 42
+              "address": 7,
+              "channel": 4,
+              "time": 42
             },
             {
-              "key": 8,
-              "value": 52
+              "address": 8,
+              "channel": 9,
+              "time": 52
             },
             {
-              "key": 9,
-              "value": 62
+              "address": 9,
+              "channel": 1,
+              "time": 62
             },
             {
-              "key": 10,
-              "value": 64
+              "address": 10,
+              "channel": 5,
+              "time": 64
             },
             {
-              "key": 11,
-              "value": 64
+              "address": 11,
+              "channel": 3,
+              "time": 64
             },
             {
-              "key": 12,
-              "value": 65
+              "address": 12,
+              "channel": 9,
+              "time": 65
             },
             {
-              "key": 13,
-              "value": 75
+              "address": 13,
+              "channel": 2,
+              "time": 75
             },
             {
-              "key": 14,
-              "value": 83
+              "address": 14,
+              "channel": 6,
+              "time": 83
             },
             {
-              "key": 15,
-              "value": 91
+              "address": 15,
+              "channel": 5,
+              "time": 91
             },
             {
-              "key": 16,
-              "value": 98
+              "address": 16,
+              "channel": 5,
+              "time": 98
             },
             {
-              "key": 17,
-              "value": 107
+              "address": 17,
+              "channel": 6,
+              "time": 107
             },
             {
-              "key": 18,
-              "value": 111
+              "address": 18,
+              "channel": 1,
+              "time": 111
             },
             {
-              "key": 19,
-              "value": 114
+              "address": 19,
+              "channel": 1,
+              "time": 114
             },
             {
-              "key": 20,
-              "value": 123
+              "address": 20,
+              "channel": 9,
+              "time": 123
             },
             {
-              "key": 21,
-              "value": 133
+              "address": 21,
+              "channel": 8,
+              "time": 133
             },
             {
-              "key": 22,
-              "value": 142
+              "address": 22,
+              "channel": 7,
+              "time": 142
             },
             {
-              "key": 23,
-              "value": 142
+              "address": 23,
+              "channel": 2,
+              "time": 142
             },
             {
-              "key": 24,
-              "value": 141
+              "address": 24,
+              "channel": 0,
+              "time": 141
             },
             {
-              "key": 25,
-              "value": 146
+              "address": 25,
+              "channel": 6,
+              "time": 146
             },
             {
-              "key": 26,
-              "value": 148
+              "address": 26,
+              "channel": 9,
+              "time": 148
             },
             {
-              "key": 27,
-              "value": 147
+              "address": 27,
+              "channel": 3,
+              "time": 147
             },
             {
-              "key": 28,
-              "value": 150
+              "address": 28,
+              "channel": 2,
+              "time": 150
             },
             {
-              "key": 29,
-              "value": 158
+              "address": 29,
+              "channel": 0,
+              "time": 158
             },
             {
-              "key": 30,
-              "value": 165
+              "address": 30,
+              "channel": 5,
+              "time": 165
             },
             {
-              "key": 31,
-              "value": 165
+              "address": 31,
+              "channel": 6,
+              "time": 165
             },
             {
-              "key": 32,
-              "value": 173
+              "address": 32,
+              "channel": 0,
+              "time": 173
             },
             {
-              "key": 33,
-              "value": 172
+              "address": 33,
+              "channel": 3,
+              "time": 172
             },
             {
-              "key": 34,
-              "value": 177
+              "address": 34,
+              "channel": 0,
+              "time": 177
             },
             {
-              "key": 35,
-              "value": 185
+              "address": 35,
+              "channel": 6,
+              "time": 185
             },
             {
-              "key": 36,
-              "value": 192
+              "address": 36,
+              "channel": 5,
+              "time": 192
             },
             {
-              "key": 37,
-              "value": 199
+              "address": 37,
+              "channel": 5,
+              "time": 199
             },
             {
-              "key": 38,
-              "value": 202
+              "address": 38,
+              "channel": 6,
+              "time": 202
             },
             {
-              "key": 39,
-              "value": 202
+              "address": 39,
+              "channel": 0,
+              "time": 202
             },
             {
-              "key": 40,
-              "value": 203
+              "address": 40,
+              "channel": 9,
+              "time": 203
             },
             {
-              "key": 41,
-              "value": 204
+              "address": 41,
+              "channel": 4,
+              "time": 204
             },
             {
-              "key": 42,
-              "value": 207
+              "address": 42,
+              "channel": 1,
+              "time": 207
             },
             {
-              "key": 43,
-              "value": 215
+              "address": 43,
+              "channel": 7,
+              "time": 215
             },
             {
-              "key": 44,
-              "value": 222
+              "address": 44,
+              "channel": 4,
+              "time": 222
             },
             {
-              "key": 45,
-              "value": 220
+              "address": 45,
+              "channel": 7,
+              "time": 220
             },
             {
-              "key": 46,
-              "value": 223
+              "address": 46,
+              "channel": 9,
+              "time": 223
             },
             {
-              "key": 47,
-              "value": 226
+              "address": 47,
+              "channel": 7,
+              "time": 226
             },
             {
-              "key": 48,
-              "value": 225
+              "address": 48,
+              "channel": 0,
+              "time": 225
             },
             {
-              "key": 49,
-              "value": 232
+              "address": 49,
+              "channel": 4,
+              "time": 232
             },
             {
-              "key": 50,
-              "value": 238
+              "address": 50,
+              "channel": 9,
+              "time": 238
             },
             {
-              "key": 51,
-              "value": 242
+              "address": 51,
+              "channel": 8,
+              "time": 242
             },
             {
-              "key": 52,
-              "value": 249
+              "address": 52,
+              "channel": 6,
+              "time": 249
             },
             {
-              "key": 53,
-              "value": 250
+              "address": 53,
+              "channel": 4,
+              "time": 250
             },
             {
-              "key": 54,
-              "value": 256
+              "address": 54,
+              "channel": 3,
+              "time": 256
             },
             {
-              "key": 55,
-              "value": 260
+              "address": 55,
+              "channel": 5,
+              "time": 260
             },
             {
-              "key": 56,
-              "value": 269
+              "address": 56,
+              "channel": 6,
+              "time": 269
             },
             {
-              "key": 57,
-              "value": 274
+              "address": 57,
+              "channel": 1,
+              "time": 274
             },
             {
-              "key": 58,
-              "value": 278
+              "address": 58,
+              "channel": 6,
+              "time": 278
             },
             {
-              "key": 59,
-              "value": 280
+              "address": 59,
+              "channel": 2,
+              "time": 280
             },
             {
-              "key": 60,
-              "value": 282
+              "address": 60,
+              "channel": 6,
+              "time": 282
             },
             {
-              "key": 61,
-              "value": 288
+              "address": 61,
+              "channel": 5,
+              "time": 288
             },
             {
-              "key": 62,
-              "value": 297
+              "address": 62,
+              "channel": 6,
+              "time": 297
             },
             {
-              "key": 63,
-              "value": 297
+              "address": 63,
+              "channel": 7,
+              "time": 297
             },
             {
-              "key": 64,
-              "value": 307
+              "address": 64,
+              "channel": 2,
+              "time": 307
             },
             {
-              "key": 65,
-              "value": 313
+              "address": 65,
+              "channel": 1,
+              "time": 313
             },
             {
-              "key": 66,
-              "value": 319
+              "address": 66,
+              "channel": 2,
+              "time": 319
             },
             {
-              "key": 67,
-              "value": 320
+              "address": 67,
+              "channel": 8,
+              "time": 320
             },
             {
-              "key": 68,
-              "value": 320
+              "address": 68,
+              "channel": 3,
+              "time": 320
             },
             {
-              "key": 69,
-              "value": 330
+              "address": 69,
+              "channel": 5,
+              "time": 330
             },
             {
-              "key": 70,
-              "value": 332
+              "address": 70,
+              "channel": 0,
+              "time": 332
             },
             {
-              "key": 71,
-              "value": 337
+              "address": 71,
+              "channel": 9,
+              "time": 337
             },
             {
-              "key": 72,
-              "value": 342
+              "address": 72,
+              "channel": 2,
+              "time": 342
             },
             {
-              "key": 73,
-              "value": 340
+              "address": 73,
+              "channel": 0,
+              "time": 340
             },
             {
-              "key": 74,
-              "value": 345
+              "address": 74,
+              "channel": 2,
+              "time": 345
             },
             {
-              "key": 75,
-              "value": 354
+              "address": 75,
+              "channel": 1,
+              "time": 354
             },
             {
-              "key": 76,
-              "value": 355
+              "address": 76,
+              "channel": 0,
+              "time": 355
             },
             {
-              "key": 77,
-              "value": 359
+              "address": 77,
+              "channel": 1,
+              "time": 359
             },
             {
-              "key": 78,
-              "value": 367
+              "address": 78,
+              "channel": 7,
+              "time": 367
             },
             {
-              "key": 79,
-              "value": 372
+              "address": 79,
+              "channel": 2,
+              "time": 372
             },
             {
-              "key": 80,
-              "value": 381
+              "address": 80,
+              "channel": 5,
+              "time": 381
             },
             {
-              "key": 81,
-              "value": 380
+              "address": 81,
+              "channel": 6,
+              "time": 380
             },
             {
-              "key": 82,
-              "value": 379
+              "address": 82,
+              "channel": 7,
+              "time": 379
             },
             {
-              "key": 83,
-              "value": 380
+              "address": 83,
+              "channel": 1,
+              "time": 380
             },
             {
-              "key": 84,
-              "value": 386
+              "address": 84,
+              "channel": 2,
+              "time": 386
             },
             {
-              "key": 85,
-              "value": 393
+              "address": 85,
+              "channel": 1,
+              "time": 393
             },
             {
-              "key": 86,
-              "value": 401
+              "address": 86,
+              "channel": 4,
+              "time": 401
             },
             {
-              "key": 87,
-              "value": 411
+              "address": 87,
+              "channel": 6,
+              "time": 411
             },
             {
-              "key": 88,
-              "value": 421
+              "address": 88,
+              "channel": 7,
+              "time": 421
             },
             {
-              "key": 89,
-              "value": 426
+              "address": 89,
+              "channel": 5,
+              "time": 426
             },
             {
-              "key": 90,
-              "value": 430
+              "address": 90,
+              "channel": 4,
+              "time": 430
             },
             {
-              "key": 91,
-              "value": 432
+              "address": 91,
+              "channel": 3,
+              "time": 432
             },
             {
-              "key": 92,
-              "value": 438
+              "address": 92,
+              "channel": 3,
+              "time": 438
             },
             {
-              "key": 93,
-              "value": 436
+              "address": 93,
+              "channel": 6,
+              "time": 436
             },
             {
-              "key": 94,
-              "value": 437
+              "address": 94,
+              "channel": 8,
+              "time": 437
             },
             {
-              "key": 95,
-              "value": 436
+              "address": 95,
+              "channel": 5,
+              "time": 436
             },
             {
-              "key": 96,
-              "value": 436
+              "address": 96,
+              "channel": 3,
+              "time": 436
             },
             {
-              "key": 97,
-              "value": 434
+              "address": 97,
+              "channel": 6,
+              "time": 434
             },
             {
-              "key": 98,
-              "value": 440
+              "address": 98,
+              "channel": 0,
+              "time": 440
             },
             {
-              "key": 99,
-              "value": 440
+              "address": 99,
+              "channel": 2,
+              "time": 440
             },
             {
-              "key": 100,
-              "value": 450
+              "address": 100,
+              "channel": 4,
+              "time": 450
             },
             {
-              "key": 101,
-              "value": 456
+              "address": 101,
+              "channel": 3,
+              "time": 456
             },
             {
-              "key": 102,
-              "value": 463
+              "address": 102,
+              "channel": 9,
+              "time": 463
             },
             {
-              "key": 103,
-              "value": 461
+              "address": 103,
+              "channel": 3,
+              "time": 461
             },
             {
-              "key": 104,
-              "value": 469
+              "address": 104,
+              "channel": 4,
+              "time": 469
             },
             {
-              "key": 105,
-              "value": 479
+              "address": 105,
+              "channel": 4,
+              "time": 479
             },
             {
-              "key": 106,
-              "value": 482
+              "address": 106,
+              "channel": 7,
+              "time": 482
             },
             {
-              "key": 107,
-              "value": 480
+              "address": 107,
+              "channel": 0,
+              "time": 480
             },
             {
-              "key": 108,
-              "value": 488
+              "address": 108,
+              "channel": 0,
+              "time": 488
             },
             {
-              "key": 109,
-              "value": 486
+              "address": 109,
+              "channel": 3,
+              "time": 486
             },
             {
-              "key": 110,
-              "value": 496
+              "address": 110,
+              "channel": 4,
+              "time": 496
             },
             {
-              "key": 111,
-              "value": 504
+              "address": 111,
+              "channel": 8,
+              "time": 504
             },
             {
-              "key": 112,
-              "value": 502
+              "address": 112,
+              "channel": 9,
+              "time": 502
             },
             {
-              "key": 113,
-              "value": 508
+              "address": 113,
+              "channel": 0,
+              "time": 508
             },
             {
-              "key": 114,
-              "value": 508
+              "address": 114,
+              "channel": 3,
+              "time": 508
             },
             {
-              "key": 115,
-              "value": 515
+              "address": 115,
+              "channel": 2,
+              "time": 515
             },
             {
-              "key": 116,
-              "value": 515
+              "address": 116,
+              "channel": 4,
+              "time": 515
             },
             {
-              "key": 117,
-              "value": 515
+              "address": 117,
+              "channel": 7,
+              "time": 515
             },
             {
-              "key": 118,
-              "value": 514
+              "address": 118,
+              "channel": 8,
+              "time": 514
             },
             {
-              "key": 119,
-              "value": 513
+              "address": 119,
+              "channel": 2,
+              "time": 513
             },
             {
-              "key": 120,
-              "value": 518
+              "address": 120,
+              "channel": 1,
+              "time": 518
             },
             {
-              "key": 121,
-              "value": 521
+              "address": 121,
+              "channel": 4,
+              "time": 521
             },
             {
-              "key": 122,
-              "value": 524
+              "address": 122,
+              "channel": 8,
+              "time": 524
             },
             {
-              "key": 123,
-              "value": 530
+              "address": 123,
+              "channel": 5,
+              "time": 530
             },
             {
-              "key": 124,
-              "value": 530
+              "address": 124,
+              "channel": 3,
+              "time": 530
             },
             {
-              "key": 125,
-              "value": 531
+              "address": 125,
+              "channel": 7,
+              "time": 531
             },
             {
-              "key": 126,
-              "value": 536
+              "address": 126,
+              "channel": 5,
+              "time": 536
             },
             {
-              "key": 127,
-              "value": 546
+              "address": 127,
+              "channel": 7,
+              "time": 546
             },
             {
-              "key": 128,
-              "value": 551
+              "address": 128,
+              "channel": 6,
+              "time": 551
             },
             {
-              "key": 129,
-              "value": 550
+              "address": 129,
+              "channel": 7,
+              "time": 550
             },
             {
-              "key": 130,
-              "value": 551
+              "address": 130,
+              "channel": 3,
+              "time": 551
             },
             {
-              "key": 131,
-              "value": 560
+              "address": 131,
+              "channel": 0,
+              "time": 560
             },
             {
-              "key": 132,
-              "value": 564
+              "address": 132,
+              "channel": 6,
+              "time": 564
             },
             {
-              "key": 133,
-              "value": 572
+              "address": 133,
+              "channel": 8,
+              "time": 572
             },
             {
-              "key": 134,
-              "value": 579
+              "address": 134,
+              "channel": 7,
+              "time": 579
             },
             {
-              "key": 135,
-              "value": 583
+              "address": 135,
+              "channel": 4,
+              "time": 583
             },
             {
-              "key": 136,
-              "value": 592
+              "address": 136,
+              "channel": 3,
+              "time": 592
             },
             {
-              "key": 137,
-              "value": 593
+              "address": 137,
+              "channel": 3,
+              "time": 593
             },
             {
-              "key": 138,
-              "value": 600
+              "address": 138,
+              "channel": 9,
+              "time": 600
             },
             {
-              "key": 139,
-              "value": 609
+              "address": 139,
+              "channel": 0,
+              "time": 609
             },
             {
-              "key": 140,
-              "value": 609
+              "address": 140,
+              "channel": 1,
+              "time": 609
             },
             {
-              "key": 141,
-              "value": 613
+              "address": 141,
+              "channel": 7,
+              "time": 613
             },
             {
-              "key": 142,
-              "value": 616
+              "address": 142,
+              "channel": 9,
+              "time": 616
             },
             {
-              "key": 143,
-              "value": 614
+              "address": 143,
+              "channel": 4,
+              "time": 614
             },
             {
-              "key": 144,
-              "value": 614
+              "address": 144,
+              "channel": 7,
+              "time": 614
             },
             {
-              "key": 145,
-              "value": 618
+              "address": 145,
+              "channel": 1,
+              "time": 618
             },
             {
-              "key": 146,
-              "value": 624
+              "address": 146,
+              "channel": 5,
+              "time": 624
             },
             {
-              "key": 147,
-              "value": 630
+              "address": 147,
+              "channel": 3,
+              "time": 630
             },
             {
-              "key": 148,
-              "value": 628
+              "address": 148,
+              "channel": 2,
+              "time": 628
             },
             {
-              "key": 149,
-              "value": 629
+              "address": 149,
+              "channel": 4,
+              "time": 629
             },
             {
-              "key": 150,
-              "value": 637
+              "address": 150,
+              "channel": 5,
+              "time": 637
             },
             {
-              "key": 151,
-              "value": 647
+              "address": 151,
+              "channel": 1,
+              "time": 647
             },
             {
-              "key": 152,
-              "value": 656
+              "address": 152,
+              "channel": 5,
+              "time": 656
             },
             {
-              "key": 153,
-              "value": 665
+              "address": 153,
+              "channel": 0,
+              "time": 665
             },
             {
-              "key": 154,
-              "value": 671
+              "address": 154,
+              "channel": 7,
+              "time": 671
             },
             {
-              "key": 155,
-              "value": 675
+              "address": 155,
+              "channel": 8,
+              "time": 675
             },
             {
-              "key": 156,
-              "value": 676
+              "address": 156,
+              "channel": 5,
+              "time": 676
             },
             {
-              "key": 157,
-              "value": 678
+              "address": 157,
+              "channel": 7,
+              "time": 678
             },
             {
-              "key": 158,
-              "value": 684
+              "address": 158,
+              "channel": 7,
+              "time": 684
             },
             {
-              "key": 159,
-              "value": 689
+              "address": 159,
+              "channel": 8,
+              "time": 689
             },
             {
-              "key": 160,
-              "value": 698
+              "address": 160,
+              "channel": 7,
+              "time": 698
             },
             {
-              "key": 161,
-              "value": 708
+              "address": 161,
+              "channel": 7,
+              "time": 708
             },
             {
-              "key": 162,
-              "value": 709
+              "address": 162,
+              "channel": 6,
+              "time": 709
             },
             {
-              "key": 163,
-              "value": 711
+              "address": 163,
+              "channel": 6,
+              "time": 711
             },
             {
-              "key": 164,
-              "value": 717
+              "address": 164,
+              "channel": 0,
+              "time": 717
             },
             {
-              "key": 165,
-              "value": 723
+              "address": 165,
+              "channel": 3,
+              "time": 723
             },
             {
-              "key": 166,
-              "value": 732
+              "address": 166,
+              "channel": 8,
+              "time": 732
             },
             {
-              "key": 167,
-              "value": 737
+              "address": 167,
+              "channel": 0,
+              "time": 737
             },
             {
-              "key": 168,
-              "value": 740
+              "address": 168,
+              "channel": 7,
+              "time": 740
             },
             {
-              "key": 169,
-              "value": 748
+              "address": 169,
+              "channel": 6,
+              "time": 748
             },
             {
-              "key": 170,
-              "value": 756
+              "address": 170,
+              "channel": 8,
+              "time": 756
             },
             {
-              "key": 171,
-              "value": 766
+              "address": 171,
+              "channel": 2,
+              "time": 766
             },
             {
-              "key": 172,
-              "value": 766
+              "address": 172,
+              "channel": 5,
+              "time": 766
             },
             {
-              "key": 173,
-              "value": 772
+              "address": 173,
+              "channel": 0,
+              "time": 772
             },
             {
-              "key": 174,
-              "value": 771
+              "address": 174,
+              "channel": 8,
+              "time": 771
             },
             {
-              "key": 175,
-              "value": 774
+              "address": 175,
+              "channel": 2,
+              "time": 774
             },
             {
-              "key": 176,
-              "value": 774
+              "address": 176,
+              "channel": 8,
+              "time": 774
             },
             {
-              "key": 177,
-              "value": 779
+              "address": 177,
+              "channel": 2,
+              "time": 779
             },
             {
-              "key": 178,
-              "value": 789
+              "address": 178,
+              "channel": 1,
+              "time": 789
             },
             {
-              "key": 179,
-              "value": 787
+              "address": 179,
+              "channel": 6,
+              "time": 787
             },
             {
-              "key": 180,
-              "value": 787
+              "address": 180,
+              "channel": 4,
+              "time": 787
             },
             {
-              "key": 181,
-              "value": 796
+              "address": 181,
+              "channel": 3,
+              "time": 796
             },
             {
-              "key": 182,
-              "value": 802
+              "address": 182,
+              "channel": 8,
+              "time": 802
             },
             {
-              "key": 183,
-              "value": 811
+              "address": 183,
+              "channel": 9,
+              "time": 811
             },
             {
-              "key": 184,
-              "value": 811
+              "address": 184,
+              "channel": 8,
+              "time": 811
             },
             {
-              "key": 185,
-              "value": 816
+              "address": 185,
+              "channel": 4,
+              "time": 816
             },
             {
-              "key": 186,
-              "value": 820
+              "address": 186,
+              "channel": 2,
+              "time": 820
             },
             {
-              "key": 187,
-              "value": 825
+              "address": 187,
+              "channel": 7,
+              "time": 825
             },
             {
-              "key": 188,
-              "value": 825
+              "address": 188,
+              "channel": 0,
+              "time": 825
             },
             {
-              "key": 189,
-              "value": 823
+              "address": 189,
+              "channel": 3,
+              "time": 823
             },
             {
-              "key": 190,
-              "value": 831
+              "address": 190,
+              "channel": 3,
+              "time": 831
             },
             {
-              "key": 191,
-              "value": 831
+              "address": 191,
+              "channel": 6,
+              "time": 831
             },
             {
-              "key": 192,
-              "value": 839
+              "address": 192,
+              "channel": 5,
+              "time": 839
             },
             {
-              "key": 193,
-              "value": 849
+              "address": 193,
+              "channel": 7,
+              "time": 849
             },
             {
-              "key": 194,
-              "value": 847
+              "address": 194,
+              "channel": 5,
+              "time": 847
             },
             {
-              "key": 195,
-              "value": 856
+              "address": 195,
+              "channel": 1,
+              "time": 856
             },
             {
-              "key": 196,
-              "value": 863
+              "address": 196,
+              "channel": 3,
+              "time": 863
             },
             {
-              "key": 197,
-              "value": 865
+              "address": 197,
+              "channel": 7,
+              "time": 865
             },
             {
-              "key": 198,
-              "value": 875
+              "address": 198,
+              "channel": 1,
+              "time": 875
             },
             {
-              "key": 199,
-              "value": 875
+              "address": 199,
+              "channel": 7,
+              "time": 875
             },
             {
-              "key": 200,
-              "value": 883
+              "address": 200,
+              "channel": 9,
+              "time": 883
             },
             {
-              "key": 201,
-              "value": 886
+              "address": 201,
+              "channel": 6,
+              "time": 886
             },
             {
-              "key": 202,
-              "value": 895
+              "address": 202,
+              "channel": 8,
+              "time": 895
             },
             {
-              "key": 203,
-              "value": 897
+              "address": 203,
+              "channel": 9,
+              "time": 897
             },
             {
-              "key": 204,
-              "value": 902
+              "address": 204,
+              "channel": 5,
+              "time": 902
             },
             {
-              "key": 205,
-              "value": 909
+              "address": 205,
+              "channel": 1,
+              "time": 909
             },
             {
-              "key": 206,
-              "value": 918
+              "address": 206,
+              "channel": 9,
+              "time": 918
             },
             {
-              "key": 207,
-              "value": 928
+              "address": 207,
+              "channel": 2,
+              "time": 928
             },
             {
-              "key": 208,
-              "value": 932
+              "address": 208,
+              "channel": 4,
+              "time": 932
             },
             {
-              "key": 209,
-              "value": 934
+              "address": 209,
+              "channel": 5,
+              "time": 934
             },
             {
-              "key": 210,
-              "value": 942
+              "address": 210,
+              "channel": 8,
+              "time": 942
             },
             {
-              "key": 211,
-              "value": 943
+              "address": 211,
+              "channel": 2,
+              "time": 943
             },
             {
-              "key": 212,
-              "value": 947
+              "address": 212,
+              "channel": 9,
+              "time": 947
             },
             {
-              "key": 213,
-              "value": 946
+              "address": 213,
+              "channel": 7,
+              "time": 946
             },
             {
-              "key": 214,
-              "value": 955
+              "address": 214,
+              "channel": 0,
+              "time": 955
             },
             {
-              "key": 215,
-              "value": 964
+              "address": 215,
+              "channel": 2,
+              "time": 964
             },
             {
-              "key": 216,
-              "value": 965
+              "address": 216,
+              "channel": 4,
+              "time": 965
             },
             {
-              "key": 217,
-              "value": 966
+              "address": 217,
+              "channel": 5,
+              "time": 966
             },
             {
-              "key": 218,
-              "value": 966
+              "address": 218,
+              "channel": 0,
+              "time": 966
             },
             {
-              "key": 219,
-              "value": 973
+              "address": 219,
+              "channel": 8,
+              "time": 973
             },
             {
-              "key": 220,
-              "value": 982
+              "address": 220,
+              "channel": 7,
+              "time": 982
             },
             {
-              "key": 221,
-              "value": 981
+              "address": 221,
+              "channel": 8,
+              "time": 981
             },
             {
-              "key": 222,
-              "value": 981
+              "address": 222,
+              "channel": 2,
+              "time": 981
             },
             {
-              "key": 223,
-              "value": 990
+              "address": 223,
+              "channel": 4,
+              "time": 990
             },
             {
-              "key": 224,
-              "value": 996
+              "address": 224,
+              "channel": 2,
+              "time": 996
             },
             {
-              "key": 225,
-              "value": 998
+              "address": 225,
+              "channel": 3,
+              "time": 998
             },
             {
-              "key": 226,
-              "value": 996
+              "address": 226,
+              "channel": 9,
+              "time": 996
             },
             {
-              "key": 227,
-              "value": 994
+              "address": 227,
+              "channel": 3,
+              "time": 994
             },
             {
-              "key": 228,
-              "value": 993
+              "address": 228,
+              "channel": 3,
+              "time": 993
             },
             {
-              "key": 229,
-              "value": 998
+              "address": 229,
+              "channel": 4,
+              "time": 998
             },
             {
-              "key": 230,
-              "value": 1001
+              "address": 230,
+              "channel": 0,
+              "time": 1001
             },
             {
-              "key": 231,
-              "value": 1006
+              "address": 231,
+              "channel": 3,
+              "time": 1006
             },
             {
-              "key": 232,
-              "value": 1010
+              "address": 232,
+              "channel": 3,
+              "time": 1010
             },
             {
-              "key": 233,
-              "value": 1009
+              "address": 233,
+              "channel": 0,
+              "time": 1009
             },
             {
-              "key": 234,
-              "value": 1008
+              "address": 234,
+              "channel": 1,
+              "time": 1008
             },
             {
-              "key": 235,
-              "value": 1016
+              "address": 235,
+              "channel": 8,
+              "time": 1016
             },
             {
-              "key": 236,
-              "value": 1018
+              "address": 236,
+              "channel": 8,
+              "time": 1018
             },
             {
-              "key": 237,
-              "value": 1025
+              "address": 237,
+              "channel": 5,
+              "time": 1025
             },
             {
-              "key": 238,
-              "value": 1034
+              "address": 238,
+              "channel": 3,
+              "time": 1034
             },
             {
-              "key": 239,
-              "value": 1035
+              "address": 239,
+              "channel": 1,
+              "time": 1035
             },
             {
-              "key": 240,
-              "value": 1033
+              "address": 240,
+              "channel": 4,
+              "time": 1033
             },
             {
-              "key": 241,
-              "value": 1032
+              "address": 241,
+              "channel": 9,
+              "time": 1032
             },
             {
-              "key": 242,
-              "value": 1039
+              "address": 242,
+              "channel": 5,
+              "time": 1039
             },
             {
-              "key": 243,
-              "value": 1044
+              "address": 243,
+              "channel": 2,
+              "time": 1044
             },
             {
-              "key": 244,
-              "value": 1043
+              "address": 244,
+              "channel": 5,
+              "time": 1043
             },
             {
-              "key": 245,
-              "value": 1053
+              "address": 245,
+              "channel": 4,
+              "time": 1053
             },
             {
-              "key": 246,
-              "value": 1059
+              "address": 246,
+              "channel": 1,
+              "time": 1059
             },
             {
-              "key": 247,
-              "value": 1065
+              "address": 247,
+              "channel": 3,
+              "time": 1065
             },
             {
-              "key": 248,
-              "value": 1073
+              "address": 248,
+              "channel": 9,
+              "time": 1073
             },
             {
-              "key": 249,
-              "value": 1072
+              "address": 249,
+              "channel": 3,
+              "time": 1072
             },
             {
-              "key": 250,
-              "value": 1081
+              "address": 250,
+              "channel": 1,
+              "time": 1081
             },
             {
-              "key": 251,
-              "value": 1081
+              "address": 251,
+              "channel": 7,
+              "time": 1081
             },
             {
-              "key": 252,
-              "value": 1090
+              "address": 252,
+              "channel": 5,
+              "time": 1090
             },
             {
-              "key": 253,
-              "value": 1097
+              "address": 253,
+              "channel": 6,
+              "time": 1097
             },
             {
-              "key": 254,
-              "value": 1096
+              "address": 254,
+              "channel": 2,
+              "time": 1096
             },
             {
-              "key": 255,
-              "value": 1098
+              "address": 255,
+              "channel": 2,
+              "time": 1098
             },
             {
-              "key": 256,
-              "value": 1104
+              "address": 256,
+              "channel": 9,
+              "time": 1104
             },
             {
-              "key": 257,
-              "value": 1105
+              "address": 257,
+              "channel": 8,
+              "time": 1105
             },
             {
-              "key": 258,
-              "value": 1107
+              "address": 258,
+              "channel": 0,
+              "time": 1107
             },
             {
-              "key": 259,
-              "value": 1109
+              "address": 259,
+              "channel": 0,
+              "time": 1109
             },
             {
-              "key": 260,
-              "value": 1111
+              "address": 260,
+              "channel": 4,
+              "time": 1111
             },
             {
-              "key": 261,
-              "value": 1114
+              "address": 261,
+              "channel": 8,
+              "time": 1114
             },
             {
-              "key": 262,
-              "value": 1113
+              "address": 262,
+              "channel": 4,
+              "time": 1113
             },
             {
-              "key": 263,
-              "value": 1123
+              "address": 263,
+              "channel": 1,
+              "time": 1123
             },
             {
-              "key": 264,
-              "value": 1129
+              "address": 264,
+              "channel": 9,
+              "time": 1129
             },
             {
-              "key": 265,
-              "value": 1139
+              "address": 265,
+              "channel": 8,
+              "time": 1139
             },
             {
-              "key": 266,
-              "value": 1138
+              "address": 266,
+              "channel": 4,
+              "time": 1138
             },
             {
-              "key": 267,
-              "value": 1142
+              "address": 267,
+              "channel": 0,
+              "time": 1142
             },
             {
-              "key": 268,
-              "value": 1149
+              "address": 268,
+              "channel": 3,
+              "time": 1149
             },
             {
-              "key": 269,
-              "value": 1156
+              "address": 269,
+              "channel": 6,
+              "time": 1156
             },
             {
-              "key": 270,
-              "value": 1164
+              "address": 270,
+              "channel": 8,
+              "time": 1164
             },
             {
-              "key": 271,
-              "value": 1168
+              "address": 271,
+              "channel": 2,
+              "time": 1168
             },
             {
-              "key": 272,
-              "value": 1177
+              "address": 272,
+              "channel": 4,
+              "time": 1177
             },
             {
-              "key": 273,
-              "value": 1177
+              "address": 273,
+              "channel": 2,
+              "time": 1177
             },
             {
-              "key": 274,
-              "value": 1177
+              "address": 274,
+              "channel": 5,
+              "time": 1177
             },
             {
-              "key": 275,
-              "value": 1178
+              "address": 275,
+              "channel": 6,
+              "time": 1178
             },
             {
-              "key": 276,
-              "value": 1185
+              "address": 276,
+              "channel": 3,
+              "time": 1185
             },
             {
-              "key": 277,
-              "value": 1192
+              "address": 277,
+              "channel": 3,
+              "time": 1192
             },
             {
-              "key": 278,
-              "value": 1197
+              "address": 278,
+              "channel": 2,
+              "time": 1197
             },
             {
-              "key": 279,
-              "value": 1196
+              "address": 279,
+              "channel": 2,
+              "time": 1196
             },
             {
-              "key": 280,
-              "value": 1197
+              "address": 280,
+              "channel": 7,
+              "time": 1197
             },
             {
-              "key": 281,
-              "value": 1196
+              "address": 281,
+              "channel": 8,
+              "time": 1196
             },
             {
-              "key": 282,
-              "value": 1196
+              "address": 282,
+              "channel": 7,
+              "time": 1196
             },
             {
-              "key": 283,
-              "value": 1198
+              "address": 283,
+              "channel": 0,
+              "time": 1198
             },
             {
-              "key": 284,
-              "value": 1208
+              "address": 284,
+              "channel": 5,
+              "time": 1208
             },
             {
-              "key": 285,
-              "value": 1213
+              "address": 285,
+              "channel": 7,
+              "time": 1213
             },
             {
-              "key": 286,
-              "value": 1215
+              "address": 286,
+              "channel": 5,
+              "time": 1215
             },
             {
-              "key": 287,
-              "value": 1223
+              "address": 287,
+              "channel": 2,
+              "time": 1223
             },
             {
-              "key": 288,
-              "value": 1226
+              "address": 288,
+              "channel": 7,
+              "time": 1226
             },
             {
-              "key": 289,
-              "value": 1226
+              "address": 289,
+              "channel": 9,
+              "time": 1226
             },
             {
-              "key": 290,
-              "value": 1236
+              "address": 290,
+              "channel": 4,
+              "time": 1236
             },
             {
-              "key": 291,
-              "value": 1236
+              "address": 291,
+              "channel": 9,
+              "time": 1236
             },
             {
-              "key": 292,
-              "value": 1236
+              "address": 292,
+              "channel": 3,
+              "time": 1236
             },
             {
-              "key": 293,
-              "value": 1236
+              "address": 293,
+              "channel": 1,
+              "time": 1236
             },
             {
-              "key": 294,
-              "value": 1236
+              "address": 294,
+              "channel": 8,
+              "time": 1236
             },
             {
-              "key": 295,
-              "value": 1238
+              "address": 295,
+              "channel": 3,
+              "time": 1238
             },
             {
-              "key": 296,
-              "value": 1243
+              "address": 296,
+              "channel": 7,
+              "time": 1243
             },
             {
-              "key": 297,
-              "value": 1251
+              "address": 297,
+              "channel": 1,
+              "time": 1251
             },
             {
-              "key": 298,
-              "value": 1257
+              "address": 298,
+              "channel": 9,
+              "time": 1257
             },
             {
-              "key": 299,
-              "value": 1258
+              "address": 299,
+              "channel": 4,
+              "time": 1258
             },
             {
-              "key": 300,
-              "value": 1257
+              "address": 300,
+              "channel": 6,
+              "time": 1257
             },
             {
-              "key": 301,
-              "value": 1257
+              "address": 301,
+              "channel": 3,
+              "time": 1257
             },
             {
-              "key": 302,
-              "value": 1258
+              "address": 302,
+              "channel": 2,
+              "time": 1258
             },
             {
-              "key": 303,
-              "value": 1266
+              "address": 303,
+              "channel": 4,
+              "time": 1266
             },
             {
-              "key": 304,
-              "value": 1275
+              "address": 304,
+              "channel": 2,
+              "time": 1275
             },
             {
-              "key": 305,
-              "value": 1280
+              "address": 305,
+              "channel": 0,
+              "time": 1280
             },
             {
-              "key": 306,
-              "value": 1284
+              "address": 306,
+              "channel": 3,
+              "time": 1284
             },
             {
-              "key": 307,
-              "value": 1291
+              "address": 307,
+              "channel": 2,
+              "time": 1291
             },
             {
-              "key": 308,
-              "value": 1295
+              "address": 308,
+              "channel": 4,
+              "time": 1295
             },
             {
-              "key": 309,
-              "value": 1297
+              "address": 309,
+              "channel": 5,
+              "time": 1297
             },
             {
-              "key": 310,
-              "value": 1299
+              "address": 310,
+              "channel": 2,
+              "time": 1299
             },
             {
-              "key": 311,
-              "value": 1300
+              "address": 311,
+              "channel": 4,
+              "time": 1300
             },
             {
-              "key": 312,
-              "value": 1302
+              "address": 312,
+              "channel": 1,
+              "time": 1302
             },
             {
-              "key": 313,
-              "value": 1305
+              "address": 313,
+              "channel": 1,
+              "time": 1305
             },
             {
-              "key": 314,
-              "value": 1310
+              "address": 314,
+              "channel": 2,
+              "time": 1310
             },
             {
-              "key": 315,
-              "value": 1312
+              "address": 315,
+              "channel": 9,
+              "time": 1312
             },
             {
-              "key": 316,
-              "value": 1318
+              "address": 316,
+              "channel": 0,
+              "time": 1318
             },
             {
-              "key": 317,
-              "value": 1328
+              "address": 317,
+              "channel": 9,
+              "time": 1328
             },
             {
-              "key": 318,
-              "value": 1328
+              "address": 318,
+              "channel": 0,
+              "time": 1328
             },
             {
-              "key": 319,
-              "value": 1327
+              "address": 319,
+              "channel": 9,
+              "time": 1327
             },
             {
-              "key": 320,
-              "value": 1335
+              "address": 320,
+              "channel": 8,
+              "time": 1335
             },
             {
-              "key": 321,
-              "value": 1344
+              "address": 321,
+              "channel": 3,
+              "time": 1344
             },
             {
-              "key": 322,
-              "value": 1349
+              "address": 322,
+              "channel": 8,
+              "time": 1349
             },
             {
-              "key": 323,
-              "value": 1355
+              "address": 323,
+              "channel": 9,
+              "time": 1355
             },
             {
-              "key": 324,
-              "value": 1362
+              "address": 324,
+              "channel": 1,
+              "time": 1362
             },
             {
-              "key": 325,
-              "value": 1371
+              "address": 325,
+              "channel": 6,
+              "time": 1371
             },
             {
-              "key": 326,
-              "value": 1375
+              "address": 326,
+              "channel": 2,
+              "time": 1375
             },
             {
-              "key": 327,
-              "value": 1382
+              "address": 327,
+              "channel": 3,
+              "time": 1382
             },
             {
-              "key": 328,
-              "value": 1384
+              "address": 328,
+              "channel": 5,
+              "time": 1384
             },
             {
-              "key": 329,
-              "value": 1383
+              "address": 329,
+              "channel": 6,
+              "time": 1383
             },
             {
-              "key": 330,
-              "value": 1381
+              "address": 330,
+              "channel": 1,
+              "time": 1381
             },
             {
-              "key": 331,
-              "value": 1381
+              "address": 331,
+              "channel": 2,
+              "time": 1381
             },
             {
-              "key": 332,
-              "value": 1379
+              "address": 332,
+              "channel": 5,
+              "time": 1379
             },
             {
-              "key": 333,
-              "value": 1380
+              "address": 333,
+              "channel": 9,
+              "time": 1380
             },
             {
-              "key": 334,
-              "value": 1378
+              "address": 334,
+              "channel": 7,
+              "time": 1378
             },
             {
-              "key": 335,
-              "value": 1379
+              "address": 335,
+              "channel": 1,
+              "time": 1379
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 7
+              "address": 0,
+              "channel": 5,
+              "time": 7
             },
             {
-              "key": 1,
-              "value": 12
+              "address": 1,
+              "channel": 3,
+              "time": 12
             },
             {
-              "key": 2,
-              "value": 10
+              "address": 2,
+              "channel": 7,
+              "time": 10
             },
             {
-              "key": 3,
-              "value": 9
+              "address": 3,
+              "channel": 3,
+              "time": 9
             },
             {
-              "key": 4,
-              "value": 17
+              "address": 4,
+              "channel": 4,
+              "time": 17
             },
             {
-              "key": 5,
-              "value": 27
+              "address": 5,
+              "channel": 9,
+              "time": 27
             },
             {
-              "key": 6,
-              "value": 28
+              "address": 6,
+              "channel": 0,
+              "time": 28
             },
             {
-              "key": 7,
-              "value": 34
+              "address": 7,
+              "channel": 0,
+              "time": 34
             },
             {
-              "key": 8,
-              "value": 40
+              "address": 8,
+              "channel": 8,
+              "time": 40
             },
             {
-              "key": 9,
-              "value": 40
+              "address": 9,
+              "channel": 1,
+              "time": 40
             },
             {
-              "key": 10,
-              "value": 41
+              "address": 10,
+              "channel": 4,
+              "time": 41
             },
             {
-              "key": 11,
-              "value": 44
+              "address": 11,
+              "channel": 7,
+              "time": 44
             },
             {
-              "key": 12,
-              "value": 45
+              "address": 12,
+              "channel": 5,
+              "time": 45
             },
             {
-              "key": 13,
-              "value": 50
+              "address": 13,
+              "channel": 3,
+              "time": 50
             },
             {
-              "key": 14,
-              "value": 58
+              "address": 14,
+              "channel": 6,
+              "time": 58
             },
             {
-              "key": 15,
-              "value": 65
+              "address": 15,
+              "channel": 6,
+              "time": 65
             },
             {
-              "key": 16,
-              "value": 65
+              "address": 16,
+              "channel": 7,
+              "time": 65
             },
             {
-              "key": 17,
-              "value": 71
+              "address": 17,
+              "channel": 4,
+              "time": 71
             },
             {
-              "key": 18,
-              "value": 79
+              "address": 18,
+              "channel": 9,
+              "time": 79
             },
             {
-              "key": 19,
-              "value": 80
+              "address": 19,
+              "channel": 4,
+              "time": 80
             },
             {
-              "key": 20,
-              "value": 86
+              "address": 20,
+              "channel": 5,
+              "time": 86
             },
             {
-              "key": 21,
-              "value": 87
+              "address": 21,
+              "channel": 9,
+              "time": 87
             },
             {
-              "key": 22,
-              "value": 92
+              "address": 22,
+              "channel": 9,
+              "time": 92
             },
             {
-              "key": 23,
-              "value": 101
+              "address": 23,
+              "channel": 2,
+              "time": 101
             },
             {
-              "key": 24,
-              "value": 107
+              "address": 24,
+              "channel": 5,
+              "time": 107
             },
             {
-              "key": 25,
-              "value": 116
+              "address": 25,
+              "channel": 6,
+              "time": 116
             },
             {
-              "key": 26,
-              "value": 126
+              "address": 26,
+              "channel": 6,
+              "time": 126
             },
             {
-              "key": 27,
-              "value": 134
+              "address": 27,
+              "channel": 9,
+              "time": 134
             },
             {
-              "key": 28,
-              "value": 138
+              "address": 28,
+              "channel": 9,
+              "time": 138
             },
             {
-              "key": 29,
-              "value": 144
+              "address": 29,
+              "channel": 7,
+              "time": 144
             },
             {
-              "key": 30,
-              "value": 142
+              "address": 30,
+              "channel": 9,
+              "time": 142
             },
             {
-              "key": 31,
-              "value": 152
+              "address": 31,
+              "channel": 0,
+              "time": 152
             },
             {
-              "key": 32,
-              "value": 158
+              "address": 32,
+              "channel": 2,
+              "time": 158
             },
             {
-              "key": 33,
-              "value": 161
+              "address": 33,
+              "channel": 3,
+              "time": 161
             },
             {
-              "key": 34,
-              "value": 171
+              "address": 34,
+              "channel": 0,
+              "time": 171
             },
             {
-              "key": 35,
-              "value": 179
+              "address": 35,
+              "channel": 5,
+              "time": 179
             },
             {
-              "key": 36,
-              "value": 179
+              "address": 36,
+              "channel": 8,
+              "time": 179
             },
             {
-              "key": 37,
-              "value": 187
+              "address": 37,
+              "channel": 4,
+              "time": 187
             },
             {
-              "key": 38,
-              "value": 197
+              "address": 38,
+              "channel": 0,
+              "time": 197
             },
             {
-              "key": 39,
-              "value": 200
+              "address": 39,
+              "channel": 9,
+              "time": 200
             },
             {
-              "key": 40,
-              "value": 208
+              "address": 40,
+              "channel": 8,
+              "time": 208
             },
             {
-              "key": 41,
-              "value": 208
+              "address": 41,
+              "channel": 7,
+              "time": 208
             },
             {
-              "key": 42,
-              "value": 213
+              "address": 42,
+              "channel": 1,
+              "time": 213
             },
             {
-              "key": 43,
-              "value": 220
+              "address": 43,
+              "channel": 2,
+              "time": 220
             },
             {
-              "key": 44,
-              "value": 227
+              "address": 44,
+              "channel": 2,
+              "time": 227
             },
             {
-              "key": 45,
-              "value": 229
+              "address": 45,
+              "channel": 7,
+              "time": 229
             },
             {
-              "key": 46,
-              "value": 234
+              "address": 46,
+              "channel": 7,
+              "time": 234
             },
             {
-              "key": 47,
-              "value": 237
+              "address": 47,
+              "channel": 6,
+              "time": 237
             },
             {
-              "key": 48,
-              "value": 238
+              "address": 48,
+              "channel": 2,
+              "time": 238
             },
             {
-              "key": 49,
-              "value": 245
+              "address": 49,
+              "channel": 3,
+              "time": 245
             },
             {
-              "key": 50,
-              "value": 253
+              "address": 50,
+              "channel": 9,
+              "time": 253
             },
             {
-              "key": 51,
-              "value": 259
+              "address": 51,
+              "channel": 6,
+              "time": 259
             },
             {
-              "key": 52,
-              "value": 268
+              "address": 52,
+              "channel": 9,
+              "time": 268
             },
             {
-              "key": 53,
-              "value": 269
+              "address": 53,
+              "channel": 6,
+              "time": 269
             },
             {
-              "key": 54,
-              "value": 277
+              "address": 54,
+              "channel": 9,
+              "time": 277
             },
             {
-              "key": 55,
-              "value": 277
+              "address": 55,
+              "channel": 2,
+              "time": 277
             },
             {
-              "key": 56,
-              "value": 285
+              "address": 56,
+              "channel": 2,
+              "time": 285
             },
             {
-              "key": 57,
-              "value": 292
+              "address": 57,
+              "channel": 5,
+              "time": 292
             },
             {
-              "key": 58,
-              "value": 296
+              "address": 58,
+              "channel": 6,
+              "time": 296
             },
             {
-              "key": 59,
-              "value": 306
+              "address": 59,
+              "channel": 6,
+              "time": 306
             },
             {
-              "key": 60,
-              "value": 306
+              "address": 60,
+              "channel": 5,
+              "time": 306
             },
             {
-              "key": 61,
-              "value": 309
+              "address": 61,
+              "channel": 9,
+              "time": 309
             },
             {
-              "key": 62,
-              "value": 311
+              "address": 62,
+              "channel": 7,
+              "time": 311
             },
             {
-              "key": 63,
-              "value": 314
+              "address": 63,
+              "channel": 9,
+              "time": 314
             },
             {
-              "key": 64,
-              "value": 323
+              "address": 64,
+              "channel": 7,
+              "time": 323
             },
             {
-              "key": 65,
-              "value": 331
+              "address": 65,
+              "channel": 7,
+              "time": 331
             },
             {
-              "key": 66,
-              "value": 334
+              "address": 66,
+              "channel": 2,
+              "time": 334
             },
             {
-              "key": 67,
-              "value": 335
+              "address": 67,
+              "channel": 8,
+              "time": 335
             },
             {
-              "key": 68,
-              "value": 335
+              "address": 68,
+              "channel": 6,
+              "time": 335
             },
             {
-              "key": 69,
-              "value": 338
+              "address": 69,
+              "channel": 7,
+              "time": 338
             },
             {
-              "key": 70,
-              "value": 344
+              "address": 70,
+              "channel": 1,
+              "time": 344
             },
             {
-              "key": 71,
-              "value": 348
+              "address": 71,
+              "channel": 2,
+              "time": 348
             },
             {
-              "key": 72,
-              "value": 347
+              "address": 72,
+              "channel": 2,
+              "time": 347
             },
             {
-              "key": 73,
-              "value": 357
+              "address": 73,
+              "channel": 1,
+              "time": 357
             },
             {
-              "key": 74,
-              "value": 359
+              "address": 74,
+              "channel": 6,
+              "time": 359
             },
             {
-              "key": 75,
-              "value": 368
+              "address": 75,
+              "channel": 1,
+              "time": 368
             },
             {
-              "key": 76,
-              "value": 366
+              "address": 76,
+              "channel": 8,
+              "time": 366
             },
             {
-              "key": 77,
-              "value": 371
+              "address": 77,
+              "channel": 6,
+              "time": 371
             },
             {
-              "key": 78,
-              "value": 372
+              "address": 78,
+              "channel": 4,
+              "time": 372
             },
             {
-              "key": 79,
-              "value": 376
+              "address": 79,
+              "channel": 3,
+              "time": 376
             },
             {
-              "key": 80,
-              "value": 381
+              "address": 80,
+              "channel": 1,
+              "time": 381
             },
             {
-              "key": 81,
-              "value": 379
+              "address": 81,
+              "channel": 4,
+              "time": 379
             },
             {
-              "key": 82,
-              "value": 384
+              "address": 82,
+              "channel": 1,
+              "time": 384
             },
             {
-              "key": 83,
-              "value": 394
+              "address": 83,
+              "channel": 8,
+              "time": 394
             }
           ]
         }
@@ -3947,982 +4832,1226 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 8
+              "address": 0,
+              "channel": 2,
+              "time": 8
             },
             {
-              "key": 1,
-              "value": 9
+              "address": 1,
+              "channel": 6,
+              "time": 9
             },
             {
-              "key": 2,
-              "value": 8
+              "address": 2,
+              "channel": 6,
+              "time": 8
             },
             {
-              "key": 3,
-              "value": 6
+              "address": 3,
+              "channel": 9,
+              "time": 6
             },
             {
-              "key": 4,
-              "value": 5
+              "address": 4,
+              "channel": 0,
+              "time": 5
             },
             {
-              "key": 5,
-              "value": 10
+              "address": 5,
+              "channel": 4,
+              "time": 10
             },
             {
-              "key": 6,
-              "value": 12
+              "address": 6,
+              "channel": 8,
+              "time": 12
             },
             {
-              "key": 7,
-              "value": 12
+              "address": 7,
+              "channel": 7,
+              "time": 12
             },
             {
-              "key": 8,
-              "value": 14
+              "address": 8,
+              "channel": 5,
+              "time": 14
             },
             {
-              "key": 9,
-              "value": 23
+              "address": 9,
+              "channel": 5,
+              "time": 23
             },
             {
-              "key": 10,
-              "value": 32
+              "address": 10,
+              "channel": 5,
+              "time": 32
             },
             {
-              "key": 11,
-              "value": 40
+              "address": 11,
+              "channel": 1,
+              "time": 40
             },
             {
-              "key": 12,
-              "value": 47
+              "address": 12,
+              "channel": 1,
+              "time": 47
             },
             {
-              "key": 13,
-              "value": 52
+              "address": 13,
+              "channel": 9,
+              "time": 52
             },
             {
-              "key": 14,
-              "value": 55
+              "address": 14,
+              "channel": 6,
+              "time": 55
             },
             {
-              "key": 15,
-              "value": 58
+              "address": 15,
+              "channel": 4,
+              "time": 58
             },
             {
-              "key": 16,
-              "value": 65
+              "address": 16,
+              "channel": 5,
+              "time": 65
             },
             {
-              "key": 17,
-              "value": 64
+              "address": 17,
+              "channel": 3,
+              "time": 64
             },
             {
-              "key": 18,
-              "value": 67
+              "address": 18,
+              "channel": 0,
+              "time": 67
             },
             {
-              "key": 19,
-              "value": 74
+              "address": 19,
+              "channel": 6,
+              "time": 74
             },
             {
-              "key": 20,
-              "value": 78
+              "address": 20,
+              "channel": 5,
+              "time": 78
             },
             {
-              "key": 21,
-              "value": 86
+              "address": 21,
+              "channel": 7,
+              "time": 86
             },
             {
-              "key": 22,
-              "value": 93
+              "address": 22,
+              "channel": 1,
+              "time": 93
             },
             {
-              "key": 23,
-              "value": 99
+              "address": 23,
+              "channel": 6,
+              "time": 99
             },
             {
-              "key": 24,
-              "value": 98
+              "address": 24,
+              "channel": 8,
+              "time": 98
             },
             {
-              "key": 25,
-              "value": 104
+              "address": 25,
+              "channel": 6,
+              "time": 104
             },
             {
-              "key": 26,
-              "value": 112
+              "address": 26,
+              "channel": 7,
+              "time": 112
             },
             {
-              "key": 27,
-              "value": 120
+              "address": 27,
+              "channel": 8,
+              "time": 120
             },
             {
-              "key": 28,
-              "value": 130
+              "address": 28,
+              "channel": 0,
+              "time": 130
             },
             {
-              "key": 29,
-              "value": 134
+              "address": 29,
+              "channel": 8,
+              "time": 134
             },
             {
-              "key": 30,
-              "value": 139
+              "address": 30,
+              "channel": 3,
+              "time": 139
             },
             {
-              "key": 31,
-              "value": 141
+              "address": 31,
+              "channel": 8,
+              "time": 141
             },
             {
-              "key": 32,
-              "value": 144
+              "address": 32,
+              "channel": 9,
+              "time": 144
             },
             {
-              "key": 33,
-              "value": 145
+              "address": 33,
+              "channel": 5,
+              "time": 145
             },
             {
-              "key": 34,
-              "value": 151
+              "address": 34,
+              "channel": 6,
+              "time": 151
             },
             {
-              "key": 35,
-              "value": 156
+              "address": 35,
+              "channel": 8,
+              "time": 156
             },
             {
-              "key": 36,
-              "value": 166
+              "address": 36,
+              "channel": 8,
+              "time": 166
             },
             {
-              "key": 37,
-              "value": 176
+              "address": 37,
+              "channel": 5,
+              "time": 176
             },
             {
-              "key": 38,
-              "value": 179
+              "address": 38,
+              "channel": 6,
+              "time": 179
             },
             {
-              "key": 39,
-              "value": 188
+              "address": 39,
+              "channel": 8,
+              "time": 188
             },
             {
-              "key": 40,
-              "value": 193
+              "address": 40,
+              "channel": 7,
+              "time": 193
             },
             {
-              "key": 41,
-              "value": 203
+              "address": 41,
+              "channel": 5,
+              "time": 203
             },
             {
-              "key": 42,
-              "value": 211
+              "address": 42,
+              "channel": 8,
+              "time": 211
             },
             {
-              "key": 43,
-              "value": 214
+              "address": 43,
+              "channel": 1,
+              "time": 214
             },
             {
-              "key": 44,
-              "value": 213
+              "address": 44,
+              "channel": 2,
+              "time": 213
             },
             {
-              "key": 45,
-              "value": 220
+              "address": 45,
+              "channel": 9,
+              "time": 220
             },
             {
-              "key": 46,
-              "value": 218
+              "address": 46,
+              "channel": 9,
+              "time": 218
             },
             {
-              "key": 47,
-              "value": 226
+              "address": 47,
+              "channel": 3,
+              "time": 226
             },
             {
-              "key": 48,
-              "value": 228
+              "address": 48,
+              "channel": 7,
+              "time": 228
             },
             {
-              "key": 49,
-              "value": 234
+              "address": 49,
+              "channel": 2,
+              "time": 234
             },
             {
-              "key": 50,
-              "value": 235
+              "address": 50,
+              "channel": 0,
+              "time": 235
             },
             {
-              "key": 51,
-              "value": 242
+              "address": 51,
+              "channel": 7,
+              "time": 242
             },
             {
-              "key": 52,
-              "value": 244
+              "address": 52,
+              "channel": 7,
+              "time": 244
             },
             {
-              "key": 53,
-              "value": 243
+              "address": 53,
+              "channel": 8,
+              "time": 243
             },
             {
-              "key": 54,
-              "value": 242
+              "address": 54,
+              "channel": 4,
+              "time": 242
             },
             {
-              "key": 55,
-              "value": 250
+              "address": 55,
+              "channel": 9,
+              "time": 250
             },
             {
-              "key": 56,
-              "value": 258
+              "address": 56,
+              "channel": 0,
+              "time": 258
             },
             {
-              "key": 57,
-              "value": 265
+              "address": 57,
+              "channel": 2,
+              "time": 265
             },
             {
-              "key": 58,
-              "value": 269
+              "address": 58,
+              "channel": 6,
+              "time": 269
             },
             {
-              "key": 59,
-              "value": 271
+              "address": 59,
+              "channel": 4,
+              "time": 271
             },
             {
-              "key": 60,
-              "value": 281
+              "address": 60,
+              "channel": 2,
+              "time": 281
             },
             {
-              "key": 61,
-              "value": 289
+              "address": 61,
+              "channel": 4,
+              "time": 289
             },
             {
-              "key": 62,
-              "value": 287
+              "address": 62,
+              "channel": 9,
+              "time": 287
             },
             {
-              "key": 63,
-              "value": 297
+              "address": 63,
+              "channel": 3,
+              "time": 297
             },
             {
-              "key": 64,
-              "value": 307
+              "address": 64,
+              "channel": 8,
+              "time": 307
             },
             {
-              "key": 65,
-              "value": 309
+              "address": 65,
+              "channel": 7,
+              "time": 309
             },
             {
-              "key": 66,
-              "value": 317
+              "address": 66,
+              "channel": 3,
+              "time": 317
             },
             {
-              "key": 67,
-              "value": 325
+              "address": 67,
+              "channel": 9,
+              "time": 325
             },
             {
-              "key": 68,
-              "value": 323
+              "address": 68,
+              "channel": 6,
+              "time": 323
             },
             {
-              "key": 69,
-              "value": 327
+              "address": 69,
+              "channel": 8,
+              "time": 327
             },
             {
-              "key": 70,
-              "value": 332
+              "address": 70,
+              "channel": 5,
+              "time": 332
             },
             {
-              "key": 71,
-              "value": 341
+              "address": 71,
+              "channel": 5,
+              "time": 341
             },
             {
-              "key": 72,
-              "value": 342
+              "address": 72,
+              "channel": 0,
+              "time": 342
             },
             {
-              "key": 73,
-              "value": 342
+              "address": 73,
+              "channel": 8,
+              "time": 342
             },
             {
-              "key": 74,
-              "value": 349
+              "address": 74,
+              "channel": 4,
+              "time": 349
             },
             {
-              "key": 75,
-              "value": 348
+              "address": 75,
+              "channel": 2,
+              "time": 348
             },
             {
-              "key": 76,
-              "value": 349
+              "address": 76,
+              "channel": 7,
+              "time": 349
             },
             {
-              "key": 77,
-              "value": 356
+              "address": 77,
+              "channel": 8,
+              "time": 356
             },
             {
-              "key": 78,
-              "value": 365
+              "address": 78,
+              "channel": 3,
+              "time": 365
             },
             {
-              "key": 79,
-              "value": 365
+              "address": 79,
+              "channel": 9,
+              "time": 365
             },
             {
-              "key": 80,
-              "value": 364
+              "address": 80,
+              "channel": 3,
+              "time": 364
             },
             {
-              "key": 81,
-              "value": 366
+              "address": 81,
+              "channel": 8,
+              "time": 366
             },
             {
-              "key": 82,
-              "value": 368
+              "address": 82,
+              "channel": 3,
+              "time": 368
             },
             {
-              "key": 83,
-              "value": 368
+              "address": 83,
+              "channel": 4,
+              "time": 368
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 10
+              "address": 0,
+              "channel": 3,
+              "time": 10
             },
             {
-              "key": 1,
-              "value": 10
+              "address": 1,
+              "channel": 9,
+              "time": 10
             },
             {
-              "key": 2,
-              "value": 17
+              "address": 2,
+              "channel": 2,
+              "time": 17
             },
             {
-              "key": 3,
-              "value": 27
+              "address": 3,
+              "channel": 6,
+              "time": 27
             },
             {
-              "key": 4,
-              "value": 33
+              "address": 4,
+              "channel": 7,
+              "time": 33
             },
             {
-              "key": 5,
-              "value": 35
+              "address": 5,
+              "channel": 8,
+              "time": 35
             },
             {
-              "key": 6,
-              "value": 44
+              "address": 6,
+              "channel": 4,
+              "time": 44
             },
             {
-              "key": 7,
-              "value": 49
+              "address": 7,
+              "channel": 8,
+              "time": 49
             },
             {
-              "key": 8,
-              "value": 47
+              "address": 8,
+              "channel": 1,
+              "time": 47
             },
             {
-              "key": 9,
-              "value": 48
+              "address": 9,
+              "channel": 8,
+              "time": 48
             },
             {
-              "key": 10,
-              "value": 52
+              "address": 10,
+              "channel": 1,
+              "time": 52
             },
             {
-              "key": 11,
-              "value": 51
+              "address": 11,
+              "channel": 2,
+              "time": 51
             },
             {
-              "key": 12,
-              "value": 54
+              "address": 12,
+              "channel": 2,
+              "time": 54
             },
             {
-              "key": 13,
-              "value": 63
+              "address": 13,
+              "channel": 9,
+              "time": 63
             },
             {
-              "key": 14,
-              "value": 68
+              "address": 14,
+              "channel": 3,
+              "time": 68
             },
             {
-              "key": 15,
-              "value": 74
+              "address": 15,
+              "channel": 7,
+              "time": 74
             },
             {
-              "key": 16,
-              "value": 73
+              "address": 16,
+              "channel": 2,
+              "time": 73
             },
             {
-              "key": 17,
-              "value": 76
+              "address": 17,
+              "channel": 2,
+              "time": 76
             },
             {
-              "key": 18,
-              "value": 79
+              "address": 18,
+              "channel": 6,
+              "time": 79
             },
             {
-              "key": 19,
-              "value": 83
+              "address": 19,
+              "channel": 4,
+              "time": 83
             },
             {
-              "key": 20,
-              "value": 91
+              "address": 20,
+              "channel": 4,
+              "time": 91
             },
             {
-              "key": 21,
-              "value": 97
+              "address": 21,
+              "channel": 4,
+              "time": 97
             },
             {
-              "key": 22,
-              "value": 100
+              "address": 22,
+              "channel": 5,
+              "time": 100
             },
             {
-              "key": 23,
-              "value": 103
+              "address": 23,
+              "channel": 9,
+              "time": 103
             },
             {
-              "key": 24,
-              "value": 107
+              "address": 24,
+              "channel": 5,
+              "time": 107
             },
             {
-              "key": 25,
-              "value": 116
+              "address": 25,
+              "channel": 3,
+              "time": 116
             },
             {
-              "key": 26,
-              "value": 119
+              "address": 26,
+              "channel": 3,
+              "time": 119
             },
             {
-              "key": 27,
-              "value": 124
+              "address": 27,
+              "channel": 7,
+              "time": 124
             },
             {
-              "key": 28,
-              "value": 125
+              "address": 28,
+              "channel": 0,
+              "time": 125
             },
             {
-              "key": 29,
-              "value": 123
+              "address": 29,
+              "channel": 0,
+              "time": 123
             },
             {
-              "key": 30,
-              "value": 125
+              "address": 30,
+              "channel": 3,
+              "time": 125
             },
             {
-              "key": 31,
-              "value": 132
+              "address": 31,
+              "channel": 4,
+              "time": 132
             },
             {
-              "key": 32,
-              "value": 141
+              "address": 32,
+              "channel": 0,
+              "time": 141
             },
             {
-              "key": 33,
-              "value": 145
+              "address": 33,
+              "channel": 0,
+              "time": 145
             },
             {
-              "key": 34,
-              "value": 155
+              "address": 34,
+              "channel": 7,
+              "time": 155
             },
             {
-              "key": 35,
-              "value": 162
+              "address": 35,
+              "channel": 2,
+              "time": 162
             },
             {
-              "key": 36,
-              "value": 160
+              "address": 36,
+              "channel": 8,
+              "time": 160
             },
             {
-              "key": 37,
-              "value": 162
+              "address": 37,
+              "channel": 4,
+              "time": 162
             },
             {
-              "key": 38,
-              "value": 168
+              "address": 38,
+              "channel": 5,
+              "time": 168
             },
             {
-              "key": 39,
-              "value": 173
+              "address": 39,
+              "channel": 5,
+              "time": 173
             },
             {
-              "key": 40,
-              "value": 180
+              "address": 40,
+              "channel": 4,
+              "time": 180
             },
             {
-              "key": 41,
-              "value": 181
+              "address": 41,
+              "channel": 5,
+              "time": 181
             },
             {
-              "key": 42,
-              "value": 179
+              "address": 42,
+              "channel": 0,
+              "time": 179
             },
             {
-              "key": 43,
-              "value": 183
+              "address": 43,
+              "channel": 9,
+              "time": 183
             },
             {
-              "key": 44,
-              "value": 193
+              "address": 44,
+              "channel": 9,
+              "time": 193
             },
             {
-              "key": 45,
-              "value": 195
+              "address": 45,
+              "channel": 8,
+              "time": 195
             },
             {
-              "key": 46,
-              "value": 193
+              "address": 46,
+              "channel": 6,
+              "time": 193
             },
             {
-              "key": 47,
-              "value": 192
+              "address": 47,
+              "channel": 4,
+              "time": 192
             },
             {
-              "key": 48,
-              "value": 196
+              "address": 48,
+              "channel": 1,
+              "time": 196
             },
             {
-              "key": 49,
-              "value": 202
+              "address": 49,
+              "channel": 9,
+              "time": 202
             },
             {
-              "key": 50,
-              "value": 205
+              "address": 50,
+              "channel": 9,
+              "time": 205
             },
             {
-              "key": 51,
-              "value": 204
+              "address": 51,
+              "channel": 9,
+              "time": 204
             },
             {
-              "key": 52,
-              "value": 209
+              "address": 52,
+              "channel": 5,
+              "time": 209
             },
             {
-              "key": 53,
-              "value": 219
+              "address": 53,
+              "channel": 7,
+              "time": 219
             },
             {
-              "key": 54,
-              "value": 225
+              "address": 54,
+              "channel": 7,
+              "time": 225
             },
             {
-              "key": 55,
-              "value": 225
+              "address": 55,
+              "channel": 4,
+              "time": 225
             },
             {
-              "key": 56,
-              "value": 224
+              "address": 56,
+              "channel": 8,
+              "time": 224
             },
             {
-              "key": 57,
-              "value": 230
+              "address": 57,
+              "channel": 1,
+              "time": 230
             },
             {
-              "key": 58,
-              "value": 237
+              "address": 58,
+              "channel": 7,
+              "time": 237
             },
             {
-              "key": 59,
-              "value": 236
+              "address": 59,
+              "channel": 2,
+              "time": 236
             },
             {
-              "key": 60,
-              "value": 240
+              "address": 60,
+              "channel": 7,
+              "time": 240
             },
             {
-              "key": 61,
-              "value": 247
+              "address": 61,
+              "channel": 6,
+              "time": 247
             },
             {
-              "key": 62,
-              "value": 250
+              "address": 62,
+              "channel": 1,
+              "time": 250
             },
             {
-              "key": 63,
-              "value": 250
+              "address": 63,
+              "channel": 3,
+              "time": 250
             },
             {
-              "key": 64,
-              "value": 255
+              "address": 64,
+              "channel": 4,
+              "time": 255
             },
             {
-              "key": 65,
-              "value": 253
+              "address": 65,
+              "channel": 5,
+              "time": 253
             },
             {
-              "key": 66,
-              "value": 262
+              "address": 66,
+              "channel": 5,
+              "time": 262
             },
             {
-              "key": 67,
-              "value": 272
+              "address": 67,
+              "channel": 4,
+              "time": 272
             },
             {
-              "key": 68,
-              "value": 279
+              "address": 68,
+              "channel": 9,
+              "time": 279
             },
             {
-              "key": 69,
-              "value": 285
+              "address": 69,
+              "channel": 4,
+              "time": 285
             },
             {
-              "key": 70,
-              "value": 293
+              "address": 70,
+              "channel": 7,
+              "time": 293
             },
             {
-              "key": 71,
-              "value": 297
+              "address": 71,
+              "channel": 1,
+              "time": 297
             },
             {
-              "key": 72,
-              "value": 297
+              "address": 72,
+              "channel": 6,
+              "time": 297
             },
             {
-              "key": 73,
-              "value": 302
+              "address": 73,
+              "channel": 9,
+              "time": 302
             },
             {
-              "key": 74,
-              "value": 309
+              "address": 74,
+              "channel": 2,
+              "time": 309
             },
             {
-              "key": 75,
-              "value": 315
+              "address": 75,
+              "channel": 5,
+              "time": 315
             },
             {
-              "key": 76,
-              "value": 314
+              "address": 76,
+              "channel": 8,
+              "time": 314
             },
             {
-              "key": 77,
-              "value": 316
+              "address": 77,
+              "channel": 7,
+              "time": 316
             },
             {
-              "key": 78,
-              "value": 326
+              "address": 78,
+              "channel": 8,
+              "time": 326
             },
             {
-              "key": 79,
-              "value": 334
+              "address": 79,
+              "channel": 2,
+              "time": 334
             },
             {
-              "key": 80,
-              "value": 342
+              "address": 80,
+              "channel": 1,
+              "time": 342
             },
             {
-              "key": 81,
-              "value": 352
+              "address": 81,
+              "channel": 9,
+              "time": 352
             },
             {
-              "key": 82,
-              "value": 359
+              "address": 82,
+              "channel": 4,
+              "time": 359
             },
             {
-              "key": 83,
-              "value": 359
+              "address": 83,
+              "channel": 6,
+              "time": 359
             },
             {
-              "key": 84,
-              "value": 361
+              "address": 84,
+              "channel": 0,
+              "time": 361
             },
             {
-              "key": 85,
-              "value": 367
+              "address": 85,
+              "channel": 1,
+              "time": 367
             },
             {
-              "key": 86,
-              "value": 375
+              "address": 86,
+              "channel": 7,
+              "time": 375
             },
             {
-              "key": 87,
-              "value": 383
+              "address": 87,
+              "channel": 6,
+              "time": 383
             },
             {
-              "key": 88,
-              "value": 384
+              "address": 88,
+              "channel": 8,
+              "time": 384
             },
             {
-              "key": 89,
-              "value": 385
+              "address": 89,
+              "channel": 9,
+              "time": 385
             },
             {
-              "key": 90,
-              "value": 390
+              "address": 90,
+              "channel": 3,
+              "time": 390
             },
             {
-              "key": 91,
-              "value": 399
+              "address": 91,
+              "channel": 2,
+              "time": 399
             },
             {
-              "key": 92,
-              "value": 405
+              "address": 92,
+              "channel": 3,
+              "time": 405
             },
             {
-              "key": 93,
-              "value": 412
+              "address": 93,
+              "channel": 2,
+              "time": 412
             },
             {
-              "key": 94,
-              "value": 421
+              "address": 94,
+              "channel": 1,
+              "time": 421
             },
             {
-              "key": 95,
-              "value": 424
+              "address": 95,
+              "channel": 6,
+              "time": 424
             },
             {
-              "key": 96,
-              "value": 423
+              "address": 96,
+              "channel": 4,
+              "time": 423
             },
             {
-              "key": 97,
-              "value": 421
+              "address": 97,
+              "channel": 2,
+              "time": 421
             },
             {
-              "key": 98,
-              "value": 419
+              "address": 98,
+              "channel": 9,
+              "time": 419
             },
             {
-              "key": 99,
-              "value": 419
+              "address": 99,
+              "channel": 1,
+              "time": 419
             },
             {
-              "key": 100,
-              "value": 422
+              "address": 100,
+              "channel": 4,
+              "time": 422
             },
             {
-              "key": 101,
-              "value": 423
+              "address": 101,
+              "channel": 5,
+              "time": 423
             },
             {
-              "key": 102,
-              "value": 429
+              "address": 102,
+              "channel": 6,
+              "time": 429
             },
             {
-              "key": 103,
-              "value": 438
+              "address": 103,
+              "channel": 1,
+              "time": 438
             },
             {
-              "key": 104,
-              "value": 443
+              "address": 104,
+              "channel": 3,
+              "time": 443
             },
             {
-              "key": 105,
-              "value": 447
+              "address": 105,
+              "channel": 8,
+              "time": 447
             },
             {
-              "key": 106,
-              "value": 455
+              "address": 106,
+              "channel": 6,
+              "time": 455
             },
             {
-              "key": 107,
-              "value": 456
+              "address": 107,
+              "channel": 0,
+              "time": 456
             },
             {
-              "key": 108,
-              "value": 459
+              "address": 108,
+              "channel": 8,
+              "time": 459
             },
             {
-              "key": 109,
-              "value": 460
+              "address": 109,
+              "channel": 6,
+              "time": 460
             },
             {
-              "key": 110,
-              "value": 462
+              "address": 110,
+              "channel": 9,
+              "time": 462
             },
             {
-              "key": 111,
-              "value": 460
+              "address": 111,
+              "channel": 0,
+              "time": 460
             },
             {
-              "key": 112,
-              "value": 460
+              "address": 112,
+              "channel": 4,
+              "time": 460
             },
             {
-              "key": 113,
-              "value": 466
+              "address": 113,
+              "channel": 1,
+              "time": 466
             },
             {
-              "key": 114,
-              "value": 476
+              "address": 114,
+              "channel": 5,
+              "time": 476
             },
             {
-              "key": 115,
-              "value": 478
+              "address": 115,
+              "channel": 4,
+              "time": 478
             },
             {
-              "key": 116,
-              "value": 488
+              "address": 116,
+              "channel": 7,
+              "time": 488
             },
             {
-              "key": 117,
-              "value": 486
+              "address": 117,
+              "channel": 2,
+              "time": 486
             },
             {
-              "key": 118,
-              "value": 484
+              "address": 118,
+              "channel": 1,
+              "time": 484
             },
             {
-              "key": 119,
-              "value": 490
+              "address": 119,
+              "channel": 9,
+              "time": 490
             },
             {
-              "key": 120,
-              "value": 498
+              "address": 120,
+              "channel": 6,
+              "time": 498
             },
             {
-              "key": 121,
-              "value": 504
+              "address": 121,
+              "channel": 5,
+              "time": 504
             },
             {
-              "key": 122,
-              "value": 509
+              "address": 122,
+              "channel": 2,
+              "time": 509
             },
             {
-              "key": 123,
-              "value": 511
+              "address": 123,
+              "channel": 4,
+              "time": 511
             },
             {
-              "key": 124,
-              "value": 517
+              "address": 124,
+              "channel": 6,
+              "time": 517
             },
             {
-              "key": 125,
-              "value": 519
+              "address": 125,
+              "channel": 8,
+              "time": 519
             },
             {
-              "key": 126,
-              "value": 527
+              "address": 126,
+              "channel": 2,
+              "time": 527
             },
             {
-              "key": 127,
-              "value": 535
+              "address": 127,
+              "channel": 2,
+              "time": 535
             },
             {
-              "key": 128,
-              "value": 534
+              "address": 128,
+              "channel": 2,
+              "time": 534
             },
             {
-              "key": 129,
-              "value": 540
+              "address": 129,
+              "channel": 1,
+              "time": 540
             },
             {
-              "key": 130,
-              "value": 547
+              "address": 130,
+              "channel": 7,
+              "time": 547
             },
             {
-              "key": 131,
-              "value": 556
+              "address": 131,
+              "channel": 3,
+              "time": 556
             },
             {
-              "key": 132,
-              "value": 554
+              "address": 132,
+              "channel": 0,
+              "time": 554
             },
             {
-              "key": 133,
-              "value": 564
+              "address": 133,
+              "channel": 9,
+              "time": 564
             },
             {
-              "key": 134,
-              "value": 566
+              "address": 134,
+              "channel": 3,
+              "time": 566
             },
             {
-              "key": 135,
-              "value": 567
+              "address": 135,
+              "channel": 4,
+              "time": 567
             },
             {
-              "key": 136,
-              "value": 573
+              "address": 136,
+              "channel": 7,
+              "time": 573
             },
             {
-              "key": 137,
-              "value": 578
+              "address": 137,
+              "channel": 1,
+              "time": 578
             },
             {
-              "key": 138,
-              "value": 578
+              "address": 138,
+              "channel": 8,
+              "time": 578
             },
             {
-              "key": 139,
-              "value": 585
+              "address": 139,
+              "channel": 1,
+              "time": 585
             },
             {
-              "key": 140,
-              "value": 589
+              "address": 140,
+              "channel": 9,
+              "time": 589
             },
             {
-              "key": 141,
-              "value": 591
+              "address": 141,
+              "channel": 2,
+              "time": 591
             },
             {
-              "key": 142,
-              "value": 591
+              "address": 142,
+              "channel": 7,
+              "time": 591
             },
             {
-              "key": 143,
-              "value": 594
+              "address": 143,
+              "channel": 5,
+              "time": 594
             },
             {
-              "key": 144,
-              "value": 604
+              "address": 144,
+              "channel": 5,
+              "time": 604
             },
             {
-              "key": 145,
-              "value": 609
+              "address": 145,
+              "channel": 3,
+              "time": 609
             },
             {
-              "key": 146,
-              "value": 610
+              "address": 146,
+              "channel": 8,
+              "time": 610
             },
             {
-              "key": 147,
-              "value": 615
+              "address": 147,
+              "channel": 7,
+              "time": 615
             },
             {
-              "key": 148,
-              "value": 614
+              "address": 148,
+              "channel": 0,
+              "time": 614
             },
             {
-              "key": 149,
-              "value": 612
+              "address": 149,
+              "channel": 6,
+              "time": 612
             },
             {
-              "key": 150,
-              "value": 610
+              "address": 150,
+              "channel": 2,
+              "time": 610
             },
             {
-              "key": 151,
-              "value": 617
+              "address": 151,
+              "channel": 3,
+              "time": 617
             },
             {
-              "key": 152,
-              "value": 621
+              "address": 152,
+              "channel": 8,
+              "time": 621
             },
             {
-              "key": 153,
-              "value": 628
+              "address": 153,
+              "channel": 4,
+              "time": 628
             },
             {
-              "key": 154,
-              "value": 628
+              "address": 154,
+              "channel": 3,
+              "time": 628
             },
             {
-              "key": 155,
-              "value": 638
+              "address": 155,
+              "channel": 7,
+              "time": 638
             },
             {
-              "key": 156,
-              "value": 641
+              "address": 156,
+              "channel": 2,
+              "time": 641
             },
             {
-              "key": 157,
-              "value": 641
+              "address": 157,
+              "channel": 5,
+              "time": 641
             },
             {
-              "key": 158,
-              "value": 645
+              "address": 158,
+              "channel": 4,
+              "time": 645
             },
             {
-              "key": 159,
-              "value": 647
+              "address": 159,
+              "channel": 8,
+              "time": 647
             }
           ]
         }
@@ -4943,966 +6072,1206 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 2
+              "address": 0,
+              "channel": 4,
+              "time": 2
             },
             {
-              "key": 1,
-              "value": 11
+              "address": 1,
+              "channel": 3,
+              "time": 11
             },
             {
-              "key": 2,
-              "value": 17
+              "address": 2,
+              "channel": 9,
+              "time": 17
             },
             {
-              "key": 3,
-              "value": 27
+              "address": 3,
+              "channel": 6,
+              "time": 27
             },
             {
-              "key": 4,
-              "value": 37
+              "address": 4,
+              "channel": 8,
+              "time": 37
             },
             {
-              "key": 5,
-              "value": 44
+              "address": 5,
+              "channel": 7,
+              "time": 44
             },
             {
-              "key": 6,
-              "value": 47
+              "address": 6,
+              "channel": 8,
+              "time": 47
             },
             {
-              "key": 7,
-              "value": 45
+              "address": 7,
+              "channel": 4,
+              "time": 45
             },
             {
-              "key": 8,
-              "value": 43
+              "address": 8,
+              "channel": 1,
+              "time": 43
             },
             {
-              "key": 9,
-              "value": 43
+              "address": 9,
+              "channel": 0,
+              "time": 43
             },
             {
-              "key": 10,
-              "value": 46
+              "address": 10,
+              "channel": 6,
+              "time": 46
             },
             {
-              "key": 11,
-              "value": 53
+              "address": 11,
+              "channel": 7,
+              "time": 53
             },
             {
-              "key": 12,
-              "value": 58
+              "address": 12,
+              "channel": 6,
+              "time": 58
             },
             {
-              "key": 13,
-              "value": 67
+              "address": 13,
+              "channel": 6,
+              "time": 67
             },
             {
-              "key": 14,
-              "value": 68
+              "address": 14,
+              "channel": 2,
+              "time": 68
             },
             {
-              "key": 15,
-              "value": 70
+              "address": 15,
+              "channel": 0,
+              "time": 70
             },
             {
-              "key": 16,
-              "value": 68
+              "address": 16,
+              "channel": 4,
+              "time": 68
             },
             {
-              "key": 17,
-              "value": 77
+              "address": 17,
+              "channel": 1,
+              "time": 77
             },
             {
-              "key": 18,
-              "value": 85
+              "address": 18,
+              "channel": 5,
+              "time": 85
             },
             {
-              "key": 19,
-              "value": 92
+              "address": 19,
+              "channel": 6,
+              "time": 92
             },
             {
-              "key": 20,
-              "value": 100
+              "address": 20,
+              "channel": 6,
+              "time": 100
             },
             {
-              "key": 21,
-              "value": 98
+              "address": 21,
+              "channel": 7,
+              "time": 98
             },
             {
-              "key": 22,
-              "value": 102
+              "address": 22,
+              "channel": 7,
+              "time": 102
             },
             {
-              "key": 23,
-              "value": 102
+              "address": 23,
+              "channel": 6,
+              "time": 102
             },
             {
-              "key": 24,
-              "value": 102
+              "address": 24,
+              "channel": 5,
+              "time": 102
             },
             {
-              "key": 25,
-              "value": 105
+              "address": 25,
+              "channel": 6,
+              "time": 105
             },
             {
-              "key": 26,
-              "value": 109
+              "address": 26,
+              "channel": 9,
+              "time": 109
             },
             {
-              "key": 27,
-              "value": 112
+              "address": 27,
+              "channel": 6,
+              "time": 112
             },
             {
-              "key": 28,
-              "value": 111
+              "address": 28,
+              "channel": 8,
+              "time": 111
             },
             {
-              "key": 29,
-              "value": 112
+              "address": 29,
+              "channel": 2,
+              "time": 112
             },
             {
-              "key": 30,
-              "value": 122
+              "address": 30,
+              "channel": 2,
+              "time": 122
             },
             {
-              "key": 31,
-              "value": 131
+              "address": 31,
+              "channel": 0,
+              "time": 131
             },
             {
-              "key": 32,
-              "value": 129
+              "address": 32,
+              "channel": 2,
+              "time": 129
             },
             {
-              "key": 33,
-              "value": 139
+              "address": 33,
+              "channel": 8,
+              "time": 139
             },
             {
-              "key": 34,
-              "value": 147
+              "address": 34,
+              "channel": 4,
+              "time": 147
             },
             {
-              "key": 35,
-              "value": 156
+              "address": 35,
+              "channel": 0,
+              "time": 156
             },
             {
-              "key": 36,
-              "value": 159
+              "address": 36,
+              "channel": 9,
+              "time": 159
             },
             {
-              "key": 37,
-              "value": 160
+              "address": 37,
+              "channel": 3,
+              "time": 160
             },
             {
-              "key": 38,
-              "value": 162
+              "address": 38,
+              "channel": 3,
+              "time": 162
             },
             {
-              "key": 39,
-              "value": 163
+              "address": 39,
+              "channel": 7,
+              "time": 163
             },
             {
-              "key": 40,
-              "value": 165
+              "address": 40,
+              "channel": 6,
+              "time": 165
             },
             {
-              "key": 41,
-              "value": 173
+              "address": 41,
+              "channel": 5,
+              "time": 173
             },
             {
-              "key": 42,
-              "value": 181
+              "address": 42,
+              "channel": 5,
+              "time": 181
             },
             {
-              "key": 43,
-              "value": 190
+              "address": 43,
+              "channel": 5,
+              "time": 190
             },
             {
-              "key": 44,
-              "value": 197
+              "address": 44,
+              "channel": 1,
+              "time": 197
             },
             {
-              "key": 45,
-              "value": 204
+              "address": 45,
+              "channel": 4,
+              "time": 204
             },
             {
-              "key": 46,
-              "value": 205
+              "address": 46,
+              "channel": 3,
+              "time": 205
             },
             {
-              "key": 47,
-              "value": 205
+              "address": 47,
+              "channel": 7,
+              "time": 205
             },
             {
-              "key": 48,
-              "value": 215
+              "address": 48,
+              "channel": 9,
+              "time": 215
             },
             {
-              "key": 49,
-              "value": 213
+              "address": 49,
+              "channel": 7,
+              "time": 213
             },
             {
-              "key": 50,
-              "value": 211
+              "address": 50,
+              "channel": 8,
+              "time": 211
             },
             {
-              "key": 51,
-              "value": 212
+              "address": 51,
+              "channel": 8,
+              "time": 212
             },
             {
-              "key": 52,
-              "value": 217
+              "address": 52,
+              "channel": 2,
+              "time": 217
             },
             {
-              "key": 53,
-              "value": 227
+              "address": 53,
+              "channel": 7,
+              "time": 227
             },
             {
-              "key": 54,
-              "value": 234
+              "address": 54,
+              "channel": 1,
+              "time": 234
             },
             {
-              "key": 55,
-              "value": 238
+              "address": 55,
+              "channel": 8,
+              "time": 238
             },
             {
-              "key": 56,
-              "value": 242
+              "address": 56,
+              "channel": 4,
+              "time": 242
             },
             {
-              "key": 57,
-              "value": 249
+              "address": 57,
+              "channel": 6,
+              "time": 249
             },
             {
-              "key": 58,
-              "value": 259
+              "address": 58,
+              "channel": 0,
+              "time": 259
             },
             {
-              "key": 59,
-              "value": 258
+              "address": 59,
+              "channel": 8,
+              "time": 258
             },
             {
-              "key": 60,
-              "value": 258
+              "address": 60,
+              "channel": 0,
+              "time": 258
             },
             {
-              "key": 61,
-              "value": 258
+              "address": 61,
+              "channel": 2,
+              "time": 258
             },
             {
-              "key": 62,
-              "value": 261
+              "address": 62,
+              "channel": 9,
+              "time": 261
             },
             {
-              "key": 63,
-              "value": 260
+              "address": 63,
+              "channel": 9,
+              "time": 260
             },
             {
-              "key": 64,
-              "value": 268
+              "address": 64,
+              "channel": 9,
+              "time": 268
             },
             {
-              "key": 65,
-              "value": 266
+              "address": 65,
+              "channel": 0,
+              "time": 266
             },
             {
-              "key": 66,
-              "value": 276
+              "address": 66,
+              "channel": 0,
+              "time": 276
             },
             {
-              "key": 67,
-              "value": 279
+              "address": 67,
+              "channel": 1,
+              "time": 279
             },
             {
-              "key": 68,
-              "value": 282
+              "address": 68,
+              "channel": 0,
+              "time": 282
             },
             {
-              "key": 69,
-              "value": 284
+              "address": 69,
+              "channel": 3,
+              "time": 284
             },
             {
-              "key": 70,
-              "value": 282
+              "address": 70,
+              "channel": 2,
+              "time": 282
             },
             {
-              "key": 71,
-              "value": 287
+              "address": 71,
+              "channel": 2,
+              "time": 287
             },
             {
-              "key": 72,
-              "value": 289
+              "address": 72,
+              "channel": 4,
+              "time": 289
             },
             {
-              "key": 73,
-              "value": 297
+              "address": 73,
+              "channel": 7,
+              "time": 297
             },
             {
-              "key": 74,
-              "value": 302
+              "address": 74,
+              "channel": 8,
+              "time": 302
             },
             {
-              "key": 75,
-              "value": 301
+              "address": 75,
+              "channel": 7,
+              "time": 301
             },
             {
-              "key": 76,
-              "value": 299
+              "address": 76,
+              "channel": 6,
+              "time": 299
             },
             {
-              "key": 77,
-              "value": 302
+              "address": 77,
+              "channel": 9,
+              "time": 302
             },
             {
-              "key": 78,
-              "value": 301
+              "address": 78,
+              "channel": 4,
+              "time": 301
             },
             {
-              "key": 79,
-              "value": 304
+              "address": 79,
+              "channel": 4,
+              "time": 304
             },
             {
-              "key": 80,
-              "value": 309
+              "address": 80,
+              "channel": 4,
+              "time": 309
             },
             {
-              "key": 81,
-              "value": 311
+              "address": 81,
+              "channel": 9,
+              "time": 311
             },
             {
-              "key": 82,
-              "value": 316
+              "address": 82,
+              "channel": 1,
+              "time": 316
             },
             {
-              "key": 83,
-              "value": 319
+              "address": 83,
+              "channel": 2,
+              "time": 319
             },
             {
-              "key": 84,
-              "value": 319
+              "address": 84,
+              "channel": 5,
+              "time": 319
             },
             {
-              "key": 85,
-              "value": 329
+              "address": 85,
+              "channel": 2,
+              "time": 329
             },
             {
-              "key": 86,
-              "value": 332
+              "address": 86,
+              "channel": 7,
+              "time": 332
             },
             {
-              "key": 87,
-              "value": 341
+              "address": 87,
+              "channel": 3,
+              "time": 341
             },
             {
-              "key": 88,
-              "value": 347
+              "address": 88,
+              "channel": 2,
+              "time": 347
             },
             {
-              "key": 89,
-              "value": 345
+              "address": 89,
+              "channel": 3,
+              "time": 345
             },
             {
-              "key": 90,
-              "value": 353
+              "address": 90,
+              "channel": 9,
+              "time": 353
             },
             {
-              "key": 91,
-              "value": 358
+              "address": 91,
+              "channel": 3,
+              "time": 358
             },
             {
-              "key": 92,
-              "value": 367
+              "address": 92,
+              "channel": 8,
+              "time": 367
             },
             {
-              "key": 93,
-              "value": 372
+              "address": 93,
+              "channel": 6,
+              "time": 372
             },
             {
-              "key": 94,
-              "value": 374
+              "address": 94,
+              "channel": 4,
+              "time": 374
             },
             {
-              "key": 95,
-              "value": 381
+              "address": 95,
+              "channel": 6,
+              "time": 381
             },
             {
-              "key": 96,
-              "value": 387
+              "address": 96,
+              "channel": 4,
+              "time": 387
             },
             {
-              "key": 97,
-              "value": 392
+              "address": 97,
+              "channel": 3,
+              "time": 392
             },
             {
-              "key": 98,
-              "value": 396
+              "address": 98,
+              "channel": 6,
+              "time": 396
             },
             {
-              "key": 99,
-              "value": 395
+              "address": 99,
+              "channel": 5,
+              "time": 395
             },
             {
-              "key": 100,
-              "value": 396
+              "address": 100,
+              "channel": 9,
+              "time": 396
             },
             {
-              "key": 101,
-              "value": 403
+              "address": 101,
+              "channel": 1,
+              "time": 403
             },
             {
-              "key": 102,
-              "value": 406
+              "address": 102,
+              "channel": 7,
+              "time": 406
             },
             {
-              "key": 103,
-              "value": 404
+              "address": 103,
+              "channel": 3,
+              "time": 404
             },
             {
-              "key": 104,
-              "value": 403
+              "address": 104,
+              "channel": 5,
+              "time": 403
             },
             {
-              "key": 105,
-              "value": 412
+              "address": 105,
+              "channel": 0,
+              "time": 412
             },
             {
-              "key": 106,
-              "value": 416
+              "address": 106,
+              "channel": 1,
+              "time": 416
             },
             {
-              "key": 107,
-              "value": 417
+              "address": 107,
+              "channel": 8,
+              "time": 417
             },
             {
-              "key": 108,
-              "value": 426
+              "address": 108,
+              "channel": 0,
+              "time": 426
             },
             {
-              "key": 109,
-              "value": 431
+              "address": 109,
+              "channel": 6,
+              "time": 431
             },
             {
-              "key": 110,
-              "value": 434
+              "address": 110,
+              "channel": 0,
+              "time": 434
             },
             {
-              "key": 111,
-              "value": 432
+              "address": 111,
+              "channel": 9,
+              "time": 432
             },
             {
-              "key": 112,
-              "value": 440
+              "address": 112,
+              "channel": 0,
+              "time": 440
             },
             {
-              "key": 113,
-              "value": 446
+              "address": 113,
+              "channel": 6,
+              "time": 446
             },
             {
-              "key": 114,
-              "value": 455
+              "address": 114,
+              "channel": 0,
+              "time": 455
             },
             {
-              "key": 115,
-              "value": 456
+              "address": 115,
+              "channel": 2,
+              "time": 456
             },
             {
-              "key": 116,
-              "value": 456
+              "address": 116,
+              "channel": 6,
+              "time": 456
             },
             {
-              "key": 117,
-              "value": 457
+              "address": 117,
+              "channel": 6,
+              "time": 457
             },
             {
-              "key": 118,
-              "value": 465
+              "address": 118,
+              "channel": 0,
+              "time": 465
             },
             {
-              "key": 119,
-              "value": 474
+              "address": 119,
+              "channel": 3,
+              "time": 474
             },
             {
-              "key": 120,
-              "value": 478
+              "address": 120,
+              "channel": 6,
+              "time": 478
             },
             {
-              "key": 121,
-              "value": 484
+              "address": 121,
+              "channel": 2,
+              "time": 484
             },
             {
-              "key": 122,
-              "value": 494
+              "address": 122,
+              "channel": 3,
+              "time": 494
             },
             {
-              "key": 123,
-              "value": 504
+              "address": 123,
+              "channel": 7,
+              "time": 504
             },
             {
-              "key": 124,
-              "value": 512
+              "address": 124,
+              "channel": 7,
+              "time": 512
             },
             {
-              "key": 125,
-              "value": 512
+              "address": 125,
+              "channel": 2,
+              "time": 512
             },
             {
-              "key": 126,
-              "value": 514
+              "address": 126,
+              "channel": 8,
+              "time": 514
             },
             {
-              "key": 127,
-              "value": 518
+              "address": 127,
+              "channel": 4,
+              "time": 518
             },
             {
-              "key": 128,
-              "value": 520
+              "address": 128,
+              "channel": 9,
+              "time": 520
             },
             {
-              "key": 129,
-              "value": 527
+              "address": 129,
+              "channel": 1,
+              "time": 527
             },
             {
-              "key": 130,
-              "value": 533
+              "address": 130,
+              "channel": 3,
+              "time": 533
             },
             {
-              "key": 131,
-              "value": 543
+              "address": 131,
+              "channel": 6,
+              "time": 543
             },
             {
-              "key": 132,
-              "value": 548
+              "address": 132,
+              "channel": 4,
+              "time": 548
             },
             {
-              "key": 133,
-              "value": 551
+              "address": 133,
+              "channel": 2,
+              "time": 551
             },
             {
-              "key": 134,
-              "value": 558
+              "address": 134,
+              "channel": 6,
+              "time": 558
             },
             {
-              "key": 135,
-              "value": 559
+              "address": 135,
+              "channel": 0,
+              "time": 559
             },
             {
-              "key": 136,
-              "value": 569
+              "address": 136,
+              "channel": 3,
+              "time": 569
             },
             {
-              "key": 137,
-              "value": 578
+              "address": 137,
+              "channel": 3,
+              "time": 578
             },
             {
-              "key": 138,
-              "value": 584
+              "address": 138,
+              "channel": 4,
+              "time": 584
             },
             {
-              "key": 139,
-              "value": 587
+              "address": 139,
+              "channel": 5,
+              "time": 587
             },
             {
-              "key": 140,
-              "value": 586
+              "address": 140,
+              "channel": 2,
+              "time": 586
             },
             {
-              "key": 141,
-              "value": 587
+              "address": 141,
+              "channel": 2,
+              "time": 587
             },
             {
-              "key": 142,
-              "value": 588
+              "address": 142,
+              "channel": 6,
+              "time": 588
             },
             {
-              "key": 143,
-              "value": 593
+              "address": 143,
+              "channel": 3,
+              "time": 593
             },
             {
-              "key": 144,
-              "value": 591
+              "address": 144,
+              "channel": 0,
+              "time": 591
             },
             {
-              "key": 145,
-              "value": 592
+              "address": 145,
+              "channel": 0,
+              "time": 592
             },
             {
-              "key": 146,
-              "value": 591
+              "address": 146,
+              "channel": 8,
+              "time": 591
             },
             {
-              "key": 147,
-              "value": 598
+              "address": 147,
+              "channel": 6,
+              "time": 598
             },
             {
-              "key": 148,
-              "value": 605
+              "address": 148,
+              "channel": 0,
+              "time": 605
             },
             {
-              "key": 149,
-              "value": 607
+              "address": 149,
+              "channel": 4,
+              "time": 607
             },
             {
-              "key": 150,
-              "value": 605
+              "address": 150,
+              "channel": 2,
+              "time": 605
             },
             {
-              "key": 151,
-              "value": 615
+              "address": 151,
+              "channel": 9,
+              "time": 615
             },
             {
-              "key": 152,
-              "value": 623
+              "address": 152,
+              "channel": 1,
+              "time": 623
             },
             {
-              "key": 153,
-              "value": 628
+              "address": 153,
+              "channel": 8,
+              "time": 628
             },
             {
-              "key": 154,
-              "value": 630
+              "address": 154,
+              "channel": 5,
+              "time": 630
             },
             {
-              "key": 155,
-              "value": 630
+              "address": 155,
+              "channel": 3,
+              "time": 630
             },
             {
-              "key": 156,
-              "value": 634
+              "address": 156,
+              "channel": 2,
+              "time": 634
             },
             {
-              "key": 157,
-              "value": 635
+              "address": 157,
+              "channel": 5,
+              "time": 635
             },
             {
-              "key": 158,
-              "value": 640
+              "address": 158,
+              "channel": 6,
+              "time": 640
             },
             {
-              "key": 159,
-              "value": 639
+              "address": 159,
+              "channel": 7,
+              "time": 639
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 6
+              "address": 0,
+              "channel": 3,
+              "time": 6
             },
             {
-              "key": 1,
-              "value": 4
+              "address": 1,
+              "channel": 2,
+              "time": 4
             },
             {
-              "key": 2,
-              "value": 10
+              "address": 2,
+              "channel": 1,
+              "time": 10
             },
             {
-              "key": 3,
-              "value": 17
+              "address": 3,
+              "channel": 8,
+              "time": 17
             },
             {
-              "key": 4,
-              "value": 24
+              "address": 4,
+              "channel": 2,
+              "time": 24
             },
             {
-              "key": 5,
-              "value": 23
+              "address": 5,
+              "channel": 1,
+              "time": 23
             },
             {
-              "key": 6,
-              "value": 23
+              "address": 6,
+              "channel": 2,
+              "time": 23
             },
             {
-              "key": 7,
-              "value": 23
+              "address": 7,
+              "channel": 6,
+              "time": 23
             },
             {
-              "key": 8,
-              "value": 30
+              "address": 8,
+              "channel": 1,
+              "time": 30
             },
             {
-              "key": 9,
-              "value": 37
+              "address": 9,
+              "channel": 2,
+              "time": 37
             },
             {
-              "key": 10,
-              "value": 36
+              "address": 10,
+              "channel": 9,
+              "time": 36
             },
             {
-              "key": 11,
-              "value": 40
+              "address": 11,
+              "channel": 1,
+              "time": 40
             },
             {
-              "key": 12,
-              "value": 43
+              "address": 12,
+              "channel": 7,
+              "time": 43
             },
             {
-              "key": 13,
-              "value": 50
+              "address": 13,
+              "channel": 5,
+              "time": 50
             },
             {
-              "key": 14,
-              "value": 56
+              "address": 14,
+              "channel": 1,
+              "time": 56
             },
             {
-              "key": 15,
-              "value": 56
+              "address": 15,
+              "channel": 4,
+              "time": 56
             },
             {
-              "key": 16,
-              "value": 57
+              "address": 16,
+              "channel": 9,
+              "time": 57
             },
             {
-              "key": 17,
-              "value": 63
+              "address": 17,
+              "channel": 7,
+              "time": 63
             },
             {
-              "key": 18,
-              "value": 73
+              "address": 18,
+              "channel": 1,
+              "time": 73
             },
             {
-              "key": 19,
-              "value": 79
+              "address": 19,
+              "channel": 5,
+              "time": 79
             },
             {
-              "key": 20,
-              "value": 79
+              "address": 20,
+              "channel": 6,
+              "time": 79
             },
             {
-              "key": 21,
-              "value": 84
+              "address": 21,
+              "channel": 3,
+              "time": 84
             },
             {
-              "key": 22,
-              "value": 85
+              "address": 22,
+              "channel": 2,
+              "time": 85
             },
             {
-              "key": 23,
-              "value": 83
+              "address": 23,
+              "channel": 8,
+              "time": 83
             },
             {
-              "key": 24,
-              "value": 86
+              "address": 24,
+              "channel": 4,
+              "time": 86
             },
             {
-              "key": 25,
-              "value": 91
+              "address": 25,
+              "channel": 9,
+              "time": 91
             },
             {
-              "key": 26,
-              "value": 99
+              "address": 26,
+              "channel": 3,
+              "time": 99
             },
             {
-              "key": 27,
-              "value": 101
+              "address": 27,
+              "channel": 6,
+              "time": 101
             },
             {
-              "key": 28,
-              "value": 110
+              "address": 28,
+              "channel": 7,
+              "time": 110
             },
             {
-              "key": 29,
-              "value": 112
+              "address": 29,
+              "channel": 6,
+              "time": 112
             },
             {
-              "key": 30,
-              "value": 116
+              "address": 30,
+              "channel": 9,
+              "time": 116
             },
             {
-              "key": 31,
-              "value": 114
+              "address": 31,
+              "channel": 1,
+              "time": 114
             },
             {
-              "key": 32,
-              "value": 112
+              "address": 32,
+              "channel": 5,
+              "time": 112
             },
             {
-              "key": 33,
-              "value": 119
+              "address": 33,
+              "channel": 0,
+              "time": 119
             },
             {
-              "key": 34,
-              "value": 128
+              "address": 34,
+              "channel": 5,
+              "time": 128
             },
             {
-              "key": 35,
-              "value": 136
+              "address": 35,
+              "channel": 6,
+              "time": 136
             },
             {
-              "key": 36,
-              "value": 143
+              "address": 36,
+              "channel": 8,
+              "time": 143
             },
             {
-              "key": 37,
-              "value": 151
+              "address": 37,
+              "channel": 0,
+              "time": 151
             },
             {
-              "key": 38,
-              "value": 151
+              "address": 38,
+              "channel": 8,
+              "time": 151
             },
             {
-              "key": 39,
-              "value": 155
+              "address": 39,
+              "channel": 1,
+              "time": 155
             },
             {
-              "key": 40,
-              "value": 154
+              "address": 40,
+              "channel": 9,
+              "time": 154
             },
             {
-              "key": 41,
-              "value": 160
+              "address": 41,
+              "channel": 7,
+              "time": 160
             },
             {
-              "key": 42,
-              "value": 165
+              "address": 42,
+              "channel": 2,
+              "time": 165
             },
             {
-              "key": 43,
-              "value": 168
+              "address": 43,
+              "channel": 4,
+              "time": 168
             },
             {
-              "key": 44,
-              "value": 175
+              "address": 44,
+              "channel": 7,
+              "time": 175
             },
             {
-              "key": 45,
-              "value": 182
+              "address": 45,
+              "channel": 2,
+              "time": 182
             },
             {
-              "key": 46,
-              "value": 181
+              "address": 46,
+              "channel": 6,
+              "time": 181
             },
             {
-              "key": 47,
-              "value": 184
+              "address": 47,
+              "channel": 8,
+              "time": 184
             },
             {
-              "key": 48,
-              "value": 186
+              "address": 48,
+              "channel": 0,
+              "time": 186
             },
             {
-              "key": 49,
-              "value": 191
+              "address": 49,
+              "channel": 7,
+              "time": 191
             },
             {
-              "key": 50,
-              "value": 198
+              "address": 50,
+              "channel": 7,
+              "time": 198
             },
             {
-              "key": 51,
-              "value": 206
+              "address": 51,
+              "channel": 9,
+              "time": 206
             },
             {
-              "key": 52,
-              "value": 208
+              "address": 52,
+              "channel": 6,
+              "time": 208
             },
             {
-              "key": 53,
-              "value": 215
+              "address": 53,
+              "channel": 5,
+              "time": 215
             },
             {
-              "key": 54,
-              "value": 223
+              "address": 54,
+              "channel": 0,
+              "time": 223
             },
             {
-              "key": 55,
-              "value": 229
+              "address": 55,
+              "channel": 8,
+              "time": 229
             },
             {
-              "key": 56,
-              "value": 236
+              "address": 56,
+              "channel": 5,
+              "time": 236
             },
             {
-              "key": 57,
-              "value": 241
+              "address": 57,
+              "channel": 6,
+              "time": 241
             },
             {
-              "key": 58,
-              "value": 247
+              "address": 58,
+              "channel": 2,
+              "time": 247
             },
             {
-              "key": 59,
-              "value": 257
+              "address": 59,
+              "channel": 2,
+              "time": 257
             },
             {
-              "key": 60,
-              "value": 267
+              "address": 60,
+              "channel": 0,
+              "time": 267
             },
             {
-              "key": 61,
-              "value": 276
+              "address": 61,
+              "channel": 0,
+              "time": 276
             },
             {
-              "key": 62,
-              "value": 279
+              "address": 62,
+              "channel": 5,
+              "time": 279
             },
             {
-              "key": 63,
-              "value": 284
+              "address": 63,
+              "channel": 6,
+              "time": 284
             },
             {
-              "key": 64,
-              "value": 288
+              "address": 64,
+              "channel": 4,
+              "time": 288
             },
             {
-              "key": 65,
-              "value": 297
+              "address": 65,
+              "channel": 9,
+              "time": 297
             },
             {
-              "key": 66,
-              "value": 305
+              "address": 66,
+              "channel": 8,
+              "time": 305
             },
             {
-              "key": 67,
-              "value": 305
+              "address": 67,
+              "channel": 7,
+              "time": 305
             },
             {
-              "key": 68,
-              "value": 315
+              "address": 68,
+              "channel": 6,
+              "time": 315
             },
             {
-              "key": 69,
-              "value": 320
+              "address": 69,
+              "channel": 4,
+              "time": 320
             },
             {
-              "key": 70,
-              "value": 325
+              "address": 70,
+              "channel": 8,
+              "time": 325
             },
             {
-              "key": 71,
-              "value": 332
+              "address": 71,
+              "channel": 0,
+              "time": 332
             },
             {
-              "key": 72,
-              "value": 340
+              "address": 72,
+              "channel": 3,
+              "time": 340
             },
             {
-              "key": 73,
-              "value": 343
+              "address": 73,
+              "channel": 2,
+              "time": 343
             },
             {
-              "key": 74,
-              "value": 353
+              "address": 74,
+              "channel": 9,
+              "time": 353
             },
             {
-              "key": 75,
-              "value": 360
+              "address": 75,
+              "channel": 1,
+              "time": 360
             },
             {
-              "key": 76,
-              "value": 363
+              "address": 76,
+              "channel": 7,
+              "time": 363
             },
             {
-              "key": 77,
-              "value": 368
+              "address": 77,
+              "channel": 7,
+              "time": 368
             },
             {
-              "key": 78,
-              "value": 377
+              "address": 78,
+              "channel": 0,
+              "time": 377
             },
             {
-              "key": 79,
-              "value": 387
+              "address": 79,
+              "channel": 6,
+              "time": 387
             }
           ]
         }
@@ -5923,806 +7292,1006 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 6
+              "address": 0,
+              "channel": 1,
+              "time": 6
             },
             {
-              "key": 1,
-              "value": 14
+              "address": 1,
+              "channel": 2,
+              "time": 14
             },
             {
-              "key": 2,
-              "value": 20
+              "address": 2,
+              "channel": 3,
+              "time": 20
             },
             {
-              "key": 3,
-              "value": 30
+              "address": 3,
+              "channel": 2,
+              "time": 30
             },
             {
-              "key": 4,
-              "value": 40
+              "address": 4,
+              "channel": 2,
+              "time": 40
             },
             {
-              "key": 5,
-              "value": 40
+              "address": 5,
+              "channel": 1,
+              "time": 40
             },
             {
-              "key": 6,
-              "value": 42
+              "address": 6,
+              "channel": 2,
+              "time": 42
             },
             {
-              "key": 7,
-              "value": 51
+              "address": 7,
+              "channel": 1,
+              "time": 51
             },
             {
-              "key": 8,
-              "value": 51
+              "address": 8,
+              "channel": 3,
+              "time": 51
             },
             {
-              "key": 9,
-              "value": 53
+              "address": 9,
+              "channel": 2,
+              "time": 53
             },
             {
-              "key": 10,
-              "value": 63
+              "address": 10,
+              "channel": 0,
+              "time": 63
             },
             {
-              "key": 11,
-              "value": 64
+              "address": 11,
+              "channel": 1,
+              "time": 64
             },
             {
-              "key": 12,
-              "value": 67
+              "address": 12,
+              "channel": 1,
+              "time": 67
             },
             {
-              "key": 13,
-              "value": 76
+              "address": 13,
+              "channel": 0,
+              "time": 76
             },
             {
-              "key": 14,
-              "value": 76
+              "address": 14,
+              "channel": 1,
+              "time": 76
             },
             {
-              "key": 15,
-              "value": 81
+              "address": 15,
+              "channel": 3,
+              "time": 81
             },
             {
-              "key": 16,
-              "value": 90
+              "address": 16,
+              "channel": 4,
+              "time": 90
             },
             {
-              "key": 17,
-              "value": 93
+              "address": 17,
+              "channel": 4,
+              "time": 93
             },
             {
-              "key": 18,
-              "value": 102
+              "address": 18,
+              "channel": 0,
+              "time": 102
             },
             {
-              "key": 19,
-              "value": 100
+              "address": 19,
+              "channel": 0,
+              "time": 100
             },
             {
-              "key": 20,
-              "value": 103
+              "address": 20,
+              "channel": 2,
+              "time": 103
             },
             {
-              "key": 21,
-              "value": 106
+              "address": 21,
+              "channel": 3,
+              "time": 106
             },
             {
-              "key": 22,
-              "value": 110
+              "address": 22,
+              "channel": 0,
+              "time": 110
             },
             {
-              "key": 23,
-              "value": 111
+              "address": 23,
+              "channel": 3,
+              "time": 111
             },
             {
-              "key": 24,
-              "value": 120
+              "address": 24,
+              "channel": 4,
+              "time": 120
             },
             {
-              "key": 25,
-              "value": 121
+              "address": 25,
+              "channel": 1,
+              "time": 121
             },
             {
-              "key": 26,
-              "value": 126
+              "address": 26,
+              "channel": 4,
+              "time": 126
             },
             {
-              "key": 27,
-              "value": 136
+              "address": 27,
+              "channel": 3,
+              "time": 136
             },
             {
-              "key": 28,
-              "value": 138
+              "address": 28,
+              "channel": 2,
+              "time": 138
             },
             {
-              "key": 29,
-              "value": 148
+              "address": 29,
+              "channel": 4,
+              "time": 148
             },
             {
-              "key": 30,
-              "value": 146
+              "address": 30,
+              "channel": 4,
+              "time": 146
             },
             {
-              "key": 31,
-              "value": 148
+              "address": 31,
+              "channel": 1,
+              "time": 148
             },
             {
-              "key": 32,
-              "value": 152
+              "address": 32,
+              "channel": 2,
+              "time": 152
             },
             {
-              "key": 33,
-              "value": 159
+              "address": 33,
+              "channel": 3,
+              "time": 159
             },
             {
-              "key": 34,
-              "value": 158
+              "address": 34,
+              "channel": 1,
+              "time": 158
             },
             {
-              "key": 35,
-              "value": 160
+              "address": 35,
+              "channel": 0,
+              "time": 160
             },
             {
-              "key": 36,
-              "value": 160
+              "address": 36,
+              "channel": 4,
+              "time": 160
             },
             {
-              "key": 37,
-              "value": 161
+              "address": 37,
+              "channel": 0,
+              "time": 161
             },
             {
-              "key": 38,
-              "value": 167
+              "address": 38,
+              "channel": 1,
+              "time": 167
             },
             {
-              "key": 39,
-              "value": 174
+              "address": 39,
+              "channel": 0,
+              "time": 174
             },
             {
-              "key": 40,
-              "value": 173
+              "address": 40,
+              "channel": 3,
+              "time": 173
             },
             {
-              "key": 41,
-              "value": 181
+              "address": 41,
+              "channel": 0,
+              "time": 181
             },
             {
-              "key": 42,
-              "value": 181
+              "address": 42,
+              "channel": 4,
+              "time": 181
             },
             {
-              "key": 43,
-              "value": 189
+              "address": 43,
+              "channel": 3,
+              "time": 189
             },
             {
-              "key": 44,
-              "value": 197
+              "address": 44,
+              "channel": 0,
+              "time": 197
             },
             {
-              "key": 45,
-              "value": 207
+              "address": 45,
+              "channel": 4,
+              "time": 207
             },
             {
-              "key": 46,
-              "value": 208
+              "address": 46,
+              "channel": 1,
+              "time": 208
             },
             {
-              "key": 47,
-              "value": 209
+              "address": 47,
+              "channel": 1,
+              "time": 209
             },
             {
-              "key": 48,
-              "value": 211
+              "address": 48,
+              "channel": 4,
+              "time": 211
             },
             {
-              "key": 49,
-              "value": 209
+              "address": 49,
+              "channel": 3,
+              "time": 209
             },
             {
-              "key": 50,
-              "value": 209
+              "address": 50,
+              "channel": 2,
+              "time": 209
             },
             {
-              "key": 51,
-              "value": 209
+              "address": 51,
+              "channel": 0,
+              "time": 209
             },
             {
-              "key": 52,
-              "value": 216
+              "address": 52,
+              "channel": 1,
+              "time": 216
             },
             {
-              "key": 53,
-              "value": 221
+              "address": 53,
+              "channel": 1,
+              "time": 221
             },
             {
-              "key": 54,
-              "value": 229
+              "address": 54,
+              "channel": 4,
+              "time": 229
             },
             {
-              "key": 55,
-              "value": 237
+              "address": 55,
+              "channel": 4,
+              "time": 237
             },
             {
-              "key": 56,
-              "value": 235
+              "address": 56,
+              "channel": 4,
+              "time": 235
             },
             {
-              "key": 57,
-              "value": 233
+              "address": 57,
+              "channel": 0,
+              "time": 233
             },
             {
-              "key": 58,
-              "value": 242
+              "address": 58,
+              "channel": 0,
+              "time": 242
             },
             {
-              "key": 59,
-              "value": 249
+              "address": 59,
+              "channel": 4,
+              "time": 249
             },
             {
-              "key": 60,
-              "value": 249
+              "address": 60,
+              "channel": 2,
+              "time": 249
             },
             {
-              "key": 61,
-              "value": 256
+              "address": 61,
+              "channel": 0,
+              "time": 256
             },
             {
-              "key": 62,
-              "value": 263
+              "address": 62,
+              "channel": 2,
+              "time": 263
             },
             {
-              "key": 63,
-              "value": 270
+              "address": 63,
+              "channel": 4,
+              "time": 270
             },
             {
-              "key": 64,
-              "value": 274
+              "address": 64,
+              "channel": 2,
+              "time": 274
             },
             {
-              "key": 65,
-              "value": 276
+              "address": 65,
+              "channel": 1,
+              "time": 276
             },
             {
-              "key": 66,
-              "value": 275
+              "address": 66,
+              "channel": 0,
+              "time": 275
             },
             {
-              "key": 67,
-              "value": 273
+              "address": 67,
+              "channel": 2,
+              "time": 273
             },
             {
-              "key": 68,
-              "value": 274
+              "address": 68,
+              "channel": 4,
+              "time": 274
             },
             {
-              "key": 69,
-              "value": 273
+              "address": 69,
+              "channel": 1,
+              "time": 273
             },
             {
-              "key": 70,
-              "value": 282
+              "address": 70,
+              "channel": 4,
+              "time": 282
             },
             {
-              "key": 71,
-              "value": 280
+              "address": 71,
+              "channel": 4,
+              "time": 280
             },
             {
-              "key": 72,
-              "value": 278
+              "address": 72,
+              "channel": 1,
+              "time": 278
             },
             {
-              "key": 73,
-              "value": 277
+              "address": 73,
+              "channel": 3,
+              "time": 277
             },
             {
-              "key": 74,
-              "value": 287
+              "address": 74,
+              "channel": 0,
+              "time": 287
             },
             {
-              "key": 75,
-              "value": 294
+              "address": 75,
+              "channel": 0,
+              "time": 294
             },
             {
-              "key": 76,
-              "value": 304
+              "address": 76,
+              "channel": 2,
+              "time": 304
             },
             {
-              "key": 77,
-              "value": 312
+              "address": 77,
+              "channel": 3,
+              "time": 312
             },
             {
-              "key": 78,
-              "value": 315
+              "address": 78,
+              "channel": 0,
+              "time": 315
             },
             {
-              "key": 79,
-              "value": 320
+              "address": 79,
+              "channel": 0,
+              "time": 320
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 10
+              "address": 0,
+              "channel": 4,
+              "time": 10
             },
             {
-              "key": 1,
-              "value": 13
+              "address": 1,
+              "channel": 0,
+              "time": 13
             },
             {
-              "key": 2,
-              "value": 16
+              "address": 2,
+              "channel": 3,
+              "time": 16
             },
             {
-              "key": 3,
-              "value": 15
+              "address": 3,
+              "channel": 2,
+              "time": 15
             },
             {
-              "key": 4,
-              "value": 13
+              "address": 4,
+              "channel": 3,
+              "time": 13
             },
             {
-              "key": 5,
-              "value": 13
+              "address": 5,
+              "channel": 1,
+              "time": 13
             },
             {
-              "key": 6,
-              "value": 17
+              "address": 6,
+              "channel": 3,
+              "time": 17
             },
             {
-              "key": 7,
-              "value": 21
+              "address": 7,
+              "channel": 3,
+              "time": 21
             },
             {
-              "key": 8,
-              "value": 21
+              "address": 8,
+              "channel": 2,
+              "time": 21
             },
             {
-              "key": 9,
-              "value": 26
+              "address": 9,
+              "channel": 2,
+              "time": 26
             },
             {
-              "key": 10,
-              "value": 32
+              "address": 10,
+              "channel": 1,
+              "time": 32
             },
             {
-              "key": 11,
-              "value": 30
+              "address": 11,
+              "channel": 1,
+              "time": 30
             },
             {
-              "key": 12,
-              "value": 28
+              "address": 12,
+              "channel": 3,
+              "time": 28
             },
             {
-              "key": 13,
-              "value": 27
+              "address": 13,
+              "channel": 2,
+              "time": 27
             },
             {
-              "key": 14,
-              "value": 29
+              "address": 14,
+              "channel": 1,
+              "time": 29
             },
             {
-              "key": 15,
-              "value": 39
+              "address": 15,
+              "channel": 1,
+              "time": 39
             },
             {
-              "key": 16,
-              "value": 41
+              "address": 16,
+              "channel": 1,
+              "time": 41
             },
             {
-              "key": 17,
-              "value": 47
+              "address": 17,
+              "channel": 1,
+              "time": 47
             },
             {
-              "key": 18,
-              "value": 51
+              "address": 18,
+              "channel": 3,
+              "time": 51
             },
             {
-              "key": 19,
-              "value": 55
+              "address": 19,
+              "channel": 0,
+              "time": 55
             },
             {
-              "key": 20,
-              "value": 65
+              "address": 20,
+              "channel": 2,
+              "time": 65
             },
             {
-              "key": 21,
-              "value": 74
+              "address": 21,
+              "channel": 2,
+              "time": 74
             },
             {
-              "key": 22,
-              "value": 76
+              "address": 22,
+              "channel": 2,
+              "time": 76
             },
             {
-              "key": 23,
-              "value": 79
+              "address": 23,
+              "channel": 3,
+              "time": 79
             },
             {
-              "key": 24,
-              "value": 86
+              "address": 24,
+              "channel": 1,
+              "time": 86
             },
             {
-              "key": 25,
-              "value": 89
+              "address": 25,
+              "channel": 0,
+              "time": 89
             },
             {
-              "key": 26,
-              "value": 91
+              "address": 26,
+              "channel": 2,
+              "time": 91
             },
             {
-              "key": 27,
-              "value": 91
+              "address": 27,
+              "channel": 3,
+              "time": 91
             },
             {
-              "key": 28,
-              "value": 101
+              "address": 28,
+              "channel": 2,
+              "time": 101
             },
             {
-              "key": 29,
-              "value": 107
+              "address": 29,
+              "channel": 0,
+              "time": 107
             },
             {
-              "key": 30,
-              "value": 111
+              "address": 30,
+              "channel": 3,
+              "time": 111
             },
             {
-              "key": 31,
-              "value": 119
+              "address": 31,
+              "channel": 4,
+              "time": 119
             },
             {
-              "key": 32,
-              "value": 127
+              "address": 32,
+              "channel": 4,
+              "time": 127
             },
             {
-              "key": 33,
-              "value": 134
+              "address": 33,
+              "channel": 2,
+              "time": 134
             },
             {
-              "key": 34,
-              "value": 135
+              "address": 34,
+              "channel": 0,
+              "time": 135
             },
             {
-              "key": 35,
-              "value": 136
+              "address": 35,
+              "channel": 1,
+              "time": 136
             },
             {
-              "key": 36,
-              "value": 142
+              "address": 36,
+              "channel": 4,
+              "time": 142
             },
             {
-              "key": 37,
-              "value": 147
+              "address": 37,
+              "channel": 2,
+              "time": 147
             },
             {
-              "key": 38,
-              "value": 148
+              "address": 38,
+              "channel": 1,
+              "time": 148
             },
             {
-              "key": 39,
-              "value": 146
+              "address": 39,
+              "channel": 4,
+              "time": 146
             },
             {
-              "key": 40,
-              "value": 153
+              "address": 40,
+              "channel": 4,
+              "time": 153
             },
             {
-              "key": 41,
-              "value": 159
+              "address": 41,
+              "channel": 4,
+              "time": 159
             },
             {
-              "key": 42,
-              "value": 167
+              "address": 42,
+              "channel": 1,
+              "time": 167
             },
             {
-              "key": 43,
-              "value": 175
+              "address": 43,
+              "channel": 2,
+              "time": 175
             },
             {
-              "key": 44,
-              "value": 177
+              "address": 44,
+              "channel": 3,
+              "time": 177
             },
             {
-              "key": 45,
-              "value": 179
+              "address": 45,
+              "channel": 4,
+              "time": 179
             },
             {
-              "key": 46,
-              "value": 184
+              "address": 46,
+              "channel": 0,
+              "time": 184
             },
             {
-              "key": 47,
-              "value": 194
+              "address": 47,
+              "channel": 0,
+              "time": 194
             },
             {
-              "key": 48,
-              "value": 203
+              "address": 48,
+              "channel": 2,
+              "time": 203
             },
             {
-              "key": 49,
-              "value": 201
+              "address": 49,
+              "channel": 3,
+              "time": 201
             },
             {
-              "key": 50,
-              "value": 200
+              "address": 50,
+              "channel": 3,
+              "time": 200
             },
             {
-              "key": 51,
-              "value": 209
+              "address": 51,
+              "channel": 1,
+              "time": 209
             },
             {
-              "key": 52,
-              "value": 213
+              "address": 52,
+              "channel": 3,
+              "time": 213
             },
             {
-              "key": 53,
-              "value": 217
+              "address": 53,
+              "channel": 0,
+              "time": 217
             },
             {
-              "key": 54,
-              "value": 216
+              "address": 54,
+              "channel": 1,
+              "time": 216
             },
             {
-              "key": 55,
-              "value": 224
+              "address": 55,
+              "channel": 3,
+              "time": 224
             },
             {
-              "key": 56,
-              "value": 223
+              "address": 56,
+              "channel": 3,
+              "time": 223
             },
             {
-              "key": 57,
-              "value": 229
+              "address": 57,
+              "channel": 4,
+              "time": 229
             },
             {
-              "key": 58,
-              "value": 228
+              "address": 58,
+              "channel": 4,
+              "time": 228
             },
             {
-              "key": 59,
-              "value": 230
+              "address": 59,
+              "channel": 4,
+              "time": 230
             },
             {
-              "key": 60,
-              "value": 233
+              "address": 60,
+              "channel": 2,
+              "time": 233
             },
             {
-              "key": 61,
-              "value": 242
+              "address": 61,
+              "channel": 2,
+              "time": 242
             },
             {
-              "key": 62,
-              "value": 248
+              "address": 62,
+              "channel": 2,
+              "time": 248
             },
             {
-              "key": 63,
-              "value": 258
+              "address": 63,
+              "channel": 3,
+              "time": 258
             },
             {
-              "key": 64,
-              "value": 264
+              "address": 64,
+              "channel": 0,
+              "time": 264
             },
             {
-              "key": 65,
-              "value": 274
+              "address": 65,
+              "channel": 0,
+              "time": 274
             },
             {
-              "key": 66,
-              "value": 280
+              "address": 66,
+              "channel": 0,
+              "time": 280
             },
             {
-              "key": 67,
-              "value": 286
+              "address": 67,
+              "channel": 0,
+              "time": 286
             },
             {
-              "key": 68,
-              "value": 289
+              "address": 68,
+              "channel": 3,
+              "time": 289
             },
             {
-              "key": 69,
-              "value": 296
+              "address": 69,
+              "channel": 3,
+              "time": 296
             },
             {
-              "key": 70,
-              "value": 300
+              "address": 70,
+              "channel": 2,
+              "time": 300
             },
             {
-              "key": 71,
-              "value": 306
+              "address": 71,
+              "channel": 4,
+              "time": 306
             },
             {
-              "key": 72,
-              "value": 304
+              "address": 72,
+              "channel": 3,
+              "time": 304
             },
             {
-              "key": 73,
-              "value": 314
+              "address": 73,
+              "channel": 1,
+              "time": 314
             },
             {
-              "key": 74,
-              "value": 315
+              "address": 74,
+              "channel": 0,
+              "time": 315
             },
             {
-              "key": 75,
-              "value": 323
+              "address": 75,
+              "channel": 2,
+              "time": 323
             },
             {
-              "key": 76,
-              "value": 330
+              "address": 76,
+              "channel": 0,
+              "time": 330
             },
             {
-              "key": 77,
-              "value": 340
+              "address": 77,
+              "channel": 3,
+              "time": 340
             },
             {
-              "key": 78,
-              "value": 339
+              "address": 78,
+              "channel": 2,
+              "time": 339
             },
             {
-              "key": 79,
-              "value": 349
+              "address": 79,
+              "channel": 0,
+              "time": 349
             },
             {
-              "key": 80,
-              "value": 355
+              "address": 80,
+              "channel": 2,
+              "time": 355
             },
             {
-              "key": 81,
-              "value": 353
+              "address": 81,
+              "channel": 2,
+              "time": 353
             },
             {
-              "key": 82,
-              "value": 351
+              "address": 82,
+              "channel": 0,
+              "time": 351
             },
             {
-              "key": 83,
-              "value": 361
+              "address": 83,
+              "channel": 3,
+              "time": 361
             },
             {
-              "key": 84,
-              "value": 370
+              "address": 84,
+              "channel": 2,
+              "time": 370
             },
             {
-              "key": 85,
-              "value": 369
+              "address": 85,
+              "channel": 3,
+              "time": 369
             },
             {
-              "key": 86,
-              "value": 374
+              "address": 86,
+              "channel": 0,
+              "time": 374
             },
             {
-              "key": 87,
-              "value": 377
+              "address": 87,
+              "channel": 0,
+              "time": 377
             },
             {
-              "key": 88,
-              "value": 380
+              "address": 88,
+              "channel": 1,
+              "time": 380
             },
             {
-              "key": 89,
-              "value": 383
+              "address": 89,
+              "channel": 4,
+              "time": 383
             },
             {
-              "key": 90,
-              "value": 386
+              "address": 90,
+              "channel": 0,
+              "time": 386
             },
             {
-              "key": 91,
-              "value": 384
+              "address": 91,
+              "channel": 0,
+              "time": 384
             },
             {
-              "key": 92,
-              "value": 389
+              "address": 92,
+              "channel": 0,
+              "time": 389
             },
             {
-              "key": 93,
-              "value": 393
+              "address": 93,
+              "channel": 2,
+              "time": 393
             },
             {
-              "key": 94,
-              "value": 395
+              "address": 94,
+              "channel": 1,
+              "time": 395
             },
             {
-              "key": 95,
-              "value": 393
+              "address": 95,
+              "channel": 3,
+              "time": 393
             },
             {
-              "key": 96,
-              "value": 392
+              "address": 96,
+              "channel": 3,
+              "time": 392
             },
             {
-              "key": 97,
-              "value": 392
+              "address": 97,
+              "channel": 4,
+              "time": 392
             },
             {
-              "key": 98,
-              "value": 401
+              "address": 98,
+              "channel": 2,
+              "time": 401
             },
             {
-              "key": 99,
-              "value": 408
+              "address": 99,
+              "channel": 0,
+              "time": 408
             },
             {
-              "key": 100,
-              "value": 410
+              "address": 100,
+              "channel": 1,
+              "time": 410
             },
             {
-              "key": 101,
-              "value": 408
+              "address": 101,
+              "channel": 1,
+              "time": 408
             },
             {
-              "key": 102,
-              "value": 415
+              "address": 102,
+              "channel": 0,
+              "time": 415
             },
             {
-              "key": 103,
-              "value": 416
+              "address": 103,
+              "channel": 4,
+              "time": 416
             },
             {
-              "key": 104,
-              "value": 423
+              "address": 104,
+              "channel": 4,
+              "time": 423
             },
             {
-              "key": 105,
-              "value": 432
+              "address": 105,
+              "channel": 3,
+              "time": 432
             },
             {
-              "key": 106,
-              "value": 430
+              "address": 106,
+              "channel": 3,
+              "time": 430
             },
             {
-              "key": 107,
-              "value": 438
+              "address": 107,
+              "channel": 2,
+              "time": 438
             },
             {
-              "key": 108,
-              "value": 444
+              "address": 108,
+              "channel": 4,
+              "time": 444
             },
             {
-              "key": 109,
-              "value": 443
+              "address": 109,
+              "channel": 0,
+              "time": 443
             },
             {
-              "key": 110,
-              "value": 451
+              "address": 110,
+              "channel": 3,
+              "time": 451
             },
             {
-              "key": 111,
-              "value": 453
+              "address": 111,
+              "channel": 4,
+              "time": 453
             },
             {
-              "key": 112,
-              "value": 457
+              "address": 112,
+              "channel": 4,
+              "time": 457
             },
             {
-              "key": 113,
-              "value": 456
+              "address": 113,
+              "channel": 4,
+              "time": 456
             },
             {
-              "key": 114,
-              "value": 465
+              "address": 114,
+              "channel": 1,
+              "time": 465
             },
             {
-              "key": 115,
-              "value": 464
+              "address": 115,
+              "channel": 0,
+              "time": 464
             },
             {
-              "key": 116,
-              "value": 464
+              "address": 116,
+              "channel": 4,
+              "time": 464
             },
             {
-              "key": 117,
-              "value": 470
+              "address": 117,
+              "channel": 2,
+              "time": 470
             },
             {
-              "key": 118,
-              "value": 479
+              "address": 118,
+              "channel": 2,
+              "time": 479
             },
             {
-              "key": 119,
-              "value": 489
+              "address": 119,
+              "channel": 0,
+              "time": 489
             }
           ]
         }
@@ -6743,518 +8312,646 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 0
+              "address": 0,
+              "channel": 2,
+              "time": 0
             },
             {
-              "key": 1,
-              "value": 0
+              "address": 1,
+              "channel": 3,
+              "time": 0
             },
             {
-              "key": 2,
-              "value": 6
+              "address": 2,
+              "channel": 3,
+              "time": 6
             },
             {
-              "key": 3,
-              "value": 11
+              "address": 3,
+              "channel": 4,
+              "time": 11
             },
             {
-              "key": 4,
-              "value": 15
+              "address": 4,
+              "channel": 3,
+              "time": 15
             },
             {
-              "key": 5,
-              "value": 23
+              "address": 5,
+              "channel": 2,
+              "time": 23
             },
             {
-              "key": 6,
-              "value": 32
+              "address": 6,
+              "channel": 2,
+              "time": 32
             },
             {
-              "key": 7,
-              "value": 40
+              "address": 7,
+              "channel": 3,
+              "time": 40
             },
             {
-              "key": 8,
-              "value": 49
+              "address": 8,
+              "channel": 3,
+              "time": 49
             },
             {
-              "key": 9,
-              "value": 55
+              "address": 9,
+              "channel": 4,
+              "time": 55
             },
             {
-              "key": 10,
-              "value": 56
+              "address": 10,
+              "channel": 0,
+              "time": 56
             },
             {
-              "key": 11,
-              "value": 65
+              "address": 11,
+              "channel": 0,
+              "time": 65
             },
             {
-              "key": 12,
-              "value": 75
+              "address": 12,
+              "channel": 0,
+              "time": 75
             },
             {
-              "key": 13,
-              "value": 81
+              "address": 13,
+              "channel": 4,
+              "time": 81
             },
             {
-              "key": 14,
-              "value": 91
+              "address": 14,
+              "channel": 2,
+              "time": 91
             },
             {
-              "key": 15,
-              "value": 94
+              "address": 15,
+              "channel": 4,
+              "time": 94
             },
             {
-              "key": 16,
-              "value": 97
+              "address": 16,
+              "channel": 1,
+              "time": 97
             },
             {
-              "key": 17,
-              "value": 103
+              "address": 17,
+              "channel": 3,
+              "time": 103
             },
             {
-              "key": 18,
-              "value": 109
+              "address": 18,
+              "channel": 3,
+              "time": 109
             },
             {
-              "key": 19,
-              "value": 110
+              "address": 19,
+              "channel": 3,
+              "time": 110
             },
             {
-              "key": 20,
-              "value": 116
+              "address": 20,
+              "channel": 0,
+              "time": 116
             },
             {
-              "key": 21,
-              "value": 119
+              "address": 21,
+              "channel": 3,
+              "time": 119
             },
             {
-              "key": 22,
-              "value": 126
+              "address": 22,
+              "channel": 4,
+              "time": 126
             },
             {
-              "key": 23,
-              "value": 136
+              "address": 23,
+              "channel": 1,
+              "time": 136
             },
             {
-              "key": 24,
-              "value": 139
+              "address": 24,
+              "channel": 3,
+              "time": 139
             },
             {
-              "key": 25,
-              "value": 144
+              "address": 25,
+              "channel": 0,
+              "time": 144
             },
             {
-              "key": 26,
-              "value": 142
+              "address": 26,
+              "channel": 4,
+              "time": 142
             },
             {
-              "key": 27,
-              "value": 152
+              "address": 27,
+              "channel": 3,
+              "time": 152
             },
             {
-              "key": 28,
-              "value": 154
+              "address": 28,
+              "channel": 4,
+              "time": 154
             },
             {
-              "key": 29,
-              "value": 152
+              "address": 29,
+              "channel": 1,
+              "time": 152
             },
             {
-              "key": 30,
-              "value": 153
+              "address": 30,
+              "channel": 1,
+              "time": 153
             },
             {
-              "key": 31,
-              "value": 159
+              "address": 31,
+              "channel": 1,
+              "time": 159
             },
             {
-              "key": 32,
-              "value": 164
+              "address": 32,
+              "channel": 1,
+              "time": 164
             },
             {
-              "key": 33,
-              "value": 173
+              "address": 33,
+              "channel": 4,
+              "time": 173
             },
             {
-              "key": 34,
-              "value": 182
+              "address": 34,
+              "channel": 4,
+              "time": 182
             },
             {
-              "key": 35,
-              "value": 180
+              "address": 35,
+              "channel": 2,
+              "time": 180
             },
             {
-              "key": 36,
-              "value": 187
+              "address": 36,
+              "channel": 4,
+              "time": 187
             },
             {
-              "key": 37,
-              "value": 185
+              "address": 37,
+              "channel": 0,
+              "time": 185
             },
             {
-              "key": 38,
-              "value": 194
+              "address": 38,
+              "channel": 0,
+              "time": 194
             },
             {
-              "key": 39,
-              "value": 199
+              "address": 39,
+              "channel": 4,
+              "time": 199
             },
             {
-              "key": 40,
-              "value": 201
+              "address": 40,
+              "channel": 2,
+              "time": 201
             },
             {
-              "key": 41,
-              "value": 199
+              "address": 41,
+              "channel": 1,
+              "time": 199
             },
             {
-              "key": 42,
-              "value": 198
+              "address": 42,
+              "channel": 3,
+              "time": 198
             },
             {
-              "key": 43,
-              "value": 198
+              "address": 43,
+              "channel": 4,
+              "time": 198
             },
             {
-              "key": 44,
-              "value": 205
+              "address": 44,
+              "channel": 3,
+              "time": 205
             },
             {
-              "key": 45,
-              "value": 211
+              "address": 45,
+              "channel": 0,
+              "time": 211
             },
             {
-              "key": 46,
-              "value": 215
+              "address": 46,
+              "channel": 0,
+              "time": 215
             },
             {
-              "key": 47,
-              "value": 216
+              "address": 47,
+              "channel": 1,
+              "time": 216
             },
             {
-              "key": 48,
-              "value": 216
+              "address": 48,
+              "channel": 3,
+              "time": 216
             },
             {
-              "key": 49,
-              "value": 225
+              "address": 49,
+              "channel": 3,
+              "time": 225
             },
             {
-              "key": 50,
-              "value": 233
+              "address": 50,
+              "channel": 1,
+              "time": 233
             },
             {
-              "key": 51,
-              "value": 243
+              "address": 51,
+              "channel": 1,
+              "time": 243
             },
             {
-              "key": 52,
-              "value": 242
+              "address": 52,
+              "channel": 0,
+              "time": 242
             },
             {
-              "key": 53,
-              "value": 250
+              "address": 53,
+              "channel": 3,
+              "time": 250
             },
             {
-              "key": 54,
-              "value": 249
+              "address": 54,
+              "channel": 1,
+              "time": 249
             },
             {
-              "key": 55,
-              "value": 255
+              "address": 55,
+              "channel": 3,
+              "time": 255
             },
             {
-              "key": 56,
-              "value": 258
+              "address": 56,
+              "channel": 3,
+              "time": 258
             },
             {
-              "key": 57,
-              "value": 264
+              "address": 57,
+              "channel": 0,
+              "time": 264
             },
             {
-              "key": 58,
-              "value": 262
+              "address": 58,
+              "channel": 1,
+              "time": 262
             },
             {
-              "key": 59,
-              "value": 267
+              "address": 59,
+              "channel": 1,
+              "time": 267
             },
             {
-              "key": 60,
-              "value": 269
+              "address": 60,
+              "channel": 4,
+              "time": 269
             },
             {
-              "key": 61,
-              "value": 271
+              "address": 61,
+              "channel": 2,
+              "time": 271
             },
             {
-              "key": 62,
-              "value": 278
+              "address": 62,
+              "channel": 1,
+              "time": 278
             },
             {
-              "key": 63,
-              "value": 286
+              "address": 63,
+              "channel": 0,
+              "time": 286
             },
             {
-              "key": 64,
-              "value": 286
+              "address": 64,
+              "channel": 3,
+              "time": 286
             },
             {
-              "key": 65,
-              "value": 290
+              "address": 65,
+              "channel": 2,
+              "time": 290
             },
             {
-              "key": 66,
-              "value": 295
+              "address": 66,
+              "channel": 4,
+              "time": 295
             },
             {
-              "key": 67,
-              "value": 299
+              "address": 67,
+              "channel": 1,
+              "time": 299
             },
             {
-              "key": 68,
-              "value": 301
+              "address": 68,
+              "channel": 2,
+              "time": 301
             },
             {
-              "key": 69,
-              "value": 303
+              "address": 69,
+              "channel": 0,
+              "time": 303
             },
             {
-              "key": 70,
-              "value": 305
+              "address": 70,
+              "channel": 0,
+              "time": 305
             },
             {
-              "key": 71,
-              "value": 312
+              "address": 71,
+              "channel": 1,
+              "time": 312
             },
             {
-              "key": 72,
-              "value": 320
+              "address": 72,
+              "channel": 0,
+              "time": 320
             },
             {
-              "key": 73,
-              "value": 328
+              "address": 73,
+              "channel": 1,
+              "time": 328
             },
             {
-              "key": 74,
-              "value": 327
+              "address": 74,
+              "channel": 2,
+              "time": 327
             },
             {
-              "key": 75,
-              "value": 325
+              "address": 75,
+              "channel": 2,
+              "time": 325
             },
             {
-              "key": 76,
-              "value": 325
+              "address": 76,
+              "channel": 3,
+              "time": 325
             },
             {
-              "key": 77,
-              "value": 332
+              "address": 77,
+              "channel": 2,
+              "time": 332
             },
             {
-              "key": 78,
-              "value": 331
+              "address": 78,
+              "channel": 3,
+              "time": 331
             },
             {
-              "key": 79,
-              "value": 340
+              "address": 79,
+              "channel": 0,
+              "time": 340
             },
             {
-              "key": 80,
-              "value": 349
+              "address": 80,
+              "channel": 0,
+              "time": 349
             },
             {
-              "key": 81,
-              "value": 352
+              "address": 81,
+              "channel": 1,
+              "time": 352
             },
             {
-              "key": 82,
-              "value": 353
+              "address": 82,
+              "channel": 4,
+              "time": 353
             },
             {
-              "key": 83,
-              "value": 356
+              "address": 83,
+              "channel": 3,
+              "time": 356
             },
             {
-              "key": 84,
-              "value": 359
+              "address": 84,
+              "channel": 3,
+              "time": 359
             },
             {
-              "key": 85,
-              "value": 368
+              "address": 85,
+              "channel": 3,
+              "time": 368
             },
             {
-              "key": 86,
-              "value": 369
+              "address": 86,
+              "channel": 4,
+              "time": 369
             },
             {
-              "key": 87,
-              "value": 371
+              "address": 87,
+              "channel": 0,
+              "time": 371
             },
             {
-              "key": 88,
-              "value": 369
+              "address": 88,
+              "channel": 1,
+              "time": 369
             },
             {
-              "key": 89,
-              "value": 378
+              "address": 89,
+              "channel": 1,
+              "time": 378
             },
             {
-              "key": 90,
-              "value": 377
+              "address": 90,
+              "channel": 3,
+              "time": 377
             },
             {
-              "key": 91,
-              "value": 377
+              "address": 91,
+              "channel": 4,
+              "time": 377
             },
             {
-              "key": 92,
-              "value": 381
+              "address": 92,
+              "channel": 4,
+              "time": 381
             },
             {
-              "key": 93,
-              "value": 385
+              "address": 93,
+              "channel": 0,
+              "time": 385
             },
             {
-              "key": 94,
-              "value": 386
+              "address": 94,
+              "channel": 0,
+              "time": 386
             },
             {
-              "key": 95,
-              "value": 384
+              "address": 95,
+              "channel": 4,
+              "time": 384
             },
             {
-              "key": 96,
-              "value": 382
+              "address": 96,
+              "channel": 3,
+              "time": 382
             },
             {
-              "key": 97,
-              "value": 384
+              "address": 97,
+              "channel": 0,
+              "time": 384
             },
             {
-              "key": 98,
-              "value": 389
+              "address": 98,
+              "channel": 2,
+              "time": 389
             },
             {
-              "key": 99,
-              "value": 394
+              "address": 99,
+              "channel": 2,
+              "time": 394
             },
             {
-              "key": 100,
-              "value": 404
+              "address": 100,
+              "channel": 0,
+              "time": 404
             },
             {
-              "key": 101,
-              "value": 410
+              "address": 101,
+              "channel": 2,
+              "time": 410
             },
             {
-              "key": 102,
-              "value": 410
+              "address": 102,
+              "channel": 3,
+              "time": 410
             },
             {
-              "key": 103,
-              "value": 415
+              "address": 103,
+              "channel": 2,
+              "time": 415
             },
             {
-              "key": 104,
-              "value": 418
+              "address": 104,
+              "channel": 1,
+              "time": 418
             },
             {
-              "key": 105,
-              "value": 419
+              "address": 105,
+              "channel": 4,
+              "time": 419
             },
             {
-              "key": 106,
-              "value": 421
+              "address": 106,
+              "channel": 3,
+              "time": 421
             },
             {
-              "key": 107,
-              "value": 429
+              "address": 107,
+              "channel": 1,
+              "time": 429
             },
             {
-              "key": 108,
-              "value": 430
+              "address": 108,
+              "channel": 4,
+              "time": 430
             },
             {
-              "key": 109,
-              "value": 440
+              "address": 109,
+              "channel": 2,
+              "time": 440
             },
             {
-              "key": 110,
-              "value": 445
+              "address": 110,
+              "channel": 2,
+              "time": 445
             },
             {
-              "key": 111,
-              "value": 455
+              "address": 111,
+              "channel": 0,
+              "time": 455
             },
             {
-              "key": 112,
-              "value": 457
+              "address": 112,
+              "channel": 4,
+              "time": 457
             },
             {
-              "key": 113,
-              "value": 462
+              "address": 113,
+              "channel": 1,
+              "time": 462
             },
             {
-              "key": 114,
-              "value": 470
+              "address": 114,
+              "channel": 1,
+              "time": 470
             },
             {
-              "key": 115,
-              "value": 479
+              "address": 115,
+              "channel": 0,
+              "time": 479
             },
             {
-              "key": 116,
-              "value": 480
+              "address": 116,
+              "channel": 2,
+              "time": 480
             },
             {
-              "key": 117,
-              "value": 488
+              "address": 117,
+              "channel": 4,
+              "time": 488
             },
             {
-              "key": 118,
-              "value": 486
+              "address": 118,
+              "channel": 4,
+              "time": 486
             },
             {
-              "key": 119,
-              "value": 488
+              "address": 119,
+              "channel": 1,
+              "time": 488
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 2
+              "address": 0,
+              "channel": 4,
+              "time": 2
             },
             {
-              "key": 1,
-              "value": 9
+              "address": 1,
+              "channel": 1,
+              "time": 9
             },
             {
-              "key": 2,
-              "value": 17
+              "address": 2,
+              "channel": 1,
+              "time": 17
             },
             {
-              "key": 3,
-              "value": 22
+              "address": 3,
+              "channel": 3,
+              "time": 22
             },
             {
-              "key": 4,
-              "value": 22
+              "address": 4,
+              "channel": 1,
+              "time": 22
             },
             {
-              "key": 5,
-              "value": 30
+              "address": 5,
+              "channel": 2,
+              "time": 30
             },
             {
-              "key": 6,
-              "value": 35
+              "address": 6,
+              "channel": 0,
+              "time": 35
             },
             {
-              "key": 7,
-              "value": 42
+              "address": 7,
+              "channel": 2,
+              "time": 42
             }
           ]
         }
@@ -7275,62 +8972,76 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 0
+              "address": 0,
+              "channel": 3,
+              "time": 0
             },
             {
-              "key": 1,
-              "value": 3
+              "address": 1,
+              "channel": 3,
+              "time": 3
             },
             {
-              "key": 2,
-              "value": 11
+              "address": 2,
+              "channel": 0,
+              "time": 11
             },
             {
-              "key": 3,
-              "value": 14
+              "address": 3,
+              "channel": 1,
+              "time": 14
             },
             {
-              "key": 4,
-              "value": 13
+              "address": 4,
+              "channel": 4,
+              "time": 13
             },
             {
-              "key": 5,
-              "value": 17
+              "address": 5,
+              "channel": 2,
+              "time": 17
             },
             {
-              "key": 6,
-              "value": 19
+              "address": 6,
+              "channel": 2,
+              "time": 19
             },
             {
-              "key": 7,
-              "value": 25
+              "address": 7,
+              "channel": 2,
+              "time": 25
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 8
+              "address": 0,
+              "channel": 0,
+              "time": 8
             },
             {
-              "key": 1,
-              "value": 12
+              "address": 1,
+              "channel": 2,
+              "time": 12
             },
             {
-              "key": 2,
-              "value": 19
+              "address": 2,
+              "channel": 0,
+              "time": 19
             },
             {
-              "key": 3,
-              "value": 28
+              "address": 3,
+              "channel": 1,
+              "time": 28
             },
             {
-              "key": 4,
-              "value": 30
+              "address": 4,
+              "channel": 0,
+              "time": 30
             },
             {
-              "key": 5,
-              "value": 31
+              "address": 5,
+              "channel": 2,
+              "time": 31
             }
           ]
         }
@@ -7351,34 +9062,41 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 4
+              "address": 0,
+              "channel": 1,
+              "time": 4
             },
             {
-              "key": 1,
-              "value": 7
+              "address": 1,
+              "channel": 3,
+              "time": 7
             },
             {
-              "key": 2,
-              "value": 13
+              "address": 2,
+              "channel": 3,
+              "time": 13
             },
             {
-              "key": 3,
-              "value": 17
+              "address": 3,
+              "channel": 2,
+              "time": 17
             },
             {
-              "key": 4,
-              "value": 27
+              "address": 4,
+              "channel": 4,
+              "time": 27
             },
             {
-              "key": 5,
-              "value": 34
+              "address": 5,
+              "channel": 2,
+              "time": 34
             }
           ],
           "outputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 0
+              "address": 0,
+              "channel": 4,
+              "time": 0
             }
           ]
         }
@@ -7399,8 +9117,9 @@ The Alimp library is a collection of functions that can implement the functional
           "energy": 10,
           "inputAddrTimePatterns": [
             {
-              "key": 0,
-              "value": 3
+              "address": 0,
+              "channel": 1,
+              "time": 3
             }
           ],
           "outputAddrTimePatterns": []
@@ -7421,7 +9140,7 @@ The hyper parameters are the parameters that are used to tune the DSE tools. The
   "bindWEnergy": 1,
   "bindWLatency": 1,
   "bindRelaxationFactor": 1.1,
-  "placeRelaxationFactor": 1.0,
+  "placeRelaxationFactor": 1.5,
   "placeReservedRoutingSize": 1
 }
 ```
@@ -7446,7 +9165,13 @@ The technology constraints are the physical constraints from the selected techno
 
 ```json
 {
-  "requiredPeriod": 4e-9,
+  "widthGrid": 1.0,
+  "heightGrid": 1.0,
+  "widthDrra": 4.0,
+  "heightDrra": 4.0,
+  "gridPerDrraWidth": 0,
+  "gridPerDrraHeight": 0,
+  "clockFrequency": 250000000.0,
   "requiredSlew": 0.4,
   "initialSlew": 0.7,
   "bufferSlewDeclinedFactor": 0.05,

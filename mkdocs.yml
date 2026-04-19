@@ -55,12 +55,16 @@ nav:
           - Explanations:
               - ToolChain/Sylva/Explanations/index.md
               - DSE:
-                  - Binding: ToolChain/Sylva/Explanations/Bind.md
-                  - Placing: ToolChain/Sylva/Explanations/Place.md
-                  - Routing: ToolChain/Sylva/Explanations/Route.md
-                  - NoC Synthesis: ToolChain/Sylva/Explanations/Noc.md
-                  - GLIC Synthesis: ToolChain/Sylva/Explanations/Glic.md
-                  - Simulation: ToolChain/Sylva/Explanations/Sim.md
+                  - Binding: ToolChain/Sylva/Explanations/DSE-Bind.md
+                  - Placing: ToolChain/Sylva/Explanations/DSE-Place.md
+                  - Routing: ToolChain/Sylva/Explanations/DSE-Route.md
+                  - NoC Synthesis: ToolChain/Sylva/Explanations/DSE-Noc.md
+                  - GLIC Synthesis: ToolChain/Sylva/Explanations/DSE-Glic.md
+                  - Simulation: ToolChain/Sylva/Explanations/DSE-Sim.md
+              - ASM:
+                  - Memory Synthesis: ToolChain/Sylva/Explanations/ASM-MemSyn.md
+                  - Re-routing: ToolChain/Sylva/Explanations/ASM-Route.md
+                  - NoC Resynthesis: ToolChain/Sylva/Explanations/ASM-ReNoc.md
           - Reference:
               - ToolChain/Sylva/Reference/index.md
               - Sylva Input Format: ToolChain/Sylva/Reference/Input.md

@@ -6,9 +6,9 @@ This process is to synthesize the path created by the routing process using more
 - Buffered Wire
 - Registered Wire
 
-Why do we need these components in our solution? It is because we have to satisfy the timing requirements of a routing path from node A to node B. These requirements are the final slew to the input of B and the total delay time from A to B. If a routing path does not meet these requirements, which is often the case with a long path, it is required to be fixed by either putting buffered wires or registered wires, or both.
+Why do we need these components in our solution? It is because we have to satisfy the timing requirements of a routing path from any node A to node B. These requirements are the final slew to the input of B and the total delay time from A to B. If a routing path does not meet these requirements, which is often the case with a long path, it is required to be fixed by either putting buffered wires or registered wires, or a combination of both.
 
-It is important to run this step before the scheduling process because the scheduling process requires the latency of each communication path in terms of clock cycles.
+It is important to run this step before the scheduling process because the scheduling process requires the latency of each communication path in terms of clock cycles, which is caused by putting registers.
 
 ## Wire Synthesis
 
@@ -43,4 +43,4 @@ If the register insertion still cannot fix the timing constraint, this means tha
 
 ## Example
 
-![Example](Noc/example.png)
+![Example](DSE-Noc/example.png)
