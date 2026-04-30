@@ -99,6 +99,42 @@ Note that for resource instructions, if the instruction opcode starts with "11",
 | port | [24, 24] | 1 | 0 | Configure the transition operator to target either the DPU operation (0) or the RST operation (1).  [0]: dpu; [1]: rst; |
 | delay | [23, 1] | 23 | 0 | Delay before the transition occurs. |
 
+### io (resource)
+
+#### dsu [opcode=6]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| option | [24, 23] | 2 | 0 | Configuration option where the DSU mode will be stored. There are 4 options per port. |
+| port | [22, 22] | 1 | 0 | The port number  [0]: input_buffer; [1]: output_buffer; |
+| init_addr_sd | [21, 21] | 1 | 0 | Is initial address static or dynamic?  [0]: s; [1]: d; |
+| init_addr | [20, 5] | 16 | 0 | Initial address |
+
+#### rep [opcode=0]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 24] | 1 | 0 | Select which port the repetition applies to.  [0]: input_buffer; [1]: output_buffer; |
+| iter | [23, 16] | 8 | 0 | Number of iterations. |
+| step | [15, 9] | 7 | 1 | Step size between iterations. |
+| delay | [8, 1] | 8 | 0 | Delay between iterations. |
+
+#### repx [opcode=1]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 24] | 1 | 0 | Select which port the repetition extension applies to.  [0]: input_buffer; [1]: output_buffer; |
+| iter | [23, 16] | 8 | 0 | most significant bits to apply to the `iter` value of the repetition operator. |
+| step | [15, 9] | 7 | 1 | most significant bits to apply to the `step` value of the repetition operator. |
+| delay | [8, 1] | 8 | 0 | most significant bits to apply to the `delay` value of the repetition operator. |
+
+#### trans [opcode=2]
+
+| Field | Position | Width | Default Value | Description |
+| ----- | -------- | ----- | ------------- | ----------- |
+| port | [24, 24] | 1 | 0 | select which port the transition applies to.  [0]: input_buffer; [1]: output_buffer; |
+| delay | [23, 1] | 23 | 0 | Delay before the transition occurs. |
+
 ### iosram_both (resource)
 
 #### dsu [opcode=6]
