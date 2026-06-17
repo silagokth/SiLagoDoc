@@ -75,20 +75,18 @@ unit with three types and three read-latency models:
 
 ### TLB and Address Generation Unit (AGU)
 
-Two TLB implementations exist:
+Two TLB implementations exist. The first is a **conventional TLB**: a register file
+(zero-clock read) storing an explicit virtual→physical map, which supports arbitrary
+patterns but costs one entry per address.
 
-- A **conventional TLB**, a register file (zero-clock read) storing an explicit
-  virtual→physical map. Supports arbitrary patterns but costs one entry per
-  address.
-- An **Address Generation Unit (AGU)**, which computes the physical address from an
-  affine, three-level nested-loop function
+The second is an **Address Generation Unit (AGU)**, which computes the physical
+address from an affine, three-level nested-loop function:
 
-  $$A_{\text{physical}} = A_{\text{base}} + (i_c\,S_i) + (j_c\,S_j) + (k_c\,S_k)$$
+$$A_{\mathrm{physical}} = A_{\mathrm{base}} + (i_c\,S_i) + (j_c\,S_j) + (k_c\,S_k)$$
 
-  programmed with a base, three loop bounds $I,J,K$ and three strides
-  $S_i,S_j,S_k$. When the access pattern is affine — the common case for
-  DRRA-generated patterns — the AGU is far smaller than a full table and is
-  preferred.
+programmed with a base, three loop bounds $I,J,K$ and three strides $S_i,S_j,S_k$.
+When the access pattern is affine — the common case for DRRA-generated patterns —
+the AGU is far smaller than a full table and is preferred.
 
 ### Transporter ISA
 

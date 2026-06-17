@@ -4,20 +4,31 @@ Sylva and its dependency packages have to be installed on your system to use the
 tool chain. The following sections describe how to install Sylva and its
 dependencies.
 
+## Operating system
+
+Sylva is developed and tested on **Linux (Ubuntu)** and relies on standard Unix
+utilities; it may not work on non-Unix systems without modification.
+
+- Ubuntu 22.04 / 24.04 (or a compatible Linux distribution).
+
 ## Requirements
 
 Sylva is written in Rust and, at runtime, calls the **MiniZinc** constraint
-solver. Assembly's control synthesis also reads the RTL components from the
-`sylva-components` submodule, and the full hardware/RTL flow uses additional
-tooling. The required and optional packages are:
+solver. The build/run scripts also use a few standard Unix tools, Assembly's
+control synthesis reads the RTL components from the `sylva-components` submodule,
+and the full hardware/RTL flow uses additional tooling. The required and optional
+packages are:
 
 | Package | Tested version | Needed for |
 | --- | --- | --- |
+| `bash` | — | Running the `setup.sh` / `run_*.sh` scripts. |
+| `coreutils` (`cp`, `mv`, `rm`, …) | — | File handling performed by the scripts. |
+| `make` | — | Build steps invoked by the tool chain. |
 | [Rust toolchain (rustc + Cargo)](https://www.rust-lang.org/) | 1.88+ | Building the tool chain. |
 | [MiniZinc](https://www.minizinc.org/) | 2.9+ | Constraint programming during DSE and Assembly (uses the CP-SAT backend). |
 | [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) | 2026.03.13+ | Compiling processor/AlImp firmware (control synthesis). |
 | [bender](https://github.com/pulp-platform/bender) | 0.30.0+ | Resolving the `sylva-components` RTL dependencies. |
-| Questa | 2023.4+ | (Optional) RTL-level simulation/verification of the generated hardware. |
+| [Questa](https://www.altera.com/products/development-tools/quartus-prime/questa) (`vsim`) | 2023.4+ | (Optional) RTL-level simulation/verification of the generated hardware. |
 
 On Debian/Ubuntu the following system packages are needed to build Sylva:
 

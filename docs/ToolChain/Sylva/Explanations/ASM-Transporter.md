@@ -77,19 +77,25 @@ The backend turns the optimised IR into executable transporter code:
 3. **Register allocation** — map the unlimited "virtual" registers onto the 15
    usable physical registers, using the classic pipeline of *liveness analysis →
    interference-graph construction → graph colouring*, spilling when colouring
-   fails. The spill candidate is ranked by a heuristic:
+   fails. When colouring fails, the spill candidate is chosen by the weighted
+   heuristic score below (see the loop afterwards):
 
-   $$score = spillability + live\_range\_pressure + interference\_cost - reuse\_value$$
+$$\mathrm{score} = \mathrm{spillability} + \mathrm{liveRangePressure} + \mathrm{interferenceCost} - \mathrm{reuseValue}$$
 
-   ```rust
-   loop {
-       let lives  = liveness(&ir);
-       let graph  = interference_graph(&ir, &lives);
-       let colours = graph_colouring(&ir, &graph);
-       if colours.success { break; }
-       transforming_ir(&mut ir, colours.spilled_register);
-   }
-   ```
+where *spillability* measures how easy it is to insert reloads, *liveRangePressure*
+how long the register stays live, *interferenceCost* the node's degree in the
+interference graph, and *reuseValue* how often the register is used. Each term is
+multiplied by an adjustable weight.
+
+```rust
+loop {
+    let lives  = liveness(&ir);
+    let graph  = interference_graph(&ir, &lives);
+    let colours = graph_colouring(&ir, &graph);
+    if colours.success { break; }
+    transforming_ir(&mut ir, colours.spilled_register);
+}
+```
 
 4. **Filling `NOP` instructions** — insert `NOP`s into every empty time slot so the
    real instructions execute on exactly their scheduled cycles, and append a
