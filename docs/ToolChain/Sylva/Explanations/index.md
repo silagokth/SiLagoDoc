@@ -1,16 +1,40 @@
 # Sylva Overview
 
-Sylva is a tool for application-level synthesis (ALS). It accepts a synchronous dataflow (SDF) graph as input and generates a solution after going processes of Design Space Exploration and Assembly. Currently, Sylva generate a solution based on idealized hardware. Further assembly process needs to be implemented to automatically finalize the solution.
+Sylva is a tool for application-level synthesis (ALS). It accepts a Homogeneous
+Synchronous Dataflow (HSDF) graph as input and produces a hardware design after
+two phases: **Design Space Exploration (DSE)** and **Assembly (ASM)**. DSE works
+on idealised hardware to explore the design space; Assembly turns the chosen
+design point into a hardware-realisable description.
 
-One of the essential inputs of Sylva is an HLS library from Vesyla tool, as it provides information about the dimensions, estimated power and energy consumption, and data transfer patterns of each algorithm used in the target application. Sylva uses this information to explore the design space of the target application and produces the final design through the assembly process. For this task, the ALS tool can be divided into two parts: Design Space Exploration (DSE) and Assembly (ASE).
+One of the essential inputs of Sylva is an HLS library produced by the
+[Vesyla](../../Vesyla/index.md) tool. For each algorithm used in the target
+application it provides the dimensions, estimated energy, and static data-transfer
+patterns of one or more **AlImp** (Algorithm Implementation) variants. Sylva uses
+this information to explore the design space and to assemble the application from
+these AlImps.
+
+## Architecture
+
+Before the synthesis stages, it helps to understand the target hardware: a network
+of AlImps orchestrated by a host system, with output buffers, transporters and
+input buffers carrying data between them under a static, cycle-accurate schedule.
+
+- [**Hardware Architecture**](Architecture.md) — AlImp micro-architecture, the
+  communication components, the application-level architecture and the
+  hardware/software co-design.
 
 ## Input Files and Data Structures
 
-See [Sylva Input Format](../Reference/Input.md) for the input files and data structures used in Sylva.
+See [Sylva Input Format](../Reference/Input.md) for the input files and data
+structures used by Sylva.
 
 ## DSE Process
 
-The first step of the DSE process is to select instances of a set of target algorithms by evaluating information such as area and energy. A set of algorithm instances that meet the given constraints will then be assigned specific locations on the chip canvas. This step must take into account the potential routing difficulty by reserving extra space if necessary. Once the decisions about the instances’ locations are made, the connections can be drawn using heuristic algorithms such as A* algorithm. Finally, an optimization problem is created and solved to build the schedules for static data transport between instances. The DSE solution can optionally be verified by the GLIC simulator to ensure that the design from DSE is functional.
+DSE first selects an AlImp instance for each algorithm by evaluating area and
+energy. The selected instances are then placed on the chip canvas (reserving extra
+space for routing where needed), connected with a heuristic path-finder, and given
+static communication schedules by solving an optimisation problem. The DSE result
+can optionally be verified by the GLIC simulator.
 
 1. [**Binding**](DSE-Bind.md)
 2. [**Placement**](DSE-Place.md)
@@ -21,14 +45,19 @@ The first step of the DSE process is to select instances of a set of target algo
 
 ## Assembly Process
 
-Given the binary output from the DSE phase, the ASE phase begins by synthesizing actual hardware memories for data communication. It then reruns the routing algorithms with a legalization method to ensure that the lengths after rerouting remain approximately the same as before. It then resynthesize the NoC with the fixed delay method. After that, it compiles the instructions needed for the hardware modules that move data between locations. The other steps are on-going processes with an objective to finalize the output format in aspect of hardware. There is also a need for the full system simulation and validation in the RTL-level.
+Given the binary output from DSE, Assembly synthesises actual hardware memories
+for communication, re-runs routing with a legalisation method (so re-routed
+lengths stay close to the originals), resynthesises the NoC with fixed delays, then
+generates the code and firmware that make the design executable.
 
 1. [**Memory Synthesis**](ASM-MemSyn.md)
 2. [**Re-routing**](ASM-Route.md)
 3. [**NoC Resynthesis**](ASM-ReNoc.md)
-2. **Transporter Instruction Generation**
-4. **GRLS Protocol Synthesis**
-5. **Control Synthesis**
-6. **DRAM Interface**
-7. **Cost Metrics Estimation**
-8. **Full System Simulation and Validation**
+4. [**TLB Code Generation**](ASM-TLB.md)
+5. [**Transporter Code Generation**](ASM-Transporter.md)
+6. [**Control Synthesis**](ASM-Control.md)
+
+!!! note "Out of scope (future work)"
+    Cost-metric estimation, the DRAM interface and full RTL-level system
+    validation are part of the broader road map but are not yet implemented in the
+    tool.
