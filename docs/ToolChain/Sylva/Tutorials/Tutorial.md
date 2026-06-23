@@ -51,19 +51,20 @@ The second step of Sylva __*./bin/sv-asm*__ takes the intermediate representatio
 >> ./bin/sv-asm -h
 Arguments to get the configuration files and output directory
 
-Usage: sv-asm --intermediate-representation <IR_OBJECT> --binary <OUTPUT>
+Usage: sv-asm --intermediate-representation <IR_OBJECT> --sylva-components <SYLVA_COMPONENTS> --binary <OUTPUT>
 
 Options:
   -i, --intermediate-representation <IR_OBJECT>  Input Intermediate Representation Object
+      --sylva-components <SYLVA_COMPONENTS>      Path to the Sylva components
   -o, --binary <OUTPUT>                          output directory
   -h, --help                                     Print help
   -V, --version                                  Print version
 ```
 
-To execute the Assembly part of Sylva, run the following command to take the output of DSE as input also known as ```out/db.bin```. This part of the tool chain also creates a number of folders and files in the working directory, and similarly to the first part, it generates the output json file of this step called ```out/db_asm.bin```.
+To execute the Assembly part of Sylva, run the following command to take the output of DSE as input also known as ```out/db.bin```. Assembly also needs the path to the `sylva-components` submodule (used during control synthesis). This part of the tool chain also creates a number of folders and files in the working directory, and similarly to the first part, it generates the output json file of this step called ```out/db_asm.bin```.
 
 ```
->> ./bin/sv-asm -i out/db.bin -o out
+>> ./bin/sv-asm -i out/db.bin -o out --sylva-components ./sylva-components/
 ```
 
 ## lenet5 Example
@@ -300,7 +301,16 @@ Because we provide two memory images for simulation: one is the initial image an
 
 ### ASM Synthesis
 
-The Assembly process takes the DSE-synthesised data and further optimises it to make the final result be more practical in terms of hardware description and as optimal as possible in performance metrics. The figure below shows the layout of the lenet5 application after the Assembly process, which can be found in ```{output}/reassign-noc/layout_graph.png```. You can notice several changes in the layout where the memory components (Red and Purple) and transporters (Green) are realised as hardware component and optimized. The final result of this Assembly process is stored at ```{output}/db_asm.bin```. This process is still ongoing, and more detailed steps will be added.
+The Assembly process takes the DSE-synthesised data and further optimises it to make the final result more practical in terms of hardware description and as optimal as possible in performance metrics. It runs the following stages in order:
+
+1. **[Memory Synthesis](../Explanations/ASM-MemSyn.md)** — replaces the idealised GLIC buffers with real memories (FIFO / RAM / register file), fixes the placement of OBs, IBs and transporters, and dimensions the physical communication channels.
+2. **[Re-routing](../Explanations/ASM-Route.md)** — re-routes every edge from the exact transporter outputs to the exact input-buffer positions, keeping path lengths close to the DSE estimate so the fixed wire delays still hold.
+3. **[NoC Resynthesis](../Explanations/ASM-ReNoc.md)** — re-inserts wires, buffers and registers along the new paths to satisfy timing and slew constraints.
+4. **[TLB Code Generation](../Explanations/ASM-TLB.md)** — generates the address-translation program (a conventional TLB table or an Address Generation Unit) for each buffer.
+5. **[Transporter Code Generation](../Explanations/ASM-Transporter.md)** — compiles the data-movement schedule for every transporter into its instruction-set program, subject to the 15-register hardware limit.
+6. **[Control Synthesis](../Explanations/ASM-Control.md)** — generates the AlImp and host firmware, instantiates the RTL components and derives the global static schedule.
+
+The figure below shows the layout of the lenet5 application after the Assembly process, which can be found in ```{output}/reassign-noc/layout_graph.png```. You can notice several changes in the layout where the memory components (Red and Purple) and transporters (Green) are realised as hardware components and optimised. The final result of this Assembly process is stored at ```{output}/db_asm.bin```.
 
 
 <p align="center">

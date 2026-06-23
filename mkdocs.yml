@@ -49,11 +49,19 @@ nav:
           - ToolChain/Sylva/index.md
           - Tutorials:
               - ToolChain/Sylva/Tutorials/index.md
+              - Install Sylva: ToolChain/Sylva/Tutorials/Installation.md
               - Getting Started: ToolChain/Sylva/Tutorials/GettingStarted.md
+              - Run an example (LeNet-5): ToolChain/Sylva/Tutorials/Tutorial.md
           - How-to guides:
               - ToolChain/Sylva/HowToGuides/index.md
+              - Generate and run an example: ToolChain/Sylva/HowToGuides/RunExample.md
+              - Describe your own application: ToolChain/Sylva/HowToGuides/CreateApplication.md
+              - Provide an AlImp library: ToolChain/Sylva/HowToGuides/AlimpLibrary.md
+              - Tune the optimisation: ToolChain/Sylva/HowToGuides/TuneOptimisation.md
+              - Read the outputs and debug: ToolChain/Sylva/HowToGuides/InterpretOutputs.md
           - Explanations:
               - ToolChain/Sylva/Explanations/index.md
+              - Hardware Architecture: ToolChain/Sylva/Explanations/Architecture.md
               - DSE:
                   - Binding: ToolChain/Sylva/Explanations/DSE-Bind.md
                   - Placing: ToolChain/Sylva/Explanations/DSE-Place.md
@@ -65,9 +73,14 @@ nav:
                   - Memory Synthesis: ToolChain/Sylva/Explanations/ASM-MemSyn.md
                   - Re-routing: ToolChain/Sylva/Explanations/ASM-Route.md
                   - NoC Resynthesis: ToolChain/Sylva/Explanations/ASM-ReNoc.md
+                  - TLB Code Generation: ToolChain/Sylva/Explanations/ASM-TLB.md
+                  - Transporter Code Generation: ToolChain/Sylva/Explanations/ASM-Transporter.md
+                  - Control Synthesis: ToolChain/Sylva/Explanations/ASM-Control.md
           - Reference:
               - ToolChain/Sylva/Reference/index.md
               - Sylva Input Format: ToolChain/Sylva/Reference/Input.md
+              - Command-line Interface: ToolChain/Sylva/Reference/CLI.md
+              - Hardware Reference: ToolChain/Sylva/Reference/Architecture.md
 
   - Hardware:
       - Fabric/index.md

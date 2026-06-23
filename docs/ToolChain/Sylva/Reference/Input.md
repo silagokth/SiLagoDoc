@@ -331,7 +331,7 @@ The input to Sylva is a SDF graph. The SDF graph is a directed graph where each 
 ```
 
 
-## Alimp Lirary
+## Alimp Library
 
 The Alimp library is a collection of functions that can implement the functionality of the nodes in the SDF graph. Each function in the Alimp library is represented as a JSON object. The following json snippet is an example of Alimp library that represent the _lenet5_ application.
 
@@ -9145,6 +9145,17 @@ The hyper parameters are the parameters that are used to tune the DSE tools. The
 }
 ```
 
+| Field | Stage | Description |
+| --- | --- | --- |
+| `bindWArea` | Binding | Weight on total area in the binding objective. |
+| `bindWEnergy` | Binding | Weight on total energy in the binding objective. |
+| `bindWLatency` | Binding | Weight expressing the preference for lower-latency implementations. |
+| `bindRelaxationFactor` | Binding | How far above the optimal binding cost a solution may be and still be retained as a candidate (e.g. `1.1` = within 10 %). |
+| `placeRelaxationFactor` | Placement | Relaxation of the compact-floorplan bounds, giving the router more freedom (and possibly more area). |
+| `placeReservedRoutingSize` | Placement | Routing area reserved around each placed AlImp. |
+
+See [Tune the optimisation](../HowToGuides/TuneOptimisation.md) for guidance.
+
 ## Global Constraints
 
 The global constraints are the constraints that are used to limit the search space of the DSE tools. The global constraints are represented in the form of a JSON file. See the following example.
@@ -9158,6 +9169,16 @@ The global constraints are the constraints that are used to limit the search spa
   "maxEnergy": 10000
 }
 ```
+
+| Field | Description |
+| --- | --- |
+| `maxWidth`, `maxHeight` | Maximum logic area, expressed as design width and height. |
+| `maxLatency` | Maximum allowed end-to-end computation latency. |
+| `maxPeriod` | Required sampling period; no AlImp's latency may exceed it. |
+| `maxEnergy` | Maximum allowed total energy. |
+
+All generated solutions must satisfy these hard limits. If synthesis reports
+infeasibility, relax the relevant limit.
 
 ## Technology Constraints
 
@@ -10233,3 +10254,24 @@ The technology constraints are the physical constraints from the selected techno
   ]
 }
 ```
+
+| Field | Description |
+| --- | --- |
+| `widthGrid`, `heightGrid` | Physical size of one routing grid cell. |
+| `widthDrra`, `heightDrra` | Physical size of one DRRA cell. |
+| `gridPerDrraWidth`, `gridPerDrraHeight` | Number of grid cells spanned by a DRRA cell in each direction. |
+| `clockFrequency` | Target clock frequency (Hz). |
+| `requiredSlew` | Slew rate that a routed segment must achieve to be valid. |
+| `initialSlew` | Slew rate assumed at a driver output before buffering. |
+| `bufferSlewDeclinedFactor` | Slew degradation step used when modelling buffer insertion. |
+| `bufferDelayImprovedFactor` | Delay improvement contributed by inserting a buffer. |
+| `registerSlewConstant` | Slew restored by inserting a register. |
+| `slewRates` | The discrete slew-rate levels used by the timing model. |
+| `timingTable` | Per-(slew, length) propagation-delay matrix used to estimate wire delay during NoC (re)synthesis. |
+
+The first group describes the technology node (DRRA-cell and routing-cell
+dimensions and the clock); the remaining fields supply the routing/slew/timing
+data that [NoC Wire Synthesis](../Explanations/DSE-Noc.md) and
+[NoC Resynthesis](../Explanations/ASM-ReNoc.md) use to decide where to insert
+buffers and registers. This file is evolving and its parameters may change in the
+future.
